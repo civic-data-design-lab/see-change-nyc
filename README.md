@@ -1,4 +1,4 @@
-# cfa-exhibit
+# See Change EXhibition NYC
 
 Data Visualization for Center for Architecture Exhibit by the MIT Civic Data Design Lab.
 
