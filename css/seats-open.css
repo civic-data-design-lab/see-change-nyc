@@ -110,9 +110,6 @@
 		padding-left: 6vw;
 		min-height: 540px;
 	}
-	/*#next-shapes {
-		max-width: 400px;
-	}*/
 	.shape-box {
 		width: calc(10vh);
 		min-width: 68px;
@@ -121,7 +118,7 @@
 	}
 }
 /*typical landscape screen ratio*/
-@media screen and (min-aspect-ratio: 3/2) and (max-aspect-ratio: 16/9) {
+/*@media screen and (min-aspect-ratio: 3/2) and (max-aspect-ratio: 16/9) {
 	#sidebar-count {
 		width: 12vw;
 		padding: 0px 2.5vw;
@@ -137,7 +134,10 @@
 		width: 28%;
 		height: auto;
 	}
-}
+	.body {
+		background: #9af;
+	}
+}*/
 /*narrower screen ratio*/
 @media screen and (min-aspect-ratio: 4/3) and (max-aspect-ratio: 3/2) {
 	#sidebar-count {
@@ -176,9 +176,6 @@
 	.shape {
 		width: auto;
 		height: 8vh;
-	}
-	.shape-name {
-		font-size: 0.7em;
 	}
 	.h3 {
 		font-size: 1em;
