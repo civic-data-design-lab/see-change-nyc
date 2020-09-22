@@ -14,24 +14,25 @@
 #map-cartogram {
 	position: relative;
 	float: left;
-	width: calc(83.87vh - 6px);
+	width: calc(13/15.5 * 100vh - 6px);
 	height: calc(100vh - 6px);
-	min-height: 680px;
+	min-height: 700px;
 	min-width: 572px;
 	overflow: hidden;
 	border: solid 3px #000;
 }
 #open-seats-map {
-	position: relative;
+	position: absolute;
 	width: 100%;
-	height: 100%;
+	height: auto;
+	bottom: calc(0.5/15 * 100vh - 1px);
 }
 #seats-footer {
 	position: absolute;
 	left: -3px;
 	bottom: -3px;
 	width: 100%;
-	height: 6.45vh;
+	height: calc(1/15 * 100vh);
 	background: #fff;
 	border: solid 3px #000;
 }
@@ -47,7 +48,8 @@
 	position: absolute;
 	display: inline-block;
 	float: right;
-	height: calc(100%);
+	height: 100%;
+	width: calc(3/13 * 100% - 7px);
 	right: 0px;
 	padding: 1vh 30px;
 	font-family: 'Graphik-Medium', sans-serif;
@@ -103,41 +105,37 @@
 @media (min-aspect-ratio: 16/9) {
 	#sidebar-count {
 		width: 16vw;
-		padding-left: 6vw;
 	}
 	#sidebar-next {
-		width:  30vw;
+		width: 25vw;
 		padding-left: 6vw;
 		min-height: 540px;
 	}
 	.shape-box {
-		width: calc(10vh);
-		min-width: 68px;
+		width: 20%;
 		height: auto;
-		margin-right: 12%;
+		margin-right: 13%;
 	}
 }
 /*typical landscape screen ratio*/
-/*@media screen and (min-aspect-ratio: 3/2) and (max-aspect-ratio: 16/9) {
+@media screen and (min-aspect-ratio: 3/2) and (max-aspect-ratio: 16/9) {
 	#sidebar-count {
 		width: 12vw;
 		padding: 0px 2.5vw;
 	}
 	#sidebar-next {
 		width: 25vw;
-		padding-left: 6vw;
+		padding-left: 4vw;
 	}
 	#next-shapes {
 		max-width: 360px;
 	}
 	.shape-box {
-		width: 28%;
+		width: 25%;
 		height: auto;
+		margin-right: 7%;
 	}
-	.body {
-		background: #9af;
-	}
-}*/
+}
 /*narrower screen ratio*/
 @media screen and (min-aspect-ratio: 4/3) and (max-aspect-ratio: 3/2) {
 	#sidebar-count {
