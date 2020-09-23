@@ -57,10 +57,6 @@
 	background: #fff;
 	border-left: solid 3px #000;
 }
-#open-seats:hover {
-	color: #fff;
-	background: #000;
-}
 #sidebar-next {
 	position: relative;
 	float: left;
@@ -100,7 +96,77 @@
 #bp, #compt, #mayor {
 	margin-top: 20px;
 }
-
+#tooltip {
+	position: absolute;
+	margin: 0;
+	padding: 10px;
+	background: #fff;
+	border: solid 2px #000;
+	min-height: 170px;
+	width: 400px;
+}
+.dataphoto {
+	position: relative;
+	min-height: 150px;
+	width: 100px;
+	float: left;
+	overflow: hidden;
+	margin: 10px;
+}
+.dataphoto img {
+	position: absolute;
+	height: 100%;
+	width: auto;
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	transform: translateX(-50%);
+}
+.datatext {
+	position: relative;
+	display: block;
+	margin: 10px 10px 10px 130px;
+}
+.labeldistrict {
+	font-family: 'Graphik-Semibold', sans-serif;
+	font-size: 1em;
+}
+.dataparty {
+	height: 0.8em;
+	width: 0.8em;
+	margin-left: 10px;
+}
+.labelmember {
+	font-family: 'Graphik-Bold', sans-serif;
+	font-size: 1.3em;
+	line-height: 1.5em;
+	color: #000;
+}
+.datatext p {
+	font-size: 0.9em;
+	color: #000;
+}
+.openfill {
+	fill-opacity: 0.3;
+}
+.labelborough text {
+	font-family: 'Graphik-Medium', sans-serif;
+	font-size: 0.15em;
+	text-transform: uppercase;
+	letter-spacing: 0.25px;
+	text-anchor: middle;
+}
+.labelbp {
+	-webkit-transform-origin: 96.3% 79.5%;
+	-ms-transform-origin: 96.3% 79.5%;
+	transform-origin: 96.3% 79.5%;
+	-webkit-transform: rotate(-90deg);
+	-ms-transform: rotate(-90deg);
+	transform: rotate(-90deg);
+}
+.labelinvert {
+	fill: #aaa;
+}
 /*wide screen ratio*/
 @media (min-aspect-ratio: 16/9) {
 	#sidebar-count {
