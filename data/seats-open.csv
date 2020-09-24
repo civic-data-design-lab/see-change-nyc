@@ -52,10 +52,10 @@ sort,position,district,member,party,photo,neighborhoods,borough,shape,col,row,te
 51,City Council,District 13,Mark Gjonaj,Democratic,district-13.jpg,"Allerton, City Island, Country Club, Edgewater Park, Ferry Point, Locust Point, Morris Park, Pelham Bay, Pelham Gardens, Pelham Parkway, Schuylerville, Silver Beach, Spencer Estates, Throggs Neck, Van Nest, Waterbury LaSalle, Westchester Square, Zerega",Bronx,bx-2,10,11,"Jan. 1, 2018 &mdash; Dec. 31, 2021<br>(eligible Jan. 1, 2022 &mdash; Dec. 31, 2025)",Incumbent
 52,City Council,District 11,Andrew Cohen,Democratic,district-11.jpg,"Bedford Park, Kingsbridge, Riverdale, Norwood, Van Cortlandt Village, Wakefield, Woodlawn",Bronx,bx-2,9,12,"Jan. 1, 2014 &mdash; Dec. 31, 2021",Open
 53,City Council,District 12,Andy King,Democratic,district-12.jpg,"Wakefield, Olinville, Edenwald, Eastchester, Williamsbridge, Baychester, Co-op City",Bronx,bx-2,10,12,"Nov. 2012 &mdash; Dec. 31, 2021",Open
-54,Borough President,Borough President,James Oddo,Republican,bp-staten-island.jpg,Staten Island,Staten Island,bp-si,13,1,"Jan. 2014 &mdash; Dec. 31, 2021",Open
-55,Borough President,Borough President,Eric Adams,Democratic,bp-brooklyn.jpg,Brooklyn,Brooklyn,bp-bk,13,2,"Jan. 2014 &mdash; Dec. 31, 2021",Open
-56,Borough President,Borough President,Gale Brewer,Democratic,bp-manhattan.jpg,Manhattan,Manhattan,bp-mn,13,3,"Jan. 2014 &mdash; Dec. 31, 2021",Open
-57,Borough President,Borough President (Acting),Sharon Lee (acting),Democratic,bp-queens-acting.jpg,Queens,Queens,bp-qn,13,4,"Jan. 2020 &mdash; Dec. 31, 2021<br>(eligible Jan. 1, 2022 &mdash; Dec. 31, 2025)",Incumbent
-58,Borough President,Borough President,Rub&eacute;n D&iacute;az Jr.,Democratic,bp-bronx.jpg,Bronx,Bronx,bp-bx,13,5,"Apr. 2009 &mdash; Dec. 31, 2021",Open
+54,Borough President,Borough President,James Oddo,Republican,bp-staten-island.jpg,Staten Island,Staten Island,bp,13,1,"Jan. 2014 &mdash; Dec. 31, 2021",Open
+55,Borough President,Borough President,Eric Adams,Democratic,bp-brooklyn.jpg,Brooklyn,Brooklyn,bp,13,2,"Jan. 2014 &mdash; Dec. 31, 2021",Open
+56,Borough President,Borough President,Gale Brewer,Democratic,bp-manhattan.jpg,Manhattan,Manhattan,bp,13,3,"Jan. 2014 &mdash; Dec. 31, 2021",Open
+57,Borough President,Borough President (Acting),Sharon Lee (acting),Democratic,bp-queens-acting.jpg,Queens,Queens,bp,13,4,"Jan. 2020 &mdash; Dec. 31, 2021<br>(eligible Jan. 1, 2022 &mdash; Dec. 31, 2025)",Incumbent
+58,Borough President,Borough President,Rub&eacute;n D&iacute;az Jr.,Democratic,bp-bronx.jpg,Bronx,Bronx,bp,13,5,"Apr. 2009 &mdash; Dec. 31, 2021",Open
 59,Comptroller,Comptroller,Scott M. Stringer,Democratic,comptroller.jpg,,N/A,compt,2,7,"Nov. 2013 &mdash; Dec. 31, 2021",Open
 60,Mayor,Mayor,Bill de Blasio,Democratic,mayor.png,,N/A,mayor,4,13,"Jan. 2014 &mdash; Dec. 31, 2021",Open
