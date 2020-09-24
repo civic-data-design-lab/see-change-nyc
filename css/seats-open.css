@@ -96,6 +96,12 @@
 #bp, #compt, #mayor {
 	margin-top: 20px;
 }
+#compt {
+	overflow-wrap: break-word;
+	-webkit-hyphens: auto;
+	-ms-hyphens: auto;
+	hyphens: auto;
+}
 #tooltip {
 	position: absolute;
 	margin: 0;
@@ -246,11 +252,5 @@
 	}
 	.data1 {
 		font-size: 2.5em;
-	}
-	#compt {
-		overflow-wrap: break-word;
-		-webkit-hyphens: auto;
-  		-ms-hyphens: auto;
-		hyphens: auto;
 	}
 }

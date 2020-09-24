@@ -1,3 +1,4 @@
+// parse csv data
 const dataset = d3.csv("./data/seats-open.csv", (d) => {
 	return {
 		sort: d.sort,
@@ -22,6 +23,7 @@ const dataset = d3.csv("./data/seats-open.csv", (d) => {
 	d3.select(".gridv").raise();
 	d3.select(".gridh").raise();
 	d3.select(".labelborough").raise();
+
 });
 
 // aspect ratio
@@ -55,8 +57,8 @@ function seatMap(svg, dataset) {
 		.enter()
 		.append("rect")
 			.attr("class", (d) => {
-				return d.open == "Open" ? "open"
-				: null;
+				return d.open == "Open" ? d.shape + " open"
+				: d.shape;
 			})
 			.attr("x", (d) => {
 				return size * +d.col - size + 0.25;
@@ -84,7 +86,7 @@ function seatMap(svg, dataset) {
 					.duration("50")
 					.attr("stroke", "#000")
 					.attr("z-index", "2");
-				div.html((divHtml) => "<div class='dataphoto'><img src='./img/" + d.photo + "'></div><div class='datatext'><span class='labeldistrict'>" + d.district + "</span><img class='dataparty' src='./img/" + d.party + ".svg'><br><span class='labelmember'>" + d.member + "</span><br><p>" + d.neighborhoods + "</p><p>" + d.term + "</p></div>")
+				div.html((divHtml) => "<div class='dataphoto'><img src='./img/open-seats/" + d.photo + "'></div><div class='datatext'><span class='labeldistrict'>" + d.district + "</span><img class='dataparty' src='./img/open-seats/" + d.party + ".svg'><br><span class='labelmember'>" + d.member + "</span><br><p>" + d.neighborhoods + "</p><p>" + d.term + "</p></div>")
 					.style("color", (divHtml) => color(d.borough))
 					.style("display", "block");
 			})
@@ -122,8 +124,8 @@ function seatMap(svg, dataset) {
 		.enter()
 		.append("path")
 			.attr("class", (d) => {
-				return d.open == "Open" ? "open"
-				: null;
+				return d.open == "Open" ? d.shape + " open"
+				: d.shape;
 			})
 			.attr("d", (d) => {
 				const triangleBottomLeft = "M " + (size * +d.col - size + 0.25) + " " + (height - (size * +d.row) - size/2 + 0.5) + " L " + (size * +d.col - size + 0.25) + " " + (height - (size * +d.row) + size/2 - 0.5) + " L " + (size * +d.col - 0.75) + " " + (height - (size * +d.row) + size/2 - 0.5) + " L " + (size * +d.col - size + 0.25) + " " + (height - (size * +d.row) - size/2 + 0.5);
@@ -142,7 +144,7 @@ function seatMap(svg, dataset) {
 					.duration("50")
 					.attr("stroke", "#000")
 					.attr("z-index", "2");
-				div.html((divHtml) => "<div class='dataphoto'><img src='./img/" + d.photo + "'></div><div class='datatext'><span class='labeldistrict'>" + d.district + "</span><img class='dataparty' src='./img/" + d.party + ".svg'><br><span class='labelmember'>" + d.member + "</span><br><p>" + d.neighborhoods + "</p><p>" + d.term + "</p></div>")
+				div.html((divHtml) => "<div class='dataphoto'><img src='./img/open-seats/" + d.photo + "'></div><div class='datatext'><span class='labeldistrict'>" + d.district + "</span><img class='dataparty' src='./img/open-seats/" + d.party + ".svg'><br><span class='labelmember'>" + d.member + "</span><br><p>" + d.neighborhoods + "</p><p>" + d.term + "</p></div>")
 					.style("display", "block");
 			})
 			.on("mousemove", function (e) {
@@ -236,23 +238,28 @@ const plusGridHorizontal = svg.append("g")
 const labelposition = [
 	{	label: "Staten Island",
 		x: 2,
-		y: 2
+		y: 2,
+		class: "labelsi"
 	},
 	{	label: "Brooklyn",
 		x: 6.5,
-		y: 4
+		y: 4,
+		class: "labelbk"
 	},
 	{	label: "Manhattan",
 		x: 6,
-		y: 8
+		y: 8,
+		class: "labelmn"
 	},
 	{	label: "Queens",
 		x: 10,
-		y: 7
+		y: 7,
+		class: "labelqn"
 	},
 	{	label: "Bronx",
 		x: 9,
-		y: 11
+		y: 11,
+		class: "labelbx"
 	},
 	{	label: "Borough President",
 		x: 13,
@@ -262,12 +269,12 @@ const labelposition = [
 	{	label: "Comptroller",
 		x: 2.5,
 		y: 6.5,
-		class: "labelinvert"
+		class: "labelcompt"
 	},
 	{	label: "Mayor",
 		x: 5,
 		y: 12,
-		class: "labelinvert"
+		class: "labelmayor"
 	}
 ];
 
@@ -280,7 +287,11 @@ const boroughLabels = svg.append("g")
 		.text((d) => d.label)
 		.attr("x", (d) => d.x * size - size/2)
 		.attr("y", (d) => (height) - (d.y * size))
-		.attr("class", (d) => d.class)
+		.attr("class", (d) => {
+			return (d.class == "labelcompt" || d.class == "labelmayor") ? d.class + " labelinvert"
+			: d.class
+		})
+		// .attr("opacity", 0)
 
 $(document).ready(function(){
 
@@ -359,10 +370,10 @@ $(document).ready(function(){
 	allShapes = {
 		si1:si1, bk1:bk1, bk2:bk2, mn1:mn1, mn2:mn2, mn3:mn3, qn1:qn1, qn2:qn2, qn3:qn3, bx1:bx1, bx2:bx2, boroughpresident:boroughpresident, comptroller:comptroller, mayor:mayor
 	}
-	const nextShape = [si1, bk1, bk2, mn1, mn2, mn3, qn1, qn2, qn3, bx1, bx2, boroughpresident, comptroller, mayor];
+	const nextShapeImg = [si1, bk1, bk2, mn1, mn2, mn3, qn1, qn2, qn3, bx1, bx2, boroughpresident, comptroller, mayor];
 
-	for (var i = 0; i < nextShape.length; i++) {
-		var templateString = "<div class='shape-box' id='" + nextShape[i].shapeID + "'><img class='shape' src='./img/" + nextShape[i].imgSrc + "'><br><span class='shape-name'>" + nextShape[i].shapeName + "</span></div>";
+	for (var i = 0; i < nextShapeImg.length; i++) {
+		var templateString = "<div class='shape-box' id='" + nextShapeImg[i].shapeID + "'><img class='shape' src='./img/open-seats/" + nextShapeImg[i].imgSrc + "'><br><span class='shape-name'>" + nextShapeImg[i].shapeName + "</span></div>";
 		$("#next-shapes").append(templateString)
 	}
 
