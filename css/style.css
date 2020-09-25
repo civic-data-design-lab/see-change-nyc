@@ -72,6 +72,16 @@ body {
 	letter-spacing: 1px;
 	margin: 20px 0px 0px 0px;
 }
+.h-title {
+	font-family: 'Graphik-Bold', sans-serif;
+	font-size: 1.25em;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+.h-nav {
+	font-family: 'Graphik-Semibold', sans-serif;
+	font-size: 1em;
+}
 .data1 {
 	font-family: 'Graphik-Bold', sans-serif;
 	font-size: 3em;
@@ -87,9 +97,10 @@ body {
 	color: #aaa;
 }
 header {
-	position: relative;
+	position: fixed;
 	margin: auto;
 	width: calc(100% - 6px);
+	min-width: 841px;
 	height: 40px;
 	top: 0px;
 	left: 0px;
@@ -102,7 +113,8 @@ header {
 #project-title {
 	position: relative;
 	float: left;
-	width: 55vw;
+	height: 100%;
+	width: calc(100vw - 649px);
 	border-right: solid 3px #000;
 }
 #project-title span {
@@ -110,22 +122,21 @@ header {
 	padding: 10px 20px;
 	height: 20px;
 }
-.h-title {
-	text-transform: uppercase;
-	letter-spacing: 1px;
-}
 #project-description {
 	display: none;
 	position: relative;
-	width: calc(100vw - 40px);
+	width: calc(100vw - 689px);
+	top: -4px;
 	left: -3px;
 	padding: 20px;
+	background: #fff;
 	border: solid 3px #000;
 }
 #nav {
 	position: relative;
 	float: right;
-	width: calc(45vw - 26px);
+	width: 623px;
+	min-width: 182px;
 }
 #nav ul {
 	position: relative;
@@ -139,6 +150,7 @@ header {
 	list-style: none;
 	display: inline-block;
 	height: 20px;
+	min-width: 32px;
 	padding: 10px 20px;
 }
 #nav ul li:hover ul {
@@ -146,12 +158,13 @@ header {
 }
 #nav ul ul {
 	position: absolute;
-	top: 30px;
-	left: 73px;
-	width: 514px;
+	top: 29px;
+	left: 70px;
+	width: 550px;
 	height: auto;
 	border: solid 3px #000;
 	display: none;
+	background-color: #fff;
 }
 #nav ul ul li:not(:last-child) {
 	padding: 10px 0px 10px 20px;
@@ -163,4 +176,62 @@ section {
 	margin: auto;
 	text-align: center;
 	overflow: hidden;
+}
+
+@media screen and (min-width: 1302px) {
+	#project-title {
+		width: calc(100vw - 649px);
+	}
+	#project-description {
+		width: calc(100vw - 689px);
+	}
+	#nav {
+		width: 623px;
+	}
+	#nav ul ul {
+		left: 70px;
+	}
+}
+@media screen and (min-width: 1229px) and (max-width: 1301px) {
+	#project-title {
+		width: calc(100vw - 576px);
+	}
+	#project-description {
+		width: calc(100vw - 616px);
+	}
+	#nav {
+		width: 550px;
+	}
+	#nav ul ul {
+		left: -3px;
+	}
+}
+@media screen and (min-width: 1229px) and (max-width: 1301px) {
+	#project-title {
+		width: calc(100vw - 576px);
+	}
+	#project-description {
+		width: calc(100vw - 616px);
+	}
+	#nav {
+		width: 550px;
+	}
+	#nav ul ul {
+		left: -3px;
+	}
+}
+@media screen and (max-width: 1228px) {
+	#project-title {
+		width: 656px;
+	}
+	#project-description {
+		width: 616px;
+	}
+	#nav {
+		top: 0px;
+		width: calc(100vw - 682px);
+	}
+	#nav ul ul {
+		left: calc(100vw - 1235px);
+	}
 }

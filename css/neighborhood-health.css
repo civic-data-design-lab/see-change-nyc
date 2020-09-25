@@ -1,0 +1,23 @@
+#radar-chart {
+	position: relative;
+	margin: calc(10vh + 40px) auto 0px auto;
+}
+.labelfeature {
+	font-family: 'Graphik-Regular', sans-serif;
+	font-size: 0.375em;
+}
+
+/*landscape screen ratio*/
+@media screen and (min-aspect-ratio: 1/1) {
+	#radar-chart {
+		max-height: 80vh;
+		width: 50%;
+	}
+}
+/*portrait screen ratio*/
+@media screen and (max-aspect-ratio: 1/1) {
+	#radar-chart {
+		height: auto;
+		width: 80vw;
+	}
+}
