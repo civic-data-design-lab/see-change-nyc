@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="stylesheet" href="./css/style.css" type="text/css">
+	<link rel="stylesheet" href="./css/newyorktimes.css" type="text/css">
+	<script type="text/javascript" src="./js/jquery-3.5.1.min.js"></script>
+	<script type="text/javascript" src="./js/d3.v6.min.js"></script>
+	<script type="text/javascript" src="./js/newyorktimes.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.js"></script>
+
+	<title>New York City Council in the News</title>
+</head>
+
+<body>
+
+	<div class="nwt">NEW YORK CITY COUNCIL IN THE NEWS
+	</div>
+	<div class="container">
+		<div class="textSection">
+			<b>Text Analysis of the New York Times Article from 2013 -2020 </b>
+			<p> To analyze topics covered in New York Times articles, topic modeling was performed on a set of articles from
+				the New York Times. Using Gensim and NMF (a machine learning algorithm for topic modeling), key topics were
+				extracted from articles covering New York City Council for each year from 2013 through 2020. Next, articles were
+				tagged according to topics. Using tagging, related topics were identified (e.g. “policing” and “cornavirus“
+				topic are covered in the same articles)</p>
+			<br> <br>
+			<div class="container">
+
+				<button class="btn" style="border-right:0px;" id="yearButton">YEAR </button>
+				<button class="btn" style="border-right:0px;" id="countAscendButton">TOPIC </button>
+				<button class="btn" id="groupButton">GROUP </button>
+
+			</div>
+		</div>
+		<div class="vizSection" id="chart"></div>
+	</div>
+	<script type="text/javascript" src="./js/newyorktimes.js"></script>
+</body>
+</html>

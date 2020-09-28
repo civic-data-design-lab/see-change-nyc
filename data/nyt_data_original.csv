@@ -1,0 +1,47 @@
+year,topic,category,count,countall,color
+2013,E-Cigarette Ban,Health,8,8, #f8d399
+2013,NYC Transit,Transportation,24,117, #cbd5e4
+2013,Education,Education,60,226, #f4e192
+2013,Election,Election,170,194, #d9e793
+2014,Real Estate,Housing,24,76, #ff91a2
+2014,Rikers Mental Health,Homeland Security,38,38,#db97b0
+2014,Police,Homeland Security,43,190, #f0b8d2
+2014,Housing,Housing,56,56, #6bd9b9
+2014,Education,Education,64,226, #f4e192
+2015,Homelessness,Housing,18,79, #9ad699
+2015,Real Estate,Housing,52,76, #ff91a2
+2015,Education,Education,53,226, #f4e192
+2015,Police,Homeland Security,67,190, #f0b8d2
+2016,Voting,Election,9,9, #fccf89
+2016,Minimum Wage,Labor,19,19, #b5cfe3
+2016,Homelessness,Housing,28,79, #9ad699
+2016,Police,Homeland Security,47,190, #f0b8d2
+2016,Affordable Housing,Housing,48,48,#f9d1b9
+2017,Environment,Environment,14,14, #cae490
+2017,Education,Education,19,226, #f4e192
+2017,Election,Election,24,194, #d9e793
+2017,Homelessness,Housing,33,79, #9ad699
+2017,Rikers Spying Investigation,Homeland Security,33,33,#d9ddaf
+2017,NYC Transit,Transportation,54,117, #cbd5e4
+2018,Google,Business,6,6, #acdb98
+2018,City Council ,Election,16,16, #fec0ad
+2018,Education,Education,30,226, #f4e192
+2018,Amazon,Business,32,85, #f5cbc1
+2018,Police,Homeland Security,33,190, #f0b8d2
+2018,NYC Transit,Transportation,39,117, #cbd5e4
+2018,Ridesharing,Transportation,41,41, #ffa78c
+2018,Marijuana,Homeland Security,43,43, #71d4d5
+2019,Public Health,Health,12,12, #fca3b9
+2019,Hudson Yards,Public space,22,22, #73d8cd
+2019,City Streets,Public space,28,28, #ffb593
+2019,Medallion Loans,Treasury,45,45, #95d0dd
+2019,Rikers Closing,Homeland Security,48,48, #ffb987
+2019,Amazon,Business,53,85, #f5cbc1
+2020,ICE,etc,1,1, #8adad8
+2020,Medallion City Council Task Force,Transportation,1,1, #8dd2d9
+2020,Foie Gras Ban,etc,2,2, #c1de8b
+2020,Plastic Bag Ban,Environment,3,3, #e0bcd2
+2020,Primaries,Election,4,4, #f89cb9
+2020,BLM Defunding Police,Homeland Security,41,41, #efc3d6
+2020,BLM Police Protest,Homeland Security,43,43, #ffadaf
+2020,Coronavirus,Health,51,51, #fcc593
