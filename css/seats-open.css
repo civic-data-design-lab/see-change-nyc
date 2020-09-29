@@ -57,6 +57,9 @@
 	background: #fff;
 	border-left: solid 3px #000;
 }
+#open-seats:hover {
+	cursor: pointer;
+}
 #sidebar-next {
 	position: relative;
 	float: left;
@@ -91,16 +94,13 @@
 	min-height: 28px;
 }
 #bx2 {
-	margin-right: 38%;
+	margin-right: 34%;
+}
+#compt {
+	word-break: break-all;
 }
 #bp, #compt, #mayor {
 	margin-top: 20px;
-}
-#compt {
-	overflow-wrap: break-word;
-	-webkit-hyphens: auto;
-	-ms-hyphens: auto;
-	hyphens: auto;
 }
 #tooltip {
 	position: absolute;
@@ -140,7 +140,17 @@
 .dataparty {
 	height: 0.8em;
 	width: 0.8em;
-	margin-left: 10px;
+	margin: 0px 5px 0px 10px;
+}
+.Democratic {
+	font-family: 'Graphik-Medium', sans-serif;
+	font-size: 0.9em;
+	color: #1404bd;
+}
+.Republican {
+	font-family: 'Graphik-Medium', sans-serif;
+	font-size: 0.9em;
+	color: #de0000;
 }
 .labelmember {
 	font-family: 'Graphik-Bold', sans-serif;
@@ -173,20 +183,54 @@
 .labelinvert {
 	fill: #aaa;
 }
+#text-animation {
+	font-family: 'Graphik-Semibold', sans-serif;
+	font-size: 1.5em;
+	position: relative;
+	height: 100%;
+	width: 100%;
+	padding-top: 36vh;
+	z-index: 10;
+}
+#fastforward {
+	font-family: 'Graphik-Regular', sans-serif;
+	font-size: 0.5em;
+	line-height: 1em;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	display: inline-block;
+	position: relative;
+	top: -4px;
+	padding: 3px 9px;
+	background: #fff;
+	border-radius: 9px;
+	border: solid 1px #000;
+}
+#fastforward:hover {
+	cursor: pointer;
+	color: #fff;
+	background: #000;
+}
+
 /*wide screen ratio*/
 @media (min-aspect-ratio: 16/9) {
 	#sidebar-count {
 		width: 16vw;
 	}
 	#sidebar-next {
-		width: 25vw;
-		padding-left: 6vw;
+		width: 27vw;
+		padding-left: 4vw;
 		min-height: 540px;
 	}
 	.shape-box {
-		width: 20%;
+		width: 28%;
 		height: auto;
-		margin-right: 13%;
+		margin-right: 5%;
+	}
+	.shape {
+		width: auto;
+		height: 11vh;
+		min-height: 62px;
 	}
 }
 /*typical landscape screen ratio*/
@@ -196,27 +240,44 @@
 		padding: 0px 2.5vw;
 	}
 	#sidebar-next {
-		width: 25vw;
-		padding-left: 4vw;
+		width: 26vw;
+		min-width: 324px;
+		padding-left: 3vw;
 	}
 	#next-shapes {
 		max-width: 360px;
 	}
 	.shape-box {
-		width: 25%;
+		width: 31%;
+		min-width: 97px;
 		height: auto;
-		margin-right: 7%;
+		margin-right: 2%;
+	}
+	.shape {
+		width: 80%;
+		height: auto;
 	}
 }
 /*narrower screen ratio*/
 @media screen and (min-aspect-ratio: 4/3) and (max-aspect-ratio: 3/2) {
 	#sidebar-count {
 		width: 12vw;
-		padding: 0px 2vw;
+		padding: 0px 1.5vw;
 	}
 	#sidebar-next {
-		width:  25vw;
-		padding-left: 3vw;
+		width:  27vw;
+		min-width: 324px;
+		padding-left: 1.5vw;
+	}
+	.shape-box {
+		width: 31%;
+		min-width: 97px;
+		height: auto;
+		margin-right: 2%;
+	}
+	.shape {
+		width: 80%;
+		height: auto;
 	}
 }
 /*narrow or portrait screen ratio*/
@@ -236,12 +297,14 @@
 		top: 170px;
 		margin: 0px calc(83.87vh + 2vw);
 		width: calc(96vw - 83.87vh);
-		min-width: 303px;
+		min-width: 324px;
 		padding: 0px;
 	}
 	.shape-box {
-		width: 28%;
+		width: 31%;
+		min-width: 97px;
 		height: auto;
+		margin-right: 2%;
 	}
 	.shape {
 		width: auto;
