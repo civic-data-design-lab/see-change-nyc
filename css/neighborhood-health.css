@@ -1,23 +1,88 @@
-#radar-chart {
+.grey:hover {
+	color: #000;
+}
+#chart-overall {
 	position: relative;
 	margin: calc(10vh + 40px) auto 0px auto;
+}
+#chart-profile {
+	position: relative;
+	margin: calc(10vh + 40px) 20px 0px 20px;
+	float: left;
+}
+#chart-neighborhoods {
+	position: relative;
+	float: left;
+	margin: 60px 20px 0px 20px;
+	height: calc(100vh - 80px);
+	overflow: hidden auto;
+}
+#chart-neighborhoods svg {
+	position: relative;
+	float: left;
+	width: 30%;
+	margin: 0px 1.5%;
 }
 .labelfeature {
 	font-family: 'Graphik-Regular', sans-serif;
 	font-size: 0.375em;
 }
+.labelneighborhood {
+	font-family: 'Graphik-Regular', sans-serif;
+	font-size: 0.9em;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+#tooltipborough {
+	position: absolute;
+	margin: 0;
+	padding: 10px;
+/*	min-height: 170px;
+	width: 400px;*/
+	color: #fff;
+	background: #aaa;
+}
+svg.hidden {
+	display: none;
+}
 
-/*landscape screen ratio*/
-@media screen and (min-aspect-ratio: 1/1) {
-	#radar-chart {
+/*wide screen ratio*/
+@media screen and (min-aspect-ratio: 16/9) {
+	#chart-overall, #chart-profile {
 		max-height: 80vh;
-		width: 50%;
+		width: 40%;
+	}
+	#chart-neighborhoods {
+		width: calc(60% - 80px);
+	}
+}
+/*typical landscape screen ratio*/
+@media screen and (min-aspect-ratio: 3/2) and (max-aspect-ratio: 16/9) {
+	#chart-overall, #chart-profile {
+		max-height: 80vh;
+		width: 45%;
+	}
+	#chart-neighborhoods {
+		width: calc(55% - 80px);
+	}
+}
+/*typical landscape screen ratio*/
+@media screen and (min-aspect-ratio: 1/1) and (max-aspect-ratio: 3/2) {
+	#chart-overall, #chart-profile {
+		max-height: 80vh;
+		width: 55%;
+	}
+	#chart-neighborhoods {
+		width: calc(45% - 80px);
 	}
 }
 /*portrait screen ratio*/
 @media screen and (max-aspect-ratio: 1/1) {
-	#radar-chart {
+	#chart-overall, #chart-profile {
 		height: auto;
+		width: 80vw;
+	}
+	#chart-neighborhoods {
 		width: 80vw;
 	}
 }
