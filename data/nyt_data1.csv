@@ -1,14 +1,14 @@
 keyindex,year,topic,category,count,countall,color
-1,2013,E-Cigarette Ban,Health,8,8,#f8d399
-2,2013,E-Cigarette Ban,Health,8,8,#f8d399
+1,2013,blank,,0,99999,#ffffff
+2,2013,blank,,0,99999,#ffffff
 3,2013,E-Cigarette Ban,Health,8,8,#f8d399
 4,2013,E-Cigarette Ban,Health,8,8,#f8d399
 5,2013,E-Cigarette Ban,Health,8,8,#f8d399
 6,2013,E-Cigarette Ban,Health,8,8,#f8d399
 7,2013,E-Cigarette Ban,Health,8,8,#f8d399
 8,2013,E-Cigarette Ban,Health,8,8,#f8d399
-9,2013,NYC Transit,Transportation,24,117,#cbd5e4
-10,2013,NYC Transit,Transportation,24,117,#cbd5e4
+9,2013,E-Cigarette Ban,Health,8,8,#f8d399
+10,2013,E-Cigarette Ban,Health,8,8,#f8d399
 11,2013,NYC Transit,Transportation,24,117,#cbd5e4
 12,2013,NYC Transit,Transportation,24,117,#cbd5e4
 13,2013,NYC Transit,Transportation,24,117,#cbd5e4
@@ -31,8 +31,8 @@ keyindex,year,topic,category,count,countall,color
 30,2013,NYC Transit,Transportation,24,117,#cbd5e4
 31,2013,NYC Transit,Transportation,24,117,#cbd5e4
 32,2013,NYC Transit,Transportation,24,117,#cbd5e4
-33,2013,Education,Education,60,226,#f4e192
-34,2013,Education,Education,60,226,#f4e192
+33,2013,NYC Transit,Transportation,24,117,#cbd5e4
+34,2013,NYC Transit,Transportation,24,117,#cbd5e4
 35,2013,Education,Education,60,226,#f4e192
 36,2013,Education,Education,60,226,#f4e192
 37,2013,Education,Education,60,226,#f4e192
@@ -91,8 +91,8 @@ keyindex,year,topic,category,count,countall,color
 90,2013,Education,Education,60,226,#f4e192
 91,2013,Education,Education,60,226,#f4e192
 92,2013,Education,Education,60,226,#f4e192
-93,2013,Election,Election,170,194,#d9e793
-94,2013,Election,Election,170,194,#d9e793
+93,2013,Education,Education,60,226,#f4e192
+94,2013,Education,Education,60,226,#f4e192
 95,2013,Election,Election,170,194,#d9e793
 96,2013,Election,Election,170,194,#d9e793
 97,2013,Election,Election,170,194,#d9e793
@@ -261,10 +261,10 @@ keyindex,year,topic,category,count,countall,color
 260,2013,Election,Election,170,194,#d9e793
 261,2013,Election,Election,170,194,#d9e793
 262,2013,Election,Election,170,194,#d9e793
-263,2014,Real Estate,Housing,24,76,#ff91a2
-264,2014,Real Estate,Housing,24,76,#ff91a2
-265,2014,Real Estate,Housing,24,76,#ff91a2
-266,2014,Real Estate,Housing,24,76,#ff91a2
+263,2013,Election,Election,170,194,#d9e793
+264,2013,Election,Election,170,194,#d9e793
+265,2014,blank,,0,99999,#ffffff
+266,2014,blank,,0,99999,#ffffff
 267,2014,Real Estate,Housing,24,76,#ff91a2
 268,2014,Real Estate,Housing,24,76,#ff91a2
 269,2014,Real Estate,Housing,24,76,#ff91a2
@@ -285,10 +285,10 @@ keyindex,year,topic,category,count,countall,color
 284,2014,Real Estate,Housing,24,76,#ff91a2
 285,2014,Real Estate,Housing,24,76,#ff91a2
 286,2014,Real Estate,Housing,24,76,#ff91a2
-287,2014,Rikers Mental Health,Homeland Security,38,38,#db97b0
-288,2014,Rikers Mental Health,Homeland Security,38,38,#db97b0
-289,2014,Rikers Mental Health,Homeland Security,38,38,#db97b0
-290,2014,Rikers Mental Health,Homeland Security,38,38,#db97b0
+287,2014,Real Estate,Housing,24,76,#ff91a2
+288,2014,Real Estate,Housing,24,76,#ff91a2
+289,2014,Real Estate,Housing,24,76,#ff91a2
+290,2014,Real Estate,Housing,24,76,#ff91a2
 291,2014,Rikers Mental Health,Homeland Security,38,38,#db97b0
 292,2014,Rikers Mental Health,Homeland Security,38,38,#db97b0
 293,2014,Rikers Mental Health,Homeland Security,38,38,#db97b0
@@ -323,10 +323,10 @@ keyindex,year,topic,category,count,countall,color
 322,2014,Rikers Mental Health,Homeland Security,38,38,#db97b0
 323,2014,Rikers Mental Health,Homeland Security,38,38,#db97b0
 324,2014,Rikers Mental Health,Homeland Security,38,38,#db97b0
-325,2014,Police,Homeland Security,43,190,#f0b8d2
-326,2014,Police,Homeland Security,43,190,#f0b8d2
-327,2014,Police,Homeland Security,43,190,#f0b8d2
-328,2014,Police,Homeland Security,43,190,#f0b8d2
+325,2014,Rikers Mental Health,Homeland Security,38,38,#db97b0
+326,2014,Rikers Mental Health,Homeland Security,38,38,#db97b0
+327,2014,Rikers Mental Health,Homeland Security,38,38,#db97b0
+328,2014,Rikers Mental Health,Homeland Security,38,38,#db97b0
 329,2014,Police,Homeland Security,43,190,#f0b8d2
 330,2014,Police,Homeland Security,43,190,#f0b8d2
 331,2014,Police,Homeland Security,43,190,#f0b8d2
@@ -366,10 +366,10 @@ keyindex,year,topic,category,count,countall,color
 365,2014,Police,Homeland Security,43,190,#f0b8d2
 366,2014,Police,Homeland Security,43,190,#f0b8d2
 367,2014,Police,Homeland Security,43,190,#f0b8d2
-368,2014,Housing,Housing,56,56,#6bd9b9
-369,2014,Housing,Housing,56,56,#6bd9b9
-370,2014,Housing,Housing,56,56,#6bd9b9
-371,2014,Housing,Housing,56,56,#6bd9b9
+368,2014,Police,Homeland Security,43,190,#f0b8d2
+369,2014,Police,Homeland Security,43,190,#f0b8d2
+370,2014,Police,Homeland Security,43,190,#f0b8d2
+371,2014,Police,Homeland Security,43,190,#f0b8d2
 372,2014,Housing,Housing,56,56,#6bd9b9
 373,2014,Housing,Housing,56,56,#6bd9b9
 374,2014,Housing,Housing,56,56,#6bd9b9
@@ -422,10 +422,10 @@ keyindex,year,topic,category,count,countall,color
 421,2014,Housing,Housing,56,56,#6bd9b9
 422,2014,Housing,Housing,56,56,#6bd9b9
 423,2014,Housing,Housing,56,56,#6bd9b9
-424,2014,Education,Education,64,226,#f4e192
-425,2014,Education,Education,64,226,#f4e192
-426,2014,Education,Education,64,226,#f4e192
-427,2014,Education,Education,64,226,#f4e192
+424,2014,Housing,Housing,56,56,#6bd9b9
+425,2014,Housing,Housing,56,56,#6bd9b9
+426,2014,Housing,Housing,56,56,#6bd9b9
+427,2014,Housing,Housing,56,56,#6bd9b9
 428,2014,Education,Education,64,226,#f4e192
 429,2014,Education,Education,64,226,#f4e192
 430,2014,Education,Education,64,226,#f4e192
@@ -486,12 +486,12 @@ keyindex,year,topic,category,count,countall,color
 485,2014,Education,Education,64,226,#f4e192
 486,2014,Education,Education,64,226,#f4e192
 487,2014,Education,Education,64,226,#f4e192
-488,2015,Homelessness,Housing,18,79,#9ad699
-489,2015,Homelessness,Housing,18,79,#9ad699
-490,2015,Homelessness,Housing,18,79,#9ad699
-491,2015,Homelessness,Housing,18,79,#9ad699
-492,2015,Homelessness,Housing,18,79,#9ad699
-493,2015,Homelessness,Housing,18,79,#9ad699
+488,2014,Education,Education,64,226,#f4e192
+489,2014,Education,Education,64,226,#f4e192
+490,2014,Education,Education,64,226,#f4e192
+491,2014,Education,Education,64,226,#f4e192
+492,2015,blank,,0,99999,#ffffff
+493,2015,blank,,0,99999,#ffffff
 494,2015,Homelessness,Housing,18,79,#9ad699
 495,2015,Homelessness,Housing,18,79,#9ad699
 496,2015,Homelessness,Housing,18,79,#9ad699
@@ -504,12 +504,12 @@ keyindex,year,topic,category,count,countall,color
 503,2015,Homelessness,Housing,18,79,#9ad699
 504,2015,Homelessness,Housing,18,79,#9ad699
 505,2015,Homelessness,Housing,18,79,#9ad699
-506,2015,Real Estate,Housing,52,76,#ff91a2
-507,2015,Real Estate,Housing,52,76,#ff91a2
-508,2015,Real Estate,Housing,52,76,#ff91a2
-509,2015,Real Estate,Housing,52,76,#ff91a2
-510,2015,Real Estate,Housing,52,76,#ff91a2
-511,2015,Real Estate,Housing,52,76,#ff91a2
+506,2015,Homelessness,Housing,18,79,#9ad699
+507,2015,Homelessness,Housing,18,79,#9ad699
+508,2015,Homelessness,Housing,18,79,#9ad699
+509,2015,Homelessness,Housing,18,79,#9ad699
+510,2015,Homelessness,Housing,18,79,#9ad699
+511,2015,Homelessness,Housing,18,79,#9ad699
 512,2015,Real Estate,Housing,52,76,#ff91a2
 513,2015,Real Estate,Housing,52,76,#ff91a2
 514,2015,Real Estate,Housing,52,76,#ff91a2
@@ -556,12 +556,12 @@ keyindex,year,topic,category,count,countall,color
 555,2015,Real Estate,Housing,52,76,#ff91a2
 556,2015,Real Estate,Housing,52,76,#ff91a2
 557,2015,Real Estate,Housing,52,76,#ff91a2
-558,2015,Education,Education,53,226,#f4e192
-559,2015,Education,Education,53,226,#f4e192
-560,2015,Education,Education,53,226,#f4e192
-561,2015,Education,Education,53,226,#f4e192
-562,2015,Education,Education,53,226,#f4e192
-563,2015,Education,Education,53,226,#f4e192
+558,2015,Real Estate,Housing,52,76,#ff91a2
+559,2015,Real Estate,Housing,52,76,#ff91a2
+560,2015,Real Estate,Housing,52,76,#ff91a2
+561,2015,Real Estate,Housing,52,76,#ff91a2
+562,2015,Real Estate,Housing,52,76,#ff91a2
+563,2015,Real Estate,Housing,52,76,#ff91a2
 564,2015,Education,Education,53,226,#f4e192
 565,2015,Education,Education,53,226,#f4e192
 566,2015,Education,Education,53,226,#f4e192
@@ -609,12 +609,12 @@ keyindex,year,topic,category,count,countall,color
 608,2015,Education,Education,53,226,#f4e192
 609,2015,Education,Education,53,226,#f4e192
 610,2015,Education,Education,53,226,#f4e192
-611,2015,Police,Homeland Security,67,190,#f0b8d2
-612,2015,Police,Homeland Security,67,190,#f0b8d2
-613,2015,Police,Homeland Security,67,190,#f0b8d2
-614,2015,Police,Homeland Security,67,190,#f0b8d2
-615,2015,Police,Homeland Security,67,190,#f0b8d2
-616,2015,Police,Homeland Security,67,190,#f0b8d2
+611,2015,Education,Education,53,226,#f4e192
+612,2015,Education,Education,53,226,#f4e192
+613,2015,Education,Education,53,226,#f4e192
+614,2015,Education,Education,53,226,#f4e192
+615,2015,Education,Education,53,226,#f4e192
+616,2015,Education,Education,53,226,#f4e192
 617,2015,Police,Homeland Security,67,190,#f0b8d2
 618,2015,Police,Homeland Security,67,190,#f0b8d2
 619,2015,Police,Homeland Security,67,190,#f0b8d2
@@ -676,23 +676,23 @@ keyindex,year,topic,category,count,countall,color
 675,2015,Police,Homeland Security,67,190,#f0b8d2
 676,2015,Police,Homeland Security,67,190,#f0b8d2
 677,2015,Police,Homeland Security,67,190,#f0b8d2
-678,2016,Voting,Election,9,9,#fccf89
-679,2016,Voting,Election,9,9,#fccf89
-680,2016,Voting,Election,9,9,#fccf89
-681,2016,Voting,Election,9,9,#fccf89
-682,2016,Voting,Election,9,9,#fccf89
-683,2016,Voting,Election,9,9,#fccf89
-684,2016,Voting,Election,9,9,#fccf89
-685,2016,Voting,Election,9,9,#fccf89
+678,2015,Police,Homeland Security,67,190,#f0b8d2
+679,2015,Police,Homeland Security,67,190,#f0b8d2
+680,2015,Police,Homeland Security,67,190,#f0b8d2
+681,2015,Police,Homeland Security,67,190,#f0b8d2
+682,2015,Police,Homeland Security,67,190,#f0b8d2
+683,2015,Police,Homeland Security,67,190,#f0b8d2
+684,2016,blank,,0,99999,#ffffff
+685,2016,blank,,0,99999,#ffffff
 686,2016,Voting,Election,9,9,#fccf89
-687,2016,Minimum Wage,Labor,19,19,#b5cfe3
-688,2016,Minimum Wage,Labor,19,19,#b5cfe3
-689,2016,Minimum Wage,Labor,19,19,#b5cfe3
-690,2016,Minimum Wage,Labor,19,19,#b5cfe3
-691,2016,Minimum Wage,Labor,19,19,#b5cfe3
-692,2016,Minimum Wage,Labor,19,19,#b5cfe3
-693,2016,Minimum Wage,Labor,19,19,#b5cfe3
-694,2016,Minimum Wage,Labor,19,19,#b5cfe3
+687,2016,Voting,Election,9,9,#fccf89
+688,2016,Voting,Election,9,9,#fccf89
+689,2016,Voting,Election,9,9,#fccf89
+690,2016,Voting,Election,9,9,#fccf89
+691,2016,Voting,Election,9,9,#fccf89
+692,2016,Voting,Election,9,9,#fccf89
+693,2016,Voting,Election,9,9,#fccf89
+694,2016,Voting,Election,9,9,#fccf89
 695,2016,Minimum Wage,Labor,19,19,#b5cfe3
 696,2016,Minimum Wage,Labor,19,19,#b5cfe3
 697,2016,Minimum Wage,Labor,19,19,#b5cfe3
@@ -704,14 +704,14 @@ keyindex,year,topic,category,count,countall,color
 703,2016,Minimum Wage,Labor,19,19,#b5cfe3
 704,2016,Minimum Wage,Labor,19,19,#b5cfe3
 705,2016,Minimum Wage,Labor,19,19,#b5cfe3
-706,2016,Homelessness,Housing,28,79,#9ad699
-707,2016,Homelessness,Housing,28,79,#9ad699
-708,2016,Homelessness,Housing,28,79,#9ad699
-709,2016,Homelessness,Housing,28,79,#9ad699
-710,2016,Homelessness,Housing,28,79,#9ad699
-711,2016,Homelessness,Housing,28,79,#9ad699
-712,2016,Homelessness,Housing,28,79,#9ad699
-713,2016,Homelessness,Housing,28,79,#9ad699
+706,2016,Minimum Wage,Labor,19,19,#b5cfe3
+707,2016,Minimum Wage,Labor,19,19,#b5cfe3
+708,2016,Minimum Wage,Labor,19,19,#b5cfe3
+709,2016,Minimum Wage,Labor,19,19,#b5cfe3
+710,2016,Minimum Wage,Labor,19,19,#b5cfe3
+711,2016,Minimum Wage,Labor,19,19,#b5cfe3
+712,2016,Minimum Wage,Labor,19,19,#b5cfe3
+713,2016,Minimum Wage,Labor,19,19,#b5cfe3
 714,2016,Homelessness,Housing,28,79,#9ad699
 715,2016,Homelessness,Housing,28,79,#9ad699
 716,2016,Homelessness,Housing,28,79,#9ad699
@@ -732,14 +732,14 @@ keyindex,year,topic,category,count,countall,color
 731,2016,Homelessness,Housing,28,79,#9ad699
 732,2016,Homelessness,Housing,28,79,#9ad699
 733,2016,Homelessness,Housing,28,79,#9ad699
-734,2016,Police,Homeland Security,47,190,#f0b8d2
-735,2016,Police,Homeland Security,47,190,#f0b8d2
-736,2016,Police,Homeland Security,47,190,#f0b8d2
-737,2016,Police,Homeland Security,47,190,#f0b8d2
-738,2016,Police,Homeland Security,47,190,#f0b8d2
-739,2016,Police,Homeland Security,47,190,#f0b8d2
-740,2016,Police,Homeland Security,47,190,#f0b8d2
-741,2016,Police,Homeland Security,47,190,#f0b8d2
+734,2016,Homelessness,Housing,28,79,#9ad699
+735,2016,Homelessness,Housing,28,79,#9ad699
+736,2016,Homelessness,Housing,28,79,#9ad699
+737,2016,Homelessness,Housing,28,79,#9ad699
+738,2016,Homelessness,Housing,28,79,#9ad699
+739,2016,Homelessness,Housing,28,79,#9ad699
+740,2016,Homelessness,Housing,28,79,#9ad699
+741,2016,Homelessness,Housing,28,79,#9ad699
 742,2016,Police,Homeland Security,47,190,#f0b8d2
 743,2016,Police,Homeland Security,47,190,#f0b8d2
 744,2016,Police,Homeland Security,47,190,#f0b8d2
@@ -779,14 +779,14 @@ keyindex,year,topic,category,count,countall,color
 778,2016,Police,Homeland Security,47,190,#f0b8d2
 779,2016,Police,Homeland Security,47,190,#f0b8d2
 780,2016,Police,Homeland Security,47,190,#f0b8d2
-781,2016,Affordable Housing,Housing,48,48,#f9d1b9
-782,2016,Affordable Housing,Housing,48,48,#f9d1b9
-783,2016,Affordable Housing,Housing,48,48,#f9d1b9
-784,2016,Affordable Housing,Housing,48,48,#f9d1b9
-785,2016,Affordable Housing,Housing,48,48,#f9d1b9
-786,2016,Affordable Housing,Housing,48,48,#f9d1b9
-787,2016,Affordable Housing,Housing,48,48,#f9d1b9
-788,2016,Affordable Housing,Housing,48,48,#f9d1b9
+781,2016,Police,Homeland Security,47,190,#f0b8d2
+782,2016,Police,Homeland Security,47,190,#f0b8d2
+783,2016,Police,Homeland Security,47,190,#f0b8d2
+784,2016,Police,Homeland Security,47,190,#f0b8d2
+785,2016,Police,Homeland Security,47,190,#f0b8d2
+786,2016,Police,Homeland Security,47,190,#f0b8d2
+787,2016,Police,Homeland Security,47,190,#f0b8d2
+788,2016,Police,Homeland Security,47,190,#f0b8d2
 789,2016,Affordable Housing,Housing,48,48,#f9d1b9
 790,2016,Affordable Housing,Housing,48,48,#f9d1b9
 791,2016,Affordable Housing,Housing,48,48,#f9d1b9
@@ -827,30 +827,30 @@ keyindex,year,topic,category,count,countall,color
 826,2016,Affordable Housing,Housing,48,48,#f9d1b9
 827,2016,Affordable Housing,Housing,48,48,#f9d1b9
 828,2016,Affordable Housing,Housing,48,48,#f9d1b9
-829,2017,Environment,Environment,14,14,#cae490
-830,2017,Environment,Environment,14,14,#cae490
-831,2017,Environment,Environment,14,14,#cae490
-832,2017,Environment,Environment,14,14,#cae490
-833,2017,Environment,Environment,14,14,#cae490
-834,2017,Environment,Environment,14,14,#cae490
-835,2017,Environment,Environment,14,14,#cae490
-836,2017,Environment,Environment,14,14,#cae490
-837,2017,Environment,Environment,14,14,#cae490
-838,2017,Environment,Environment,14,14,#cae490
+829,2016,Affordable Housing,Housing,48,48,#f9d1b9
+830,2016,Affordable Housing,Housing,48,48,#f9d1b9
+831,2016,Affordable Housing,Housing,48,48,#f9d1b9
+832,2016,Affordable Housing,Housing,48,48,#f9d1b9
+833,2016,Affordable Housing,Housing,48,48,#f9d1b9
+834,2016,Affordable Housing,Housing,48,48,#f9d1b9
+835,2016,Affordable Housing,Housing,48,48,#f9d1b9
+836,2016,Affordable Housing,Housing,48,48,#f9d1b9
+837,2017,blank,,0,99999,#ffffff
+838,2017,blank,,0,99999,#ffffff
 839,2017,Environment,Environment,14,14,#cae490
 840,2017,Environment,Environment,14,14,#cae490
 841,2017,Environment,Environment,14,14,#cae490
 842,2017,Environment,Environment,14,14,#cae490
-843,2017,Education,Education,19,226,#f4e192
-844,2017,Education,Education,19,226,#f4e192
-845,2017,Education,Education,19,226,#f4e192
-846,2017,Education,Education,19,226,#f4e192
-847,2017,Education,Education,19,226,#f4e192
-848,2017,Education,Education,19,226,#f4e192
-849,2017,Education,Education,19,226,#f4e192
-850,2017,Education,Education,19,226,#f4e192
-851,2017,Education,Education,19,226,#f4e192
-852,2017,Education,Education,19,226,#f4e192
+843,2017,Environment,Environment,14,14,#cae490
+844,2017,Environment,Environment,14,14,#cae490
+845,2017,Environment,Environment,14,14,#cae490
+846,2017,Environment,Environment,14,14,#cae490
+847,2017,Environment,Environment,14,14,#cae490
+848,2017,Environment,Environment,14,14,#cae490
+849,2017,Environment,Environment,14,14,#cae490
+850,2017,Environment,Environment,14,14,#cae490
+851,2017,Environment,Environment,14,14,#cae490
+852,2017,Environment,Environment,14,14,#cae490
 853,2017,Education,Education,19,226,#f4e192
 854,2017,Education,Education,19,226,#f4e192
 855,2017,Education,Education,19,226,#f4e192
@@ -860,16 +860,16 @@ keyindex,year,topic,category,count,countall,color
 859,2017,Education,Education,19,226,#f4e192
 860,2017,Education,Education,19,226,#f4e192
 861,2017,Education,Education,19,226,#f4e192
-862,2017,Election,Election,24,194,#d9e793
-863,2017,Election,Election,24,194,#d9e793
-864,2017,Election,Election,24,194,#d9e793
-865,2017,Election,Election,24,194,#d9e793
-866,2017,Election,Election,24,194,#d9e793
-867,2017,Election,Election,24,194,#d9e793
-868,2017,Election,Election,24,194,#d9e793
-869,2017,Election,Election,24,194,#d9e793
-870,2017,Election,Election,24,194,#d9e793
-871,2017,Election,Election,24,194,#d9e793
+862,2017,Education,Education,19,226,#f4e192
+863,2017,Education,Education,19,226,#f4e192
+864,2017,Education,Education,19,226,#f4e192
+865,2017,Education,Education,19,226,#f4e192
+866,2017,Education,Education,19,226,#f4e192
+867,2017,Education,Education,19,226,#f4e192
+868,2017,Education,Education,19,226,#f4e192
+869,2017,Education,Education,19,226,#f4e192
+870,2017,Education,Education,19,226,#f4e192
+871,2017,Education,Education,19,226,#f4e192
 872,2017,Election,Election,24,194,#d9e793
 873,2017,Election,Election,24,194,#d9e793
 874,2017,Election,Election,24,194,#d9e793
@@ -884,16 +884,16 @@ keyindex,year,topic,category,count,countall,color
 883,2017,Election,Election,24,194,#d9e793
 884,2017,Election,Election,24,194,#d9e793
 885,2017,Election,Election,24,194,#d9e793
-886,2017,Homelessness,Housing,33,79,#9ad699
-887,2017,Homelessness,Housing,33,79,#9ad699
-888,2017,Homelessness,Housing,33,79,#9ad699
-889,2017,Homelessness,Housing,33,79,#9ad699
-890,2017,Homelessness,Housing,33,79,#9ad699
-891,2017,Homelessness,Housing,33,79,#9ad699
-892,2017,Homelessness,Housing,33,79,#9ad699
-893,2017,Homelessness,Housing,33,79,#9ad699
-894,2017,Homelessness,Housing,33,79,#9ad699
-895,2017,Homelessness,Housing,33,79,#9ad699
+886,2017,Election,Election,24,194,#d9e793
+887,2017,Election,Election,24,194,#d9e793
+888,2017,Election,Election,24,194,#d9e793
+889,2017,Election,Election,24,194,#d9e793
+890,2017,Election,Election,24,194,#d9e793
+891,2017,Election,Election,24,194,#d9e793
+892,2017,Election,Election,24,194,#d9e793
+893,2017,Election,Election,24,194,#d9e793
+894,2017,Election,Election,24,194,#d9e793
+895,2017,Election,Election,24,194,#d9e793
 896,2017,Homelessness,Housing,33,79,#9ad699
 897,2017,Homelessness,Housing,33,79,#9ad699
 898,2017,Homelessness,Housing,33,79,#9ad699
@@ -917,16 +917,16 @@ keyindex,year,topic,category,count,countall,color
 916,2017,Homelessness,Housing,33,79,#9ad699
 917,2017,Homelessness,Housing,33,79,#9ad699
 918,2017,Homelessness,Housing,33,79,#9ad699
-919,2017,Rikers Spying Investigation,Homeland Security,33,33,#d9ddaf
-920,2017,Rikers Spying Investigation,Homeland Security,33,33,#d9ddaf
-921,2017,Rikers Spying Investigation,Homeland Security,33,33,#d9ddaf
-922,2017,Rikers Spying Investigation,Homeland Security,33,33,#d9ddaf
-923,2017,Rikers Spying Investigation,Homeland Security,33,33,#d9ddaf
-924,2017,Rikers Spying Investigation,Homeland Security,33,33,#d9ddaf
-925,2017,Rikers Spying Investigation,Homeland Security,33,33,#d9ddaf
-926,2017,Rikers Spying Investigation,Homeland Security,33,33,#d9ddaf
-927,2017,Rikers Spying Investigation,Homeland Security,33,33,#d9ddaf
-928,2017,Rikers Spying Investigation,Homeland Security,33,33,#d9ddaf
+919,2017,Homelessness,Housing,33,79,#9ad699
+920,2017,Homelessness,Housing,33,79,#9ad699
+921,2017,Homelessness,Housing,33,79,#9ad699
+922,2017,Homelessness,Housing,33,79,#9ad699
+923,2017,Homelessness,Housing,33,79,#9ad699
+924,2017,Homelessness,Housing,33,79,#9ad699
+925,2017,Homelessness,Housing,33,79,#9ad699
+926,2017,Homelessness,Housing,33,79,#9ad699
+927,2017,Homelessness,Housing,33,79,#9ad699
+928,2017,Homelessness,Housing,33,79,#9ad699
 929,2017,Rikers Spying Investigation,Homeland Security,33,33,#d9ddaf
 930,2017,Rikers Spying Investigation,Homeland Security,33,33,#d9ddaf
 931,2017,Rikers Spying Investigation,Homeland Security,33,33,#d9ddaf
@@ -950,16 +950,16 @@ keyindex,year,topic,category,count,countall,color
 949,2017,Rikers Spying Investigation,Homeland Security,33,33,#d9ddaf
 950,2017,Rikers Spying Investigation,Homeland Security,33,33,#d9ddaf
 951,2017,Rikers Spying Investigation,Homeland Security,33,33,#d9ddaf
-952,2017,NYC Transit,Transportation,54,117,#cbd5e4
-953,2017,NYC Transit,Transportation,54,117,#cbd5e4
-954,2017,NYC Transit,Transportation,54,117,#cbd5e4
-955,2017,NYC Transit,Transportation,54,117,#cbd5e4
-956,2017,NYC Transit,Transportation,54,117,#cbd5e4
-957,2017,NYC Transit,Transportation,54,117,#cbd5e4
-958,2017,NYC Transit,Transportation,54,117,#cbd5e4
-959,2017,NYC Transit,Transportation,54,117,#cbd5e4
-960,2017,NYC Transit,Transportation,54,117,#cbd5e4
-961,2017,NYC Transit,Transportation,54,117,#cbd5e4
+952,2017,Rikers Spying Investigation,Homeland Security,33,33,#d9ddaf
+953,2017,Rikers Spying Investigation,Homeland Security,33,33,#d9ddaf
+954,2017,Rikers Spying Investigation,Homeland Security,33,33,#d9ddaf
+955,2017,Rikers Spying Investigation,Homeland Security,33,33,#d9ddaf
+956,2017,Rikers Spying Investigation,Homeland Security,33,33,#d9ddaf
+957,2017,Rikers Spying Investigation,Homeland Security,33,33,#d9ddaf
+958,2017,Rikers Spying Investigation,Homeland Security,33,33,#d9ddaf
+959,2017,Rikers Spying Investigation,Homeland Security,33,33,#d9ddaf
+960,2017,Rikers Spying Investigation,Homeland Security,33,33,#d9ddaf
+961,2017,Rikers Spying Investigation,Homeland Security,33,33,#d9ddaf
 962,2017,NYC Transit,Transportation,54,117,#cbd5e4
 963,2017,NYC Transit,Transportation,54,117,#cbd5e4
 964,2017,NYC Transit,Transportation,54,117,#cbd5e4
@@ -1004,40 +1004,40 @@ keyindex,year,topic,category,count,countall,color
 1003,2017,NYC Transit,Transportation,54,117,#cbd5e4
 1004,2017,NYC Transit,Transportation,54,117,#cbd5e4
 1005,2017,NYC Transit,Transportation,54,117,#cbd5e4
-1006,2018,Google,Business,6,6,#acdb98
-1007,2018,Google,Business,6,6,#acdb98
-1008,2018,Google,Business,6,6,#acdb98
-1009,2018,Google,Business,6,6,#acdb98
-1010,2018,Google,Business,6,6,#acdb98
-1011,2018,Google,Business,6,6,#acdb98
-1012,2018,City Council ,Election,16,16,#fec0ad
-1013,2018,City Council ,Election,16,16,#fec0ad
-1014,2018,City Council ,Election,16,16,#fec0ad
-1015,2018,City Council ,Election,16,16,#fec0ad
-1016,2018,City Council ,Election,16,16,#fec0ad
-1017,2018,City Council ,Election,16,16,#fec0ad
-1018,2018,City Council ,Election,16,16,#fec0ad
-1019,2018,City Council ,Election,16,16,#fec0ad
-1020,2018,City Council ,Election,16,16,#fec0ad
-1021,2018,City Council ,Election,16,16,#fec0ad
-1022,2018,City Council ,Election,16,16,#fec0ad
-1023,2018,City Council ,Election,16,16,#fec0ad
+1006,2017,NYC Transit,Transportation,54,117,#cbd5e4
+1007,2017,NYC Transit,Transportation,54,117,#cbd5e4
+1008,2017,NYC Transit,Transportation,54,117,#cbd5e4
+1009,2017,NYC Transit,Transportation,54,117,#cbd5e4
+1010,2017,NYC Transit,Transportation,54,117,#cbd5e4
+1011,2017,NYC Transit,Transportation,54,117,#cbd5e4
+1012,2017,NYC Transit,Transportation,54,117,#cbd5e4
+1013,2017,NYC Transit,Transportation,54,117,#cbd5e4
+1014,2017,NYC Transit,Transportation,54,117,#cbd5e4
+1015,2017,NYC Transit,Transportation,54,117,#cbd5e4
+1016,2018,blank,,0,99999,#ffffff
+1017,2018,blank,,0,99999,#ffffff
+1018,2018,Google,Business,6,6,#acdb98
+1019,2018,Google,Business,6,6,#acdb98
+1020,2018,Google,Business,6,6,#acdb98
+1021,2018,Google,Business,6,6,#acdb98
+1022,2018,Google,Business,6,6,#acdb98
+1023,2018,Google,Business,6,6,#acdb98
 1024,2018,City Council ,Election,16,16,#fec0ad
 1025,2018,City Council ,Election,16,16,#fec0ad
 1026,2018,City Council ,Election,16,16,#fec0ad
 1027,2018,City Council ,Election,16,16,#fec0ad
-1028,2018,Education,Education,30,226,#f4e192
-1029,2018,Education,Education,30,226,#f4e192
-1030,2018,Education,Education,30,226,#f4e192
-1031,2018,Education,Education,30,226,#f4e192
-1032,2018,Education,Education,30,226,#f4e192
-1033,2018,Education,Education,30,226,#f4e192
-1034,2018,Education,Education,30,226,#f4e192
-1035,2018,Education,Education,30,226,#f4e192
-1036,2018,Education,Education,30,226,#f4e192
-1037,2018,Education,Education,30,226,#f4e192
-1038,2018,Education,Education,30,226,#f4e192
-1039,2018,Education,Education,30,226,#f4e192
+1028,2018,City Council ,Election,16,16,#fec0ad
+1029,2018,City Council ,Election,16,16,#fec0ad
+1030,2018,City Council ,Election,16,16,#fec0ad
+1031,2018,City Council ,Election,16,16,#fec0ad
+1032,2018,City Council ,Election,16,16,#fec0ad
+1033,2018,City Council ,Election,16,16,#fec0ad
+1034,2018,City Council ,Election,16,16,#fec0ad
+1035,2018,City Council ,Election,16,16,#fec0ad
+1036,2018,City Council ,Election,16,16,#fec0ad
+1037,2018,City Council ,Election,16,16,#fec0ad
+1038,2018,City Council ,Election,16,16,#fec0ad
+1039,2018,City Council ,Election,16,16,#fec0ad
 1040,2018,Education,Education,30,226,#f4e192
 1041,2018,Education,Education,30,226,#f4e192
 1042,2018,Education,Education,30,226,#f4e192
@@ -1056,18 +1056,18 @@ keyindex,year,topic,category,count,countall,color
 1055,2018,Education,Education,30,226,#f4e192
 1056,2018,Education,Education,30,226,#f4e192
 1057,2018,Education,Education,30,226,#f4e192
-1058,2018,Amazon,Business,32,85,#f5cbc1
-1059,2018,Amazon,Business,32,85,#f5cbc1
-1060,2018,Amazon,Business,32,85,#f5cbc1
-1061,2018,Amazon,Business,32,85,#f5cbc1
-1062,2018,Amazon,Business,32,85,#f5cbc1
-1063,2018,Amazon,Business,32,85,#f5cbc1
-1064,2018,Amazon,Business,32,85,#f5cbc1
-1065,2018,Amazon,Business,32,85,#f5cbc1
-1066,2018,Amazon,Business,32,85,#f5cbc1
-1067,2018,Amazon,Business,32,85,#f5cbc1
-1068,2018,Amazon,Business,32,85,#f5cbc1
-1069,2018,Amazon,Business,32,85,#f5cbc1
+1058,2018,Education,Education,30,226,#f4e192
+1059,2018,Education,Education,30,226,#f4e192
+1060,2018,Education,Education,30,226,#f4e192
+1061,2018,Education,Education,30,226,#f4e192
+1062,2018,Education,Education,30,226,#f4e192
+1063,2018,Education,Education,30,226,#f4e192
+1064,2018,Education,Education,30,226,#f4e192
+1065,2018,Education,Education,30,226,#f4e192
+1066,2018,Education,Education,30,226,#f4e192
+1067,2018,Education,Education,30,226,#f4e192
+1068,2018,Education,Education,30,226,#f4e192
+1069,2018,Education,Education,30,226,#f4e192
 1070,2018,Amazon,Business,32,85,#f5cbc1
 1071,2018,Amazon,Business,32,85,#f5cbc1
 1072,2018,Amazon,Business,32,85,#f5cbc1
@@ -1088,18 +1088,18 @@ keyindex,year,topic,category,count,countall,color
 1087,2018,Amazon,Business,32,85,#f5cbc1
 1088,2018,Amazon,Business,32,85,#f5cbc1
 1089,2018,Amazon,Business,32,85,#f5cbc1
-1090,2018,Police,Homeland Security,33,190,#f0b8d2
-1091,2018,Police,Homeland Security,33,190,#f0b8d2
-1092,2018,Police,Homeland Security,33,190,#f0b8d2
-1093,2018,Police,Homeland Security,33,190,#f0b8d2
-1094,2018,Police,Homeland Security,33,190,#f0b8d2
-1095,2018,Police,Homeland Security,33,190,#f0b8d2
-1096,2018,Police,Homeland Security,33,190,#f0b8d2
-1097,2018,Police,Homeland Security,33,190,#f0b8d2
-1098,2018,Police,Homeland Security,33,190,#f0b8d2
-1099,2018,Police,Homeland Security,33,190,#f0b8d2
-1100,2018,Police,Homeland Security,33,190,#f0b8d2
-1101,2018,Police,Homeland Security,33,190,#f0b8d2
+1090,2018,Amazon,Business,32,85,#f5cbc1
+1091,2018,Amazon,Business,32,85,#f5cbc1
+1092,2018,Amazon,Business,32,85,#f5cbc1
+1093,2018,Amazon,Business,32,85,#f5cbc1
+1094,2018,Amazon,Business,32,85,#f5cbc1
+1095,2018,Amazon,Business,32,85,#f5cbc1
+1096,2018,Amazon,Business,32,85,#f5cbc1
+1097,2018,Amazon,Business,32,85,#f5cbc1
+1098,2018,Amazon,Business,32,85,#f5cbc1
+1099,2018,Amazon,Business,32,85,#f5cbc1
+1100,2018,Amazon,Business,32,85,#f5cbc1
+1101,2018,Amazon,Business,32,85,#f5cbc1
 1102,2018,Police,Homeland Security,33,190,#f0b8d2
 1103,2018,Police,Homeland Security,33,190,#f0b8d2
 1104,2018,Police,Homeland Security,33,190,#f0b8d2
@@ -1121,18 +1121,18 @@ keyindex,year,topic,category,count,countall,color
 1120,2018,Police,Homeland Security,33,190,#f0b8d2
 1121,2018,Police,Homeland Security,33,190,#f0b8d2
 1122,2018,Police,Homeland Security,33,190,#f0b8d2
-1123,2018,NYC Transit,Transportation,39,117,#cbd5e4
-1124,2018,NYC Transit,Transportation,39,117,#cbd5e4
-1125,2018,NYC Transit,Transportation,39,117,#cbd5e4
-1126,2018,NYC Transit,Transportation,39,117,#cbd5e4
-1127,2018,NYC Transit,Transportation,39,117,#cbd5e4
-1128,2018,NYC Transit,Transportation,39,117,#cbd5e4
-1129,2018,NYC Transit,Transportation,39,117,#cbd5e4
-1130,2018,NYC Transit,Transportation,39,117,#cbd5e4
-1131,2018,NYC Transit,Transportation,39,117,#cbd5e4
-1132,2018,NYC Transit,Transportation,39,117,#cbd5e4
-1133,2018,NYC Transit,Transportation,39,117,#cbd5e4
-1134,2018,NYC Transit,Transportation,39,117,#cbd5e4
+1123,2018,Police,Homeland Security,33,190,#f0b8d2
+1124,2018,Police,Homeland Security,33,190,#f0b8d2
+1125,2018,Police,Homeland Security,33,190,#f0b8d2
+1126,2018,Police,Homeland Security,33,190,#f0b8d2
+1127,2018,Police,Homeland Security,33,190,#f0b8d2
+1128,2018,Police,Homeland Security,33,190,#f0b8d2
+1129,2018,Police,Homeland Security,33,190,#f0b8d2
+1130,2018,Police,Homeland Security,33,190,#f0b8d2
+1131,2018,Police,Homeland Security,33,190,#f0b8d2
+1132,2018,Police,Homeland Security,33,190,#f0b8d2
+1133,2018,Police,Homeland Security,33,190,#f0b8d2
+1134,2018,Police,Homeland Security,33,190,#f0b8d2
 1135,2018,NYC Transit,Transportation,39,117,#cbd5e4
 1136,2018,NYC Transit,Transportation,39,117,#cbd5e4
 1137,2018,NYC Transit,Transportation,39,117,#cbd5e4
@@ -1160,18 +1160,18 @@ keyindex,year,topic,category,count,countall,color
 1159,2018,NYC Transit,Transportation,39,117,#cbd5e4
 1160,2018,NYC Transit,Transportation,39,117,#cbd5e4
 1161,2018,NYC Transit,Transportation,39,117,#cbd5e4
-1162,2018,Ridesharing,Transportation,41,41,#ffa78c
-1163,2018,Ridesharing,Transportation,41,41,#ffa78c
-1164,2018,Ridesharing,Transportation,41,41,#ffa78c
-1165,2018,Ridesharing,Transportation,41,41,#ffa78c
-1166,2018,Ridesharing,Transportation,41,41,#ffa78c
-1167,2018,Ridesharing,Transportation,41,41,#ffa78c
-1168,2018,Ridesharing,Transportation,41,41,#ffa78c
-1169,2018,Ridesharing,Transportation,41,41,#ffa78c
-1170,2018,Ridesharing,Transportation,41,41,#ffa78c
-1171,2018,Ridesharing,Transportation,41,41,#ffa78c
-1172,2018,Ridesharing,Transportation,41,41,#ffa78c
-1173,2018,Ridesharing,Transportation,41,41,#ffa78c
+1162,2018,NYC Transit,Transportation,39,117,#cbd5e4
+1163,2018,NYC Transit,Transportation,39,117,#cbd5e4
+1164,2018,NYC Transit,Transportation,39,117,#cbd5e4
+1165,2018,NYC Transit,Transportation,39,117,#cbd5e4
+1166,2018,NYC Transit,Transportation,39,117,#cbd5e4
+1167,2018,NYC Transit,Transportation,39,117,#cbd5e4
+1168,2018,NYC Transit,Transportation,39,117,#cbd5e4
+1169,2018,NYC Transit,Transportation,39,117,#cbd5e4
+1170,2018,NYC Transit,Transportation,39,117,#cbd5e4
+1171,2018,NYC Transit,Transportation,39,117,#cbd5e4
+1172,2018,NYC Transit,Transportation,39,117,#cbd5e4
+1173,2018,NYC Transit,Transportation,39,117,#cbd5e4
 1174,2018,Ridesharing,Transportation,41,41,#ffa78c
 1175,2018,Ridesharing,Transportation,41,41,#ffa78c
 1176,2018,Ridesharing,Transportation,41,41,#ffa78c
@@ -1201,18 +1201,18 @@ keyindex,year,topic,category,count,countall,color
 1200,2018,Ridesharing,Transportation,41,41,#ffa78c
 1201,2018,Ridesharing,Transportation,41,41,#ffa78c
 1202,2018,Ridesharing,Transportation,41,41,#ffa78c
-1203,2018,Marijuana,Homeland Security,43,43,#71d4d5
-1204,2018,Marijuana,Homeland Security,43,43,#71d4d5
-1205,2018,Marijuana,Homeland Security,43,43,#71d4d5
-1206,2018,Marijuana,Homeland Security,43,43,#71d4d5
-1207,2018,Marijuana,Homeland Security,43,43,#71d4d5
-1208,2018,Marijuana,Homeland Security,43,43,#71d4d5
-1209,2018,Marijuana,Homeland Security,43,43,#71d4d5
-1210,2018,Marijuana,Homeland Security,43,43,#71d4d5
-1211,2018,Marijuana,Homeland Security,43,43,#71d4d5
-1212,2018,Marijuana,Homeland Security,43,43,#71d4d5
-1213,2018,Marijuana,Homeland Security,43,43,#71d4d5
-1214,2018,Marijuana,Homeland Security,43,43,#71d4d5
+1203,2018,Ridesharing,Transportation,41,41,#ffa78c
+1204,2018,Ridesharing,Transportation,41,41,#ffa78c
+1205,2018,Ridesharing,Transportation,41,41,#ffa78c
+1206,2018,Ridesharing,Transportation,41,41,#ffa78c
+1207,2018,Ridesharing,Transportation,41,41,#ffa78c
+1208,2018,Ridesharing,Transportation,41,41,#ffa78c
+1209,2018,Ridesharing,Transportation,41,41,#ffa78c
+1210,2018,Ridesharing,Transportation,41,41,#ffa78c
+1211,2018,Ridesharing,Transportation,41,41,#ffa78c
+1212,2018,Ridesharing,Transportation,41,41,#ffa78c
+1213,2018,Ridesharing,Transportation,41,41,#ffa78c
+1214,2018,Ridesharing,Transportation,41,41,#ffa78c
 1215,2018,Marijuana,Homeland Security,43,43,#71d4d5
 1216,2018,Marijuana,Homeland Security,43,43,#71d4d5
 1217,2018,Marijuana,Homeland Security,43,43,#71d4d5
@@ -1244,32 +1244,32 @@ keyindex,year,topic,category,count,countall,color
 1243,2018,Marijuana,Homeland Security,43,43,#71d4d5
 1244,2018,Marijuana,Homeland Security,43,43,#71d4d5
 1245,2018,Marijuana,Homeland Security,43,43,#71d4d5
-1246,2019,Public Health,Health,12,12,#fca3b9
-1247,2019,Public Health,Health,12,12,#fca3b9
-1248,2019,Public Health,Health,12,12,#fca3b9
-1249,2019,Public Health,Health,12,12,#fca3b9
-1250,2019,Public Health,Health,12,12,#fca3b9
-1251,2019,Public Health,Health,12,12,#fca3b9
-1252,2019,Public Health,Health,12,12,#fca3b9
-1253,2019,Public Health,Health,12,12,#fca3b9
-1254,2019,Public Health,Health,12,12,#fca3b9
-1255,2019,Public Health,Health,12,12,#fca3b9
-1256,2019,Public Health,Health,12,12,#fca3b9
-1257,2019,Public Health,Health,12,12,#fca3b9
-1258,2019,Hudson Yards,Public space,22,22,#73d8cd
-1259,2019,Hudson Yards,Public space,22,22,#73d8cd
-1260,2019,Hudson Yards,Public space,22,22,#73d8cd
-1261,2019,Hudson Yards,Public space,22,22,#73d8cd
-1262,2019,Hudson Yards,Public space,22,22,#73d8cd
-1263,2019,Hudson Yards,Public space,22,22,#73d8cd
-1264,2019,Hudson Yards,Public space,22,22,#73d8cd
-1265,2019,Hudson Yards,Public space,22,22,#73d8cd
-1266,2019,Hudson Yards,Public space,22,22,#73d8cd
-1267,2019,Hudson Yards,Public space,22,22,#73d8cd
-1268,2019,Hudson Yards,Public space,22,22,#73d8cd
-1269,2019,Hudson Yards,Public space,22,22,#73d8cd
-1270,2019,Hudson Yards,Public space,22,22,#73d8cd
-1271,2019,Hudson Yards,Public space,22,22,#73d8cd
+1246,2018,Marijuana,Homeland Security,43,43,#71d4d5
+1247,2018,Marijuana,Homeland Security,43,43,#71d4d5
+1248,2018,Marijuana,Homeland Security,43,43,#71d4d5
+1249,2018,Marijuana,Homeland Security,43,43,#71d4d5
+1250,2018,Marijuana,Homeland Security,43,43,#71d4d5
+1251,2018,Marijuana,Homeland Security,43,43,#71d4d5
+1252,2018,Marijuana,Homeland Security,43,43,#71d4d5
+1253,2018,Marijuana,Homeland Security,43,43,#71d4d5
+1254,2018,Marijuana,Homeland Security,43,43,#71d4d5
+1255,2018,Marijuana,Homeland Security,43,43,#71d4d5
+1256,2018,Marijuana,Homeland Security,43,43,#71d4d5
+1257,2018,Marijuana,Homeland Security,43,43,#71d4d5
+1258,2019,blank,,0,99999,#ffffff
+1259,2019,blank,,0,99999,#ffffff
+1260,2019,Public Health,Health,12,12,#fca3b9
+1261,2019,Public Health,Health,12,12,#fca3b9
+1262,2019,Public Health,Health,12,12,#fca3b9
+1263,2019,Public Health,Health,12,12,#fca3b9
+1264,2019,Public Health,Health,12,12,#fca3b9
+1265,2019,Public Health,Health,12,12,#fca3b9
+1266,2019,Public Health,Health,12,12,#fca3b9
+1267,2019,Public Health,Health,12,12,#fca3b9
+1268,2019,Public Health,Health,12,12,#fca3b9
+1269,2019,Public Health,Health,12,12,#fca3b9
+1270,2019,Public Health,Health,12,12,#fca3b9
+1271,2019,Public Health,Health,12,12,#fca3b9
 1272,2019,Hudson Yards,Public space,22,22,#73d8cd
 1273,2019,Hudson Yards,Public space,22,22,#73d8cd
 1274,2019,Hudson Yards,Public space,22,22,#73d8cd
@@ -1278,20 +1278,20 @@ keyindex,year,topic,category,count,countall,color
 1277,2019,Hudson Yards,Public space,22,22,#73d8cd
 1278,2019,Hudson Yards,Public space,22,22,#73d8cd
 1279,2019,Hudson Yards,Public space,22,22,#73d8cd
-1280,2019,City Streets,Public space,28,28,#ffb593
-1281,2019,City Streets,Public space,28,28,#ffb593
-1282,2019,City Streets,Public space,28,28,#ffb593
-1283,2019,City Streets,Public space,28,28,#ffb593
-1284,2019,City Streets,Public space,28,28,#ffb593
-1285,2019,City Streets,Public space,28,28,#ffb593
-1286,2019,City Streets,Public space,28,28,#ffb593
-1287,2019,City Streets,Public space,28,28,#ffb593
-1288,2019,City Streets,Public space,28,28,#ffb593
-1289,2019,City Streets,Public space,28,28,#ffb593
-1290,2019,City Streets,Public space,28,28,#ffb593
-1291,2019,City Streets,Public space,28,28,#ffb593
-1292,2019,City Streets,Public space,28,28,#ffb593
-1293,2019,City Streets,Public space,28,28,#ffb593
+1280,2019,Hudson Yards,Public space,22,22,#73d8cd
+1281,2019,Hudson Yards,Public space,22,22,#73d8cd
+1282,2019,Hudson Yards,Public space,22,22,#73d8cd
+1283,2019,Hudson Yards,Public space,22,22,#73d8cd
+1284,2019,Hudson Yards,Public space,22,22,#73d8cd
+1285,2019,Hudson Yards,Public space,22,22,#73d8cd
+1286,2019,Hudson Yards,Public space,22,22,#73d8cd
+1287,2019,Hudson Yards,Public space,22,22,#73d8cd
+1288,2019,Hudson Yards,Public space,22,22,#73d8cd
+1289,2019,Hudson Yards,Public space,22,22,#73d8cd
+1290,2019,Hudson Yards,Public space,22,22,#73d8cd
+1291,2019,Hudson Yards,Public space,22,22,#73d8cd
+1292,2019,Hudson Yards,Public space,22,22,#73d8cd
+1293,2019,Hudson Yards,Public space,22,22,#73d8cd
 1294,2019,City Streets,Public space,28,28,#ffb593
 1295,2019,City Streets,Public space,28,28,#ffb593
 1296,2019,City Streets,Public space,28,28,#ffb593
@@ -1306,20 +1306,20 @@ keyindex,year,topic,category,count,countall,color
 1305,2019,City Streets,Public space,28,28,#ffb593
 1306,2019,City Streets,Public space,28,28,#ffb593
 1307,2019,City Streets,Public space,28,28,#ffb593
-1308,2019,Medallion Loans,Treasury,45,45,#95d0dd
-1309,2019,Medallion Loans,Treasury,45,45,#95d0dd
-1310,2019,Medallion Loans,Treasury,45,45,#95d0dd
-1311,2019,Medallion Loans,Treasury,45,45,#95d0dd
-1312,2019,Medallion Loans,Treasury,45,45,#95d0dd
-1313,2019,Medallion Loans,Treasury,45,45,#95d0dd
-1314,2019,Medallion Loans,Treasury,45,45,#95d0dd
-1315,2019,Medallion Loans,Treasury,45,45,#95d0dd
-1316,2019,Medallion Loans,Treasury,45,45,#95d0dd
-1317,2019,Medallion Loans,Treasury,45,45,#95d0dd
-1318,2019,Medallion Loans,Treasury,45,45,#95d0dd
-1319,2019,Medallion Loans,Treasury,45,45,#95d0dd
-1320,2019,Medallion Loans,Treasury,45,45,#95d0dd
-1321,2019,Medallion Loans,Treasury,45,45,#95d0dd
+1308,2019,City Streets,Public space,28,28,#ffb593
+1309,2019,City Streets,Public space,28,28,#ffb593
+1310,2019,City Streets,Public space,28,28,#ffb593
+1311,2019,City Streets,Public space,28,28,#ffb593
+1312,2019,City Streets,Public space,28,28,#ffb593
+1313,2019,City Streets,Public space,28,28,#ffb593
+1314,2019,City Streets,Public space,28,28,#ffb593
+1315,2019,City Streets,Public space,28,28,#ffb593
+1316,2019,City Streets,Public space,28,28,#ffb593
+1317,2019,City Streets,Public space,28,28,#ffb593
+1318,2019,City Streets,Public space,28,28,#ffb593
+1319,2019,City Streets,Public space,28,28,#ffb593
+1320,2019,City Streets,Public space,28,28,#ffb593
+1321,2019,City Streets,Public space,28,28,#ffb593
 1322,2019,Medallion Loans,Treasury,45,45,#95d0dd
 1323,2019,Medallion Loans,Treasury,45,45,#95d0dd
 1324,2019,Medallion Loans,Treasury,45,45,#95d0dd
@@ -1351,20 +1351,20 @@ keyindex,year,topic,category,count,countall,color
 1350,2019,Medallion Loans,Treasury,45,45,#95d0dd
 1351,2019,Medallion Loans,Treasury,45,45,#95d0dd
 1352,2019,Medallion Loans,Treasury,45,45,#95d0dd
-1353,2019,Rikers Closing,Homeland Security,48,48,#ffb987
-1354,2019,Rikers Closing,Homeland Security,48,48,#ffb987
-1355,2019,Rikers Closing,Homeland Security,48,48,#ffb987
-1356,2019,Rikers Closing,Homeland Security,48,48,#ffb987
-1357,2019,Rikers Closing,Homeland Security,48,48,#ffb987
-1358,2019,Rikers Closing,Homeland Security,48,48,#ffb987
-1359,2019,Rikers Closing,Homeland Security,48,48,#ffb987
-1360,2019,Rikers Closing,Homeland Security,48,48,#ffb987
-1361,2019,Rikers Closing,Homeland Security,48,48,#ffb987
-1362,2019,Rikers Closing,Homeland Security,48,48,#ffb987
-1363,2019,Rikers Closing,Homeland Security,48,48,#ffb987
-1364,2019,Rikers Closing,Homeland Security,48,48,#ffb987
-1365,2019,Rikers Closing,Homeland Security,48,48,#ffb987
-1366,2019,Rikers Closing,Homeland Security,48,48,#ffb987
+1353,2019,Medallion Loans,Treasury,45,45,#95d0dd
+1354,2019,Medallion Loans,Treasury,45,45,#95d0dd
+1355,2019,Medallion Loans,Treasury,45,45,#95d0dd
+1356,2019,Medallion Loans,Treasury,45,45,#95d0dd
+1357,2019,Medallion Loans,Treasury,45,45,#95d0dd
+1358,2019,Medallion Loans,Treasury,45,45,#95d0dd
+1359,2019,Medallion Loans,Treasury,45,45,#95d0dd
+1360,2019,Medallion Loans,Treasury,45,45,#95d0dd
+1361,2019,Medallion Loans,Treasury,45,45,#95d0dd
+1362,2019,Medallion Loans,Treasury,45,45,#95d0dd
+1363,2019,Medallion Loans,Treasury,45,45,#95d0dd
+1364,2019,Medallion Loans,Treasury,45,45,#95d0dd
+1365,2019,Medallion Loans,Treasury,45,45,#95d0dd
+1366,2019,Medallion Loans,Treasury,45,45,#95d0dd
 1367,2019,Rikers Closing,Homeland Security,48,48,#ffb987
 1368,2019,Rikers Closing,Homeland Security,48,48,#ffb987
 1369,2019,Rikers Closing,Homeland Security,48,48,#ffb987
@@ -1399,20 +1399,20 @@ keyindex,year,topic,category,count,countall,color
 1398,2019,Rikers Closing,Homeland Security,48,48,#ffb987
 1399,2019,Rikers Closing,Homeland Security,48,48,#ffb987
 1400,2019,Rikers Closing,Homeland Security,48,48,#ffb987
-1401,2019,Amazon,Business,53,85,#f5cbc1
-1402,2019,Amazon,Business,53,85,#f5cbc1
-1403,2019,Amazon,Business,53,85,#f5cbc1
-1404,2019,Amazon,Business,53,85,#f5cbc1
-1405,2019,Amazon,Business,53,85,#f5cbc1
-1406,2019,Amazon,Business,53,85,#f5cbc1
-1407,2019,Amazon,Business,53,85,#f5cbc1
-1408,2019,Amazon,Business,53,85,#f5cbc1
-1409,2019,Amazon,Business,53,85,#f5cbc1
-1410,2019,Amazon,Business,53,85,#f5cbc1
-1411,2019,Amazon,Business,53,85,#f5cbc1
-1412,2019,Amazon,Business,53,85,#f5cbc1
-1413,2019,Amazon,Business,53,85,#f5cbc1
-1414,2019,Amazon,Business,53,85,#f5cbc1
+1401,2019,Rikers Closing,Homeland Security,48,48,#ffb987
+1402,2019,Rikers Closing,Homeland Security,48,48,#ffb987
+1403,2019,Rikers Closing,Homeland Security,48,48,#ffb987
+1404,2019,Rikers Closing,Homeland Security,48,48,#ffb987
+1405,2019,Rikers Closing,Homeland Security,48,48,#ffb987
+1406,2019,Rikers Closing,Homeland Security,48,48,#ffb987
+1407,2019,Rikers Closing,Homeland Security,48,48,#ffb987
+1408,2019,Rikers Closing,Homeland Security,48,48,#ffb987
+1409,2019,Rikers Closing,Homeland Security,48,48,#ffb987
+1410,2019,Rikers Closing,Homeland Security,48,48,#ffb987
+1411,2019,Rikers Closing,Homeland Security,48,48,#ffb987
+1412,2019,Rikers Closing,Homeland Security,48,48,#ffb987
+1413,2019,Rikers Closing,Homeland Security,48,48,#ffb987
+1414,2019,Rikers Closing,Homeland Security,48,48,#ffb987
 1415,2019,Amazon,Business,53,85,#f5cbc1
 1416,2019,Amazon,Business,53,85,#f5cbc1
 1417,2019,Amazon,Business,53,85,#f5cbc1
@@ -1452,33 +1452,33 @@ keyindex,year,topic,category,count,countall,color
 1451,2019,Amazon,Business,53,85,#f5cbc1
 1452,2019,Amazon,Business,53,85,#f5cbc1
 1453,2019,Amazon,Business,53,85,#f5cbc1
-1454,2020,ICE,etc,1,1,#8adad8
-1455,2020,Medallion City Council Task Force,Transportation,1,1,#8dd2d9
-1456,2020,Foie Gras Ban,etc,2,2,#c1de8b
-1457,2020,Foie Gras Ban,etc,2,2,#c1de8b
-1458,2020,Plastic Bag Ban,Environment,3,3,#e0bcd2
-1459,2020,Plastic Bag Ban,Environment,3,3,#e0bcd2
-1460,2020,Plastic Bag Ban,Environment,3,3,#e0bcd2
-1461,2020,Primaries,Election,4,4,#f89cb9
-1462,2020,Primaries,Election,4,4,#f89cb9
-1463,2020,Primaries,Election,4,4,#f89cb9
-1464,2020,Primaries,Election,4,4,#f89cb9
-1465,2020,BLM Defunding Police,Homeland Security,41,41,#efc3d6
-1466,2020,BLM Defunding Police,Homeland Security,41,41,#efc3d6
-1467,2020,BLM Defunding Police,Homeland Security,41,41,#efc3d6
-1468,2020,BLM Defunding Police,Homeland Security,41,41,#efc3d6
-1469,2020,BLM Defunding Police,Homeland Security,41,41,#efc3d6
-1470,2020,BLM Defunding Police,Homeland Security,41,41,#efc3d6
-1471,2020,BLM Defunding Police,Homeland Security,41,41,#efc3d6
-1472,2020,BLM Defunding Police,Homeland Security,41,41,#efc3d6
-1473,2020,BLM Defunding Police,Homeland Security,41,41,#efc3d6
-1474,2020,BLM Defunding Police,Homeland Security,41,41,#efc3d6
-1475,2020,BLM Defunding Police,Homeland Security,41,41,#efc3d6
-1476,2020,BLM Defunding Police,Homeland Security,41,41,#efc3d6
-1477,2020,BLM Defunding Police,Homeland Security,41,41,#efc3d6
-1478,2020,BLM Defunding Police,Homeland Security,41,41,#efc3d6
-1479,2020,BLM Defunding Police,Homeland Security,41,41,#efc3d6
-1480,2020,BLM Defunding Police,Homeland Security,41,41,#efc3d6
+1454,2019,Amazon,Business,53,85,#f5cbc1
+1455,2019,Amazon,Business,53,85,#f5cbc1
+1456,2019,Amazon,Business,53,85,#f5cbc1
+1457,2019,Amazon,Business,53,85,#f5cbc1
+1458,2019,Amazon,Business,53,85,#f5cbc1
+1459,2019,Amazon,Business,53,85,#f5cbc1
+1460,2019,Amazon,Business,53,85,#f5cbc1
+1461,2019,Amazon,Business,53,85,#f5cbc1
+1462,2019,Amazon,Business,53,85,#f5cbc1
+1463,2019,Amazon,Business,53,85,#f5cbc1
+1464,2019,Amazon,Business,53,85,#f5cbc1
+1465,2019,Amazon,Business,53,85,#f5cbc1
+1466,2019,Amazon,Business,53,85,#f5cbc1
+1467,2019,Amazon,Business,53,85,#f5cbc1
+1468,2020,blank,,0,99999,#ffffff
+1469,2020,blank,,0,99999,#ffffff
+1470,2020,ICE,etc,1,1,#8adad8
+1471,2020,Medallion City Council Task Force,Transportation,1,1,#8dd2d9
+1472,2020,Foie Gras Ban,etc,2,2,#c1de8b
+1473,2020,Foie Gras Ban,etc,2,2,#c1de8b
+1474,2020,Plastic Bag Ban,Environment,3,3,#e0bcd2
+1475,2020,Plastic Bag Ban,Environment,3,3,#e0bcd2
+1476,2020,Plastic Bag Ban,Environment,3,3,#e0bcd2
+1477,2020,Primaries,Election,4,4,#f89cb9
+1478,2020,Primaries,Election,4,4,#f89cb9
+1479,2020,Primaries,Election,4,4,#f89cb9
+1480,2020,Primaries,Election,4,4,#f89cb9
 1481,2020,BLM Defunding Police,Homeland Security,41,41,#efc3d6
 1482,2020,BLM Defunding Police,Homeland Security,41,41,#efc3d6
 1483,2020,BLM Defunding Police,Homeland Security,41,41,#efc3d6
@@ -1504,22 +1504,22 @@ keyindex,year,topic,category,count,countall,color
 1503,2020,BLM Defunding Police,Homeland Security,41,41,#efc3d6
 1504,2020,BLM Defunding Police,Homeland Security,41,41,#efc3d6
 1505,2020,BLM Defunding Police,Homeland Security,41,41,#efc3d6
-1506,2020,BLM Police Protest,Homeland Security,43,43,#ffadaf
-1507,2020,BLM Police Protest,Homeland Security,43,43,#ffadaf
-1508,2020,BLM Police Protest,Homeland Security,43,43,#ffadaf
-1509,2020,BLM Police Protest,Homeland Security,43,43,#ffadaf
-1510,2020,BLM Police Protest,Homeland Security,43,43,#ffadaf
-1511,2020,BLM Police Protest,Homeland Security,43,43,#ffadaf
-1512,2020,BLM Police Protest,Homeland Security,43,43,#ffadaf
-1513,2020,BLM Police Protest,Homeland Security,43,43,#ffadaf
-1514,2020,BLM Police Protest,Homeland Security,43,43,#ffadaf
-1515,2020,BLM Police Protest,Homeland Security,43,43,#ffadaf
-1516,2020,BLM Police Protest,Homeland Security,43,43,#ffadaf
-1517,2020,BLM Police Protest,Homeland Security,43,43,#ffadaf
-1518,2020,BLM Police Protest,Homeland Security,43,43,#ffadaf
-1519,2020,BLM Police Protest,Homeland Security,43,43,#ffadaf
-1520,2020,BLM Police Protest,Homeland Security,43,43,#ffadaf
-1521,2020,BLM Police Protest,Homeland Security,43,43,#ffadaf
+1506,2020,BLM Defunding Police,Homeland Security,41,41,#efc3d6
+1507,2020,BLM Defunding Police,Homeland Security,41,41,#efc3d6
+1508,2020,BLM Defunding Police,Homeland Security,41,41,#efc3d6
+1509,2020,BLM Defunding Police,Homeland Security,41,41,#efc3d6
+1510,2020,BLM Defunding Police,Homeland Security,41,41,#efc3d6
+1511,2020,BLM Defunding Police,Homeland Security,41,41,#efc3d6
+1512,2020,BLM Defunding Police,Homeland Security,41,41,#efc3d6
+1513,2020,BLM Defunding Police,Homeland Security,41,41,#efc3d6
+1514,2020,BLM Defunding Police,Homeland Security,41,41,#efc3d6
+1515,2020,BLM Defunding Police,Homeland Security,41,41,#efc3d6
+1516,2020,BLM Defunding Police,Homeland Security,41,41,#efc3d6
+1517,2020,BLM Defunding Police,Homeland Security,41,41,#efc3d6
+1518,2020,BLM Defunding Police,Homeland Security,41,41,#efc3d6
+1519,2020,BLM Defunding Police,Homeland Security,41,41,#efc3d6
+1520,2020,BLM Defunding Police,Homeland Security,41,41,#efc3d6
+1521,2020,BLM Defunding Police,Homeland Security,41,41,#efc3d6
 1522,2020,BLM Police Protest,Homeland Security,43,43,#ffadaf
 1523,2020,BLM Police Protest,Homeland Security,43,43,#ffadaf
 1524,2020,BLM Police Protest,Homeland Security,43,43,#ffadaf
@@ -1547,22 +1547,22 @@ keyindex,year,topic,category,count,countall,color
 1546,2020,BLM Police Protest,Homeland Security,43,43,#ffadaf
 1547,2020,BLM Police Protest,Homeland Security,43,43,#ffadaf
 1548,2020,BLM Police Protest,Homeland Security,43,43,#ffadaf
-1549,2020,Coronavirus,Health,51,51,#fcc593
-1550,2020,Coronavirus,Health,51,51,#fcc593
-1551,2020,Coronavirus,Health,51,51,#fcc593
-1552,2020,Coronavirus,Health,51,51,#fcc593
-1553,2020,Coronavirus,Health,51,51,#fcc593
-1554,2020,Coronavirus,Health,51,51,#fcc593
-1555,2020,Coronavirus,Health,51,51,#fcc593
-1556,2020,Coronavirus,Health,51,51,#fcc593
-1557,2020,Coronavirus,Health,51,51,#fcc593
-1558,2020,Coronavirus,Health,51,51,#fcc593
-1559,2020,Coronavirus,Health,51,51,#fcc593
-1560,2020,Coronavirus,Health,51,51,#fcc593
-1561,2020,Coronavirus,Health,51,51,#fcc593
-1562,2020,Coronavirus,Health,51,51,#fcc593
-1563,2020,Coronavirus,Health,51,51,#fcc593
-1564,2020,Coronavirus,Health,51,51,#fcc593
+1549,2020,BLM Police Protest,Homeland Security,43,43,#ffadaf
+1550,2020,BLM Police Protest,Homeland Security,43,43,#ffadaf
+1551,2020,BLM Police Protest,Homeland Security,43,43,#ffadaf
+1552,2020,BLM Police Protest,Homeland Security,43,43,#ffadaf
+1553,2020,BLM Police Protest,Homeland Security,43,43,#ffadaf
+1554,2020,BLM Police Protest,Homeland Security,43,43,#ffadaf
+1555,2020,BLM Police Protest,Homeland Security,43,43,#ffadaf
+1556,2020,BLM Police Protest,Homeland Security,43,43,#ffadaf
+1557,2020,BLM Police Protest,Homeland Security,43,43,#ffadaf
+1558,2020,BLM Police Protest,Homeland Security,43,43,#ffadaf
+1559,2020,BLM Police Protest,Homeland Security,43,43,#ffadaf
+1560,2020,BLM Police Protest,Homeland Security,43,43,#ffadaf
+1561,2020,BLM Police Protest,Homeland Security,43,43,#ffadaf
+1562,2020,BLM Police Protest,Homeland Security,43,43,#ffadaf
+1563,2020,BLM Police Protest,Homeland Security,43,43,#ffadaf
+1564,2020,BLM Police Protest,Homeland Security,43,43,#ffadaf
 1565,2020,Coronavirus,Health,51,51,#fcc593
 1566,2020,Coronavirus,Health,51,51,#fcc593
 1567,2020,Coronavirus,Health,51,51,#fcc593
@@ -1598,3 +1598,19 @@ keyindex,year,topic,category,count,countall,color
 1597,2020,Coronavirus,Health,51,51,#fcc593
 1598,2020,Coronavirus,Health,51,51,#fcc593
 1599,2020,Coronavirus,Health,51,51,#fcc593
+1600,2020,Coronavirus,Health,51,51,#fcc593
+1601,2020,Coronavirus,Health,51,51,#fcc593
+1602,2020,Coronavirus,Health,51,51,#fcc593
+1603,2020,Coronavirus,Health,51,51,#fcc593
+1604,2020,Coronavirus,Health,51,51,#fcc593
+1605,2020,Coronavirus,Health,51,51,#fcc593
+1606,2020,Coronavirus,Health,51,51,#fcc593
+1607,2020,Coronavirus,Health,51,51,#fcc593
+1608,2020,Coronavirus,Health,51,51,#fcc593
+1609,2020,Coronavirus,Health,51,51,#fcc593
+1610,2020,Coronavirus,Health,51,51,#fcc593
+1611,2020,Coronavirus,Health,51,51,#fcc593
+1612,2020,Coronavirus,Health,51,51,#fcc593
+1613,2020,Coronavirus,Health,51,51,#fcc593
+1614,2020,Coronavirus,Health,51,51,#fcc593
+1615,2020,Coronavirus,Health,51,51,#fcc593
