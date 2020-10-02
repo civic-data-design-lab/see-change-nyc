@@ -21,7 +21,7 @@
 			<nav id="nav" class="h-nav">
 				<ul>
 					<li id="city">City</li>
-					<li id="borough">Borough
+					<li><span id="borough">Borough</span><span id="currentborough"></span>
 						<ul>
 							<li id="all">All</li>
 							<li id="bronx">Bronx</li>
@@ -35,9 +35,11 @@
 			</nav>
 	</header>
 		<section id="profile-city">
-			<div id="radar-chart"></div>
+			<div id="chart-overall"></div>
 		</section>
 		<section id="profile-borough">
+			<div id="chart-profile"></div>
+			<div id="chart-neighborhoods"></div>
 		</section>
 	</main>
 	<script type="text/javascript" src="./js/neighborhood-health.js"></script>

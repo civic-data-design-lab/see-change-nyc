@@ -153,6 +153,9 @@ header {
 	min-width: 32px;
 	padding: 10px 20px;
 }
+#nav ul li:hover {
+	cursor: pointer;
+}
 #nav ul li:hover ul {
 	display: inline;
 }
@@ -168,6 +171,9 @@ header {
 }
 #nav ul ul li:not(:last-child) {
 	padding: 10px 0px 10px 20px;
+}
+#currentborough {
+	text-transform: capitalize;
 }
 section {
 	position: relative;
