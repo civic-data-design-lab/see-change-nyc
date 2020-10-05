@@ -1,6 +1,0 @@
-id,borough,neighborhood,whoRaceNonWhite,whoBornOutside,socioecoHighSchool,socioecoPoverty,socioecoUnemployment,socioecoRent,socioecoHelpful,homeDefects,homeRoaches,homeAir,homeBike,homePedInjury,homeBodega,homeFarmersMarket,healthChildObesity,healthChildAsthma,healthPhysicalActivity,healthUninsured,healthMedCare,healthFluVacc,healthAdultObesity,healthInfantMortality,healthLifeExpectancy
-1,NYC,Manhattan,53,29,13,14,7,45,70,48,20,9,29,21,9,48,16,264,81,9,10,50,15,3.4,84.7
-2,NYC,Bronx,91,35,29,25,13,58,67,32,35,7.8,12,28,15,24,24,410,70,12,12,49,32,5.4,80.9
-3,NYC,Brooklyn,64,37,20,21,9,52,73,41,26,7.8,13,23,20,50,19,186,72,12,10,38,27,3.6,82.9
-4,NYC,Queens,75,48,19,19,8,53,73,52,19,7.2,6,19,10,18,20,132,70,15,10,42,22,4,84.2
-5,NYC,Staten Island,38,22,11,17,6,49,83,66,5,6.8,4,34,12,4,19,96,75,7,8,39,25,4.5,81.9
