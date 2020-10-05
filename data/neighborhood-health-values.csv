@@ -1,0 +1,60 @@
+id,borough,neighborhood,whoRaceNonWhite,whoBornOutside,socioecoHighSchool,socioecoPoverty,socioecoUnemployment,socioecoRent,socioecoHelpful,homeDefects,homeRoaches,homeAir,homeBike,homePedInjury,homeBodega,homeFarmersMarket,healthChildObesity,healthChildAsthma,healthPhysicalActivity,healthUninsured,healthMedCare,healthFluVacc,healthAdultObesity,healthInfantMortality,healthLifeExpectancy
+101,Manhattan,Financial District,36,24,4,9,4,38,70,56,11,9.6,36,10,6,6,5,28,90,4,7,47,4,3.2,85.8
+102,Manhattan,Greenwich Village and Soho,26,24,4,9,4,38,70,56,11,9.5,31,9,7,1,5,38,90,4,7,47,4,0.9,85.8
+103,Manhattan,Lower East Side and Chinatown,70,34,24,18,8,48,66,36,36,8.9,37,20,18,4,16,297,77,11,8,47,10,3,82.2
+104,Manhattan,Clinton and Chelsea,41,28,6,11,5,41,66,54,15,9.8,27,15,7,4,14,169,83,11,8,51,10,4,83.1
+105,Manhattan,Midtown,33,28,6,11,5,41,66,54,15,11.3,27,18,11,4,9,98,83,11,8,51,10,2.3,84.8
+106,Manhattan,Stuyvesant Town and Turtle Bay,29,22,3,10,4,42,75,60,14,10.2,21,20,7,2,7,93,83,3,8,57,13,2.1,85.9
+107,Manhattan,Upper West Side,34,23,6,9,5,40,71,53,11,8.5,30,16,3,5,10,125,83,5,10,62,10,2.6,84.7
+108,Manhattan,Upper East Side,22,23,3,7,4,41,62,64,12,9.1,30,19,5,2,6,49,87,4,7,55,11,0.8,85.9
+109,Manhattan,Morningside Heights and Hamilton Heights,78,34,21,24,8,51,73,37,33,8,20,21,11,3,25,333,76,11,10,45,21,4.5,81.4
+110,Manhattan,Central Harlem,91,23,19,21,12,48,73,37,25,7.9,14,32,11,5,21,545,73,8,10,44,34,7.2,76.2
+111,Manhattan,East Harlem,88,24,25,23,11,48,67,42,36,8.2,30,29,17,8,23,580,68,12,14,46,28,5.9,77.3
+112,Manhattan,Washington Heights and Inwood,83,47,29,20,12,53,80,33,28,7.8,35,17,13,4,24,226,77,14,17,38,26,4.3,84
+201,Bronx,Mott Haven and Melrose,99,30,41,29,12,58,57,24,40,8.6,18,43,25,3,24,647,65,14,10,56,42,5.1,77.6
+202,Bronx,Hunts Point and Longwood,99,30,41,29,12,58,57,24,40,8.5,27,36,20,1,26,432,65,14,10,56,42,4.2,78.9
+203,Bronx,Morrisania and Crotona,99,31,36,31,16,60,62,27,42,7.8,29,34,10,1,24,442,68,12,15,53,36,6.4,76.2
+204,Bronx,Highbridge and Concourse,99,42,36,32,13,61,59,19,44,8.3,14,27,18,4,23,420,65,13,10,51,34,3.8,78.6
+205,Bronx,Fordham and University Heights,99,42,34,34,13,65,65,18,47,8.3,13,28,20,0,24,405,67,14,16,46,34,5.4,79.9
+206,Bronx,Belmont and East Tremont,94,31,36,31,16,60,62,27,42,8,14,34,37,2,24,464,68,12,15,53,36,5.8,77.7
+207,Bronx,Kingsbridge Heights and Bedford,94,44,32,26,14,61,63,29,43,7.8,12,26,18,3,25,451,68,16,11,48,33,3.6,79.4
+208,Bronx,Riverdale and Fieldston,66,34,18,15,9,52,77,39,24,7.5,2,17,10,4,21,218,72,8,12,46,24,4.4,80.9
+209,Bronx,Parkchester and Soundview,98,32,30,26,13,55,65,41,38,7.6,15,26,13,2,25,349,73,14,13,47,32,6,79.7
+210,Bronx,Throgs Neck and Co-op City,70,21,16,14,9,45,82,50,13,7.5,6,17,7,1,23,240,75,7,12,48,24,4.3,81.1
+211,Bronx,Morris Park and Bronxdale,76,35,24,21,12,55,76,47,21,7.4,10,18,17,1,23,325,74,12,12,44,32,8.1,79.9
+212,Bronx,Williamsbridge and Baychester,94,40,20,23,13,57,71,42,35,7.5,6,23,8,2,24,369,71,8,10,46,30,7.7,81
+301,Brooklyn,Greenpoint and Williamsburg,39,24,17,17,6,48,77,50,19,9.6,17,17,25,4,23,136,66,7,17,33,23,2.4,81.1
+302,Brooklyn,Fort Greene and Brooklyn Heights,54,20,11,12,8,39,77,29,18,8.8,26,11,12,5,14,249,76,4,12,37,24,2.8,80.6
+303,Brooklyn,Bedford Stuyvesant,89,20,21,23,13,53,66,40,30,8.1,11,25,57,5,22,375,70,11,14,35,29,5.7,76.8
+304,Brooklyn,Bushwick,91,35,35,25,13,55,67,40,35,8.1,14,22,31,4,28,290,75,18,13,37,26,3.8,80.4
+305,Brooklyn,East New York and Starrett City,97,36,23,30,10,52,72,38,34,7.7,8,26,13,5,25,315,70,7,14,35,35,6.2,78.6
+306,Brooklyn,Park Slope and Carroll Gardens,37,17,9,10,6,37,82,32,17,8.9,29,18,12,3,9,113,86,4,6,53,15,1.8,81.4
+307,Brooklyn,Sunset Park,77,48,41,29,8,57,69,49,28,8.5,9,23,45,2,18,104,68,22,4,40,24,2,82.6
+308,Brooklyn,Crown Heights and Prospect Heights,82,30,16,21,9,50,69,23,35,8,45,27,25,0,19,342,74,12,14,44,26,5.4,79.3
+309,Brooklyn,South Crown Heights and Lefferts Gardens,82,41,16,22,11,55,75,38,44,7.8,26,30,21,2,19,260,77,16,10,40,32,3.5,81.2
+310,Brooklyn,Bay Ridge and Dyker Heights,41,39,19,19,8,49,74,47,19,7.4,16,15,20,1,16,52,70,15,9,35,24,0.9,83.1
+311,Brooklyn,Bensonhurst,53,56,26,23,8,52,67,62,12,7,2,20,27,1,14,32,65,13,6,42,21,3.7,83.8
+312,Brooklyn,Borough Park,37,31,23,28,6,64,77,57,18,7.5,8,25,18,1,17,31,67,15,9,46,15,2.2,84.2
+313,Brooklyn,Coney Island,44,53,18,24,11,55,77,44,26,6.7,13,22,21,1,18,147,71,14,11,42,28,5.6,80.4
+314,Brooklyn,Flatbush and Midwood,63,43,18,22,9,57,68,40,39,7.5,16,26,21,2,21,113,69,16,9,38,28,4.1,82.4
+315,Brooklyn,Sheepshead Bay,30,48,15,19,8,53,68,50,18,6.8,7,20,25,1,17,42,67,10,9,36,26,2.9,83.7
+316,Brooklyn,Brownsville,99,30,27,28,14,57,65,29,36,8,9,32,15,8,23,475,74,12,14,41,41,4.9,75.1
+317,Brooklyn,East Flatbush,99,53,15,19,9,54,74,26,36,7.8,10,26,21,2,22,343,73,15,9,35,34,7.1,82.6
+318,Brooklyn,Flatlands and Canarsie,74,41,13,15,9,50,80,31,24,7.1,5,20,9,3,21,154,80,9,8,41,30,4.3,82
+401,Queens,Long Island City and Astoria,57,40,16,18,8,47,73,46,23,7.8,14,14,10,2,22,145,73,12,10,44,19,4.3,83.4
+402,Queens,Woodside and Sunnyside,74,55,19,20,5,51,76,41,26,9.3,11,10,16,1,19,102,72,16,9,43,20,4,85.4
+403,Queens,Jackson Heights,89,60,30,25,7,59,68,52,25,7.3,11,20,17,2,26,162,72,28,11,41,20,4.2,84.7
+404,Queens,Elmhurst and Corona,94,63,30,27,6,62,65,53,33,7.7,4,21,16,1,24,158,69,25,9,45,23,3.7,85.6
+405,Queens,Ridgewood and Maspeth,48,39,16,19,6,46,77,62,10,8,10,16,15,1,19,115,68,13,13,39,22,1.8,81.4
+406,Queens,Rego Park and Forest Hills,49,50,8,16,6,50,75,50,25,7.5,0,13,5,1,11,53,68,11,7,38,19,3.1,84.4
+407,Queens,Flushing and Whitestone,74,57,23,25,6,57,68,55,24,7.3,3,24,6,2,15,77,69,14,8,47,13,2.6,84.3
+408,Queens,Hillcrest and Fresh Meadows,69,47,14,22,9,54,70,52,19,7,8,23,5,3,18,118,70,11,14,44,20,2.8,83.9
+409,Queens,Kew Gardens and Woodhaven,82,51,23,22,8,55,70,62,15,7.3,0,25,11,0,22,133,67,15,7,43,23,4.1,82.9
+410,Queens,South Ozone Park and Howard Beach,76,45,23,19,10,56,77,59,8,6.8,4,21,8,0,21,111,69,8,7,38,27,4.8,81.7
+411,Queens,Bayside and Little Neck,57,43,11,14,6,46,86,54,5,6.9,5,10,5,0,11,38,71,5,3,49,20,3.4,84.7
+412,Queens,Jamaica and Hollis,98,42,19,20,12,56,76,54,20,7,0,26,20,3,23,202,69,13,13,34,30,6.2,80.5
+413,Queens,Queens Village,88,42,13,13,8,50,75,61,9,6.5,3,13,14,0,20,115,68,11,11,48,27,5.7,82.9
+414,Queens,Rockaway and Broad Channel,67,26,22,18,9,53,79,44,20,6,13,17,8,2,23,168,72,11,10,38,32,6.3,76.5
+501,Staten Island,St. George and Stapleton,62,24,15,21,7,51,76,59,9,7.1,3,47,28,3,21,157,73,12,10,37,24,6.9,79
+502,Staten Island,South Beach and Willowbrook,32,27,11,14,6,52,82,72,4,6.9,6,32,7,1,19,62,70,4,7,40,25,2.9,81.2
+503,Staten Island,Tottenville and Great Kills,16,15,8,11,6,42,86,75,0,6.6,3,19,4,0,17,40,80,4,6,38,26,2.4,81.3
