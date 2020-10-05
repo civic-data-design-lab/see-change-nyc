@@ -192,24 +192,13 @@
 	padding-top: 36vh;
 	z-index: 10;
 }
-#fastforward {
-	font-family: 'Graphik-Regular', sans-serif;
-	font-size: 0.5em;
-	line-height: 1em;
-	letter-spacing: 2px;
-	text-transform: uppercase;
-	display: inline-block;
-	position: relative;
-	top: -4px;
-	padding: 3px 9px;
-	background: #fff;
-	border-radius: 9px;
-	border: solid 1px #000;
-}
-#fastforward:hover {
+#skip:hover {
 	cursor: pointer;
-	color: #fff;
-	background: #000;
+	opacity: 0.3;
+}
+#fastforward {
+	height: 0.8em;
+	width: auto;
 }
 
 /*wide screen ratio*/

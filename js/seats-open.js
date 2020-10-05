@@ -461,7 +461,7 @@ function councilSeatsAppearing(seatList, currentSeat, nextSeat) {
 		})
 };
 
-$("#fastforward").on("click", function() {
+$("#skip").on("click", function() {
 	animationDuration = 10;
 	$("#text-animation").hide();
 });
