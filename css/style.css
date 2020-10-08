@@ -87,6 +87,14 @@ body {
 	font-size: 3em;
 	text-transform: uppercase;
 }
+.data2 {
+	font-family: 'Graphik-Bold', sans-serif;
+	font-size: 1.5em;
+	text-transform: uppercase;
+}
+.black {
+	color: #000;
+}
 .pink {
 	color: #dd4599;
 }
