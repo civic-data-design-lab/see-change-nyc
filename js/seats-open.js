@@ -58,7 +58,7 @@ const svg = d3.select("#open-seats-map")
 // color
 const color = d3.scaleOrdinal()
 	.domain(["Staten Island", "Brooklyn", "Manhattan", "Queens", "Bronx"])
-	.range(["#ff806b", "#8f2e62", "#1e9bb8", "#424d9b", "#dcc651"])
+	.range(["#dcc651", "#8f2e62", "#1e9bb8", "#424d9b", "#f05d43"])
 	.unknown("#636b75");
 
 // tooltip
@@ -353,7 +353,7 @@ const labelposition = [
 	{label: "Bronx", x: 9, y: 11, class: "labelbx", delay: 1.5},
 	{label: "Borough President", x: 13, y: 3, class: "labelbp", delay: 0.5},
 	{label: "Comptroller", x: 3.5, y: 6.5, class: "labelcompt", delay: 0.5},
-	{label: "Public Advocate", x: 4.5, y: 9.5, class: "labelpubad", delay: 0.5},
+	{label: "Public Advocate", x: 12.5, y: 9.5, class: "labelpubad", delay: 0.5},
 	{label: "Mayor", x: 6, y: 12, class: "labelmayor", delay: 0.5}
 ];
 
