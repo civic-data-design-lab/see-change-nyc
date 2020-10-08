@@ -58,8 +58,8 @@ const svg = d3.select("#open-seats-map")
 // color
 const color = d3.scaleOrdinal()
 	.domain(["Staten Island", "Brooklyn", "Manhattan", "Queens", "Bronx"])
-	.range(["#ef9b50", "#dd4599", "#42bfac", "#a7d15c", "#447dae"])
-	.unknown("#606060");
+	.range(["#ff806b", "#8f2e62", "#1e9bb8", "#424d9b", "#dcc651"])
+	.unknown("#636b75");
 
 // tooltip
 var div = d3.select("body").append("div")
@@ -144,6 +144,7 @@ function seatMap(svg, dataset) {
 			.attr("y", (d) => {
 				return d.district == "District 8" || d.district == "District 34" ? null
 					: d.position == "Comptroller" ? 0 - (size * +d.row) - (2 * size) - size/2
+					: d.position == "Public Advocate" ? 0 - (size * +d.row) - (2 * size) - size/2
 					: d.position == "Mayor" ? 0 - (size * +d.row) - (3 * size) - size/2
 					: 0 - (size * +d.row) - size/2;
 					// : 0 - (size - offset);
@@ -154,12 +155,14 @@ function seatMap(svg, dataset) {
 			.attr("width", (d) => {
 				return d.district == "District 8" || d.district == "District 34" ? null
 					: d.position == "Comptroller" ? 2 * size - offset
+					: d.position == "Public Advocate" ? 2 * size - offset
 					: d.position == "Mayor" ? 3 * size - offset
 					: size - offset;
 			})
 			.attr("height", (d) => {
 				return d.district == "District 8" || d.district == "District 34" ? null
 					: d.position == "Comptroller" ? 2 * size - offset
+					: d.position == "Public Advocate" ? 2 * size - offset
 					: d.position == "Mayor" ? 3 * size - offset
 					: size - offset;
 			})
@@ -349,8 +352,9 @@ const labelposition = [
 	{label: "Queens", x: 10, y: 7, class: "labelqn", delay: 2.5},
 	{label: "Bronx", x: 9, y: 11, class: "labelbx", delay: 1.5},
 	{label: "Borough President", x: 13, y: 3, class: "labelbp", delay: 0.5},
-	{label: "Comptroller", x: 2.5, y: 6.5, class: "labelcompt", delay: 0.5},
-	{label: "Mayor", x: 5, y: 12, class: "labelmayor", delay: 0.5}
+	{label: "Comptroller", x: 3.5, y: 6.5, class: "labelcompt", delay: 0.5},
+	{label: "Public Advocate", x: 4.5, y: 9.5, class: "labelpubad", delay: 0.5},
+	{label: "Mayor", x: 6, y: 12, class: "labelmayor", delay: 0.5}
 ];
 
 const boroughLabels = svg.append("g")
@@ -361,15 +365,59 @@ const boroughLabels = svg.append("g")
 	.append("text")
 		.text((d) => d.label)
 		.attr("x", (d) => d.x * size - size/2)
-		.attr("y", (d) => (height) - (d.y * size) + offset)
+		.attr("y", (d) => {
+			return (d.class == "labelpubad") ? (height) - (d.y * size) - 3.5 * offset
+			: (height) - (d.y * size) + 2 * offset
+		})
 		.attr("class", (d) => {
-			return (d.class == "labelcompt" || d.class == "labelmayor") ? d.class + " labelinvert"
+			return (d.class == "labelcompt" || d.class == "labelpubad" || d.class == "labelmayor") ? d.class + " labelinvert"
 			: d.class
 		})
 		.attr("opacity", 0);
 
+// text wrap
+function wrapText(text, width) {
+	text.each(function() {
+		var text = d3.select(this),
+			words = text.text().split(/\s+/).reverse(),
+			word,
+			line = [],
+			lineNumber = 0,
+			lineHeight = 1.4,
+			anchor = text.attr("text-anchor"),
+			x = text.attr("x"),
+			y = text.attr("y"),
+			dy = parseFloat(text.attr("dy")),
+			tspan = text.text(null)
+				.append("tspan")
+				.attr("text-anchor", anchor)
+				.attr("x", x)
+				.attr("y", y)
+				.attr("dy", dy + "em");
+		while (word = words.pop()) {
+			line.push(word);
+			tspan.text(line.join(" "));
+			if (tspan.node().getComputedTextLength() > width) {
+				line.pop();
+				tspan.text(line.join(" "));
+				line = [word];
+				tspan = text.append("tspan")
+					.attr("text-anchor", anchor)
+					.attr("x", x)
+					.attr("y", y)
+					.attr("dy", ++lineNumber * lineHeight + dy + "em")
+					.text(word);
+			}
+		}
+	})
+}
+svg.select(".labelborough")
+	.select(".labelpubad")
+	.attr("dy", 0)
+	.call(wrapText, 20)
+
 // labels appearing animation
-var labelList = ["labelsi", "labelbk", "labelmn", "labelqn", "labelbx", "labelbp", "labelcompt", "labelmayor"];
+var labelList = ["labelsi", "labelbk", "labelmn", "labelqn", "labelbx", "labelbp", "labelcompt", "labelpubad", "labelmayor"];
 var currentLabel = labelList[0];
 var nextLabel = labelList[1];
 
@@ -390,7 +438,7 @@ function labelsAppearing(labelList, currentLabel, nextLabel) {
 
 // text animation
 var textList = [
-		{text: "New York City Government has 58 seats", delay: 0},
+		{text: "New York City Government has 59 seats", delay: 0},
 		{text: "Staten Island City Council has 3 seats", delay: 1.5},
 		{text: "Brooklyn City Council has 16 seats", delay: 1.5}, 
 		{text: "Manhattan City Council has 10 seats", delay: 2.5}, 
@@ -398,6 +446,7 @@ var textList = [
 		{text: "Bronx City Council has 9 seats", delay: 1.5},
 		{text: "There are 5 Borough President positions", delay: 0.5},
 		{text: "1 Comptroller", delay: 0.5}, 
+		{text: "1 Public Advocate", delay: 0.5}, 
 		{text: "And finally, a Mayor", delay: 0.5}
 ];
 var currentText = textList[0];
@@ -428,8 +477,8 @@ function textAppearing(textList, currentText, nextText) {
 };
 
 // seat count animation
-var totalSeatList = [0, 3, 11, 19, 20, 24, 29, 30, 36, 43, 46, 51, 56, 57, 58];
-var councilSeatList = totalSeatList.slice(0,-3);
+var totalSeatList = [0, 3, 11, 19, 20, 24, 29, 30, 36, 43, 46, 51, 56, 57, 58, 59];
+var councilSeatList = totalSeatList.slice(0,-4);
 
 var currentSeat = totalSeatList[0];
 var nextSeat = totalSeatList[1];
@@ -462,7 +511,7 @@ function councilSeatsAppearing(seatList, currentSeat, nextSeat) {
 };
 
 $("#skip").on("click", function() {
-	animationDuration = 10;
+	animationDuration = 5;
 	$("#text-animation").hide();
 });
 
@@ -481,13 +530,13 @@ $(document).ready(function(){
 	const bx1 = {shapeID: "bx1", shapeName: "Bronx", imgSrc: "bx-1.svg"};
 	const bx2 = {shapeID: "bx2", shapeName: "", imgSrc: "bx-2.svg"};
 	const boroughpresident = {shapeID: "bp", shapeName: "Borough President", imgSrc: "bp.svg"};
-	const comptroller = {shapeID: "compt", shapeName: "Comptroller", imgSrc: "compt.svg"};
+	const comptroller = {shapeID: "compt", shapeName: "Comptroller", imgSrc: "com-pa.svg"};
+	const publicadvocate = {shapeID: "pubad", shapeName: "Public Advocate", imgSrc: "com-pa.svg"};
 	const mayor = {shapeID: "mayor", shapeName: "Mayor", imgSrc: "mayor.svg"};
 
-	allShapes = {
-		si1:si1, bk1:bk1, bk2:bk2, mn1:mn1, mn2:mn2, mn3:mn3, qn1:qn1, qn2:qn2, qn3:qn3, bx1:bx1, bx2:bx2, boroughpresident:boroughpresident, comptroller:comptroller, mayor:mayor
-	}
-	const nextShapeImg = [si1, bk1, bk2, mn1, mn2, mn3, qn1, qn2, qn3, bx1, bx2, boroughpresident, comptroller, mayor];
+	allShapes = {si1:si1, bk1:bk1, bk2:bk2, mn1:mn1, mn2:mn2, mn3:mn3, qn1:qn1, qn2:qn2, qn3:qn3, bx1:bx1, bx2:bx2, boroughpresident:boroughpresident, comptroller:comptroller, publicadvocate:publicadvocate, mayor:mayor};
+
+	const nextShapeImg = [si1, bk1, bk2, mn1, mn2, mn3, qn1, qn2, qn3, bx1, bx2, boroughpresident, comptroller, publicadvocate, mayor];
 
 	for (var i = 0; i < nextShapeImg.length; i++) {
 		var templateString = "<div class='shape-box' id='" + nextShapeImg[i].shapeID + "'><img class='shape' src='./img/open-seats/" + nextShapeImg[i].imgSrc + "'><br><span class='shape-name'>" + nextShapeImg[i].shapeName + "</span></div>";
@@ -499,13 +548,13 @@ $(document).ready(function(){
 		if ($(".open").hasClass("openfill")) {
 			$(".open").removeClass("openfill");
 			$("#seats-city-council").html("51");
-			$("#seats-total").html("58");
+			$("#seats-total").html("59");
 			$(".labelinvert").css("fill", "#aaa");
 		}
 		else {
 			$(".open").addClass("openfill");
 			$("#seats-city-council").html("<span class='grey'>35/</span>51");
-			$("#seats-total").html("<span class='grey'>41/</span>58");
+			$("#seats-total").html("<span class='grey'>41/</span>59");
 			$(".labelinvert").css("fill", "#000");
 		}
 	});

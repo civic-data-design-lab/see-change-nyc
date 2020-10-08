@@ -93,14 +93,8 @@
 	font-size: 0.8em;
 	min-height: 28px;
 }
-#bx2 {
-	margin-right: 34%;
-}
 #compt {
 	word-break: break-all;
-}
-#bp, #compt, #mayor {
-	margin-top: 20px;
 }
 #tooltip {
 	position: absolute;
@@ -298,6 +292,9 @@
 	.shape {
 		width: auto;
 		height: 8vh;
+	}
+	#bx1>.shape, #bx2>.shape, #bp>.shape {
+		height: 10vh;
 	}
 	.h3 {
 		font-size: 1em;
