@@ -20,12 +20,15 @@
 #chart-neighborhoods svg {
 	position: relative;
 	float: left;
-	width: 30%;
 	margin: 0px 1.5%;
 }
 .labelfeature {
 	font-family: 'Graphik-Regular', sans-serif;
 	font-size: 0.375em;
+}
+.labelprofile {
+	font-family: 'Graphik-Bold', sans-serif;
+	font-size: 0.8em;
 }
 .labelneighborhood {
 	font-family: 'Graphik-Regular', sans-serif;
@@ -42,8 +45,38 @@
 	color: #fff;
 	background: #aaa;
 }
-svg.hidden {
-	display: none;
+#tooltipneighborhood {
+	position: absolute;
+	margin: 0;
+	width: 225px;
+	padding: 10px;
+	background: #fff;
+	border: solid 3px #000;
+	border-radius: 15px;
+}
+#tooltipneighborhood p {
+	font-size: 0.9em;
+	line-height: 1.2em;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	color: #000;
+}
+#tooltipneighborhood p.avg {
+	margin-top: 1em;
+	font-size: 0.8em;
+}
+#tooltipneighborhood b {
+	font-family: 'Graphik-Bold', sans-serif;
+	text-transform: uppercase;
+}
+svg.selected {
+	background: #efefef;
+}
+svg.selected>g>circle {
+	stroke: #aaa;
+}
+svg.selected>g>line {
+	stroke: #aaa;
 }
 
 /*wide screen ratio*/
@@ -51,9 +84,13 @@ svg.hidden {
 	#chart-overall, #chart-profile {
 		max-height: 80vh;
 		width: 40%;
+		margin-top: calc(4vh + 40px);
 	}
 	#chart-neighborhoods {
 		width: calc(60% - 80px);
+	}
+	#chart-neighborhoods svg {
+		width: 22%;
 	}
 }
 /*typical landscape screen ratio*/
@@ -61,9 +98,13 @@ svg.hidden {
 	#chart-overall, #chart-profile {
 		max-height: 80vh;
 		width: 45%;
+		margin-top: calc(6vh + 40px);
 	}
 	#chart-neighborhoods {
 		width: calc(55% - 80px);
+	}
+	#chart-neighborhoods svg {
+		width: 30%;
 	}
 }
 /*typical landscape screen ratio*/
@@ -71,9 +112,13 @@ svg.hidden {
 	#chart-overall, #chart-profile {
 		max-height: 80vh;
 		width: 55%;
+		margin-top: calc(6vh + 40px);
 	}
 	#chart-neighborhoods {
 		width: calc(45% - 80px);
+	}
+	#chart-neighborhoods svg {
+		width: 45%;
 	}
 }
 /*portrait screen ratio*/
@@ -84,5 +129,8 @@ svg.hidden {
 	}
 	#chart-neighborhoods {
 		width: 80vw;
+	}
+	#chart-neighborhoods svg {
+		width: 30%;
 	}
 }
