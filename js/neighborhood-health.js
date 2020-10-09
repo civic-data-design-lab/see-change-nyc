@@ -241,13 +241,12 @@ const categoryColor = d3.scaleOrdinal()
 
 const neighborhoodColor = d3.scaleOrdinal()
 	.domain(["101", "102", "103", "104", "105", "106", "107", "108", "109", "110", "111", "112", "201", "202", "203", "204", "205", "206", "207", "208", "209", "210", "211", "212", "301", "302", "303", "304", "305", "306", "307", "308", "309", "310", "311", "312", "313", "314", "315", "316", "317", "318", "401", "402", "403", "404", "405", "406", "407", "408", "409", "410", "411", "412", "413", "414", "501", "502", "503"])
-	.range(["#fccea1", "#c199b6", "#b1e4e2", "#c39af4", "#e0e769", "#f0a4b5", "#50d2d2", "#c7d7db", "#efd3a0", "#ffed64", "#7f8fed", "#a5c7e7",
-	"#fccea1", "#c199b6", "#b1e4e2", "#c39af4", "#e0e769", "#f0a4b5", "#50d2d2", "#c7d7db", "#efd3a0", "#ffed64", "#7f8fed", "#a5c7e7",
-	"#fccea1", "#c199b6", "#b1e4e2", "#c39af4", "#e0e769", "#f0a4b5", "#50d2d2", "#c7d7db", "#efd3a0", "#ffed64", "#7f8fed", "#a5c7e7",
-	"#fccea1", "#c199b6", "#b1e4e2", "#c39af4", "#e0e769", "#f0a4b5", "#50d2d2", "#c7d7db", "#efd3a0", "#ffed64", "#7f8fed", "#a5c7e7",
-	"#fccea1", "#c199b6", "#b1e4e2", "#c39af4", "#e0e769", "#f0a4b5", "#50d2d2", "#c7d7db", "#efd3a0", "#ffed64", "#7f8fed", "#a5c7e7",
-	"#fccea1", "#c199b6", "#b1e4e2", "#c39af4", "#e0e769", "#f0a4b5", "#50d2d2", "#c7d7db", "#efd3a0", "#ffed64", "#7f8fed"])
-	.unknown("#606060");
+	.range(["#26849c", "#2c70b9", "#267890", "#459bb0", "#2d82be", "#26849c", "#0c5cad", "#1288be", "#0f6885", "#2f85bf", "#309ab4", "#2773b3",
+	"#b25d3a", "#eb8158", "#cf4d57", "#c26051", "#df535a", "#921f29", "#b23f50", "#e98c8a", "#8d3517", "#cf5644", "#902c41", "#af5b5b",
+	"#a65b69", "#84555c", "#8d4c82", "#b9647c", "#975d6c", "#b9647c", "#a94c5c", "#95245b", "#ae4053", "#9d4892", "#b56379", "#8b4a56", "#994349", "#903f53", "#75236d", "#b55b8b", "#9b5166", "#a53945",
+	"#433f90", "#636aa6", "#2f2073", "#3c5aa1", "#4d579a", "#312b91", "#483797", "#212775", "#4c3c8b", "#212768", "#6060a3", "#3c5aa1", "#6e69ae", "#534695",
+	"#dcbf6b", "#999e20", "#e2d348"])
+	.unknown("#636b75");
 
 // wrap multi-line text spans
 function wrapText(text, width) {
@@ -824,7 +823,8 @@ function neighborhoodChart(){
 			.attr("stroke", (d) => neighborhoodColor(d.id))
 			.attr("stroke-width", 1)
 			.attr("fill", (d) => neighborhoodColor(d.id))
-			.attr("opacity", 0.7)
+			.style("mix-blend-mode", "multiply")
+			.attr("opacity", 0.8)
 		.on("mouseover", function (event, d) {
 			d3.select(this)
 				.transition()
@@ -847,7 +847,7 @@ function neighborhoodChart(){
 		.on("mouseout", function () {
 			d3.select(this).transition()
 				.duration("50")
-				.attr("opacity", 0.7)
+				.attr("opacity", 0.8)
 			// divBorough.style("display", "none");
 		})
 }
