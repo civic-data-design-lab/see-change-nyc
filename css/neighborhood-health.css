@@ -1,6 +1,3 @@
-.grey:hover {
-	color: #000;
-}
 #chart-overall {
 	position: relative;
 	margin: calc(10vh + 40px) auto 0px auto;

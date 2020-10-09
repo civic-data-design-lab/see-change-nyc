@@ -387,11 +387,14 @@ function plotAxesLabels(svg){
 		.enter()
 		.append("text")
 			.attr("class", "labelfeature")
-			.attr("x", (d) => featureToCoordinate(d, "label", "x"))
-			.attr("y", (d) => featureToCoordinate(d, "label", "y"))
-			.attr("transform-origin", (d) => featureToCoordinate(d, "label", "x") + " " + featureToCoordinate(d, "label", "y"))
+			.attr("x", 0)
+			.attr("y", 0)
+			// .attr("x", (d) => featureToCoordinate(d, "label", "x"))
+			// .attr("y", (d) => featureToCoordinate(d, "label", "y"))
+			// .attr("transform-origin", (d) => featureToCoordinate(d, "label", "x") + " " + featureToCoordinate(d, "label", "y"))
 			.attr("text-anchor", (d) => transformLabel(d, "anchor"))
-			.attr("transform", (d) => "rotate(" + transformLabel(d, "angleDeg") + ")")
+			// .attr("transform", (d) => "rotate(" + transformLabel(d, "angleDeg") + ")")
+			.attr("transform", (d) => "translate(" + featureToCoordinate(d, "label", "x") + "," + featureToCoordinate(d, "label", "y") + ") rotate(" + transformLabel(d, "angleDeg") + ")")
 			.text((d) => featureName(d))
 			.attr("dy", 0)
 			.call(wrapText, 50);
@@ -521,6 +524,10 @@ $(window).resize(function() {
 
 function scrollToProfile() {
 	$("html, body").animate({scrollTop: winHeight});
+};
+
+function scrollToTop() {
+	$("html, body").animate({scrollTop: 0});
 };
 
 // filter boroughs via nav menu and on city chart click
@@ -691,7 +698,7 @@ function boroughChart(data){
 			.attr("fill", (d) => boroughColor(d.borough))
 			.attr("fill-opacity", (d) => {
 				return (d.area == "city") ? 0.2
-				: (d.area == "borough") ? 0.4
+				: (d.area == "borough") ? 0.5
 				: 0
 			})
 		.on("mouseover", function (event, d) {
@@ -859,6 +866,8 @@ $("#city").on("click", function() {
 	$("#nav>ul>li>ul>li").addClass("grey").css("color", "#aaa");
 	$("#currentborough").html("");
 	$(".svgneighborhood").css("display", "block");
+
+	scrollToTop();
 });
 $("#borough").on("click", function() {
 	$(this).removeClass("grey").css("color", "#000");
@@ -867,6 +876,8 @@ $("#borough").on("click", function() {
 	$("#nav>ul>li>ul>li").addClass("grey").css("color", "#aaa");
 	$("#nyc").removeClass("grey").css("color", "#000");
 	$("#currentborough").html("&mdash;All");
+
+	scrollToProfile();
 });
 // nav click by filtering boroughs
 $("#nav>ul>li>ul>li").on("click", function() {

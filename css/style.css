@@ -180,6 +180,9 @@ header {
 #nav ul ul li:not(:last-child) {
 	padding: 10px 0px 10px 20px;
 }
+#nav .grey:hover {
+	color: #000;
+}
 #currentborough {
 	text-transform: capitalize;
 }
