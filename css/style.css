@@ -112,7 +112,7 @@ header {
 	height: 40px;
 	top: 0px;
 	left: 0px;
-	font-weight: 900;
+	/*font-weight: 900;*/
 	font-size: 1em;
 	z-index: 10;
 	background: #fff;

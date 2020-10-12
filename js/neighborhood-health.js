@@ -114,6 +114,7 @@ const dataset = d3.csv("./data/neighborhood-health.csv")
 		neighborhoodList = data.map(function(item) {return item.id});
 
 		// plot overall chart
+		plotCategoryArcs(svgCity);
 		plotRadialGrid(svgCity);
 		plotAxes(svgCity);
 		plotAxesLabels(svgCity)
@@ -122,6 +123,7 @@ const dataset = d3.csv("./data/neighborhood-health.csv")
 		cityChart();
 
 		// plot profile chart
+		plotCategoryArcs(svgBorough);
 		plotRadialGrid(svgBorough);
 		plotAxes(svgBorough);
 		plotAxesLabels(svgBorough)
@@ -150,8 +152,8 @@ const dataset = d3.csv("./data/neighborhood-health.csv")
 });
 
 // aspect ratio
-const width = 300;
-const height = 350;
+const width = 330;
+const height = 370;
 const radius = 150;
 
 // define svg
@@ -179,6 +181,8 @@ var divNeighborhood = d3.select("body").append("div")
 // define keys & features
 let keys = [];
 let features = [];
+let categories = ["Demographic", "Social & Economic", "Housing & Neighborhood", "Health"];
+// let categories = [{name:"Demographic", start:0, end:2, topics:2}, {name:"Social & Economic", start:2, end:7, topics: 5}, {name:"Housing & Neighborhood", start:7, end:14, topics: 7}, {name:"Health", start:14, end:23, topics:9}];
 let boroughList = [];
 let neighborhoodList = [];
 
@@ -235,8 +239,12 @@ const boroughColor = d3.scaleOrdinal()
 	// .range(["#be90f3", "#7283eb", "#f0a4b5", "#50d2d2", "#e6ba68", "#606060"])
 	// .unknown("#a96e9b");
 
+const categoryId = d3.scaleOrdinal()
+	.domain(categories)
+	.range(["demographic", "socioeco", "home", "health"]);
+
 const categoryColor = d3.scaleOrdinal()
-	.domain(["Demographic", "Social & Economic", "Housing & Neighborhood", "Health"])
+	.domain(categories)
 	.range(["#ff6666", "#e2cf64", "#75dca5", "#79c2e2"]);
 
 const neighborhoodColor = d3.scaleOrdinal()
@@ -311,7 +319,7 @@ function angleToCoordinate(angle, value) {
 	let x = Math.cos(angle) * radialScale(value);
 	let y = Math.sin(angle) * radialScale(value);
 	return {
-		"x": radius + x,
+		"x": width/2 + x,
 		"y": height/2 - y
 	};
 };
@@ -397,6 +405,143 @@ function plotAxesLabels(svg){
 			.text((d) => featureName(d))
 			.attr("dy", 0)
 			.call(wrapText, 50);
+};
+
+// plot category arcs
+const categoryArcLength = [2, 5, 7, 9];
+const categoryArcEnd = categoryArcLength.map((item, index) => categoryArcLength.slice(0,index + 1).reduce((accumulator, value) => accumulator + value));
+const categoryArcStart = categoryArcEnd.map((item, index) => item - categoryArcLength[index]);
+const categoryArcCenter = categoryArcStart.map((item, index) => item + (categoryArcLength[index]/2));
+
+function categoryToArc(inputCategory, output) {
+	let i = categories.findIndex((category) => category == inputCategory);
+	let gap =  Math.PI/180;
+		 		
+	startAngle = (2 * Math.PI * categoryArcStart[i] / features.length) - (Math.PI / features.length) + gap;
+	endAngle = (2 * Math.PI * categoryArcEnd[i] / features.length) - (Math.PI / features.length) - gap;
+
+	if (output == "start") {
+		return startAngle;
+	} else if (output == "end") {
+		return endAngle;
+	}
+};
+
+function categoryRadius(inputCategory) {
+	let i = categories.findIndex((category) => category == inputCategory);
+	if (i & 1) {
+		return radius + 10;
+	}
+	else {
+		return radius + 5;
+	}
+}
+
+function arcCoordinate(inputCategory, angle, coordinate) {
+	let i = categories.findIndex((category) => category == inputCategory);
+
+	if (i & 1) {
+		value = 16;
+	}
+	else {
+		value = 15.5;
+	}
+
+	// let coordinates = angleToCoordinate(angle, value);
+	let x = Math.sin(angle) * radialScale(value);
+	let y = Math.cos(angle) * radialScale(value);
+
+	if (coordinate == "cx") {
+		return width/2 + x;
+		// return coordinates.x;
+	} else if (coordinate == "cy") {
+		return height/2 - y;
+		// return coordinates.y;
+	} else if (coordinate == "degree") {
+		return angleDeg;
+	}
+};
+
+var arc = d3.arc()
+	.innerRadius((d) => categoryRadius(d))
+	.outerRadius((d) => categoryRadius(d))
+	.startAngle((d) => categoryToArc(d, "start"))
+	.endAngle((d) => categoryToArc(d, "end"));
+
+var section = d3.arc()
+	.innerRadius(10)
+	.outerRadius((d) => categoryRadius(d))
+	.startAngle((d) => categoryToArc(d, "start"))
+	.endAngle((d) => categoryToArc(d, "end"));
+
+function plotCategoryArcs(svg) {
+	// arc lines
+	svg.append("g")
+		.attr("class", "arc")
+		.selectAll("path")
+		.data(categories)
+		.enter()
+		.append("path")
+			.attr("id", (d) => categoryId(d))
+			.attr("d", (d) => arc(d))
+			.attr("stroke", (d) => categoryColor(d))
+			.attr("stroke-width", 1)
+			.attr("fill-opacity", 0)
+			.attr("transform", "translate(" + width/2 + " " + height/2 + ")")
+	// arc section fill
+	svg.append("g")
+		.attr("class", "section")
+		.selectAll("path")
+		.data(categories)
+		.enter()
+		.append("path")
+			.attr("class", "categorysection")
+			.attr("d", (d) => section(d))
+			.attr("stroke-width", 0)
+			.attr("fill", (d) => categoryColor(d))
+			.attr("fill-opacity", 0)
+			.attr("transform", "translate(" + width/2 + " " + height/2 + ")")
+	// circle start points
+	svg.select(".arc")
+		.append("g")
+		.attr("class", "startpoints")
+		.selectAll("circle")
+		.data(categories)
+		.enter()
+		.append("circle")
+			.attr("cx", (d) => arcCoordinate(d, categoryToArc(d, "start"), "cx"))
+			.attr("cy", (d) => arcCoordinate(d, categoryToArc(d, "start"), "cy"))
+	// circle end points
+	svg.select(".arc")
+		.append("g")
+		.attr("class", "endpoints")
+		.selectAll("circle")
+		.data(categories)
+		.enter()
+		.append("circle")
+			.attr("cx", (d) => arcCoordinate(d, categoryToArc(d, "end"), "cx"))
+			.attr("cy", (d) => arcCoordinate(d, categoryToArc(d, "end"), "cy"))
+	// circle styles
+	svg.select(".arc")
+		.selectAll("g")
+		.selectAll("circle")
+			.attr("r", 2)
+			.attr("stroke", (d) => categoryColor(d))
+			.attr("fill", "#fff")
+	// arc labels
+	svg.select(".arc")
+		.selectAll("text")
+		.data(categories)
+		.enter()
+		.append("text")
+			.attr("class", "labelcategory")
+			.attr("dy", -2)
+		.append("textPath")
+			.attr("xlink:href", (d) => "#" + categoryId(d))
+			.style("text-anchor", "middle")
+			.attr("startOffset","25%")
+			.attr("fill", (d) => categoryColor(d))
+			.text((d) => d)
 };
 
 // plot data
@@ -661,6 +806,21 @@ function cityChart(){
 			$(chartBoroughClass).css("display", "block");
 
 			scrollToProfile();
+		})
+	svgCity.selectAll(".section")
+		.selectAll(".categorysection")
+		.on("mouseover", function (event, d) {
+			d3.select(this)
+				.transition()
+				.duration("50")
+				.attr("fill-opacity", 0.5)
+		})
+		.on("mouseout", function () {
+			d3.select(this)
+				.transition()
+				.duration("50")
+				.style("mix-blend-mode", "lighten")
+				.attr("fill-opacity", 0)
 		})
 }
 
