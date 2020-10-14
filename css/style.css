@@ -108,11 +108,10 @@ header {
 	position: fixed;
 	margin: auto;
 	width: calc(100% - 6px);
-	min-width: 841px;
+	min-width: 619px;
 	height: 40px;
 	top: 0px;
 	left: 0px;
-	/*font-weight: 900;*/
 	font-size: 1em;
 	z-index: 10;
 	background: #fff;
@@ -122,10 +121,10 @@ header {
 	position: relative;
 	float: left;
 	height: 100%;
-	width: calc(100vw - 649px);
+	min-width: 318px;
 	border-right: solid 3px #000;
 }
-#project-title span {
+.span-title {
 	display: inline-block;
 	padding: 10px 20px;
 	height: 20px;
@@ -133,7 +132,7 @@ header {
 #project-description {
 	display: none;
 	position: relative;
-	width: calc(100vw - 689px);
+	min-width: 279px;
 	top: -4px;
 	left: -3px;
 	padding: 20px;
@@ -144,7 +143,7 @@ header {
 	position: relative;
 	float: right;
 	width: 623px;
-	min-width: 182px;
+	min-width: 298px;
 }
 #nav ul {
 	position: relative;
@@ -237,7 +236,7 @@ section {
 		left: -3px;
 	}
 }
-@media screen and (max-width: 1228px) {
+@media screen and (min-width: 980px) and (max-width: 1228px) {
 	#project-title {
 		width: 656px;
 	}
@@ -250,5 +249,23 @@ section {
 	}
 	#nav ul ul {
 		left: calc(100vw - 1235px);
+	}
+}
+@media screen and (max-width: 979px) {
+	#project-title {
+		width: calc(100vw - 324px);
+	}
+	#project-description {
+		top: 0px;
+		width: calc(100vw - 364px);
+	}
+	#project-question {
+		display: none;
+	}
+	#nav {
+		width: 298px;
+	}
+	#nav ul ul {
+		left: -255px;
 	}
 }

@@ -1,6 +1,7 @@
 #chart-overall {
 	position: relative;
-	margin: calc(10vh + 40px) auto 0px auto;
+	float: left;
+	margin: calc(10vh + 40px) 5vw 0px 10vw;
 }
 #chart-profile {
 	position: relative;
@@ -19,25 +20,84 @@
 	float: left;
 	margin: 0px 1.5%;
 }
+#chart-overall>svg>.section>.categorysection:hover {
+	fill-opacity: 0.5;
+}
 .labelcategory {
 	font-family: 'Graphik-Medium', sans-serif;
 	font-size: 0.4em;
 	text-transform: uppercase;
+	letter-spacing: 0.5px;
 }
 .labelfeature {
 	font-family: 'Graphik-Regular', sans-serif;
 	font-size: 0.375em;
 }
 .labelprofile {
-	font-family: 'Graphik-Bold', sans-serif;
+	font-family: 'Graphik-Semibold', sans-serif;
 	font-size: 0.8em;
 	text-transform: uppercase;
+	letter-spacing: 0.5px;
 }
 .labelneighborhood {
 	font-family: 'Graphik-Regular', sans-serif;
 	font-size: 0.9em;
 	text-transform: uppercase;
 	letter-spacing: 1px;
+}
+#tooltipcity {
+	position: relative;
+	float: left;
+	margin: 120px 20px 0px 20px;
+	width: 385px;
+	height: calc(100vh - 80px);
+	height: auto;
+	text-align: left;
+	overflow: hidden auto;
+}
+#tooltipcity div.feature {
+	position: relative;
+	width: 100%;
+	height: 50px;
+	margin: 10px 0px 10px 0px;
+}
+#tooltipcity p {
+	position: relative;
+	float: left;
+	width: 280px;
+	margin-top: 3px;
+	font-size: 0.9em;
+	line-height: 1.2em;
+	color: #000;
+}
+#tooltipcity #socioecoHighSchool, #tooltipcity #healthMedCare, #tooltipcity #healthFluVacc {
+	width: 250px;
+}
+#tooltipcity #homePedInjury, #tooltipcity #homeBodega, #tooltipcity #healthChildObesity {
+	width: 290px;
+}
+#tooltipcity .category {
+	position: relative;
+	display: block;
+	margin-left: 95px;
+	font-family: 'Graphik-Medium', sans-serif;
+	font-size: 1em;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+#tooltipcity .data1 {
+	float: left;
+	width: 85px;
+	margin-right: 10px;
+	font-size: 2.5em;
+	text-align: right;
+}
+#tooltipcity .location {
+	text-transform: uppercase;
+}
+#tooltipcity .feature-name {
+	font-family: 'Graphik-Semibold', sans-serif;
+	text-transform: uppercase;
 }
 #tooltipborough {
 	position: absolute;
@@ -68,7 +128,7 @@
 	margin-top: 1em;
 	font-size: 0.8em;
 }
-#tooltipneighborhood b {
+#tooltipneighborhood b, #tooltipneighborhood span.location {
 	font-family: 'Graphik-Bold', sans-serif;
 	text-transform: uppercase;
 }
@@ -84,7 +144,7 @@ svg.selected>g>line {
 
 /*wide screen ratio*/
 @media screen and (min-aspect-ratio: 16/9) {
-	#chart-overall, #chart-profile {
+	#chart-overall, #chart-profile, #chart-overall {
 		max-height: 80vh;
 		width: 40%;
 		margin-top: calc(4vh + 40px);
@@ -98,7 +158,7 @@ svg.selected>g>line {
 }
 /*typical landscape screen ratio*/
 @media screen and (min-aspect-ratio: 3/2) and (max-aspect-ratio: 16/9) {
-	#chart-overall, #chart-profile {
+	#chart-overall, #chart-profile, #chart-overall {
 		max-height: 80vh;
 		width: 45%;
 		margin-top: calc(6vh + 40px);
@@ -112,7 +172,7 @@ svg.selected>g>line {
 }
 /*typical landscape screen ratio*/
 @media screen and (min-aspect-ratio: 1/1) and (max-aspect-ratio: 3/2) {
-	#chart-overall, #chart-profile {
+	#chart-overall, #chart-profile, #chart-overall {
 		max-height: 80vh;
 		width: 55%;
 		margin-top: calc(6vh + 40px);
@@ -126,7 +186,7 @@ svg.selected>g>line {
 }
 /*portrait screen ratio*/
 @media screen and (max-aspect-ratio: 1/1) {
-	#chart-overall, #chart-profile {
+	#chart-overall, #chart-profile, #chart-overall {
 		height: auto;
 		width: 80vw;
 	}
