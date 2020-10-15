@@ -1,4 +1,4 @@
-const dataset = d3.csv("./data/nyt_data_.csv").then(function (data) {
+var dataset = d3.csv("./data/nyt_data3.csv").then(function (data) {
   data.forEach(function (d, i) {
     d.yearindex = +d.yearindex;
     d.topicindex = +d.topicindex;
@@ -8,6 +8,7 @@ const dataset = d3.csv("./data/nyt_data_.csv").then(function (data) {
     d.count = +d.count;
     d.radius = +d.radius;
     d.countall = +d.countall;
+    // debugger;
   });
 
   for (var i = 0; i < years.length; i++) {
@@ -15,43 +16,25 @@ const dataset = d3.csv("./data/nyt_data_.csv").then(function (data) {
     positionCount = data.filter(d => d.year < year).length;
     yearPosition.push(positionCount);
   }
+
   createGrid(svg, data);
 });
 
-var forceXYear = d3.forceX(d => {
-  return d.year == 2013 || d.year == 2017 ? width / 5 - 50 :
-    d.year == 2014 || d.year == 2018 ? width * 2 / 5 - 5 :
-    d.year == 2015 || d.year == 2019 ? width * 3 / 5 + 25 :
-    width * 4 / 5 + 60
-}).strength(0.1)
-
-var forceYYear = d3.forceY(d => {
-  return d.year == 2013 || d.year == 2014 || d.year == 2015 || d.year == 2016 ? height / 3 - 60 :
-    height * 2 / 3 - 60
-}).strength(0.1)
-
-var forceCollide = d3.forceCollide(d => radiusScale(d.count) + 3)
-const circleRadius = 6;
-const width = 1000,
+var circleRadius = 6;
+var width = 1000,
   height = 700;
 
-  const svg = d3.select('#chart')
+var svg = d3.select('#chart')
   .append('svg')
   .attr('width', width)
   .attr('height', height)
 
-var simulation =
-  d3.forceSimulation()
-  .force("x", forceXYear)
-  .force("y", forceYYear)
-  .force("collide", forceCollide)
+var spacing = 3;
+var margin = 10;
+var numPerRow = 50;
 
-  const spacing = 3;
-  const margin = 10;
-  const numPerRow = 50;
-
-  const years = [2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020];
-  const forceStrength = 0.02;
+let years = [2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020];
+var forceStrength = 0.02;
 var yearPosition = [];
 var topicPosition = [];
 
@@ -76,7 +59,6 @@ function createGrid(svg, dataset) {
 
   function circle() {
     // debugger;
-    simulation.stop()
     var circles = svg.selectAll('circle')
       .data(dataset, d => d.yearindex)
       .join(
@@ -148,7 +130,7 @@ function createGrid(svg, dataset) {
       .append('text')
       .style("opacity", 0)
       .attr('x', (d, i) => positionX(topicPosition[i]) - 3)
-      .attr('y', (d, i) => positionY(topicPosition[i]) + 4)
+      .attr('y', (d, i) => positionY(topicPosition[i]) +4)
       .transition().duration(800)
       .text(d => d.topic)
       .style("opacity", 1)
@@ -156,7 +138,6 @@ function createGrid(svg, dataset) {
   }
   //sort by year
   function yearAscend() {
-    simulation.stop()
     svg.selectAll('text').remove()
     dataset = _.cloneDeep(oldDataset);
     dataset.sort(function (a, b) {
@@ -164,19 +145,18 @@ function createGrid(svg, dataset) {
     })
     removeBlank(dataset, "category", "topicblank")
     circle();
-    setTimeout(yearTextAppend, 500);
+    setTimeout(yearTextAppend, 750);
   }
 
   //sort by count
   function countAscend() {
-    simulation.stop()
     svg.selectAll('text').remove()
     dataset = _.cloneDeep(oldDataset);
     dataset.sort(function (a, b) {
       return a.topicindex - b.topicindex
     })
 
-    // store topic text positions to array
+      // store topic text positions to array
     let topics = [];
     for (var i = 0; i < dataset.length; i++) {
       topics.push(dataset[i].topic);
@@ -194,13 +174,12 @@ function createGrid(svg, dataset) {
 
     removeBlank(dataset, "topic", "yearblank")
     circle();
-    setTimeout(topicTextAppend, 500);
+    setTimeout(topicTextAppend, 750);
   }
 
 
   //visual aggregation to bubble
   function groupBubble() {
-    simulation.stop()
     svg.selectAll('text').remove()
     //populalte a new dataset with key elements
     var newdataset = [];
@@ -215,37 +194,20 @@ function createGrid(svg, dataset) {
     //replace dataset with the new set
     dataset = _.cloneDeep(newdataset);
     circle();
-    setTimeout(blow, 1000);
-    setTimeout(forceYear, 2000);
-    setTimeout(groupTextAppend, 2500);
-
-    function blow() {
-      //adjust the radius corresponding to the count
-      for (var i = 0; i < dataset.length; i++) {
-        dataset[i].radius = radiusScale(dataset[i].count);
-      }
-      circle();
+    //adjust the radius corresponding to the count
+    for (var i = 0; i < dataset.length; i++) {
+      dataset[i].radius = radiusScale(dataset[i].count);
     }
+    setTimeout(circle, 1000);
+    setTimeout(simulation, 2000);
+    setTimeout(groupTextAppend, 3500);
 
 
-
-    function forceYear() {
-      dataset.forEach(function (d, i) {
-        d.x = positionX(i)
-        d.y = positionY(i)
-
-      });
-      simulation.nodes(dataset)
-        .restart()
-        .on('tick', ticked)
-        .alpha(0.45)
-
-    };
-
-    function ticked() {
-      circles = svg.selectAll('circle')
-        .attr('cx', d => d.x)
-        .attr('cy', d => d.y)
+    function yearpositionX(i) {
+      return ((width +140) / 5) * ((i % 4) + 1) -70
+    }
+    function yearpositionY(i) {
+      return (Math.floor(i/4)+1) * height/3 +50
     }
 
     function groupTextAppend() {
@@ -253,8 +215,8 @@ function createGrid(svg, dataset) {
         .data(years).enter()
         .append('text')
         .style("opacity", 0)
-        .attr('x', (d, i) => ((width + 140) / 5) * ((i % 4) + 1) - 70)
-        .attr('y', (d, i) => (Math.floor(i / 4) + 1) * height / 3 + 50)
+        .attr('x', (d, i) => yearpositionX(i))
+        .attr('y', (d, i) => yearpositionY(i))
 
         .transition().duration(800)
         .text((d, i) => years[i])
@@ -262,33 +224,81 @@ function createGrid(svg, dataset) {
         .style("opacity", 1)
         .attr("class", "yeartext")
     }
+
+    function simulation() {
+      //initialize the circles' positions when forced
+      dataset.forEach(function (d, i) {
+        d.x = positionX(i)
+        d.y = positionY(i)
+        d.vx = d.vy = 0;
+      });
+
+      setTimeout(center, 200);
+      setTimeout(year, 2000)
+
+      //force to center
+      function center() {
+        d3.forceSimulation(dataset)
+          .force("x", forceXAll)
+          .force("y", forceYAll)
+          .force("collide", forceCollide)
+          .on('tick', ticked)
+      }
+
+      //force to be grouped by year
+      function year() {
+        d3.forceSimulation(dataset)
+          .force("x", forceXYear)
+          .force("y", forceYYear)
+          .force("collide", forceCollide)
+          .on('tick', ticked)
+      }
+
+      function ticked() {
+        circles = svg.selectAll('circle')
+          .attr('cx', (d, i) => d.x)
+          .attr('cy', (d, i) => d.y)
+      }
+    }
   }
+
+  // force simulation for big bubbles
+
+  var forceXAll = d3.forceX(width / 2).strength(forceStrength)
+  var forceYAll = d3.forceY(height / 2).strength(forceStrength)
+
+  var forceXYear = d3.forceX(d => {
+    if (d.year == 2013 || d.year == 2017) {
+      return width / 5 - 50
+    } else if (d.year == 2014 || d.year == 2018) {
+      return width * 2 / 5 -5
+    } else if (d.year == 2015 || d.year == 2019) {
+      return width * 3 / 5 +25
+    } else {
+      return width * 4 / 5 + 60
+    }
+  }).strength(0.1)
+
+  var forceYYear = d3.forceY(d => {
+    if (d.year == 2013 || d.year == 2014 || d.year == 2015 || d.year == 2016) {
+      return height / 3 -60
+    } else {
+      return height * 2 / 3 -60
+    }
+  }).strength(0.1)
+
+  var forceCollide = d3.forceCollide(d => radiusScale(d.count) + 3)
 }
-
-
-//disable buttons during forcesimulation
-$(document).ready(function () {
-  $('#countAscendButton, #yearButton').click(function () {
-    $('.btn').removeClass('active').attr("disabled", false);
-    $(this).addClass('active').attr("disabled", true);
-  });
-
-  $("#groupButton").click(function () {
-    $('.btn').removeClass('active').attr("disabled", true);
-    $(this).addClass('active');
-    // debugger;
-    setTimeout(function () {
-      $('#countAscendButton, #yearButton').attr("disabled", false)
-    }, 2500);
-  })
-})
 
 //remove topic == blank
 function removeBlank(arr, key, value) {
   var i = 0;
   while (i < arr.length) {
-    arr[i][key] === value ? arr.splice(i, 1) :
+    if (arr[i][key] === value) {
+      arr.splice(i, 1);
+    } else {
       ++i;
+    }
   }
   return arr;
 }
@@ -309,6 +319,7 @@ var mouseover = function (d) {
 }
 
 var mousemove = function (d) {
+  // debugger;
   Tooltip
     .html(" <span class='topic'>" + d.currentTarget.__data__.topic +
       "</span></b><br><hr> was covered " + d.currentTarget.__data__.count +
@@ -325,3 +336,10 @@ var mouseleave = function (d) {
     .style("opacity", 0.7)
 }
 
+
+$(document).ready(function () {
+  $('.btn').click(function () {
+    $('.btn').removeClass('active')
+    $(this).addClass('active');
+  });
+})
