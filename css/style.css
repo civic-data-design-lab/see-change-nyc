@@ -253,20 +253,6 @@ section {
 		left: -3px;
 	}
 }
-@media screen and (min-width: 1229px) and (max-width: 1301px) {
-	#project-title {
-		width: calc(100vw - 576px);
-	}
-	#project-description {
-		width: calc(100vw - 616px);
-	}
-	#nav {
-		width: 550px;
-	}
-	#nav ul ul {
-		left: -3px;
-	}
-}
 @media screen and (min-width: 980px) and (max-width: 1228px) {
 	#project-title {
 		width: 656px;
