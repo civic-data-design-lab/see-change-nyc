@@ -72,6 +72,20 @@ body {
 	letter-spacing: 1px;
 	margin: 20px 0px 0px 0px;
 }
+.h4 {
+	font-family: 'Graphik-Black', sans-serif;
+	font-size: 3em;
+	text-transform: uppercase;
+}
+.h5 {
+	font-family: 'Graphik-Medium', sans-serif;
+	font-size: 1.5em;
+}
+.h6 {
+	font-family: 'Graphik-Bold', sans-serif;
+	font-size: 1.25em;
+	text-transform: uppercase;
+}
 .h-title {
 	font-family: 'Graphik-Bold', sans-serif;
 	font-size: 1.25em;
@@ -91,6 +105,10 @@ body {
 	font-family: 'Graphik-Bold', sans-serif;
 	font-size: 1.5em;
 	text-transform: uppercase;
+}
+.data3 {
+	font-family: 'Graphik-Semibold', sans-serif;
+	font-size: 1.25em;
 }
 .black {
 	color: #000;
@@ -182,6 +200,19 @@ header {
 #nav .grey:hover {
 	color: #000;
 }
+#nav a {
+	text-decoration: none;
+	color: #000;
+}
+#nav a:hover {
+	color: #aaa;
+}
+#nav a.grey {
+	color: #aaa;
+}
+#nav a.grey:hover {
+	color: #000;
+}
 #currentborough {
 	text-transform: capitalize;
 }
@@ -206,20 +237,6 @@ section {
 	}
 	#nav ul ul {
 		left: 70px;
-	}
-}
-@media screen and (min-width: 1229px) and (max-width: 1301px) {
-	#project-title {
-		width: calc(100vw - 576px);
-	}
-	#project-description {
-		width: calc(100vw - 616px);
-	}
-	#nav {
-		width: 550px;
-	}
-	#nav ul ul {
-		left: -3px;
 	}
 }
 @media screen and (min-width: 1229px) and (max-width: 1301px) {

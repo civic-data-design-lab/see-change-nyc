@@ -149,10 +149,10 @@ const dataset = d3.csv("./data/neighborhood-health.csv")
 		$(".chart101").show();
 		$("#chart101").addClass("selected");
 
-		// city chart display NYC or borough data
+		// city chart display NYC and Health category on load
 		cityTopic = cityAverage;
-		divCity.html((divHtml) => cityTooltip("Social & Economic", cityTopic))
-			.style("color", (divHtml) => categoryColor("Social & Economic"));
+		divCity.html((divHtml) => cityTooltip("Health", cityTopic))
+			.style("color", (divHtml) => categoryColor("Health"));
 
 		console.log(data);
 		console.log(cityAverage);
@@ -770,7 +770,7 @@ function filterBoroughNav(boroughId) {
 
 // city chart display NYC or borough data
 var cityTopic = {};
-var categoryTopic = "Social & Economic";
+var categoryTopic = "Health";
 
 function cityTooltip(category, dataTopic) {
 	let properties = Object.keys(dataTopic[0]).filter((property) => property.startsWith(categoryId(category)) && property.endsWith("Value") == false);
@@ -864,7 +864,7 @@ function cityChart(){
 	svgCity.selectAll(".section")
 		.selectAll(".categorysection")
 			.attr("fill-opacity", (d) => {
-				return (d == "Social & Economic") ? 0.5
+				return (d == categoryTopic) ? 0.5
 				: 0
 			})
 		.on("click", function(event, d) {
