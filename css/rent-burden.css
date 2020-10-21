@@ -1,0 +1,78 @@
+#high-rent .h4 {
+	margin: 20vh auto 10px auto;
+}
+#profile-borough {
+	position: relative;
+	margin: auto;
+	width: 80%;
+}
+.avg-circle {
+	position: relative;
+	float: left;
+	width: 18%;
+	height: auto;
+	margin: 0px 1%;
+	top: 0px;
+}
+.avg-circle .h6 {
+	position: relative;
+	top: 0px;
+}
+.avg-circle img {
+	top: 30px;
+}
+.avg-circle p {
+	display: block;
+	font-size: 1em;
+}
+
+@media screen and (max-width: 1446px) {
+	.avg-circle p {
+		font-size: 0.8em;
+	}
+}
+@media screen and (max-width: 1115px) {
+	.avg-circle .h6 {
+		margin-bottom: 1.25em;
+	}
+	#h6-si {
+		margin-bottom: 0px;
+	}
+}
+@media screen and (max-width: 933px) {
+	#high-rent .h4 {
+		font-size: 2.5em;
+	}
+	#high-rent .h5 {
+		font-size: 1.25em;
+	}
+	#profile-borough {
+		width: 96%;
+	}
+	.avg-circle .h6, .avg-circle .data3, #h6-si {
+		font-size: 1em;
+		margin-bottom: 1em;
+	}
+}
+@media screen and (max-width: 749px) {
+	#h6-si {
+		margin-bottom: 0px;
+	}
+}
+@media screen and (max-width: 630px) {
+	#high-rent .h4 {
+		font-size: 2em;
+	}
+	#high-rent .h5 {
+		font-size: 1em;
+	}
+	.avg-circle .h6, .avg-circle .data3, #h6-si {
+		font-size: 0.7em;
+		margin-bottom: 0.7em;
+	}
+}
+@media screen and (max-width: 529px) {
+	#h6-si {
+		margin-bottom: 0px;
+	}
+}
