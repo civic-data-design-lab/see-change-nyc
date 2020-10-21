@@ -1,0 +1,126 @@
+#nav {
+	left: -17px;
+}
+#map {
+	position: relative;
+	top: 46px;
+	width: 100%;
+	height: calc(100vh - 46px);
+}
+.mapboxgl-popup {
+	max-width: 400px;
+	font: 1em/20px 'Graphik-Regular', sans-serif;;
+}
+#map-legend {
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+	font-family: 'Graphik-Regular', sans-serif;
+	font-size: 0.8em;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	background: #fff;
+	border: solid 3px #000;
+	z-index: 3;
+}
+#map-legend ul {
+	position: relative;
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+	display: inline;
+}
+#map-legend ul li  {
+	list-style: none;
+	display: inline-block;
+	min-width: 32px;
+	padding: 10px 20px;
+}
+.circle {
+	position: relative;
+	display: inline-block;
+	top: 0.16em;
+	width: 1em;
+	height: 1em;
+	border-radius: 50%;
+}
+#legend-nrb {
+	background: #72daac;
+}
+#legend-rb {
+	background: #5896b7;
+}
+#legend-srb {
+	background: #3e52c2;
+}
+.mapboxgl-popup-content {
+	text-transform: uppercase;
+	width: 230px;
+	border-radius: 10px;
+	text-align: left;
+}
+.labelplace {
+	position: relative;
+	width: 100%;
+	height: 70px;
+	margin-left: 2%;
+}
+.labelplace p {
+	position: relative;
+	float: left;
+	width: 68%;
+	margin: 0px;
+	line-height: 1.2em;
+}
+.labelpuma {
+	font-family: 'Graphik-Bold', sans-serif;
+	padding-top: 1em;
+}
+.labelborough {
+	font-family: 'Graphik-Regular', sans-serif;
+}
+.circleborough {
+	position: relative;
+	width: 30%;
+	height: auto;
+}
+.labelburdenpercent {
+	position: relative;
+	height: 45px;
+	width: 100%;
+	margin: 10px 0px 10px 2%;
+}
+.labelburdenpercent .data1 {
+	position: relative;
+	float: left;
+	width: 31%;
+	padding-top: 0.3em;
+	color: #3d51c2;
+}
+.labelburdenpercent p {
+	position: relative;
+	float: left;
+	width: 56%;
+	margin: 0px 0px 0px 8%;
+	font-family: 'Graphik-Semibold', sans-serif;
+	font-size: 1.1em;
+	line-height: 1.2em;
+	letter-spacing: 0.5px;
+}
+.labelburden {
+	position: relative;
+	float: left;
+	width: 31%;
+	text-align: center;
+}
+.labelburden .data3 {
+	font-size: 1.2em;
+}
+.mapboxgl-popup-content .labelburden:not(:last-child) {
+	margin-right: 2%;
+}
+.labelburden p {
+    margin: 0.5em 0px 0px 0px;
+	font-size: 0.8em;
+	line-height: 1.2em
+}
