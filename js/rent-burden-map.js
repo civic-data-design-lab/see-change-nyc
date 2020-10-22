@@ -14,7 +14,7 @@ var map = new mapboxgl.Map({
 let navigation = new mapboxgl.NavigationControl({
 	showCompass: false
 })
-map.addControl(navigation, 'top-left');
+map.addControl(navigation, 'top-right');
 
 // zoom nav buttons and ctrl+scroll
 // $("#map").bind('mousewheel DOMMouseScroll', function(event) 
@@ -37,9 +37,6 @@ function showPopup(feature) {
 		.setLngLat(feature.geometry.coordinates)
 		.setHTML("<div class='labelplace'><p class='labelpuma'>" + feature.properties.PUMAname + "</p><p class='labelborough'>" + feature.properties.borough + "</p><img class='circleborough' src='./img/rent-burden/hh-area-" + feature.properties.borough.toLowerCase() + ".svg'></div><div class='labelburdenpercent'><span class='data1'>" + Math.round(feature.properties.RB_perc + feature.properties.vRB_perc) + "%</span><p>of households are considered rent burdened</p></div><div class='labelburden'><div id='legend-nrb' class='circle'></div>&ensp;<span class='data3'>" + Math.round(feature.properties.nRB_perc) + "%</span><p>Not Rent Burdened</p></div><div class='labelburden'><div id='legend-rb' class='circle'></div>&ensp;<span class='data3'>" + Math.round(feature.properties.RB_perc) + "%</span><p>Rent Burdened</p></div><div class='labelburden'><div id='legend-srb' class='circle'></div>&ensp;<span class='data3'>" + Math.round(feature.properties.vRB_perc) + "%</span><p>Severely Rent Burdened</p></div>")
 		.addTo(map);
-}
-function popupString(feature) {
-	return "<div class='labelplace'><p class='labelpuma'>" + feature.properties.PUMAname + "</p><p class='labelborough'>" + feature.properties.borough + "</p><img class='circleborough' src='./img/rent-burden/hh-area-" + feature.properties.borough.toLowerCase() + ".svg'></div><div class='labelburdenpercent'><span class='data1'>" + Math.round(feature.properties.RB_perc + feature.properties.vRB_perc) + "%</span><p>of households are considered rent burdened</p></div><div class='labelburden'><div id='legend-nrb' class='circle'></div>&ensp;<span class='data3'>" + Math.round(feature.properties.nRB_perc) + "%</span><p>Not Rent Burdened</p></div><div class='labelburden'><div id='legend-rb' class='circle'></div>&ensp;<span class='data3'>" + Math.round(feature.properties.RB_perc) + "%</span><p>Rent Burdened</p></div><div class='labelburden'><div id='legend-srb' class='circle'></div>&ensp;<span class='data3'>" + Math.round(feature.properties.vRB_perc) + "%</span><p>Severely Rent Burdened</p></div>";
 }
 
 map.on('click', function(e) {
