@@ -1,15 +1,11 @@
 #chart-overall {
 	position: relative;
 	float: left;
-	/*margin: calc(10vh + 40px) 5vw 0px 10vw;*/
-	/*margin-top: calc(10vh + 40px);*/
 	max-height: 85vh;
 	margin-top: calc(4vh + 40px);
 }
 #chart-profile {
 	position: relative;
-	/*margin: calc(10vh + 40px) 20px 0px 20px;*/
-	/*margin-top: calc(10vh + 40px);*/
 	max-height: 85vh;
 	margin-top: calc(4vh + 40px);
 	float: left;
@@ -17,7 +13,6 @@
 #chart-neighborhoods {
 	position: relative;
 	float: left;
-	/*margin: 60px 20px 0px 20px;*/
 	margin-top: 60px;
 	height: calc(100vh - 80px);
 	overflow: hidden auto;
@@ -55,11 +50,8 @@
 #tooltipcity {
 	position: relative;
 	float: left;
-	/*margin: 0px 20px 0px 20px;*/
 	top: calc(40px + 10vh);
 	width: 385px;
-	/*height: calc(100vh - 80px);
-	height: auto;*/
 	height: 80vh;
 	padding-right: 20px;
 	text-align: left;
@@ -74,7 +66,6 @@
 #tooltipcity p {
 	position: relative;
 	float: left;
-	/*width: 280px;*/
 	margin-top: 3px;
 	font-size: 0.9em;
 	line-height: 1.2em;
@@ -167,7 +158,7 @@ svg.selected>g>line {
 		width: 280px;
 	}
 	#tooltipcity #socioecoHighSchool, #tooltipcity #healthMedCare, #tooltipcity #healthFluVacc {
-	width: 250px;
+		width: 250px;
 	}
 	#tooltipcity #homePedInjury, #tooltipcity #homeBodega, #tooltipcity #healthChildObesity {
 		width: 290px;
@@ -260,6 +251,7 @@ svg.selected>g>line {
 /*portrait screen ratio*/
 @media screen and (max-aspect-ratio: 1/1) {
 	#chart-overall, #chart-profile {
+		float: none;
 		width: 100%;
 		min-width: 625px;
 		margin: 50px auto 0px auto;
@@ -278,13 +270,16 @@ svg.selected>g>line {
 		width: 30%;
 	}
 	#tooltipcity {
-		width: 70%;
+		float: none;
 		min-width: 458px;
 		height: calc(40vh - 100px);
 		top: 0px;
-		margin: 0px 15% 0px 15%;
+		margin: 0px auto;
 	}
 	#tooltipcity p {
 		width: calc(100% - 100px);
+	}
+	#tooltipcity div.feature {
+		height: 60px;
 	}
 }
