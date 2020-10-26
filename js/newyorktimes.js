@@ -32,7 +32,7 @@ var forceYYear = d3.forceY(d => {
 
 var forceCollide = d3.forceCollide(d => radiusScale(d.count) + 3)
 const circleRadius = 6;
-const width = 1000,
+const width = 950,
   height = 700;
 
   const svg = d3.select('#chart')
