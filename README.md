@@ -7,6 +7,6 @@ Projects include:
 2. [New York City Council in the News](https://civic-data-design-lab.github.io/see-change-nyc/NewYorkTimes.html)
 3. [Neighborhood Health](https://civic-data-design-lab.github.io/see-change-nyc/NeighborhoodHealth.html)
 
-4. [Rent Burden](https://civic-data-design-lab.github.io/see-change-nyc/RentBurdenMap)
-5. [Heat Vulnerability](https://civic-data-design-lab.github.io/see-change-nyc/HeatVulnerabilityMap)
-6. Evolving Streets
+4. [Rent Burden(WIP)](https://civic-data-design-lab.github.io/see-change-nyc/RentBurdenMap)
+5. [Heat Vulnerability(WIP)](https://civic-data-design-lab.github.io/see-change-nyc/HeatVulnerabilityMap)
+6. Evolving Streets(WIP)
