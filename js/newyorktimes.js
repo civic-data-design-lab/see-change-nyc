@@ -73,7 +73,7 @@ function positionY(i) {
 function createGrid(svg, dataset) {
   const oldDataset = _.cloneDeep(dataset);
   Object.freeze(oldDataset);
-
+  countAscend();
   function circle() {
     // debugger;
     simulation.stop()
