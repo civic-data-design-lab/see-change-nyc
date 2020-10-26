@@ -46,7 +46,7 @@ const dataset = d3.csv("./data/seats-open.csv")
 
 // aspect ratio
 const width = 130;
-const height = 150;
+const height = 145;
 const size = 10;
 const offset = 0.3;
 
@@ -70,7 +70,7 @@ var div = d3.select("body").append("div")
 
 // plus grid
 const cols = 13;
-const rows = 15;
+const rows = 14.5;
 const plusLength = 1;
 
 let gridVertical = [];
@@ -143,10 +143,10 @@ function seatMap(svg, dataset) {
 			})
 			.attr("y", (d) => {
 				return d.district == "District 8" || d.district == "District 34" ? null
-					: d.position == "Comptroller" ? 0 - (size * +d.row) - (2 * size) - size/2
-					: d.position == "Public Advocate" ? 0 - (size * +d.row) - (2 * size) - size/2
-					: d.position == "Mayor" ? 0 - (size * +d.row) - (3 * size) - size/2
-					: 0 - (size * +d.row) - size/2;
+					: d.position == "Comptroller" ? 0 - (size * +d.row) - (2 * size)
+					: d.position == "Public Advocate" ? 0 - (size * +d.row) - (2 * size)
+					: d.position == "Mayor" ? 0 - (size * +d.row) - (3 * size)
+					: 0 - (size * +d.row);
 					// : 0 - (size - offset);
 			})
 			// .attr("y", (d) => {
@@ -228,8 +228,8 @@ function seatMap(svg, dataset) {
 			// 		: null;
 			// })
 			.attr("d", (d) => {
-				let triangleBottomLeft = "M " + ((+d.col - 1) * size + offset) + " " + (height - size/2 - (+d.row * size) + offset) + " L " + ((+d.col - 1) * size + offset) + " " + (height + size/2 - (+d.row * size) - offset) + " L " + (+d.col * size - offset - offset/2) + " " + (height + size/2 - (+d.row * size) - offset) + " L " + ((+d.col - 1) * size + offset) + " " + (height - size/2 - (+d.row * size) + offset);
-				let triangleTopRight = "M " + ((+d.col - 1) * size + offset) + " " + (height - size/2 - (+d.row * size)) + " L " + (+d.col * size - offset/2) + " " + (height - size/2 - (+d.row * size)) + " L " + (+d.col * size - offset/2) + " " + (height + size/2 - (+d.row * size) - offset - offset/2) + " L " + ((+d.col - 1) * size + offset) + " " + (height - size/2 - (+d.row * size));
+				let triangleBottomLeft = "M " + ((+d.col - 1) * size + offset) + " " + (height - (+d.row * size) + offset) + " L " + ((+d.col - 1) * size + offset) + " " + (height + size - (+d.row * size) - offset) + " L " + (+d.col * size - offset - offset/2) + " " + (height + size - (+d.row * size) - offset) + " L " + ((+d.col - 1) * size + offset) + " " + (height - (+d.row * size) + offset);
+				let triangleTopRight = "M " + ((+d.col - 1) * size + offset) + " " + (height - (+d.row * size)) + " L " + (+d.col * size - offset/2) + " " + (height - (+d.row * size)) + " L " + (+d.col * size - offset/2) + " " + (height + size - (+d.row * size) - offset - offset/2) + " L " + ((+d.col - 1) * size + offset) + " " + (height - (+d.row * size));
 				return (d.district == "District 8" && d.borough == "Manhattan") ? triangleBottomLeft
 					: (d.district == "District 8" && d.borough == "Bronx") ? triangleTopRight
 					: (d.district == "District 34" && d.borough == "Brooklyn") ? triangleBottomLeft
@@ -292,7 +292,7 @@ function shapesFalling(shapeList, currentShape, nextShape) {
 			return (d.shape == "si-1") ? delay(1) : 0;})
 		.duration(animationDuration)
 		.attr("y", (d) => {
-			return height - (size * +d.row) - size/2;
+			return height - (size * +d.row);
 		}, "linear")
 		.attr('pointer-events', 'none')
 		.end()
@@ -366,8 +366,8 @@ const boroughLabels = svg.append("g")
 		.text((d) => d.label)
 		.attr("x", (d) => d.x * size - size/2)
 		.attr("y", (d) => {
-			return (d.class == "labelpubad") ? (height) - (d.y * size) - 3.5 * offset
-			: (height) - (d.y * size) + 2 * offset
+			return (d.class == "labelpubad") ? (height) + size/2 - (d.y * size) - 3.5 * offset
+			: (height) + size/2 - (d.y * size) + 2 * offset
 		})
 		.attr("class", (d) => {
 			return (d.class == "labelcompt" || d.class == "labelpubad" || d.class == "labelmayor") ? d.class + " labelinvert"
@@ -544,34 +544,56 @@ $(document).ready(function(){
 	}
 
 	// open seats toggle
-	$("#open-seats").on("click", function() {
+	$("#current-seats").addClass("selectedseats");
+
+	$("#current-seats").on("click", function() {
 		if ($(".open").hasClass("openfill")) {
 			$(".open").removeClass("openfill");
+			$(this).addClass("selectedseats");
+			$("#open-seats").removeClass("selectedseats").css("background", "#fff").css("color", "#000");
 			$("#seats-city-council").html("51");
 			$("#seats-total").html("59");
 			$(".labelinvert").css("fill", "#aaa");
 		}
-		else {
+	});
+	$("#open-seats").on("click", function() {
 			$(".open").addClass("openfill");
+			$(this).addClass("selectedseats");
+			$("#current-seats").removeClass("selectedseats").css("background", "#fff").css("color", "#000");
 			$("#seats-city-council").html("<span class='grey'>35/</span>51");
 			$("#seats-total").html("<span class='grey'>41/</span>59");
 			$(".labelinvert").css("fill", "#000");
-		}
 	});
-	$("#open-seats").on("mouseover", function() {
-		if ($(".open").hasClass("openfill")) {
+	$(".open-toggle").on("mouseover", function() {
+		if ($(this).hasClass("selectedseats")) {
 			$(this).css("background", "#fff").css("color", "#000");
 		}
 		else {
 			$(this).css("background", "#000").css("color", "#fff");
 		}
 	});
-	$("#open-seats").on("mouseleave", function() {
-		if ($(".open").hasClass("openfill")) {
+	$(".open-toggle").on("mouseleave", function() {
+		if ($(this).hasClass("selectedseats")) {
 			$(this).css("background", "#000").css("color", "#fff");
 		}
 		else {
 			$(this).css("background", "#fff").css("color", "#000");
 		}
 	});
+	// $("#open-seats").on("mouseover", function() {
+	// 	if ($(".open").hasClass("openfill")) {
+	// 		$(this).css("background", "#fff").css("color", "#000");
+	// 	}
+	// 	else {
+	// 		$(this).css("background", "#000").css("color", "#fff");
+	// 	}
+	// });
+	// $("#open-seats").on("mouseleave", function() {
+	// 	if ($(".open").hasClass("openfill")) {
+	// 		$(this).css("background", "#000").css("color", "#fff");
+	// 	}
+	// 	else {
+	// 		$(this).css("background", "#fff").css("color", "#000");
+	// 	}
+	// });
 })

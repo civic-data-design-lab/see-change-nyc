@@ -72,6 +72,20 @@ body {
 	letter-spacing: 1px;
 	margin: 20px 0px 0px 0px;
 }
+.h4 {
+	font-family: 'Graphik-Black', sans-serif;
+	font-size: 3em;
+	text-transform: uppercase;
+}
+.h5 {
+	font-family: 'Graphik-Medium', sans-serif;
+	font-size: 1.5em;
+}
+.h6 {
+	font-family: 'Graphik-Bold', sans-serif;
+	font-size: 1.25em;
+	text-transform: uppercase;
+}
 .h-title {
 	font-family: 'Graphik-Bold', sans-serif;
 	font-size: 1.25em;
@@ -92,6 +106,10 @@ body {
 	font-size: 1.5em;
 	text-transform: uppercase;
 }
+.data3 {
+	font-family: 'Graphik-Semibold', sans-serif;
+	font-size: 1.25em;
+}
 .black {
 	color: #000;
 }
@@ -108,11 +126,10 @@ header {
 	position: fixed;
 	margin: auto;
 	width: calc(100% - 6px);
-	min-width: 841px;
+	min-width: 619px;
 	height: 40px;
 	top: 0px;
 	left: 0px;
-	font-weight: 900;
 	font-size: 1em;
 	z-index: 10;
 	background: #fff;
@@ -122,10 +139,17 @@ header {
 	position: relative;
 	float: left;
 	height: 100%;
-	width: calc(100vw - 649px);
-	border-right: solid 3px #000;
+	min-width: 318px;
+	/*border-right: solid 3px #000;*/
 }
-#project-title span {
+.h-question {
+	font-family: 'Graphik-Bold', sans-serif;
+	font-size: 1.25em;
+	margin: 0px;
+	padding: 10px 20px;
+	height: 20px;
+}
+.span-title {
 	display: inline-block;
 	padding: 10px 20px;
 	height: 20px;
@@ -133,8 +157,18 @@ header {
 #project-description {
 	display: none;
 	position: relative;
-	width: calc(100vw - 689px);
+	min-width: 279px;
 	top: -4px;
+	left: -3px;
+	padding: 20px;
+	background: #fff;
+	border: solid 3px #000;
+}
+#h-description {
+	display: none;
+	position: relative;
+	min-width: 279px;
+	top: -44px;
 	left: -3px;
 	padding: 20px;
 	background: #fff;
@@ -144,7 +178,7 @@ header {
 	position: relative;
 	float: right;
 	width: 623px;
-	min-width: 182px;
+	min-width: 298px;
 }
 #nav ul {
 	position: relative;
@@ -180,6 +214,22 @@ header {
 #nav ul ul li:not(:last-child) {
 	padding: 10px 0px 10px 20px;
 }
+#nav .grey:hover {
+	color: #000;
+}
+#nav a {
+	text-decoration: none;
+	color: #000;
+}
+#nav a:hover {
+	color: #aaa;
+}
+#nav a.grey {
+	color: #aaa;
+}
+#nav a.grey:hover {
+	color: #000;
+}
 #currentborough {
 	text-transform: capitalize;
 }
@@ -196,7 +246,7 @@ section {
 	#project-title {
 		width: calc(100vw - 649px);
 	}
-	#project-description {
+	#project-description, #h-description {
 		width: calc(100vw - 689px);
 	}
 	#nav {
@@ -210,7 +260,7 @@ section {
 	#project-title {
 		width: calc(100vw - 576px);
 	}
-	#project-description {
+	#project-description, #h-description {
 		width: calc(100vw - 616px);
 	}
 	#nav {
@@ -220,25 +270,11 @@ section {
 		left: -3px;
 	}
 }
-@media screen and (min-width: 1229px) and (max-width: 1301px) {
-	#project-title {
-		width: calc(100vw - 576px);
-	}
-	#project-description {
-		width: calc(100vw - 616px);
-	}
-	#nav {
-		width: 550px;
-	}
-	#nav ul ul {
-		left: -3px;
-	}
-}
-@media screen and (max-width: 1228px) {
+@media screen and (min-width: 980px) and (max-width: 1228px) {
 	#project-title {
 		width: 656px;
 	}
-	#project-description {
+	#project-description, #h-description {
 		width: 616px;
 	}
 	#nav {
@@ -247,5 +283,23 @@ section {
 	}
 	#nav ul ul {
 		left: calc(100vw - 1235px);
+	}
+}
+@media screen and (max-width: 979px) {
+	#project-title {
+		width: calc(100vw - 324px);
+	}
+	#project-description, #h-description {
+		top: 0px;
+		width: calc(100vw - 364px);
+	}
+	#project-question {
+		display: none;
+	}
+	#nav {
+		width: 298px;
+	}
+	#nav ul ul {
+		left: -255px;
 	}
 }
