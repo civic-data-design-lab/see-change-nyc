@@ -85,13 +85,13 @@ hr {
 }
 
 .yeartext {
-  fill:rgb(49, 49, 49);
-  font-family: 'Graphik-Medium', sans-serif;
+  fill:rgb(32, 32, 32);
+  font-family: 'Graphik-Semibold', sans-serif;
   font-size: 0.7rem;
 }
 
 .topictext {
-  fill:rgb(49, 49, 49);
-  font-family: 'Graphik-Medium', sans-serif;
+  fill:rgb(32, 32, 32);
+  font-family: 'Graphik-Semibold', sans-serif;
   font-size: 0.7rem;
 }

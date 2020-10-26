@@ -18,18 +18,19 @@
 	<div class="container">
 
 		<div class="vizSection" id="chart"></div>
-				<div class="textSection">
+		<div class="textSection">
 			<div style="font-family: 'Graphik-Semibold'">Text Analysis of the New York Times Article from 2013 -2020 </div>
-			<p> To analyze topics covered in New York Times articles, topic modeling was performed on a set of articles from
-				the New York Times. Using Gensim and NMF (a machine learning algorithm for topic modeling), key topics were
-				extracted from articles covering New York City Council for each year from 2013 through 2020. Next, articles were
-				tagged according to topics. Using tagging, related topics were identified (e.g. “policing” and “cornavirus“
-				topic are covered in the same articles)</p>
+			<p> Using the New York Times API, all articles which mentioned the New Your City Council were downloaded since the
+				de Blasio Mayoral election (January 2013- Summer 2020). The articles were then run through a machine learning
+				topics modeler to identify the topics of the articles. Using that data this visualization allows us to
+				understand the biggest issues City Council has faced over the last seven years from the Foie Gras Ban to
+				Education. </p>
 			<br> <br>
 			<div class="container">
 
-				<button class="btn active" style="border-right:0px;" id="yearButton">TIMELINE </button>
-				<button class="btn" style="border-right:0px;" id="countAscendButton">BY TOPIC </button>
+
+				<button class="btn active" style="border-right:0px;" id="countAscendButton">BY TOPIC </button>
+				<button class="btn " style="border-right:0px;" id="yearButton">TIMELINE </button>
 				<button class="btn" id="groupButton">BY YEAR </button>
 
 			</div>
@@ -37,4 +38,5 @@
 	</div>
 	<script type="text/javascript" src="./js/newyorktimes.js"></script>
 </body>
+
 </html>
