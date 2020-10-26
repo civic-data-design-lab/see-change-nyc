@@ -12,4 +12,12 @@ $(document).ready(function() {
 	$("#project-title").on('mouseleave', function() {
 		$('#project-description').hide();
 	})
+
+	$("#h-description").hide();
+	$("#project-title").on('mouseenter', function() {
+		$('#h-description').show();
+	});
+	$("#project-title").on('mouseleave', function() {
+		$('#h-description').hide();
+	})
 })
