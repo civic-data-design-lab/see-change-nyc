@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="./css/style.css" type="text/css">
+	<link rel="stylesheet" href="./css/rent-burden.css" type="text/css">
+	<script type="text/javascript" src="./js/jquery-3.5.1.min.js"></script>
+	<script type="text/javascript" src="./js/d3.v6.min.js"></script>
+	<script type="text/javascript" src="./js/script.js"></script>
+	<title>Rent Burden</title>
+</head>
+<body>
+	<main>
+		<header id="header">
+			<div id="project-title">
+				<span class="h-title span-title">Rent Burden</span>
+				<span id="project-question" class="h-nav span-title grey">How affordable is housing in NYC?</span>
+				<div id="project-description">
+					Rent burden is defined as spending more than 30 percent of household income on rent. In 2009, more than half of renter-occupied households with children (54 percent) experienced rent burden. Between 2002 and 2009, the proportion of households with children affected by rent burden increased significantly. Although rates of rent burden had remained relatively stable for several years between 2002 and 2006, they began to increase from 2006 to 2009. With the majority of renter-occupied households with children spending a large proportion of their incomes on housing, this issue has important implications for children's well-being.
+				</div>
+			</div>
+			<nav id="nav" class="h-nav">
+				<ul>
+					<li id="city"><a class="grey" href="./RentBurdenMap">City</a></li>
+					<li><span id="borough">Borough</span><span id="currentborough"></span>
+						<ul>
+							<li id="nyc">All</li>
+							<li id="bronx">Bronx</li>
+							<li id="brooklyn">Brooklyn</li>
+							<li id="queens">Queens</li>
+							<li id="manhattan">Manhattan</li>
+							<li id="statenisland">Staten Island</li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+	</header>
+		<section id="distribution">
+			<div id="chart-rentburden"></div>
+		</section>
+		<section id="high-rent">
+			<h2 class="h4">The rent is too high</h2>
+			<h3 class="h5">Many New Yorkers pay more than 30% of their income on rent</h3>
+			<div id="profile-borough">
+				<div class="avg-circle">
+					<h4 class="h6">Bronx</h4>
+					<img src="./img/rent-burden/hh-area-bronx.svg">
+					<span class="data3">132,931</span>
+					<p>households in BRONX pay more than 50% of their income on rent</p>
+				</div>
+				<div class="avg-circle">
+					<h4 class="h6">Brooklyn</h4>
+					<img src="./img/rent-burden/hh-area-brooklyn.svg">
+					<span class="data3">193,135</span>
+					<p>households in BROOKLYN pay more than 50% of their income on rent</p>
+				</div>
+				<div class="avg-circle">
+					<h4 class="h6">Manhattan</h4>
+					<img src="./img/rent-burden/hh-area-manhattan.svg">
+					<span class="data3">123,027</span>
+					<p>households in MANHATTAN pay more than 50% of their income on rent</p>
+				</div>
+				<div class="avg-circle">
+					<h4 class="h6">Queens</h4>
+					<img src="./img/rent-burden/hh-area-queens.svg">
+					<span class="data3">120,027</span>
+					<p>households in QUEENS pay more than 50% of their income on rent</p>
+				</div>
+				<div class="avg-circle">
+					<h4 id="h6-si" class="h6">Staten Island</h4>
+					<img src="./img/rent-burden/hh-area-staten island.svg">
+					<span class="data3">14,686</span>
+					<p>households in STATEN ISLAND pay more than 50% of their income on rent</p>
+				</div>
+			</div>
+		</section>
+	</main>
+	<script type="text/javascript" src="./js/rent-burden.js"></script>
+</body>
+</html>
