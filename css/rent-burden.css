@@ -76,3 +76,72 @@
 		margin-bottom: 0px;
 	}
 }
+
+
+.box {
+	position: relative;
+	height:90%;
+	width: 100%;
+	top:1.25em;
+}
+
+.axis {
+	font-size: 12px;
+	font-family: Graphik-Regular, sans-serif;
+	color: black;
+}
+
+.axislabel {
+	font-size: 12px;
+	font-family: Graphik-Bold, sans-serif;
+	color: black;
+}
+
+.statstitle {
+	font-size: 11px;
+	font-family: Graphik-Bold, sans-serif;
+	fill: white;
+}
+
+.statsaccent {
+	font-size: 10px;
+	font-family: Graphik-Semibold, sans-serif;
+	fill: white;
+}
+
+.stats {
+	font-size: 11px;
+	font-family: Graphik-Regular, sans-serif;
+	color: white;
+	fill: white;
+	position: absolute;
+	z-index: 1;
+	line-height: 1em;
+}
+
+.tooltip {
+	position: absolute;
+	z-index: 1;
+	visibility: hidden;
+	padding: 5px;
+	font-family: Graphik-Bold, sans-serif;
+	font-size: 16px;
+}
+
+.tooltip2 {
+	position: absolute;
+	z-index: 1;
+	visibility: hidden;
+	background: white;
+	opacity: 0.9;
+	padding: 8px;
+	font-family: Graphik-Regular, sans-serif;
+	font-size: 11px;
+	color: black;
+	line-height: 1.1em;
+	border-radius: 8px;
+}
+
+.tooltippercent {
+	font-family: Graphik-Bold, sans-serif;
+}
