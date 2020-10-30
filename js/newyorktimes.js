@@ -95,7 +95,7 @@ function createGrid(svg, dataset) {
 
     circles.attr('fill', d => d.color)
 
-      .style("opacity", 0.7)
+      .style("opacity", 0.9)
       .style("stroke", "none")
 
       .on("mouseover", mouseover)
@@ -305,7 +305,7 @@ var mouseover = function (d) {
     .style("opacity", 1)
   d3.select(this)
     .style("stroke", "grey")
-    .style("opacity", 1)
+    .style("opacity", 0.7)
 }
 
 var mousemove = function (d) {
@@ -322,6 +322,6 @@ var mouseleave = function (d) {
     .style("opacity", 0)
   d3.select(this)
     .style("stroke", "none")
-    .style("opacity", 0.7)
+    .style("opacity", 0.9)
 }
 
