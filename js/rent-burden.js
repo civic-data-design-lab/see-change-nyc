@@ -204,7 +204,7 @@ tooltip3 = d3.select("body")
 		  //Y AXIS
 				  var y = d3.scaleLinear()
 					  .domain([0, 0.13])
-					  .range([ height+140, 120]);
+					  .range([ height+127, 120]);
 				  var yName = d3.scaleBand()
 					  .domain(["BRONX", "QUEENS", "BROOKLYN", "STATEN ISLAND", "MANHATTAN"])
 					  .range([440, 665])
@@ -320,6 +320,10 @@ tooltip3 = d3.select("body")
 						  }
 						  allDensity.push({key: key.toUpperCase(), density: density, frequency: freq})
 					  }
+
+					  for (i = 0; i < n; i++) {
+						allDensity[i].density[0][1] = 0
+					}
   
 				  //DISTRICTS
   
@@ -359,6 +363,22 @@ tooltip3 = d3.select("body")
 						  }
 					  }
   
+					  
+					for (i = 0; i < bronxdistricts[0].length; i++) {
+						bronxdensity[i].density[0][1] = 0
+						}
+					for (i = 0; i < brooklyndistricts[0].length; i++) {
+						brooklyndensity[i].density[0][1] = 0
+						}
+					for (i = 0; i < queensdistricts[0].length; i++) {
+						queensdensity[i].density[0][1] = 0
+						}
+					for (i = 0; i < manhattandistricts[0].length; i++) {
+						manhattandensity[i].density[0][1] = 0
+						}
+					for (i = 0; i < statenislanddistricts[0].length; i++) {
+						statenislanddensity[i].density[0][1] = 0
+						}
   
 		  //RIDGELINE PLOT
   
@@ -384,7 +404,7 @@ tooltip3 = d3.select("body")
   
 			  //BY BOROUGH
 				  y.domain([0, 0.25])
-				  yName.domain(bronxdistricts[0]).range([300, 665])
+				  yName.domain(bronxdistricts[0]).range([320, 665])
 			  
 				  svg.selectAll("areas")
 				  .data(bronxdensity)
@@ -405,7 +425,7 @@ tooltip3 = d3.select("body")
 				  )
 
 				  y.domain([0, 0.25])
-				  yName.domain(brooklyndistricts[0]).range([250, 665])
+				  yName.domain(brooklyndistricts[0]).range([260, 665])
 			  
 				  svg.selectAll("areas")
 				  .data(brooklyndensity)
@@ -447,7 +467,7 @@ tooltip3 = d3.select("body")
 				  )
 
 				  y.domain([0, 0.25])
-				  yName.domain(manhattandistricts[0]).range([300, 665])
+				  yName.domain(manhattandistricts[0]).range([310, 665])
 			  
 				  svg.selectAll("areas")
 				  .data(manhattandensity)
@@ -468,7 +488,7 @@ tooltip3 = d3.select("body")
 				  )
 
 				  y.domain([0, 0.25])
-				  yName.domain(statenislanddistricts[0]).range([400, 665])
+				  yName.domain(statenislanddistricts[0]).range([430, 665])
 			  
 				  svg.selectAll("areas")
 				  .data(statenislanddensity)
@@ -505,7 +525,7 @@ tooltip3 = d3.select("body")
 				  .duration(200)
 				  .ease(d3.easeLinear).style("opacity",0.7)
 			  y.domain([0, 0.25])
-			  yName.domain(bronxdistricts[0]).range([300, 665])
+			  yName.domain(bronxdistricts[0]).range([320, 665])
 			  svg.select("#yaxis")
 			  .call(d3.axisLeft(yName).tickSize(0))
 				  .style("font-size", "10px")
@@ -533,7 +553,7 @@ tooltip3 = d3.select("body")
 					.duration(200)
 					.ease(d3.easeLinear).style("opacity",0.7)
 				y.domain([0, 0.25])
-				yName.domain(brooklyndistricts[0]).range([250, 665])
+				yName.domain(brooklyndistricts[0]).range([253, 665])
 				svg.select("#yaxis")
 				.call(d3.axisLeft(yName).tickSize(0))
 					.style("font-size", "10px")
@@ -589,7 +609,7 @@ tooltip3 = d3.select("body")
 					.duration(200)
 					.ease(d3.easeLinear).style("opacity",0.7)
 				y.domain([0, 0.25])
-				yName.domain(manhattandistricts[0]).range([300, 665])
+				yName.domain(manhattandistricts[0]).range([310, 665])
 				svg.select("#yaxis")
 				.call(d3.axisLeft(yName).tickSize(0))
 					.style("font-size", "10px")
@@ -617,7 +637,7 @@ tooltip3 = d3.select("body")
 					.duration(200)
 					.ease(d3.easeLinear).style("opacity",0.7)
 				y.domain([0, 0.25])
-				yName.domain(statenislanddistricts[0]).range([400, 665])
+				yName.domain(statenislanddistricts[0]).range([415, 665])
 				svg.select("#yaxis")
 				.call(d3.axisLeft(yName).tickSize(0))
 					.style("font-size", "10px")
