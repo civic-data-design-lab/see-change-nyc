@@ -36,46 +36,43 @@
 	</header>
 		<section id="mapbox">
 			<div id="map-legend">
+				<div id="legend-month">
+					<span id="month-feb" class="month-toggle">February</span>
+					<span id="month-mar" class="month-toggle">March</span>
+					<h3>Month</h3>
+				</div>
 				<div id="legend-day">
-					<span id="weekday" class="day-toggle">Weekday</span>
-					<span id="weekend" class="day-toggle">Weekend</span>
+					<span id="day-wd" class="day-toggle">Weekday</span>
+					<span id="day-we" class="day-toggle">Weekend</span>
 					<h3>Day</h3>
 				</div>
 				<div id="legend-time">
 					<ul>
-						<li id="time-00" class="time-toggle">
+						<li id="time-0005" class="time-toggle">
 							<span class="time-label">0:00</span>
-							<h4>0:00&ndash;6:00</h4>
+							<h4>0:00&ndash;5:59</h4>
 						</li>
-						<li id="time-06" class="time-toggle selectedtime">
+						<li id="time-0611" class="time-toggle selectedtime">
 							<span class="time-label">6:00</span>
-							<h4>6:00&ndash;12:00</h4>
+							<h4>6:00&ndash;11:59</h4>
 						</li>
-						<li id="time-12" class="time-toggle">
+						<li id="time-1217" class="time-toggle">
 							<span class="time-label">12:00</span>
-							<h4>12:00&ndash;18:00</h4>
+							<h4>12:00&ndash;17:59</h4>
 						</li>
-						<li id="time-18" class="time-toggle">
+						<li id="time-1823" class="time-toggle">
 							<span class="time-label">18:00</span>
-							<h4>18:00&ndash;24:00</h4>
+							<h4>18:00&ndash;23:59</h4>
 						</li>
 						<span id="time-label-24" class="time-label">24:00</span>
 					</ul>
 					<h3>Time</h3>
 				</div>
-				<div id="legend-scale">
+				<div id="legend-dot">
 					<ul>
-						<li id="scale-n100" class="foottraffic-scale"></li>
-						<li id="scale-n75" class="foottraffic-scale"></li>
-						<li id="scale-n50" class="foottraffic-scale"></li>
-						<li id="scale-n25" class="foottraffic-scale"></li>
-						<li id="scale-0" class="foottraffic-scale"></li>
-						<li id="scale-p25" class="foottraffic-scale"></li>
-						<li id="scale-p50" class="foottraffic-scale"></li>
-						<li id="scale-p75" class="foottraffic-scale"></li>
-						<li id="scale-p100" class="foottraffic-scale"></li>
-						<li id="scale-p200" class="foottraffic-scale"></li>
-						<li id="scale-p200more" class="foottraffic-scale"></li>
+						<li><div id ="feb" class="dot"></div>&ensp;6% of Foot Traffic Before Lockdown (February)*</li>
+						<li><div id ="mar" class="dot"></div>&ensp;6% of Foot Traffic During Lockdown (March)*</li>
+						<li><div id="star">*</div>&ensp;<span>Cuebiq data represents approximately 6% of the entire population in NYC at a given time.</span></li>
 					</ul>
 					<h3>Daily Average Foot Traffic Changes &vert; February&ndash;March 2020</h3>
 				</div>

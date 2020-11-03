@@ -26,17 +26,17 @@
 	font-family: 'Graphik-Medium', sans-serif;
 	font-size: 1em;
 }
-#legend-day, #legend-time, #legend-scale {
+#legend-month, #legend-day, #legend-time, #legend-dot {
 	position: relative;
 	float: left;
 	height: 100%;
 	margin: 30px 30px 0px;
 }
-#legend-day {
+#legend-day, #legend-month {
 	width: auto;
 	margin-left: 30px;
 }
-.day-toggle {
+.day-toggle, .month-toggle {
 	position: relative;
 	display: inline-block;
 	float: left;
@@ -52,14 +52,19 @@
 .day-toggle:hover, .time-toggle:hover {
 	cursor: pointer;
 }
-#weekday {
+#day-wd, #month-feb {
 	color: #fff;
 	background: #000;
 }
-#weekend {
+#day-we {
 	left: -3px;
 	color: #000;
 	background: #fff;
+}
+#month-mar {
+	left: -3px;
+	color: #fff;
+	background: #000;
 }
 #map-legend ul {
 	position: relative;
@@ -134,11 +139,109 @@
 .selectedtime h4 {
 	display: block;
 }
-#legend-scale {
+#legend-dot {
+	position: relative;
+	float: left;
 	width: 360px;
 }
+#legend-dot ul {
+	position: relative;
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+	top: -10px;
+}
+#legend-dot ul li  {
+	list-style: none;
+	display: inline-block;
+	min-width: 32px;
+	margin-bottom: 0.5em;
+	text-align: left;
+}
+.dot {
+	position: relative;
+	display: inline-block;
+	top: 0.16em;
+	width: 1em;
+	height: 1em;
+	border-radius: 50%;
+}
+#feb {
+	background: #ff00c3;
+}
+#mar {
+	background: #004ca8;
+}
+#star {
+	position: relative;
+	display: inline-block;
+	top: 0.16em;
+	width: 1em;
+	height: 1em;
+	text-align: center;
+}
+.mapboxgl-popup-content {
+	width: 310px;
+	padding: 15px 15px;
+	border-radius: 10px;
+	text-align: left;
+}
+.labelstreet {
+	float: left;
+	width: 170px;
+	margin: 0px;
+	padding-top: 0.5em;
+	font-family: 'Graphik-Bold', sans-serif;
+	font-size: 1.2em;
+}
+.labelday, .labeltime {
+	float: left;
+	font-family: 'Graphik-Regular', sans-serif;
+	text-transform: uppercase;
+	padding-top: 0.5em;
+	margin-left: 10px;
+	padding-top: 0.5em;
+}
+.labelday {
+	width: 55px;
+}
+.labeltime {
+	width: 65px;
+}
+.labelchange .data1 {
+	float: left;
+	width: 120px;
+	margin: 20px 20px 0px;
+}
+.labelchange .labelfoottraffic {
+	float: left;
+	width: 125px;
+	margin-right: 20px;
+	font-family: 'Graphik-Medium', sans-serif;
+}
+.labelavg, .labelavgchange {
+	width: 100%;
+}
+.labelavg span, .labelavgchange span {
+	float: left;
+	width: 35px;
+	margin-right: 10px;
+}
+.labelavg p, .labelavgchange p {
+	float: left;
+	width: 245px;
+	margin: 0px 0px 0.5em;
+}
+.labelavg span {
+	font-family: 'Graphik-Semibold', sans-serif;
+	font-size: 1.25em;
+}
+.labelavgchange {
+	font-family: 'Graphik-Bold', sans-serif;
+	font-size: 1.25em;
+}
 
-#menu {
+/*#menu {
     background: #fff;
     position: absolute;
     z-index: 1;
@@ -174,158 +277,4 @@
 #menu a.active {
      background-color: #8c8c8c; 
     color: #fff;
-}
-/*.hvi-scale {
-	position: relative;
-	display: block;
-	width: 20px;
-	height: 12vh;
-}
-.hvi-scale h4 {
-	position: absolute;
-	margin: 0px;
-	top: 0px;
-	left: 30px;
-	font-family: 'Graphik-Semibold', sans-serif;
-	font-size: 1.5em;
-}
-#legend-hvi5 {
-	background: #d25544;
-}
-#legend-hvi4 {
-	background: #ea9081;
-}
-#legend-hvi3 {
-	background: #f4cabd;
-}
-#legend-hvi2 {
-	background: #6a8e97;
-}
-#legend-hvi1 {
-	background: #024959;
-}
-#most-vulnerable, #least-vulnerable {
-	font-family: 'Graphik-Semibold', sans-serif;
-	font-size: 0.8em;
-	text-transform: uppercase;
-	display: inline-block;
-	width: 110px;
-}
-#most-vulnerable {
-	position: absolute;
-	top: 0px;
-	left: 0px;
-	transform: rotate(-90deg) translate(-50px, -65px);
-}
-#least-vulnerable {
-	position: absolute;
-	bottom: 0px;
-	left: 0px;
-	transform: rotate(-90deg) translate(50px, -65px);
-}
-.mapboxgl-popup-content {
-	width: 240px;
-	padding: 15px 15px;
-	border-radius: 10px;
-	text-align: left;
-}
-.labelplace {
-	position: relative;
-	width: 100%;
-	height: 60px;
-	text-transform: uppercase;
-}
-.labelplace p {
-	position: relative;
-	float: left;
-	width: 78%;
-	margin: 0px 2px 0px;
-	line-height: 1.2em;
-}
-.labelborough {
-	font-family: 'Graphik-Regular', sans-serif;
-	padding-top: 0.5em;
-}
-.labelcd {
-	font-family: 'Graphik-Bold', sans-serif;
-	font-size: 1.2em;
-	padding-top: 0.5em;
-}
-.labelhvi {
-	position: relative;
-	float: left;
-	width: 20%;
-	height: auto;
-	top: -1.3em;
-	text-align: center;
-}
-.labelhvi span {
-	display: block;
-	margin: 0px auto 0.5em auto;
-}
-.labelhvi .data1 {
-	margin-bottom: 0px;
-}
-.factors {
-	position: relative;
-	width: 100%;
-	height: auto;
-	min-height: 140px;
-}
-.factors p {
-	height: auto;
-}
-.labelhvifactors {
-	display: block;
-	margin: 0px 0px 10px;
-	width: 100%;
-	height: auto;
-	font-family: 'Graphik-Regular', sans-serif;
-	text-transform: uppercase;
-	letter-spacing: 1px;
-	color: #aaa;
-}
-.labelhvifactors::after {
-	position: absolute;
-	display: inline-block;
-	content: "";
-	margin-top: 1em;
-	right: 0px;
-	width: calc(100% - 95px);
-	height: 1px;
-	background: #aaa;
-}
-.labelfactor {
-	height: auto;
-	float: left;
-}
-.left {
-	width: 47%;
-	margin: 0px 2% 0px 0px;
-}
-.right {
-	width: 48%;
-	margin: 0px 0px 0.5em 2%;
-}
-.labelfactor span {
-	display: inline-block;
-	float: left;
-	font-family: 'Graphik-Semibold', sans-serif;
-	font-size: 1em;
-	text-align: center;
-	line-height: 1.4em;
-	width: 1.25em;
-	height: 1.25em;
-	margin-top: 0.4em;
-	padding: 2px;
-	color: #fff;
-	border-radius: 50%;
-}
-.labelfactor p {
-	display: block;
-	float: left;
-	margin: 0px 0px 0px 10px;
-	width: calc(100% - 30px);
-	font-size: 0.9em;
-	line-height: 1.3em;
 }*/

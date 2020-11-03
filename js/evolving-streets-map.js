@@ -37,92 +37,99 @@ let navigation = new mapboxgl.NavigationControl({
 map.addControl(navigation, 'top-right');
 
 // toggle layers
-function activeLayer(clickedButton) {
+var toggleableLayerIds = ['fwd0005', 'fwd0611', 'fwd1217', 'fwd1823', 'fwe0005', 'fwe0611', 'fwe1217', 'fwe1823', 'mwd0005', 'mwd0611', 'mwd1217', 'mwd1823', 'mwe0005', 'mwe0611', 'mwe1217', 'mwe1823'];
 
-}
+var currentDay = "wd";
+var currentTime = "0611";
+var currentLayer = currentDay + currentTime;
 
-var toggleableLayerIds = ['weekday-0005', 'weekday-0611', 'weekday-1217', 'weekday-1823', 'weekend-0005', 'weekend-0611', 'weekend-1217', 'weekend-1823'];
+// for (var i = 0; i < toggleableLayerIds.length; i++) {
+// 	var id = toggleableLayerIds[i];
 
-for (var i = 0; i < toggleableLayerIds.length; i++) {
-	var id = toggleableLayerIds[i];
+// 	var link = document.createElement('a');
+// 	link.href = '#';
+// 	// link.className = 'active';
+// 	link.textContent = id;
+// 	if (toggleableLayerIds[i].endsWith('wd0611')) {
+// 		link.className = 'active';
+// 	} else {
+// 		link.className = '';
+// 	}
 
-	var link = document.createElement('a');
-	link.href = '#';
-	// link.className = 'active';
-	link.textContent = id;
-	if (toggleableLayerIds[i] == 'weekday-0611') {
-		link.className = 'active';
-	} else {
-		link.className = '';
-	}
+// 	link.onclick = function (e) {
+// 		var clickedLayer = this.textContent;
+// 		e.preventDefault();
+// 		e.stopPropagation();
 
-	link.onclick = function (e) {
-		var clickedLayer = this.textContent;
-		e.preventDefault();
-		e.stopPropagation();
+// 		var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
 
-		var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
+// 		if (visibility === 'visible') {
+// 			map.setLayoutProperty(clickedLayer, 'visibility', 'none');
+// 			this.className = 'layer-toggle';
+// 		} else {
+// 			this.className = 'layer-toggle active';
+// 			map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
+// 		}
+// 	};
 
-		// if (visibility !== 'visible') {
-		// 	var hiddenLayers = toggleableLayerIds.filter(item => item !== clickedLayer);
-		// 	for (var i; i < hiddenLayers.length; i++) {
-		// 		map.setLayoutProperty(hiddenLayers[i], 'visibility', 'none');
-		// 		link.find(hiddenLayers[i]).className = '';
-		// 	};
-		// 	this.className = 'active';
-		// 	map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
-		// }
-		if (visibility === 'visible') {
-			map.setLayoutProperty(clickedLayer, 'visibility', 'none');
-			this.className = 'layer-toggle';
-		} else {
-			this.className = 'layer-toggle active';
-			map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
-		}
-	};
- 
-	var layers = document.getElementById('menu');
-	layers.appendChild(link);
-};
+// 	var layers = document.getElementById('menu');
+// 	layers.appendChild(link);
+// };
 
 // click popup tooltip
 function footTrafficScale(score) {
-	return (score < -100) ? "#2f3e91"
-	: (-100 <= score && score < -75) ? "#3e52c1"
-	: (-75 <= score && score < -50) ? "#6575cd"
-	: (-50 <= score && score < -25) ? "#8b97da"
-	: (-25 <= score && score < 0) ? "#b2bae6"
-	: (score == 0) ? "#8c8c8c"
-	: (0 < score && score <= 25) ? "#ffcba3"
-	: (25 < score && score <= 50) ? "#ffb076"
-	: (50 < score && score <= 75) ? "#ff9648"
-	: (75 < score && score <= 100) ? "#ff7c1a"
-	: (100 < score && score <= 200) ? "#bf5d14"
-	: (200 < score) ? "#803e0d"
+	return (score < 0) ? "#004ca8"
+	: (0 < score) ? "#ff00c3"
 	: "#8c8c8c";
 }
 
-function roundAccurately(number, decimalPlaces) {
-	return Number(Math.round(number + "e" + decimalPlaces) + "e-" + decimalPlaces);	
-}
+// function roundAccurately(number, decimalPlaces) {
+// 	return Number(Math.round(number + "e" + decimalPlaces) + "e-" + decimalPlaces);	
+// }
 
-function showPopup(e, feature) {
-	if (feature.properties.HVI == 0) {
-		return ;
+function showPopup(e, feature, currentLayer) {
+	if (currentLayer.startsWith("wd")) {
+		var labelDay = "Weekday";
+		var changeDay = "wd"
 	}
+	else if (currentLayer.startsWith("we")) {
+		var labelDay = "Weekend";
+		var changeDay = "we"
+	};
+
+	if (currentLayer.endsWith("0005")) {
+		var labelTime = "0:00&ndash;5:59";
+		var changeTime = "05";
+	}
+	else if (currentLayer.endsWith("0611")) {
+		var labelTime = "6:00&ndash;11:59";
+		var changeTime = "611";
+	}
+	else if (currentLayer.endsWith("1217")) {
+		var labelTime = "12:00&ndash;17:59";
+		var changeTime = "1217";
+	}
+	else if (currentLayer.endsWith("1823")) {
+		var labelTime = "18:00&ndash;23:59";
+		var changeTime = "1823";
+	}
+
+	var changePercent = "C_" + changeDay + "__" + changeTime;
+	var beforeLockdown = "F" + currentLayer.toUpperCase();
+	var duringLockdown = "M" + currentLayer.toUpperCase();
 
 	var popup = new mapboxgl.Popup({
 		offset: [0, 0],
 		closeButton: false
 	})
 		.setLngLat(e.lngLat)
-		.setHTML("<h3 class='labelstreet'>" + feature.properties.Street + "</h3><div class='labelchange' style='color:" + footTrafficScale(feature.properties.C_wd__611) + ";'><span class='data1'>" + Math.round(feature.properties.C_wd__611) + "%</span><p class='labelfoottraffic'>Foot Traffic Change During Lockdown (%)</p></div><div class='labelavg'><span>" + roundAccurately(feature.properties.F_wd_6_11, 2) + "</span><p>Weekday average count before lockdown</p></div><div class='labelavg'><span>" + roundAccurately(feature.properties.M_wd_6_11, 2) + "</span><p>Weekday average count during lockdown</p></div><div class='labelavgchange'><span>" + roundAccurately(feature.properties.AC_wd_611, 2) + "</span><p>Weekday average change</p></div>")
+		.setHTML("<h3 class='labelstreet'>" + feature.properties.Street_1 + "</h3><span class='labelday'>" + labelDay + "</span><span class='labeltime'>" + labelTime + "</span><div class='labelchange' style='color:" + footTrafficScale(feature.properties[changePercent]) + ";'><span class='data1'>" + Math.round(feature.properties[changePercent]) + "%</span><p class='labelfoottraffic'>Foot Traffic Change During Lockdown (%)</p></div><div class='labelavg'><span>" + feature.properties[beforeLockdown] + "</span><p>Hourly Average Foot Traffic Before Lockdown</p></div><div class='labelavg'><span>" + feature.properties[duringLockdown] + "</span><p>Hourly Average Foot Traffic During Lockdown</p></div><div class='labelavgchange'><span>" + (feature.properties[duringLockdown] - feature.properties[beforeLockdown]) + "</span><p>Weekday average change</p></div>")
 		.addTo(map);
 }
 
 map.on('click', function(e) {
 	var features = map.queryRenderedFeatures(e.point, {
-		layers: ['weekday-0005', 'weekday-0611', 'weekday-1217', 'weekday-1823', 'weekend-0005', 'weekend-0611', 'weekend-1217', 'weekend-1823']
+		layers: ['streets-buffer']
 	});
 
 	if (!features.length) {
@@ -131,15 +138,14 @@ map.on('click', function(e) {
 
 	var feature = features[0];
 
-	showPopup(e, feature);
+	showPopup(e, feature, currentLayer);
 });
 
 // map.on('load', function() {
 // 	var e = {lngLat: [-73.94020996898772, 40.79491737652384]}
 // 	var feature = {
 // 		properties: {
-// 			cdName: 'East Harlem',
-// 			borough: 'Manhattan',
+// 			Street_1: 'East Harlem',
 // 			HVI: 4,
 // 			ac_sc: 4,
 // 			temp_sc: 2,
@@ -149,20 +155,81 @@ map.on('click', function(e) {
 // 		}
 // 	};
 
-// 	showPopup(e, feature);
+// 	showPopup(e, feature, currentLayer);
 // });
+
+function showCurrentLayer(e, clickedLayer) {
+	e.preventDefault();
+	e.stopPropagation();
+
+	var hiddenLayers = toggleableLayerIds.filter(item => item.endsWith(clickedLayer) == false);
+	var clickedLayerFeb = "f" + clickedLayer;
+	var clickedLayerMar = "m" + clickedLayer;
+
+	for (var i = 0; i < hiddenLayers.length; i++) {
+		map.setLayoutProperty(hiddenLayers[i], 'visibility', 'none');
+	};
+	
+	map.setLayoutProperty(clickedLayerFeb, 'visibility', 'visible');
+	map.setLayoutProperty(clickedLayerMar, 'visibility', 'visible');
+};
 
 // visibility on document load 
 $(document).ready(function() {
-	$("#weekday").addClass("selectedday");
-	$("#time-06").addClass("selectedtime");
+	$("#day-wd").addClass("selectedday");
+	$("#time-0611").addClass("selectedtime");
+	$("#month-feb, #month-mar").addClass("selectedmonth");
+});
+
+// toggle by month - feb or mar
+$(".month-toggle").on("click", function(e) {
+	if ($(this).hasClass("selectedmonth")) {
+		$(this).removeClass("selectedmonth").css("background", "#fff").css("color", "#000");
+	}
+	else {
+		$(this).addClass("selectedmonth").css("background", "#000").css("color", "#fff");
+	}
+	// var clickedDay = $(this).attr("id").substring(4);
+	// var clickedLayer = clickedDay + currentTime;
+
+	// if (clickedDay !== currentDay) {
+	// 	showCurrentLayer(e, clickedLayer);
+
+	// 	currentDay = clickedDay;
+	// 	currentLayer = clickedLayer;
+	// }
+});
+$(".month-toggle").on("mouseover", function() {
+	if ($(this).hasClass("selectedmonth")) {
+		$(this).css("background", "#fff").css("color", "#000");
+	}
+	else {
+		$(this).css("background", "#000").css("color", "#fff");
+	}
+});
+$(".month-toggle").on("mouseleave", function() {
+	if ($(this).hasClass("selectedmonth")) {
+		$(this).css("background", "#000").css("color", "#fff");
+	}
+	else {
+		$(this).css("background", "#fff").css("color", "#000");
+	}
 });
 
 // toggle by weekday or weekend
-$(".day-toggle").on("click", function() {
+$(".day-toggle").on("click", function(e) {
 	if (!$(this).hasClass("selectedday")) {
 		$(".selectedday").removeClass("selectedday").css("background", "#fff").css("color", "#000");
-		$(this).addClass("selectedday");	
+		$(this).addClass("selectedday");
+	}
+	var clickedDay = $(this).attr("id").substring(4);
+	var clickedLayer = clickedDay + currentTime;
+
+	if (clickedDay !== currentDay) {
+		showCurrentLayer(e, clickedLayer);
+
+		currentDay = clickedDay;
+		currentLayer = clickedLayer;
 	}
 });
 $(".day-toggle").on("mouseover", function() {
@@ -183,12 +250,22 @@ $(".day-toggle").on("mouseleave", function() {
 });
 
 // toggle by time
-$(".time-toggle").on("click", function() {
+$(".time-toggle").on("click", function(e) {
 	if (!$(this).hasClass("selectedtime")) {
 		$(".selectedtime").find("h4").hide();
 		$(".selectedtime").removeClass("selectedtime").css("background", "#ccc").css("border-color", "#ccc");
 		$(this).addClass("selectedtime").css("background", "#8c8c8c").css("border-color", "#000");
 		$(this).find("h4").show();	
+	}
+	var clickedTime = $(this).attr("id").substring(5);
+	var clickedLayer = currentDay + clickedTime;
+
+	if (clickedTime !== currentTime) {
+		showCurrentLayer(e, clickedLayer);
+
+		currentTime = clickedTime;
+		currentLayer = clickedLayer;
+		console.log("new current layer: " + currentLayer);
 	}
 });
 $(".time-toggle").on("mouseover", function() {
