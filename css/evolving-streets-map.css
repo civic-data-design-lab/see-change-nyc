@@ -188,7 +188,7 @@
 }
 .labelstreet {
 	float: left;
-	width: 170px;
+	width: 165px;
 	margin: 0px;
 	padding-top: 0.5em;
 	font-family: 'Graphik-Bold', sans-serif;
@@ -206,7 +206,7 @@
 	width: 55px;
 }
 .labeltime {
-	width: 65px;
+	width: 70px;
 }
 .labelchange .data1 {
 	float: left;
