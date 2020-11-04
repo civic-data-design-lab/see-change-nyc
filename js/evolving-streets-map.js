@@ -41,46 +41,21 @@ var toggleableLayerIds = ['fwd0005', 'fwd0611', 'fwd1217', 'fwd1823', 'fwe0005',
 
 var currentDay = "wd";
 var currentTime = "0611";
+var currentMonths = ["f", "m"];
 var currentLayer = currentDay + currentTime;
-
-// for (var i = 0; i < toggleableLayerIds.length; i++) {
-// 	var id = toggleableLayerIds[i];
-
-// 	var link = document.createElement('a');
-// 	link.href = '#';
-// 	// link.className = 'active';
-// 	link.textContent = id;
-// 	if (toggleableLayerIds[i].endsWith('wd0611')) {
-// 		link.className = 'active';
-// 	} else {
-// 		link.className = '';
-// 	}
-
-// 	link.onclick = function (e) {
-// 		var clickedLayer = this.textContent;
-// 		e.preventDefault();
-// 		e.stopPropagation();
-
-// 		var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
-
-// 		if (visibility === 'visible') {
-// 			map.setLayoutProperty(clickedLayer, 'visibility', 'none');
-// 			this.className = 'layer-toggle';
-// 		} else {
-// 			this.className = 'layer-toggle active';
-// 			map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
-// 		}
-// 	};
-
-// 	var layers = document.getElementById('menu');
-// 	layers.appendChild(link);
-// };
+var currentLayers = currentMonths.map(value => value + currentDay + currentTime);
 
 // click popup tooltip
-function footTrafficScale(score) {
-	return (score < 0) ? "#004ca8"
-	: (0 < score) ? "#ff00c3"
-	: "#8c8c8c";
+function streetActivityScale(score, attr) {
+	if (attr == "color") {
+		return (score < 0) ? "#004ca8"
+		: (0 < score) ? "#ff00c3"
+		: "#8c8c8c";	
+	}
+	else if (attr == "sign") {
+		return (score > 0) ? "+" + score
+		: score;
+	}
 }
 
 // function roundAccurately(number, decimalPlaces) {
@@ -115,15 +90,19 @@ function showPopup(e, feature, currentLayer) {
 	}
 
 	var changePercent = "C_" + changeDay + "__" + changeTime;
-	var beforeLockdown = "F" + currentLayer.toUpperCase();
-	var duringLockdown = "M" + currentLayer.toUpperCase();
+	var countBefore = "F" + currentLayer.toUpperCase();
+	var countDuring = "M" + currentLayer.toUpperCase();
+	var streetActivityPercentChange = Math.round(feature.properties[changePercent]);
+	var streetActivityBefore = Math.round(feature.properties[countBefore]*100/6);
+	var streetActivityDuring = Math.round(feature.properties[countDuring]*100/6);
+	var streetActivityChange = streetActivityDuring - streetActivityBefore;
 
 	var popup = new mapboxgl.Popup({
 		offset: [0, 0],
 		closeButton: false
 	})
 		.setLngLat(e.lngLat)
-		.setHTML("<h3 class='labelstreet'>" + feature.properties.Street_1 + "</h3><span class='labelday'>" + labelDay + "</span><span class='labeltime'>" + labelTime + "</span><div class='labelchange' style='color:" + footTrafficScale(feature.properties[changePercent]) + ";'><span class='data1'>" + Math.round(feature.properties[changePercent]) + "%</span><p class='labelfoottraffic'>Foot Traffic Change During Lockdown (%)</p></div><div class='labelavg'><span>" + feature.properties[beforeLockdown] + "</span><p>Hourly Average Foot Traffic Before Lockdown</p></div><div class='labelavg'><span>" + feature.properties[duringLockdown] + "</span><p>Hourly Average Foot Traffic During Lockdown</p></div><div class='labelavgchange'><span>" + (feature.properties[duringLockdown] - feature.properties[beforeLockdown]) + "</span><p>Change in Hourly Average Foot Traffic</p></div>")
+		.setHTML("<div class='labelplacedate'><h3 class='labelstreet'>" + feature.properties.Street_1 + "</h3><span class='labelday'>" + labelDay + "</span><span class='labeltime'>" + labelTime + "</span></div><div class='labelchange' style='color:" + streetActivityScale(streetActivityPercentChange, "color") + ";'><span class='data1'>" + streetActivityScale(streetActivityPercentChange, "sign") + "%</span><p class='labelfoottraffic'>Change in Street Activity During Lockdown (%)</p></div><div class='labelavg'><span id='feb'>" + streetActivityBefore + "</span><p>Hourly Average Street Activity Before Lockdown</p></div><div class='labelavg'><span id='mar'>" + streetActivityDuring + "</span><p>Hourly Average Street Activity During Lockdown</p></div><div class='labelavgchange' style='color:" + streetActivityScale(streetActivityChange, "color") + ";'><span>" + streetActivityScale(streetActivityChange, "sign") + "</span><p>Change in Hourly Average Street Activity</p></div>")
 		.addTo(map);
 }
 
@@ -158,20 +137,20 @@ map.on('click', function(e) {
 // 	showPopup(e, feature, currentLayer);
 // });
 
-function showCurrentLayer(e, clickedLayer) {
+function showCurrentLayers(e, clickedLayers) {
 	e.preventDefault();
 	e.stopPropagation();
 
-	var hiddenLayers = toggleableLayerIds.filter(item => item.endsWith(clickedLayer) == false);
-	var clickedLayerFeb = "f" + clickedLayer;
-	var clickedLayerMar = "m" + clickedLayer;
+	var clickedLayers = toggleableLayerIds.filter(item => clickedLayers.includes(item));
 
-	for (var i = 0; i < hiddenLayers.length; i++) {
-		map.setLayoutProperty(hiddenLayers[i], 'visibility', 'none');
-	};
-	
-	map.setLayoutProperty(clickedLayerFeb, 'visibility', 'visible');
-	map.setLayoutProperty(clickedLayerMar, 'visibility', 'visible');
+	for (var i = 0; i < toggleableLayerIds.length; i++) {
+		if (clickedLayers.includes(toggleableLayerIds[i])) {
+			map.setLayoutProperty(toggleableLayerIds[i], 'visibility', 'visible');
+		}
+		else {
+			map.setLayoutProperty(toggleableLayerIds[i], 'visibility', 'none');
+		}
+	}
 };
 
 // visibility on document load 
@@ -181,23 +160,94 @@ $(document).ready(function() {
 	$("#month-feb, #month-mar").addClass("selectedmonth");
 });
 
-// toggle by month - feb or mar
-$(".month-toggle").on("click", function(e) {
-	if ($(this).hasClass("selectedmonth")) {
-		$(this).removeClass("selectedmonth").css("background", "#fff").css("color", "#000");
+// toggle by weekday or weekend
+$(".day-toggle").on("click", function(e) {
+	if (!$(this).hasClass("selectedday")) {
+		$(".selectedday").removeClass("selectedday").css("background", "#fff").css("color", "#000");
+		$(this).addClass("selectedday");
+	}
+	var clickedDay = $(this).attr("id").substring(4);
+	var clickedLayers = currentMonths.map(value => value + clickedDay + currentTime);
+
+	if (clickedDay !== currentDay) {
+		showCurrentLayers(e, clickedLayers);
+
+		currentDay = clickedDay;
+		currentLayer = clickedDay + currentTime;
+		currentLayers = clickedLayers;
+	}
+});
+$(".day-toggle").on("mouseover", function() {
+	if ($(this).hasClass("selectedday")) {
+		$(this).css("background", "#fff").css("color", "#000");
 	}
 	else {
-		$(this).addClass("selectedmonth").css("background", "#000").css("color", "#fff");
+		$(this).css("background", "#8c8c8c").css("border-color", "#8c8c8c").css("color", "#000");
 	}
-	// var clickedDay = $(this).attr("id").substring(4);
-	// var clickedLayer = clickedDay + currentTime;
+});
+$(".day-toggle").on("mouseleave", function() {
+	if ($(this).hasClass("selectedday")) {
+		$(this).css("background", "#fff").css("color", "#000");
+	}
+	else {
+		$(this).css("background", "#ccc").css("border-color", "#ccc").css("color", "#333");
+	}
+});
 
-	// if (clickedDay !== currentDay) {
-	// 	showCurrentLayer(e, clickedLayer);
+// toggle by time
+$(".time-toggle").on("click", function(e) {
+	if (!$(this).hasClass("selectedtime")) {
+		$(".selectedtime").find("h4").hide();
+		$(".selectedtime").removeClass("selectedtime").css("background", "#ccc").css("border-color", "#ccc");
+		$(this).addClass("selectedtime").css("background", "#fff").css("border-color", "#000");
+		$(this).find("h4").show();	
+	}
+	var clickedTime = $(this).attr("id").substring(5);
+	var clickedLayers = currentMonths.map(value => value + currentDay + clickedTime);
 
-	// 	currentDay = clickedDay;
-	// 	currentLayer = clickedLayer;
-	// }
+	if (clickedTime !== currentTime) {
+		showCurrentLayers(e, clickedLayers);
+
+		currentTime = clickedTime;
+		currentLayer = currentDay + clickedTime;
+		currentLayers = clickedLayers;
+	}
+});
+$(".time-toggle").on("mouseover", function() {
+	if (!$(this).hasClass("selectedtime")) {
+		$(this).css("background", "#8c8c8c").css("border-color", "#8c8c8c");
+	}
+});
+$(".time-toggle").on("mouseleave", function() {
+	if (!$(this).hasClass("selectedtime")) {
+		$(this).css("background", "#ccc").css("border-color", "#ccc");
+	}
+});
+
+// toggle by before lockdown or during lockdown
+$(".month-toggle").on("click", function(e) {
+	if ($("#month-feb").hasClass("selectedmonth") && $("#month-mar").hasClass("selectedmonth")) {
+		$(this).removeClass("selectedmonth").css("background", "#ccc").css("color", "#333");
+	}
+	else if (!$(this).hasClass("selectedmonth")) {
+		$(this).addClass("selectedmonth").css("background", "#fff").css("color", "#000");
+	}
+	var thisMonth = $(this).attr("id").substring(6,7);
+	if (currentMonths.length == 2) {
+		var clickedMonths = currentMonths.filter(item => item != thisMonth);
+	}
+	else if (!currentMonths.includes(thisMonth)) {
+		var clickedMonths = ["f", "m"];
+	}
+	else {
+		var clickedMonths = currentMonths;
+	}
+
+	var clickedLayers = clickedMonths.map(value => value + currentDay + currentTime);
+	showCurrentLayers(e, clickedLayers);
+
+	currentMonths = clickedMonths;
+	currentLayers = clickedLayers;
 });
 $(".month-toggle").on("mouseover", function() {
 	if ($(this).hasClass("selectedmonth")) {
@@ -213,70 +263,5 @@ $(".month-toggle").on("mouseleave", function() {
 	}
 	else {
 		$(this).css("background", "#fff").css("color", "#000");
-	}
-});
-
-// toggle by weekday or weekend
-$(".day-toggle").on("click", function(e) {
-	if (!$(this).hasClass("selectedday")) {
-		$(".selectedday").removeClass("selectedday").css("background", "#fff").css("color", "#000");
-		$(this).addClass("selectedday");
-	}
-	var clickedDay = $(this).attr("id").substring(4);
-	var clickedLayer = clickedDay + currentTime;
-
-	if (clickedDay !== currentDay) {
-		showCurrentLayer(e, clickedLayer);
-
-		currentDay = clickedDay;
-		currentLayer = clickedLayer;
-	}
-});
-$(".day-toggle").on("mouseover", function() {
-	if ($(this).hasClass("selectedday")) {
-		$(this).css("background", "#fff").css("color", "#000");
-	}
-	else {
-		$(this).css("background", "#000").css("color", "#fff");
-	}
-});
-$(".day-toggle").on("mouseleave", function() {
-	if ($(this).hasClass("selectedday")) {
-		$(this).css("background", "#000").css("color", "#fff");
-	}
-	else {
-		$(this).css("background", "#fff").css("color", "#000");
-	}
-});
-
-// toggle by time
-$(".time-toggle").on("click", function(e) {
-	if (!$(this).hasClass("selectedtime")) {
-		$(".selectedtime").find("h4").hide();
-		$(".selectedtime").removeClass("selectedtime").css("background", "#ccc").css("border-color", "#ccc");
-		$(this).addClass("selectedtime").css("background", "#8c8c8c").css("border-color", "#000");
-		$(this).find("h4").show();	
-	}
-	var clickedTime = $(this).attr("id").substring(5);
-	var clickedLayer = currentDay + clickedTime;
-
-	if (clickedTime !== currentTime) {
-		showCurrentLayer(e, clickedLayer);
-
-		currentTime = clickedTime;
-		currentLayer = clickedLayer;
-		console.log("new current layer: " + currentLayer);
-	}
-});
-$(".time-toggle").on("mouseover", function() {
-	if (!$(this).hasClass("selectedtime")) {
-		$(this).css("background", "#8c8c8c").css("border-color", "#8c8c8c");
-		// $(this).find("h4").css("color", "#8c8c8c").show();
-	}
-});
-$(".time-toggle").on("mouseleave", function() {
-	if (!$(this).hasClass("selectedtime")) {
-		$(this).css("background", "#ccc").css("border-color", "#ccc");
-		// $(this).find("h4").css("color", "#000").hide();
 	}
 });

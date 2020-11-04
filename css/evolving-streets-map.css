@@ -5,85 +5,88 @@
 	position: relative;
 	top: 46px;
 	width: 100%;
-	height: calc(100vh - 172px);
 }
 #map-legend {
 	position: absolute;
 	left: 0px;
 	bottom: 0px;
 	width: calc(100% - 6px);
-	height: 120px;
 	font-family: 'Graphik-Regular', sans-serif;
 	font-size: 0.8em;
+	text-align: left;
 	background: #fff;
 	border: solid 3px #000;
 	z-index: 3;
 }
-#map-legend h3 {
-	position: absolute;
-	width: 100%;
-	bottom: 2em;
-	font-family: 'Graphik-Medium', sans-serif;
-	font-size: 1em;
-}
-#legend-month, #legend-day, #legend-time, #legend-dot {
+#legend-daytime {
 	position: relative;
 	float: left;
-	height: 100%;
-	margin: 30px 30px 0px;
-}
-#legend-day, #legend-month {
+	margin: 20px 30px 0px;
 	width: auto;
-	margin-left: 30px;
+	height: auto;
 }
-.day-toggle, .month-toggle {
+#map-legend h3 {
+	position: relative;
+	float: left;
+	width: auto;
+	margin: 0px;
+	font-family: 'Graphik-Medium', sans-serif;
+	font-size: 1.5em;
+	text-transform: uppercase;
+	line-height: 1.5em;
+}
+#legend-day {
+	position: relative;
+	float: left;
+	margin-left: 30px;
+	width: auto;
+	height: auto;
+}
+.day-toggle {
 	position: relative;
 	display: inline-block;
 	float: left;
-	height: auto;
 	width: auto;
-	padding: 10px;
-	font-family: 'Graphik-Medium', sans-serif;
+	height: 1em;
+	padding: 5px 10px;
+	font-family: 'Graphik-Semibold', sans-serif;
 	text-transform: uppercase;
-	font-size: 0.8em;
+	font-size: 1em;
 	text-align: center;
-	border: solid 3px #000;
+	border: solid 2px;
 }
-.day-toggle:hover, .time-toggle:hover {
-	cursor: pointer;
-}
-#day-wd, #month-feb {
-	color: #fff;
-	background: #000;
-}
-#day-we {
-	left: -3px;
+#day-wd {
 	color: #000;
 	background: #fff;
+	border-color: #000;
 }
-#month-mar {
-	left: -3px;
-	color: #fff;
-	background: #000;
+#day-we {
+	color: #333;
+	background: #ccc;
+	border-color: #ccc;
 }
-#map-legend ul {
+#legend-time {
+	position: relative;	
+	width: 100%;
+	min-width: 320px;
+	height: 60px;
+	margin-top: 35px;
+}
+#legend-time ul {
 	position: relative;
 	padding: 0px;
 	list-style: none;
 	display: inline;
 }
-#map-legend ul li {
+#legend-time ul li {
 	position: relative;
 	float: left;
 	list-style: none;
 	display: block;
 }
-#legend-time {
-	width: 400px;
-}
 .time-label {
 	position: absolute;
-	top: 20px;
+	top: 22px;
 	left: -2px;
 	-webkit-transform: translateX(-50%);
 	-moz-transform: translateX(-50%);
@@ -104,45 +107,90 @@
 }
 #time-label-24 {
 	left: 0px;
-	margin-top: 25px;
+	margin-top: 27px;
 }
 .time-toggle {
 	width: calc(25% - 4px);
 	height: 10px;
 	margin-top: 25px;
 	background: #ccc;
-	border-left: 2px solid #ccc;
-	border-right: 2px solid #ccc;
+	border: 2px solid #ccc;
+	border-top: none;
 }
 .time-toggle h4 {
 	position: absolute;
 	width: 100%;
-	top: -45px;
+	top: -35px;
+	padding: 9px 0px;
+	height: 10px;
+	text-align: center;
 	display: none;
 }
 .selectedtime {
-	background: #8c8c8c;
+	background: #fff;
 	border-color: #000;
 }
 .selectedtime::before {
 	position: absolute;
 	display: block;
 	content: "";
-	top: -10px;
+	top: -20px;
 	left: -2px;
 	width: 100%; 
-	height: 10px;
-	background: #8c8c8c;
-	border-left: 2px solid #000;
-	border-right: 2px solid #000;
+	height: 20px;
+	background: #fff;
+	border: 2px solid #000;
+	border-bottom: none;
+	/*border-left: 2px solid #000;
+	border-right: 2px solid #000;*/
 }
 .selectedtime h4 {
 	display: block;
 }
+#legend-month, #legend-dot {
+	position: relative;
+	float: left;
+	height: 100%;
+	margin: 30px 30px 0px;
+}
+#legend-month {
+	width: auto;
+	padding-top: 10px;
+	height: calc(100% - 10px);
+}
+#legend-month {
+	margin-left: 30px;
+}
+.month-toggle {
+	position: relative;
+	display: inline-block;
+	float: left;
+	height: 2em;
+	width: auto;
+	max-width: 62px;
+	padding: 10px;
+	font-family: 'Graphik-Medium', sans-serif;
+	text-transform: uppercase;
+	font-size: 0.8em;
+	text-align: center;
+	border: solid 2px #000;
+}
+.month-toggle:hover, .day-toggle:hover, .time-toggle:hover {
+	cursor: pointer;
+}
+#month-mar {
+	left: -3px;
+	color: #fff;
+	background: #000;
+}
+#month-feb {
+	color: #fff;
+	background: #000;
+}
 #legend-dot {
 	position: relative;
 	float: left;
-	width: 360px;
+	min-width: 260px;
 }
 #legend-dot ul {
 	position: relative;
@@ -151,15 +199,22 @@
 	list-style: none;
 	top: -10px;
 }
-#legend-dot ul li  {
+#legend-dot ul li {
 	list-style: none;
 	display: inline-block;
-	min-width: 32px;
+	width: 100%;
 	margin-bottom: 0.5em;
 	text-align: left;
 }
+#legend-dot ul li p {
+	position: relative;
+	float: left;
+	width: calc(100% - 25px);
+	margin: 0px 0px 0px 10px;
+}
 .dot {
 	position: relative;
+	float: left;
 	display: inline-block;
 	top: 0.16em;
 	width: 1em;
@@ -167,13 +222,14 @@
 	border-radius: 50%;
 }
 #feb {
-	background: #ff00c3;
+	background: #004ca8;
 }
 #mar {
-	background: #004ca8;
+	background: #ff00c3;
 }
 #star {
 	position: relative;
+	float: left;
 	display: inline-block;
 	top: 0.16em;
 	width: 1em;
@@ -181,14 +237,20 @@
 	text-align: center;
 }
 .mapboxgl-popup-content {
-	width: 310px;
+	width: 305px;
 	padding: 15px 15px;
 	border-radius: 10px;
 	text-align: left;
 }
+.labelplacedate, .labelchange, .labelavg, .labelavgchange {
+	position: relative;
+	width: 100%;
+	height: auto;
+	overflow: auto;
+}
 .labelstreet {
 	float: left;
-	width: 165px;
+	width: calc(100% - 145px);
 	margin: 0px;
 	padding-top: 0.5em;
 	font-family: 'Graphik-Bold', sans-serif;
@@ -210,71 +272,78 @@
 }
 .labelchange .data1 {
 	float: left;
-	width: 120px;
-	margin: 20px 20px 0px;
+	width: calc(100% - 165px);
+	margin-top: 0.5em;
+	text-align: center;
 }
 .labelchange .labelfoottraffic {
 	float: left;
-	width: 125px;
-	margin-right: 20px;
+	width: 145px;
+	margin: 0.5em 10px 0.5em;
 	font-family: 'Graphik-Medium', sans-serif;
 }
-.labelavg, .labelavgchange {
-	width: 100%;
+.labelavgchange {
+	min-height: 1em;
+	border-top: solid 1px #8c8c8c;
+	margin-top: 0.25em;
+	padding-top: 0.25em;
 }
-.labelavg span, .labelavgchange span {
+.labelavg span {
+	display: inline-block;
 	float: left;
-	width: 35px;
-	margin-right: 10px;
+	font-family: 'Graphik-Semibold', sans-serif;
+	font-size: 0.8em;
+	text-align: center;
+	line-height: 2.5em;
+	width: 2.5em;
+	height: 2.5em;
+	margin: 0.4em 10px 0px;
+	padding: 2px;
+	color: #fff;
+	border-radius: 50%;
+}
+.labelavgchange span {
+	float: left;
+	width: 48px;
+	font-family: 'Graphik-Bold', sans-serif;
+	font-size: 1.25em;
+	text-align: center;
 }
 .labelavg p, .labelavgchange p {
 	float: left;
-	width: 245px;
-	margin: 0px 0px 0.5em;
+	width: 255px;
 }
-.labelavg span {
-	font-family: 'Graphik-Semibold', sans-serif;
-	font-size: 1.25em;
+.labelavg p {
+	margin: 0.5em 0px 0.5em;
 }
-.labelavgchange {
-	font-family: 'Graphik-Bold', sans-serif;
-	font-size: 1.25em;
+.labelavgchange p {
+	margin: 0px;
+	font-family: 'Graphik-Medium', sans-serif;
+	font-size: 1.09em;
 }
 
-/*#menu {
-    background: #fff;
-    position: absolute;
-    z-index: 1;
-    top: 50px;
-    left: 10px;
-    border-radius: 3px;
-    width: 120px;
-    border: 1px solid rgba(0,0,0,0.4);
-    font-family: 'Open Sans', sans-serif;
+@media screen and (min-width: 1312px) {
+	#map {
+		height: calc(100vh - 172px);
+	}
+	#map-legend {
+		height: 130px;
+	}
+	#legend-dot {
+		width: 420px;
+	}
 }
- 
-#menu a {
-    font-size: 12px;
-    color: #404040;
-    display: block;
-    margin: 0;
-    padding: 0;
-    padding: 6px;
-    text-decoration: none;
-    border-bottom: 1px solid rgba(0,0,0,0.25);
-    text-align: center;
+@media screen/* and (min-width: 1184px)*/ and (max-width: 1311px) {
+	#map {
+		height: calc(100vh - 192px);
+	}
+	#map-legend {
+		height: 140px;
+	}
+	#legend-dot {
+		width: calc(100% - 886px);
+	}
 }
- 
-#menu a:last-child {
-    border: none;
+@media screen and (max-width: 1183px) {
+	
 }
- 
-#menu a:hover {
-    background-color: #f8f8f8;
-    color: #404040;
-}
- 
-#menu a.active {
-     background-color: #8c8c8c; 
-    color: #fff;
-}*/
