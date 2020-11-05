@@ -1,23 +1,25 @@
+/* d3 */
+
 text {
   font-family: 'Graphik-Medium', sans-serif;
   font-size: 0.5rem;
 }
 
 
-.btn {
-  border: 1px solid #000;
-  padding: 0.7rem 1rem;
-  background: #fff;
-  color: #000;
-  font-size: 0.7rem;
-  width: inherit;
-  cursor: pointer;
+.topic {
+  font-family: 'Graphik-Bold', sans-serif;
 }
 
-.active,
-.btn:hover {
-  background-color: #000;
-  color: #fff;
+.yeartext {
+  fill: rgb(32, 32, 32);
+  font-family: 'Graphik-Semibold', sans-serif;
+  font-size: 0.7rem;
+}
+
+.topictext {
+  fill: rgb(32, 32, 32);
+  font-family: 'Graphik-Semibold', sans-serif;
+  font-size: 0.7rem;
 }
 
 
@@ -32,66 +34,47 @@ text {
   font-size: 0.8rem;
 }
 
-hr {
-  height: 1px;
-  background-color: #ccc;
-  border: none;
-}
 
-.nwt {
-  font-family: 'Graphik-Bold', sans-serif;
-  width: 97%;
-  height: 40px;
-  border: 3px solid #000;
-  display: flex;
-  align-items: center;
-  padding: 0 1rem;
-}
-
-.vizSection{
-  padding: 0rem 0rem 0rem 2rem;
-  list-style-type: none;
-  width: inherit;
-
-  /* border:1px solid #000; */
-}
-
-.textSection {
-  list-style-type: none;
-  width: inherit;
-  padding: 3rem 2rem;
-  line-height: 1.3rem;
-  font-size: 0.9rem;
-  width: 500px;
+#chart{
+  height:inherit;
+  margin-left:50px;
 }
 
 
-.container {
-  text-align: left;
-  margin: 0 auto;
-  width: 100%;
-
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  justify-content: space-between;
-  -ms-flex-pack: justify;
-}
-
-.topic {
-  font-family: 'Graphik-Bold', sans-serif;
-}
-
-.yeartext {
-  fill:rgb(32, 32, 32);
-  font-family: 'Graphik-Semibold', sans-serif;
+/* html */
+.btns {
+  border: 1px solid #000;
+  padding: 0.7rem 1rem;
+  background: #fff;
+  color: #000;
   font-size: 0.7rem;
+  width: inherit;
+  cursor: pointer;
+  margin-right:-5px;
 }
 
-.topictext {
-  fill:rgb(32, 32, 32);
-  font-family: 'Graphik-Semibold', sans-serif;
-  font-size: 0.7rem;
+.active,
+.btns:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+
+#project-description {
+  top: 0px;
+}
+
+#buttons{
+  margin-top: 60px ;
+margin-right:5%;
+ 
+}
+
+
+#project-title {
+  min-width: 100%
+}
+
+#header{
+  min-width: 0px;
 }

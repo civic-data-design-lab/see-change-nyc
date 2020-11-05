@@ -1,3 +1,5 @@
+var screenwidth = $(window).width();
+
 const dataset = d3.csv("./data/nyt_data_.csv").then(function (data) {
   data.forEach(function (d, i) {
     d.yearindex = +d.yearindex;
@@ -18,24 +20,63 @@ const dataset = d3.csv("./data/nyt_data_.csv").then(function (data) {
   createGrid(svg, data);
 });
 
-var forceXYear = d3.forceX(d => {
-  return d.year == 2013 || d.year == 2017 ? width / 5 - 50 :
-    d.year == 2014 || d.year == 2018 ? width * 2 / 5 - 5 :
-    d.year == 2015 || d.year == 2019 ? width * 3 / 5 + 25 :
-    width * 4 / 5 + 60
-}).strength(0.1)
+var forceXYear = d3.forceX(d => {if (winWidth > 820) {
+  return d.year == 2013 || d.year == 2017 ? width() / 5 - 50 :
+    d.year == 2014 || d.year == 2018 ? width() * 2 / 5 - 5 :
+    d.year == 2015 || d.year == 2019 ? width() * 3 / 5 + 25 :
+    width() * 4 / 5 + 60
+}else return width()/2-50}).strength(0.1)
 
-var forceYYear = d3.forceY(d => {
+var forceYYear = d3.forceY(d =>{if (winWidth > 820) {
   return d.year == 2013 || d.year == 2014 || d.year == 2015 || d.year == 2016 ? height / 3 - 60 :
     height * 2 / 3 - 60
-}).strength(0.1)
+  }else return (height+80)/8*(d.year%2013)+130}).strength(0.1)
 
 var forceCollide = d3.forceCollide(d => radiusScale(d.count) + 3)
 const circleRadius = 6;
-const width = 950,
-  height = 700;
 
-  const svg = d3.select('#chart')
+//adapt to the screen size 
+var winWidth = $(window).width();
+
+var height;
+var width = function () {
+  if (winWidth > 1100) {
+    numPerRow = 55;
+    height = 700;
+    return 1100;
+  } else if (winWidth > 820) {
+    numPerRow = 40;
+    height = 1000;
+    return 800;
+  } else {
+    numPerRow = 15;
+    height = 2300;
+    return 380;
+  }
+};
+
+$(window).resize(function () {
+  if (winWidth > 1050) {
+    numPerRow = 55;
+    height = 900;
+    width = 1100;
+  } else if (winWidth > 820) {
+    numPerRow = 40;
+    height = 1000;
+    width = 800;
+  } else {
+    numPerRow = 15;
+    height = 2300;
+    width = 380;
+  }
+  location.reload(true);
+});
+
+
+
+
+
+var svg = d3.select('#chart')
   .append('svg')
   .attr('width', width)
   .attr('height', height)
@@ -46,12 +87,12 @@ var simulation =
   .force("y", forceYYear)
   .force("collide", forceCollide)
 
-  const spacing = 3;
-  const margin = 10;
-  const numPerRow = 50;
+const spacing = 3;
+const margin = 5;
+var numPerRow;
 
-  const years = [2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020];
-  const forceStrength = 0.02;
+const years = [2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020];
+const forceStrength = 0.02;
 var yearPosition = [];
 var topicPosition = [];
 
@@ -74,6 +115,7 @@ function createGrid(svg, dataset) {
   const oldDataset = _.cloneDeep(dataset);
   Object.freeze(oldDataset);
   countAscend();
+
   function circle() {
     // debugger;
     simulation.stop()
@@ -253,28 +295,35 @@ function createGrid(svg, dataset) {
         .data(years).enter()
         .append('text')
         .style("opacity", 0)
-        .attr('x', (d, i) => ((width + 140) / 5) * ((i % 4) + 1) - 70)
-        .attr('y', (d, i) => (Math.floor(i / 4) + 1) * height / 3 + 50)
+        .attr('x', function (d, i) {
+          if (winWidth > 820) {
+            return ((width() + 140) / 5) * ((i % 4) + 1) - 70
+          } else return width() / 2-50
+        })
+        .attr('y', function (d, i) {
+            if (winWidth > 820) {
+              return (Math.floor(i / 4) + 1) * height / 3 + 50
+          } else return (height / 8) * (i+1) -60
+        })
+    .transition().duration(800)
+      .text((d, i) => years[i])
 
-        .transition().duration(800)
-        .text((d, i) => years[i])
-
-        .style("opacity", 1)
-        .attr("class", "yeartext")
-    }
+      .style("opacity", 1)
+      .attr("class", "yeartext")
   }
+}
 }
 
 
 //disable buttons during forcesimulation
 $(document).ready(function () {
   $('#countAscendButton, #yearButton').click(function () {
-    $('.btn').removeClass('active').attr("disabled", false);
+    $('.btns').removeClass('active').attr("disabled", false);
     $(this).addClass('active').attr("disabled", true);
   });
 
   $("#groupButton").click(function () {
-    $('.btn').removeClass('active').attr("disabled", true);
+    $('.btns').removeClass('active').attr("disabled", true);
     $(this).addClass('active');
     // debugger;
     setTimeout(function () {
@@ -313,8 +362,8 @@ var mousemove = function (d) {
     .html(" <span class='topic'>" + d.currentTarget.__data__.topic +
       "</span></b><br><hr> was covered " + d.currentTarget.__data__.count +
       " times in " + d.currentTarget.__data__.year)
-    .style("left", (d.clientX) + 20 + "px")
-    .style("top", (d.clientY) + 20 + "px")
+    .style("left", (d.clientX) -30+ "px")
+    .style("top", (d.clientY) - 100 + "px")
 }
 
 var mouseleave = function (d) {
@@ -324,4 +373,3 @@ var mouseleave = function (d) {
     .style("stroke", "none")
     .style("opacity", 0.9)
 }
-
