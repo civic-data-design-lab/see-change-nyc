@@ -40,7 +40,10 @@ text {
   margin-left: 50px;
 }
 
-
+hr .topic{
+  margin-top: 0;
+  margin-bottom: 0;
+}
 /* html */
 hr {
   background-color: rgb(194, 194, 194);
