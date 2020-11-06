@@ -39,20 +39,103 @@ body {
 	font-style: normal;
 	margin: 0px auto;
 }
-#splash-page {
-	position: relative;
-	height: 40vh;
-	max-width: 100%;
-	margin: auto;
-	padding: 30vh 10vw;
-	text-align: center;
-	overflow: hidden;
-}
-#splash-page p {
+.h3 {
 	font-family: 'Graphik-Bold', sans-serif;
-	font-size: 1.5em;
-	text-transform: uppercase;
-	letter-spacing: 1px;
+	/*font-size: 32px/42px;*/
+	font-size: 24px;
+	line-height: 30px;
+	letter-spacing: -0.5px;
+	margin: 0px;
+	padding: 10px;
+}
+.m1 {
+	font-family: 'Graphik-Bold', sans-serif;
+	font-size: 21px;
+	line-height: 29px;
+	letter-spacing: -0.5px;
+}
+.m2 {
+	display: inline-block;
+	margin: 0px;
+	width: auto;
+	font-family: 'Graphik-Bold', sans-serif;
+	font-size: 21px;
+	line-height: 29px;
+	letter-spacing: -0.5px;
+	border-bottom: solid 4px #000;
+}
+.black {
+	color: #000;
+}
+.grey {
+	color: #d1d3d4;
+}
+header {
+	position: fixed;
+	margin: auto;
+	width: calc(100% - 12px);
+	min-width: 802px;
+	height: 50px;
+	top: 0px;
+	left: 0px;
+	font-size: 1em;
+	z-index: 10;
+	background: #fff;
+	border: solid 6px #000;
+}
+#project-title, #nav {
+	position: relative;
+	float: left;
+	width: 50%;
+	height: 100%;
+}
+#project-title {
+	min-width: 347px;
+}
+#nav {
+	min-width: 401px;
+}
+#project-description {
+	display: none;
+	position: relative;
+	width: calc(100% - 26px);
+	top: 0px;
+	left: -6px;
+	max-height: calc(100vh - 88px);
+	padding: 10px;
+/*	-ms-word-break: break-all;
+	word-break: break-all;*/
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+	-ms-hyphens: auto;
+	hyphens: auto;
+	background: #fff;
+	border: solid 6px #000;
+	overflow: hidden auto;
+}
+#project-description sup {
+	line-height: 0px;
+}
+#project-description em {
+	text-decoration: underline;
+}
+#project-description a {
+	text-decoration: none;
+	color: #000;
+	border: none;
+}
+#project-description a:hover {
+	border-bottom: solid 4px #000;
+	color: #000;
+}
+#project-description hr {
+	height: 4px;
+	background: #000;
+}
+#project-description ol a {
+	-webkit-word-break: break-all;
+	-ms-word-break: break-all;
+	word-break: break-all;
 }
 .h1 {
 	font-family: 'Graphik-Black', sans-serif;
@@ -63,9 +146,9 @@ body {
 .h2 {
 	font-family: 'Graphik-Bold', sans-serif;
 	font-size: 2em;
-	color: #aaa;
+	color: #d1d3d4;
 }
-.h3 {
+.h3-v1 {
 	font-family: 'Graphik-Bold', sans-serif;
 	font-size: 1.25em;
 	text-transform: uppercase;
@@ -86,16 +169,6 @@ body {
 	font-size: 1.25em;
 	text-transform: uppercase;
 }
-.h-title {
-	font-family: 'Graphik-Bold', sans-serif;
-	font-size: 1.25em;
-	text-transform: uppercase;
-	letter-spacing: 1px;
-}
-.h-nav {
-	font-family: 'Graphik-Semibold', sans-serif;
-	font-size: 1em;
-}
 .data1 {
 	font-family: 'Graphik-Bold', sans-serif;
 	font-size: 3em;
@@ -110,90 +183,26 @@ body {
 	font-family: 'Graphik-Semibold', sans-serif;
 	font-size: 1.25em;
 }
-.black {
-	color: #000;
-}
-.pink {
-	color: #dd4599;
-}
-.blue {
-	color: #a2cad5;
-}
-.grey {
-	color: #aaa;
-}
-header {
-	position: fixed;
-	margin: auto;
-	width: calc(100% - 6px);
-	min-width: 619px;
-	height: 40px;
-	top: 0px;
-	left: 0px;
-	font-size: 1em;
-	z-index: 10;
-	background: #fff;
-	border: solid 3px #000;
-}
-#project-title {
-	position: relative;
-	float: left;
-	height: 100%;
-	min-width: 318px;
-	/*border-right: solid 3px #000;*/
-}
-.h-question {
-	font-family: 'Graphik-Bold', sans-serif;
-	font-size: 1.25em;
-	margin: 0px;
-	padding: 10px 20px;
-	height: 20px;
-}
 .span-title {
 	display: inline-block;
 	padding: 10px 20px;
 	height: 20px;
 }
-#project-description {
-	display: none;
-	position: relative;
-	min-width: 279px;
-	top: -4px;
-	left: -3px;
-	padding: 20px;
-	background: #fff;
-	border: solid 3px #000;
-}
-#h-description {
-	display: none;
-	position: relative;
-	min-width: 279px;
-	top: -44px;
-	left: -3px;
-	padding: 20px;
-	background: #fff;
-	border: solid 3px #000;
-}
-#nav {
-	position: relative;
-	float: right;
-	width: 623px;
-	min-width: 298px;
-}
 #nav ul {
 	position: relative;
 	margin: 0px;
-	padding: 0px;
-	height: 20px;
+	padding: 0px 6px;
+	height: 100%;
 	list-style: none;
 	display: inline;
 }
 #nav ul li  {
 	list-style: none;
 	display: inline-block;
-	height: 20px;
-	min-width: 32px;
-	padding: 10px 20px;
+	height: auto;
+}
+#nav ul li.h3:not(:last-child) {
+	padding-right: 40px;
 }
 #nav ul li:hover {
 	cursor: pointer;
@@ -203,16 +212,16 @@ header {
 }
 #nav ul ul {
 	position: absolute;
-	top: 29px;
-	left: 70px;
-	width: 550px;
+	top: 30px;
+	left: calc(50vw - 664px);
+	width: 631px;
 	height: auto;
-	border: solid 3px #000;
+	border: solid 6px #000;
 	display: none;
 	background-color: #fff;
 }
-#nav ul ul li:not(:last-child) {
-	padding: 10px 0px 10px 20px;
+#nav ul ul li {
+	padding: 10px;
 }
 #nav .grey:hover {
 	color: #000;
@@ -222,10 +231,10 @@ header {
 	color: #000;
 }
 #nav a:hover {
-	color: #aaa;
+	color: #d1d3d4;
 }
 #nav a.grey {
-	color: #aaa;
+	color: #d1d3d4;
 }
 #nav a.grey:hover {
 	color: #000;
@@ -242,64 +251,22 @@ section {
 	overflow: hidden;
 }
 
-@media screen and (min-width: 1302px) {
-	#project-title {
-		width: calc(100vw - 649px);
+@media print, screen and (min-width: 64em) {
+	header {
+		height: 62px;
 	}
-	#project-description, #h-description {
-		width: calc(100vw - 689px);
-	}
-	#nav {
-		width: 623px;
+	.h3 {
+		font-size: 32px;
+		line-height: 42px;
+		letter-spacing: -1.6px;
 	}
 	#nav ul ul {
-		left: 70px;
+		top: 34px;
+	}
+	#project-description {
+		max-height: calc(100vh - 100px);
 	}
 }
-@media screen and (min-width: 1229px) and (max-width: 1301px) {
-	#project-title {
-		width: calc(100vw - 576px);
-	}
-	#project-description, #h-description {
-		width: calc(100vw - 616px);
-	}
-	#nav {
-		width: 550px;
-	}
-	#nav ul ul {
-		left: -3px;
-	}
-}
-@media screen and (min-width: 980px) and (max-width: 1228px) {
-	#project-title {
-		width: 656px;
-	}
-	#project-description, #h-description {
-		width: 616px;
-	}
-	#nav {
-		top: 0px;
-		width: calc(100vw - 682px);
-	}
-	#nav ul ul {
-		left: calc(100vw - 1235px);
-	}
-}
-@media screen and (max-width: 979px) {
-	#project-title {
-		width: calc(100vw - 324px);
-	}
-	#project-description, #h-description {
-		top: 0px;
-		width: calc(100vw - 364px);
-	}
-	#project-question {
-		display: none;
-	}
-	#nav {
-		width: 298px;
-	}
-	#nav ul ul {
-		left: -255px;
-	}
+@media screen and (max-width: 830px) {
+
 }
