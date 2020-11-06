@@ -12,23 +12,41 @@
 	<main>
 		<header id="header">
 			<div id="project-title">
-				<span class="h-title span-title">Neighborhood Health</span>
-				<span id="project-question" class="h-nav span-title grey">How healthy are NYC neighborhoods?</span>
-				<div id="project-description">
-					Resources and opportunities are the fundamentals of good health, including secured jobs with benefits, well-maintained and affordable housing, accessible transportation, healthy and affordable food, and quality of education and health care, which are distributed inequitably throughout NYC. Neighborhood Health highlights the issues of health inequities and resource disparities in New York City by providing the indexical value of factors from demographic, socioeconomic to housing and neighborhood infrastructural on borough at community district level. Using a radar chart method, an unique shape is given to each community district to visualize the hidden gaps and patterns of unequal distribution of resources and opportunities that contribute to health burden and differences in life expectancy.
+				<h3 id="project-question" class="h3">How healthy are NYC neighborhoods?</h3>
+				<div id="project-description" class="m1">
+					<h1 class="m2">Neighborhood Health</h1>
+					<p>Resources and opportunities are the fundamentals of good health, including secured jobs with benefits, well-maintained and affordable housing, accessible transportation, healthy and affordable food, and quality of education and health care, which are distributed inequitably throughout NYC.<sup><a href="#ref-1">[1]</a></sup> Neighborhood Health highlights the issues of health inequities and resource disparities in New York City by providing the indexical value of factors from demographic, socioeconomic to housing and neighborhood infrastructural on borough at community district level. Using a radar chart method, an unique shape is given to each community district to visualize the hidden gaps and patterns of unequal distribution of resources and opportunities that contribute to health burden and differences in life expectancy.</p>
+					<h4 class="m2">Data Description/Process</h4>
+					<p>The metadata for neighborhood health comes from 2018 Community Health Profiles Public Use Dataset.<sup><a href="#ref-1">[2]</a></sup> The data compiles many sources such as from American Community Survey (ACS), NYC Department of Health and Mental Hygiene (DOHMH), Community Health Survey (CHS) indicators, New York University (NYU) Furman Center and NYC Housing and Vacancy Survey (HVS) indicators which have been modified to reflect Public Use Microdata Area (PUMA). For the purpose of this visualization, the factors such as poverty, unemployment, rent burden, homes with roaches, bike network coverage, unmet medical care, child asthma, and more were selected and scaled to a score of 1 to 10.</p>
+					<h4 class="m2">Data Limitations</h4>
+					<p>Most estimates were evaluated for statistical stability. Estimates with a relative standard error (RSE) greater than 30% or with a small sample size or small numbers of events (less than or equal to 10) are flagged as follows: “Interpret estimate with caution due to small number of events or small sample size.” Where noted in the metadata, estimates were age standardized to the Year 2000 Standard Population.</p>
+					<h4 class="m2">Data Sources</h4>
+					<ul>
+						<li>U.S. Census Bureau, American Community Survey (ACS)</li>
+						<li>NYC DOHMH Community Health Survey (CHS)</li>
+						<li><a href="https://furmancenter.org/research/sonychan/2015-report" target="_blank">NYU Furman Center</a></li>
+						<li>NYC Community Air Survey (NYCCAS)</li>
+					</ul>
+					<h4 class="m2">Credit</h4>
+					<p>Shi Tang, Esther Kim, Ashley Louie</p>
+					<hr>
+					<ol>
+						<li id="ref-1"><a href="https://www1.nyc.gov/assets/doh/downloads/pdf/data/2018chp-bx1.pdf" target="_blank">https://www1.nyc.gov/assets/doh/downloads/pdf/data/2018chp-bx1.pdf</a></li>
+						<li id="ref-2"><a href="https://www.dropbox.com/s/laiir5iqjypqoc9/health2018_stats.xlsx?dl=0" target="_blank">https://www.dropbox.com/s/laiir5iqjypqoc9/health2018_stats.xlsx?dl=0</a></li>
+					</ol>
 				</div>
 			</div>
-			<nav id="nav" class="h-nav">
+			<nav id="nav">
 				<ul>
-					<li id="city">City</li>
-					<li><span id="borough">Borough</span><span id="currentborough"></span>
+					<li id="city" class="h3">City</li>
+					<li id="nav-borough" class="h3"><span id="borough">Borough</span><span id="currentborough"></span>
 						<ul>
-							<li id="nyc">All</li>
-							<li id="bronx">Bronx</li>
-							<li id="brooklyn">Brooklyn</li>
-							<li id="queens">Queens</li>
-							<li id="manhattan">Manhattan</li>
-							<li id="statenisland">Staten Island</li>
+							<li id="nyc" class="m1">All</li>
+							<li id="bronx" class="m1">Bronx</li>
+							<li id="brooklyn" class="m1">Brooklyn</li>
+							<li id="manhattan" class="m1">Manhattan</li>
+							<li id="queens" class="m1">Queens</li>
+							<li id="statenisland" class="m1">Staten Island</li>
 						</ul>
 					</li>
 				</ul>

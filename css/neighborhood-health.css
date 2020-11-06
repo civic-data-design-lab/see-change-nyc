@@ -1,20 +1,14 @@
-#chart-overall {
+#chart-overall, #chart-profile {
 	position: relative;
 	float: left;
 	max-height: 85vh;
-	margin-top: calc(4vh + 40px);
-}
-#chart-profile {
-	position: relative;
-	max-height: 85vh;
-	margin-top: calc(4vh + 40px);
-	float: left;
+	margin-top: calc(4vh + 60px);
 }
 #chart-neighborhoods {
 	position: relative;
 	float: left;
-	margin-top: 60px;
-	height: calc(100vh - 80px);
+	margin-top: 92px;
+	height: calc(100vh - 112px);
 	overflow: hidden auto;
 }
 #chart-neighborhoods svg {
@@ -99,7 +93,8 @@
 	margin: 0;
 	padding: 10px;
 	color: #fff;
-	background: #aaa;
+	background: #d1d3d4;
+	box-shadow: 2px 2px 6px rgba(0,0,0,.5);
 }
 #tooltipneighborhood {
 	position: absolute;
@@ -109,6 +104,7 @@
 	background: #fff;
 	border: solid 3px #000;
 	border-radius: 15px;
+	box-shadow: 2px 2px 6px rgba(0,0,0,.5);
 }
 #tooltipneighborhood p {
 	font-size: 0.9em;
@@ -129,10 +125,10 @@ svg.selected {
 	background: #efefef;
 }
 svg.selected>g>circle {
-	stroke: #aaa;
+	stroke: #d1d3d4;
 }
 svg.selected>g>line {
-	stroke: #aaa;
+	stroke: #d1d3d4;
 }
 
 /*responsive widths based on header graphics*/
@@ -254,7 +250,7 @@ svg.selected>g>line {
 		float: none;
 		width: 100%;
 		min-width: 625px;
-		margin: 50px auto 0px auto;
+		margin: 70px auto 0px auto;
 	}
 	#chart-overall svg, #chart-profile svg {
 		height: 60vh;
@@ -281,5 +277,48 @@ svg.selected>g>line {
 	}
 	#tooltipcity div.feature {
 		height: 60px;
+	}
+}
+
+/*header style*/
+@media print, screen and (max-width: 1144px) {
+	header {
+		height: 50px;
+	}
+	.h3 {
+		font-size: 24px;
+		line-height: 30px;
+		letter-spacing: -0.5px;
+	}
+	#nav ul ul {
+		top: 30px;
+	}
+	#project-description {
+		max-height: calc(100vh - 88px);
+	}
+}
+@media print, screen and (max-width: 939px) {
+	header {
+		min-width: 460px;
+	}
+	#project-title {
+		min-width: 460px;
+	}
+	#nav {
+		width: calc(100% - 460px);
+		min-width: 288px;
+	}
+	#nav ul ul {
+		left: calc(100vw - 1138px);
+	}
+}
+@media print, screen and (max-width: 889px) {
+	#nav #city {
+		display: none;
+	}
+}
+@media print, screen and (max-width: 789px) {
+	#nav #nav-borough {
+		display: none;
 	}
 }

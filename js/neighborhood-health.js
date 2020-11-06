@@ -228,7 +228,7 @@ function featureString(feature, location) {
 	: (feature == "homeBike") ? "streets have adequate"
 	: (feature == "homePedInjury") ? "<b class='feature-name'>" + featureName(feature) + "s</b> per 100,000 people in <span class='location'>" + location + "</span>"
 	: (feature == "homeBodega") ? "<b class='feature-name'>" + featureName(feature) + "</b> in <span class='location'>" + location + "</span>"
-	: (feature == "homeFarmersMarket") ? "<b class='feature-name'>" + featureName(feature) + "s</b> in <span class='location'>" + location + "</span>"
+	: (feature == "homeFarmersMarket") ? "average number of <b class='feature-name'>" + featureName(feature) + "s</b> in <span class='location'>" + location + "</span>"
 	: (feature == "healthChildObesity") ? "public school children suffer from"
 	: (feature == "healthChildAsthma") ? "per 10,000 children in <span class='location'>" + location + "</span> suffer from <b class='feature-name'>" + featureName(feature) + "</b>"
 	: (feature == "healthPhysicalActivity") ? "adults participate in"
@@ -249,9 +249,9 @@ function datapointTooltip(d) {
 		else if (d.id.startsWith(4)) {i = 3}
 		else if (d.id.startsWith(5)) {i = 4};
 
-		return (d.feature == "homePedInjury" || d.feature == "homeFarmersMarket" || d.feature == "healthChildAsthma" || d.feature == "healthInfantMortality" || d.feature == "healthLifeExpectancy") ? "<span class='h3 black'>" + featureName(d.feature) + "</span><br><span class='data1'>" + d[d.feature + "Value"] + "</span><p>" + featureString(d.feature, d.neighborhood) + ".</p><p class='avg'>The <b>" + d.borough + "</b> average is:</p><span class='data2'>" + boroughAverage[i][d.feature + "Value"] + "</span><p class='avg'>The <b>NYC</b> average is:</p><span class='data2'>" + cityAverage[0][d.feature + "Value"] + "</span>"
-		: (d.feature == "homeBodega") ? "<span class='h3 black'>" + featureName(d.feature) + "</span><br><span class='data1'>" + d[d.feature + "Value"] + ":1</span><p>" + featureString(d.feature, d.neighborhood) + ".</p><p class='avg'>The <b>" + d.borough + "</b> average is:</p><span class='data2'>" + boroughAverage[i][d.feature + "Value"] + ":1</span><p class='avg'>The <b>NYC</b> average is:</p><span class='data2'>" + cityAverage[0][d.feature + "Value"] + ":1</span>"
-		: "<span class='h3 black'>" + featureName(d.feature) + "</span><br><span class='data1'>" + d[d.feature + "Value"] + "%</span><p>of <span class='location'>" + d.neighborhood + "</span> " + featureString(d.feature, d.neighborhood) + " <b>" + featureName(d.feature) + "</b>.</p><p class='avg'>The <b>" + d.borough + "</b> average is:</p><span class='data2'>" + boroughAverage[i][d.feature + "Value"] + "%</span><p class='avg'>The <b>NYC</b> average is:</p><span class='data2'>" + cityAverage[0][d.feature + "Value"] + "%</span>";
+		return (d.feature == "homePedInjury" || d.feature == "homeFarmersMarket" || d.feature == "healthChildAsthma" || d.feature == "healthInfantMortality" || d.feature == "healthLifeExpectancy") ? "<span class='h3-v1 black'>" + featureName(d.feature) + "</span><br><span class='data1'>" + d[d.feature + "Value"] + "</span><p>" + featureString(d.feature, d.neighborhood) + ".</p><p class='avg'>The <b>" + d.borough + "</b> average is:</p><span class='data2'>" + boroughAverage[i][d.feature + "Value"] + "</span><p class='avg'>The <b>NYC</b> average is:</p><span class='data2'>" + cityAverage[0][d.feature + "Value"] + "</span>"
+		: (d.feature == "homeBodega") ? "<span class='h3-v1 black'>" + featureName(d.feature) + "</span><br><span class='data1'>" + d[d.feature + "Value"] + ":1</span><p>" + featureString(d.feature, d.neighborhood) + ".</p><p class='avg'>The <b>" + d.borough + "</b> average is:</p><span class='data2'>" + boroughAverage[i][d.feature + "Value"] + ":1</span><p class='avg'>The <b>NYC</b> average is:</p><span class='data2'>" + cityAverage[0][d.feature + "Value"] + ":1</span>"
+		: "<span class='h3-v1 black'>" + featureName(d.feature) + "</span><br><span class='data1'>" + d[d.feature + "Value"] + "%</span><p>of <span class='location'>" + d.neighborhood + "</span> " + featureString(d.feature, d.neighborhood) + " <b>" + featureName(d.feature) + "</b>.</p><p class='avg'>The <b>" + d.borough + "</b> average is:</p><span class='data2'>" + boroughAverage[i][d.feature + "Value"] + "%</span><p class='avg'>The <b>NYC</b> average is:</p><span class='data2'>" + cityAverage[0][d.feature + "Value"] + "%</span>";
 };
 
 // color
@@ -753,10 +753,10 @@ function filterBoroughNav(boroughId) {
 		boroughId = boroughId.substring(5);
 	}
 
-	$("#city").addClass("grey").css("color", "#aaa");
+	$("#city").addClass("grey").css("color", "#d1d3d4");
 	$("#borough").removeClass("grey").css("color", "#000");
 
-	$("#nav>ul>li>ul>li").addClass("grey").css("color", "#aaa");
+	$("#nav>ul>li>ul>li").addClass("grey").css("color", "#d1d3d4");
 	$("#" + boroughId).removeClass("grey").css("color", "#000");
 	if (boroughId == "nyc") {
 		$("#currentborough").html("&mdash;All");
@@ -1076,9 +1076,9 @@ $(document).ready(function(){
 // nav clicks
 $("#city").on("click", function() {
 	$(this).removeClass("grey").css("color", "#000");
-	$("#borough").addClass("grey").css("color", "#aaa");
+	$("#borough").addClass("grey").css("color", "#d1d3d4");
 
-	$("#nav>ul>li>ul>li").addClass("grey").css("color", "#aaa");
+	$("#nav>ul>li>ul>li").addClass("grey").css("color", "#d1d3d4");
 	$("#currentborough").html("");
 	$(".svgneighborhood").css("display", "block");
 
@@ -1089,9 +1089,9 @@ $("#city").on("click", function() {
 });
 $("#borough").on("click", function() {
 	$(this).removeClass("grey").css("color", "#000");
-	$("#city").addClass("grey").css("color", "#aaa");
+	$("#city").addClass("grey").css("color", "#d1d3d4");
 
-	$("#nav>ul>li>ul>li").addClass("grey").css("color", "#aaa");
+	$("#nav>ul>li>ul>li").addClass("grey").css("color", "#d1d3d4");
 	$("#nyc").removeClass("grey").css("color", "#000");
 	$("#currentborough").html("&mdash;All");
 
