@@ -553,7 +553,7 @@ $(document).ready(function(){
 			$("#open-seats").removeClass("selectedseats").css("background", "#fff").css("color", "#000");
 			$("#seats-city-council").html("51");
 			$("#seats-total").html("59");
-			$(".labelinvert").css("fill", "#aaa");
+			$(".labelinvert").css("fill", "#d1d3d4");
 		}
 	});
 	$("#open-seats").on("click", function() {

@@ -1,11 +1,11 @@
 #seats-main {
-	height: calc(100vh - 46px);
-	top: 46px;
+	height: calc(100vh - 60px);
+	top: 60px;
 }
 #sidebar-count {
 	position: relative;
 	float: left;
-	top: calc(100vh - 300px);
+	top: calc(100vh - 310px);
 	width: 170px;
 	min-width: 170px;
 	padding: 0px 30px;
@@ -29,15 +29,6 @@
 	-ms-transform: translateY(-50%);
 	transform: translateY(-50%);
 }
-#seats-footer {
-	position: absolute;
-	left: -3px;
-	bottom: -3px;
-	width: 100%;
-	height: calc(1/15 * 100vh);
-	background: #fff;
-	border: solid 3px #000;
-}
 #seats-title {
 	position: relative;
 	display: inline-block;
@@ -51,14 +42,14 @@
 	display: inline-block;
 	float: left;
 	height: auto;
-	width: calc(50% - 16px);
+	width: calc(50% - 18px);
 	margin-bottom: 15px;
 	padding: 10px 5px;
 	font-family: 'Graphik-Medium', sans-serif;
 	text-transform: uppercase;
 	font-size: 0.8em;
 	text-align: center;
-	border: solid 3px #000;
+	border: solid 4px #000;
 }
 .open-toggle:hover {
 	cursor: pointer;
@@ -121,6 +112,7 @@
 	border: solid 2px #000;
 	min-height: 170px;
 	width: 400px;
+	box-shadow: 2px 2px 6px rgba(0,0,0,.5);
 }
 .dataphoto {
 	position: relative;
@@ -190,7 +182,7 @@
 	transform: rotate(-90deg) translate(-244.75px, 5.5px);
 }
 .labelinvert {
-	fill: #aaa;
+	fill: #d1d3d4;
 }
 #text-animation {
 	position: absolute;
@@ -254,7 +246,7 @@
 	}
 	#sidebar-count {
 		position: absolute;
-		top: 10px;
+		top: 16px;
 		right: 0px;
 		width: calc(96% - 13/14.5 * (100vh - 46px));
 		min-width: 310px;
@@ -266,7 +258,7 @@
 		margin: 0px;
 		width: calc(96% - 13/14.5 * (100vh - 46px));
 		min-width: 310px;
-		height: calc(100vh - 290px);
+		height: calc(100vh - 320px);
 		padding: 0px 30px;
 	}
 }
@@ -292,25 +284,28 @@
 		top: calc(60vh - 46px - 20px);
 		left: 310px;
 		width: 310px;
-		height: 40vh;
+		height: 39vh;
 		margin: 20px 0px 0px calc(50% - 335px);
 	}
 }
-
-@media screen and (min-width: 1302px) {
+/*header style*/
+#nav {
+	display: none;
 }
-@media screen and (min-width: 1229px) and (max-width: 1301px) {
-}
-@media screen and (min-width: 980px) and (max-width: 1228px) {
-}
-@media screen and (max-width: 979px) {
+@media print, screen and (min-width: 64em) {
 	#project-title {
-		min-width: 453px;
+		min-width: 614px;
 	}
-	#h-description {
-		top: -44px;
+	#seats-main {
+		height: calc(100vh - 72px);
+		top: 72px;
 	}
-	#nav {
-		display: none;
+}
+@media print, screen and (max-width: 64em) {
+	header {
+		min-width: 494px;
+	}
+	#project-title {
+		min-width: 494px;
 	}
 }
