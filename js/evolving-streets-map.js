@@ -36,6 +36,12 @@ let navigation = new mapboxgl.NavigationControl({
 })
 map.addControl(navigation, 'top-right');
 
+// disable map rotation using right click + drag
+map.dragRotate.disable();
+ 
+// disable map rotation using touch rotation gesture
+map.touchZoomRotate.disableRotation();
+
 // toggle layers
 var toggleableLayerIds = ['fwd0005', 'fwd0611', 'fwd1217', 'fwd1823', 'fwe0005', 'fwe0611', 'fwe1217', 'fwe1823', 'mwd0005', 'mwd0611', 'mwd1217', 'mwd1823', 'mwe0005', 'mwe0611', 'mwe1217', 'mwe1823'];
 
@@ -49,18 +55,36 @@ var currentLayers = currentMonths.map(value => value + currentDay + currentTime)
 function streetActivityScale(score, attr) {
 	if (attr == "color") {
 		return (score < 0) ? "#004ca8"
-		: (0 < score) ? "#ff00c3"
+		: (0 < score) ? "#ff00e6"
 		: "#8c8c8c";	
 	}
 	else if (attr == "sign") {
 		return (score > 0) ? "+" + score
 		: score;
 	}
+	else if (attr == "word") {
+		return (score > 0) ? "increase"
+		: (score < 0) ? "decrease"
+		: "";
+	}
 }
 
 // function roundAccurately(number, decimalPlaces) {
 // 	return Number(Math.round(number + "e" + decimalPlaces) + "e-" + decimalPlaces);	
 // }
+var popup = new mapboxgl.Popup({
+	offset: [0, 0],
+	closeButton: false
+});
+
+function titleCase(string) {
+	string = string.toLowerCase();
+	string = string.split(' ');
+	for (var i = 0; i < string.length; i++) {
+		string[i] = string[i].charAt(0).toUpperCase() + string[i].slice(1);
+	}
+	return string.join(' ');
+}
 
 function showPopup(e, feature, currentLayer) {
 	if (currentLayer.startsWith("wd")) {
@@ -97,15 +121,12 @@ function showPopup(e, feature, currentLayer) {
 	var streetActivityDuring = Math.round(feature.properties[countDuring]*100/6);
 	var streetActivityChange = streetActivityDuring - streetActivityBefore;
 
-	var popup = new mapboxgl.Popup({
-		offset: [0, 0],
-		closeButton: false
-	})
-		.setLngLat(e.lngLat)
-		.setHTML("<div class='labelplacedate'><h3 class='labelstreet'>" + feature.properties.Street_1 + "</h3><span class='labelday'>" + labelDay + "</span><span class='labeltime'>" + labelTime + "</span></div><div class='labelchange' style='color:" + streetActivityScale(streetActivityPercentChange, "color") + ";'><span class='data1'>" + streetActivityScale(streetActivityPercentChange, "sign") + "%</span><p class='labelfoottraffic'>Change in Street Activity During Lockdown (%)</p></div><div class='labelavg'><span id='feb'>" + streetActivityBefore + "</span><p>Hourly Average Street Activity Before Lockdown</p></div><div class='labelavg'><span id='mar'>" + streetActivityDuring + "</span><p>Hourly Average Street Activity During Lockdown</p></div><div class='labelavgchange' style='color:" + streetActivityScale(streetActivityChange, "color") + ";'><span>" + streetActivityScale(streetActivityChange, "sign") + "</span><p>Change in Hourly Average Street Activity</p></div>")
+	popup.setLngLat(e.lngLat)
+		.setHTML("<div class='labelplacedate'><h3 class='labelstreet'>" + titleCase(feature.properties.Street_1) + "</h3><p>Street Activity</p><p>Hourly Average " + labelDay + " " + labelTime + "</p></div><div class='labelchange' style='color:" + streetActivityScale(streetActivityPercentChange, "color") + ";'><div class='labelscore'><span class='data1'>" + streetActivityScale(streetActivityPercentChange, "sign") + "%</span><span class='labeldecinc'>" + streetActivityScale(streetActivityPercentChange, "word") + "</span></div><p class='labelfoottraffic'>Under March&ndash;April Pandemic Lockdown</p></div>")
 		.addTo(map);
 }
 
+// show popup on click
 map.on('click', function(e) {
 	var features = map.queryRenderedFeatures(e.point, {
 		layers: ['streets-buffer']
@@ -120,22 +141,18 @@ map.on('click', function(e) {
 	showPopup(e, feature, currentLayer);
 });
 
-// map.on('load', function() {
-// 	var e = {lngLat: [-73.94020996898772, 40.79491737652384]}
-// 	var feature = {
-// 		properties: {
-// 			Street_1: 'East Harlem',
-// 			HVI: 4,
-// 			ac_sc: 4,
-// 			temp_sc: 2,
-// 			poverty_sc: 5,
-// 			veg_sc: 4,
-// 			black_sc: 4
-// 		}
-// 	};
+// show popup on load
+map.on('load', function() {
+	var e = {lngLat: [-73.99132813368308, 40.73226835322123]};
+	var feature = {
+		properties: {
+			Street_1: 'Broadway',
+			C_wd__611: -97.1428571429
+		}
+	};
 
-// 	showPopup(e, feature, currentLayer);
-// });
+	showPopup(e, feature, currentLayer);
+});
 
 function showCurrentLayers(e, clickedLayers) {
 	e.preventDefault();
@@ -163,14 +180,23 @@ $(document).ready(function() {
 // toggle by weekday or weekend
 $(".day-toggle").on("click", function(e) {
 	if (!$(this).hasClass("selectedday")) {
-		$(".selectedday").removeClass("selectedday").css("background", "#fff").css("color", "#000");
-		$(this).addClass("selectedday");
+		$(".selectedday").removeClass("selectedday").css("background", "#d1d3d4").css("border-color", "#d1d3d4").css("color", "#333");
+		$(this).addClass("selectedday").css("background", "#fff").css("border-color", "#000").css("color", "#000");
+
+		if ($(this).attr("id") == "day-wd") {
+			$("#day-label").html("weekday");
+		}
+		else if ($(this).attr("id") == "day-we") {
+			$("#day-label").html("weekend");
+		}
 	}
 	var clickedDay = $(this).attr("id").substring(4);
+	var clickedLayer = clickedDay + currentTime;
 	var clickedLayers = currentMonths.map(value => value + clickedDay + currentTime);
 
 	if (clickedDay !== currentDay) {
 		showCurrentLayers(e, clickedLayers);
+		popup.remove();
 
 		currentDay = clickedDay;
 		currentLayer = clickedDay + currentTime;
@@ -179,7 +205,7 @@ $(".day-toggle").on("click", function(e) {
 });
 $(".day-toggle").on("mouseover", function() {
 	if ($(this).hasClass("selectedday")) {
-		$(this).css("background", "#fff").css("color", "#000");
+		$(this).css("background", "#fff").css("border-color", "#000").css("color", "#000");
 	}
 	else {
 		$(this).css("background", "#8c8c8c").css("border-color", "#8c8c8c").css("color", "#000");
@@ -187,10 +213,10 @@ $(".day-toggle").on("mouseover", function() {
 });
 $(".day-toggle").on("mouseleave", function() {
 	if ($(this).hasClass("selectedday")) {
-		$(this).css("background", "#fff").css("color", "#000");
+		$(this).css("background", "#fff").css("border-color", "#000").css("color", "#000");
 	}
 	else {
-		$(this).css("background", "#ccc").css("border-color", "#ccc").css("color", "#333");
+		$(this).css("background", "#d1d3d4").css("border-color", "#d1d3d4").css("color", "#333");
 	}
 });
 
@@ -198,15 +224,17 @@ $(".day-toggle").on("mouseleave", function() {
 $(".time-toggle").on("click", function(e) {
 	if (!$(this).hasClass("selectedtime")) {
 		$(".selectedtime").find("h4").hide();
-		$(".selectedtime").removeClass("selectedtime").css("background", "#ccc").css("border-color", "#ccc");
+		$(".selectedtime").removeClass("selectedtime").css("background", "#d1d3d4").css("border-color", "#d1d3d4");
 		$(this).addClass("selectedtime").css("background", "#fff").css("border-color", "#000");
 		$(this).find("h4").show();	
 	}
 	var clickedTime = $(this).attr("id").substring(5);
+	var clickedLayer = currentDay + clickedTime;
 	var clickedLayers = currentMonths.map(value => value + currentDay + clickedTime);
 
 	if (clickedTime !== currentTime) {
 		showCurrentLayers(e, clickedLayers);
+		popup.remove();
 
 		currentTime = clickedTime;
 		currentLayer = currentDay + clickedTime;
@@ -220,17 +248,17 @@ $(".time-toggle").on("mouseover", function() {
 });
 $(".time-toggle").on("mouseleave", function() {
 	if (!$(this).hasClass("selectedtime")) {
-		$(this).css("background", "#ccc").css("border-color", "#ccc");
+		$(this).css("background", "#d1d3d4").css("border-color", "#d1d3d4");
 	}
 });
 
 // toggle by before lockdown or during lockdown
 $(".month-toggle").on("click", function(e) {
 	if ($("#month-feb").hasClass("selectedmonth") && $("#month-mar").hasClass("selectedmonth")) {
-		$(this).removeClass("selectedmonth").css("background", "#ccc").css("color", "#333");
+		$(this).removeClass("selectedmonth").css("background", "#8c8c8c").css("border-color", "8c8c8c").css("color", "#333");
 	}
 	else if (!$(this).hasClass("selectedmonth")) {
-		$(this).addClass("selectedmonth").css("background", "#fff").css("color", "#000");
+		$(this).addClass("selectedmonth").css("background", "#fff").css("border-color", "#000").css("color", "#000");
 	}
 	var thisMonth = $(this).attr("id").substring(6,7);
 	if (currentMonths.length == 2) {
@@ -251,17 +279,17 @@ $(".month-toggle").on("click", function(e) {
 });
 $(".month-toggle").on("mouseover", function() {
 	if ($(this).hasClass("selectedmonth")) {
-		$(this).css("background", "#fff").css("color", "#000");
+		$(this).css("background", "#aaa");
 	}
 	else {
-		$(this).css("background", "#000").css("color", "#fff");
+		$(this).css("background", "#8c8c8c").css("border-color", "#8c8c8c");
 	}
 });
 $(".month-toggle").on("mouseleave", function() {
 	if ($(this).hasClass("selectedmonth")) {
-		$(this).css("background", "#000").css("color", "#fff");
+		$(this).css("background", "#fff");
 	}
 	else {
-		$(this).css("background", "#fff").css("color", "#000");
+		$(this).css("background", "#d1d3d4").css("border-color", "#d1d3d4").css("color", "#333");
 	}
 });

@@ -22,22 +22,44 @@
 	<main>
 		<header id="header">
 			<div id="project-title">
-				<span class="h-title span-title">Evolving Streets</span>
-				<span id="project-question" class="h-nav span-title grey">How has the pandemic shifted street activity?</span>
-				<div id="project-description">
-					Rent burden is defined as spending more than 30 percent of household income on rent. In 2009, more than half of renter-occupied households with children (54 percent) experienced rent burden. Between 2002 and 2009, the proportion of households with children affected by rent burden increased significantly. Although rates of rent burden had remained relatively stable for several years between 2002 and 2006, they began to increase from 2006 to 2009. With the majority of renter-occupied households with children spending a large proportion of their incomes on housing, this issue has important implications for children's well-being.
+				<h3 id="project-question" class="h3">How has the pandemic shifted street activity?</h3>
+				<div id="project-description" class="m1">
+					<h1 class="m2">Evolving Streets</h1>
+					<p>New York City’s sidewalks have always been filled with pedestrians, but more recently the sharing economy has transformed the way we use the street. Pedestrians now share the streets with amazon delivery, for-hire-vehicles, scooters and bicycle stations, all of which are changing how New York City's curbs are used. At the same time Trucks and delivery sorting processes have taken up street real estate. Demand for pedestrian-friendly streets will be essential for New York City’s electoral body to consider.</p>
+					<p>The business lock-down, school closure, and social distancing policy following the Covid-19 pandemic dramatically changed how we used the streets. This visualization allows us to explore New York City’s streets pre and post Covid restrictions to see the dramatic changes to the ways New York City’s streets were used. Notice the disturbing new clusters of people near New York City hospitals and the dramatic decrease in people in Midtown Manhattan.</p>
+					<h4 class="m2">Data Description/Process</h4>
+					<p><em>Mobility LBS Data</em><br>
+					Anonymized and privacy enhanced mobility data was provided by Cuebiq. And according to their website, This first-party data is collected from anonymized users who have opted-in to provide access to their location data anonymously, through a GDPR-compliant framework.”</p>
+					<p>This data comes from numerous applications on your phone that use your GPS signal, this data is collected and re-sold to companies like Cuebiq who buy from numerous different smart-phone applications. Because the data comes from applications we use on our cell phones it can skew towards population that own smart phones in general, so it should be noted that there is a potential to undercount seniors</p>
+					<p>In addition to de-identifying the data, the data provider also applies privacy enhancements to remove sensitive locations and personal (home/work) areas from the dataset." Data was shared in June 2020 under a strict contract with Cuebiq through their Data for Good program where all researchers were contractually obligated to not share data further or to attempt to de-identify data. In total, our sample contains about 1.1 million unique users in January, and 0.5 million unique users in April. We only considered pings which happen within the five boroughs of New York City during the week of February 23th&ndash;29th and March 29th&ndash;April 4th.</p>
+					<p><em>Understand Who is Really On the Streets</em><br>
+					As we are interested in understanding where people could potentially meet each other, we extracted stays from the individual trajectories, represented by sequences of pings made when users spend some time in a place. Those sequences of pings are spatially limited to small regions, and to detect them we use the algorithm info-stop created by Ulf Aslak (2020), in which a set of consecutive pings are clustered together if their maximum distance from their centroid is not larger than 10 meters. The duration of a stay is the time between the first and last ping belonging to a cluster. Here, we only use stays for which are between 2 min and 1 day. After using this algorithm and discarding users who do not have any stays, we are left with a total of 4 million stays for two weeks in New York City.</p>
+					<p><em>Attribution of Stays to Streets</em><br>
+					To attribute a stay to a street, we assign each stay to the closest street in our dataset. To avoid attributing a stay to a distant street, we choose only the closest street within a radius of 30 meters for each stay. If a stay is further than 30 meters, we do not attribute it to any street. We further calculate the average number of stays during different time intervals for weekday and weekend separately, namely 0&ndash;5am, 6&ndash;11am, noon&ndash;5pm, 6&ndash;23pm. To only consider the pedestrian related activities, we further remove the stays that are longer than 2 hours. Lastly, given the fact that streets have different lengths, we further divide the accumulated count of stays by street length.</p>
+					<h4 class="m2">Data Limitations</h4>
+					<p>As our primary data is collected from smartphone applications (apps), we acknowledge that our sample might not represent the complete street users. Studies done by Moro (2020) using data from Cuebiq 2017 data shows that the dataset does not have significant biases in income distribution, although they acknowledged that the average income of users in the sample is slightly higher than the census data (around 8.6%).</p>
+					<h4 class="m2">Data Source</h4>
+					<ul>
+						<li>Cuebiq LBS, Data for Good, 2020</li>
+						<li>Department of Information Technology & Telecommunications (DoITT), NYC Street Centerline (CSCL), 2020</li>
+					</ul>
+					<h4 class="m2">Credit</h4>
+					<p><em>MIT</em><br>
+					Sarah Williams, Zhuangyuan Fan, Maoran Sun, Tianyu Su, Innocent Ndubuisi-Obi, Laura Kim, Adam Janicki, Eunsu Kim, Carmelo Ignaccolo, Ashley Louie</p>
+					<p><em>Cuebiq</em><br>
+					Elena Giarratano, Danilo Giuffrida, Francesco Bertoli</p>
 				</div>
 			</div>
-			<nav id="nav" class="h-nav">
+			<nav id="nav">
 				<ul>
-					<li id="city"><a href="./EvolvingStreetsMap">City</a></li>
+					<li id="city" class="h3"><a href="./EvolvingStreetsMap">City</a></li>
 				</ul>
 			</nav>
 	</header>
 		<section id="mapbox">
 			<div id="map-legend">
 				<div id="legend-daytime">
-					<h3>Average <span id="day">weekday</span> street activity by time of day</h3>
+					<h3>Average <span id="day-label">weekday</span> street activity by time of day</h3>
 					<div id="legend-day">
 						<span id="day-wd" class="day-toggle">Weekday</span>
 						<span id="day-we" class="day-toggle">Weekend</span>
@@ -65,15 +87,17 @@
 					</div>
 				</div>
 				<div id="legend-month">
-					<span id="month-feb" class="month-toggle">Before Lockdown</span>
-					<span id="month-mar" class="month-toggle">During Lockdown</span>
-				</div>
-				<div id="legend-dot">
-					<ul>
-						<li><div id ="feb" class="dot"></div><p>6% of Street Activity Before Lockdown (February 23&ndash;29, 2020)*</p></li>
-						<li><div id ="mar" class="dot"></div><p>6% of Street Activity During Lockdown (March 29&ndash;April 4, 2020)*</p></li>
-						<li><div id="star">*</div><p>Cuebiq data represents approximately 6% of the entire population in NYC at a given time.</p></li>
-					</ul>
+					<div id="month-feb" class="month-toggle">
+						<img src="./img/evolving-streets/heatmap-before-lockdown.png" alt="Street Activity Before Lockdown Heatmap Legend">
+						<p>Average Street Activity Before Lockdown<br>
+						<span class="lockdown-week">February 23&ndash;29, 2020</span></p>
+					</div>
+					<div id="month-mar" class="month-toggle">
+						<img src="./img/evolving-streets/heatmap-during-lockdown.png" alt="Street Activity During Lockdown Heatmap Legend">
+						<p>Average Street Activity During Lockdown<br>
+						<span class="lockdown-week">March 29&ndash;April 4, 2020</span></p>
+					</div>
+					<p id="cuebiq">*&ensp;Cuebiq data represents 6% of the population</p>
 				</div>
 			</div>
 			<div id="map"></div>
