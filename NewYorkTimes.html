@@ -17,28 +17,38 @@
     <div id="project-title">
       <span class="h-title span-title">NYC Council in the News</span>
       <div id="project-description">
-        Using the New York Times API, all articles which mentioned the New Your City Council were downloaded since the de Blasio Mayoral election (January 2013- Summer 2020). These 2,510 articles were then run through a machine learning topics modeler to identify the topics of the articles. Using that data this visualization allows us to understand the biggest issues City Council has faced over the last seven years from the Foie Gras Ban to Education.
+        Using the New York Times API, all articles which mentioned the New Your City Council were downloaded since the
+        de Blasio Mayoral election (January 2013- Summer 2020). The articles were then run through a machine learning
+        topics modeler to identify the topics of the articles. Using that data this visualization allows us to
+        understand the biggest issues City Council has faced over the last seven years from the Foie Gras Ban to
+        Education. <br><br>
+        <b>[Data Limitations]</b><br>
+        It is possible that their articles that were missed during the API search because they might not have mentioned
+        city council in the article itself but the topic was related to a city councilor. It was hard to rematch all
+        articles to their topic as the machine learning algorithm doesn’t tag which article was used to develop the
+        topic, so the research team reverse engineered the link between the topics and the articles. This means that the
+        topics associated with the articles are relative to the overall number of articles in the dataset. <br><br>
+
+        <b>[Data source]</b><br>
+        New York Times API <br><br>
+        <b>[Credit]</b><br>
+        Eunsu Kim, Adam Janicki, Yu Jing Chen, Heather Craig
       </div>
     </div>
+  </header>
 
-</header>
+  <div class="topbar">
+    <div class="textbox">How has the New York Times reported on City Council in since the last mayoral election? Explore below, topics from banning plastic bags to closing Riker’s Island. </div>
+    <div class="buttonbox">
+      <button class="btns active" id="countAscendButton">BY TOPIC </button>
+      <button class="btns" id="yearButton">TIMELINE</button>
+      <button class="btns" id="groupButton">BY YEAR </button>
+    </div>
 
-
-<div id = "buttons"style="text-align:center;">
-
-
-  <button class="btns active"  id="countAscendButton">BY TOPIC </button>
-  <button class="btns "  id="yearButton">TIMELINE </button>
-  <button class="btns" id="groupButton">BY YEAR </button>
-</div>
-
-    <section id="chart"></div>
-
-
-
-
-
-  <!-- </div> -->
+  </div>
+  <hr>
+  <section id="chart">
+    </div>
     <script type="text/javascript" src="./js/newyorktimes.js"></script>
 </body>
 
