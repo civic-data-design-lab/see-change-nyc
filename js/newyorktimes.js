@@ -344,15 +344,22 @@ function removeBlank(arr, key, value) {
 }
 
 //Tooltip and mouse interaction
+var mouseX, mouseY;
+$(document).mousemove(function(e) {
+    mouseX = e.pageX;
+    mouseY = e.pageY;
+}).mouseover();
+
+
 
 var Tooltip = d3.select("#chart")
   .append("div")
-  .style("opacity", 0)
+  .style("visibility", "hidden")
   .attr("class", "tooltip")
 
 var mouseover = function (d) {
   Tooltip
-    .style("opacity", 1)
+    .style("visibility", "visible")
   d3.select(this)
     .style("stroke", "grey")
     .style("opacity", 0.7)
@@ -361,15 +368,15 @@ var mouseover = function (d) {
 var mousemove = function (d) {
   Tooltip
     .html(" <span class='topic'>" + d.currentTarget.__data__.topic +
-      "</span></b><br><hr> was covered " + d.currentTarget.__data__.count +
+      "</span></b><br><hr style=margin:8px;> was covered " + d.currentTarget.__data__.count +
       " times in " + d.currentTarget.__data__.year)
-    .style("left", (d.clientX) -30+ "px")
-    .style("top", (d.clientY) - 100 + "px")
+    .style("left", mouseX-20+ "px")
+    .style("top", mouseY-200  + "px")
 }
 
 var mouseleave = function (d) {
   Tooltip
-    .style("opacity", 0)
+    .style("visibility", "hidden")
   d3.select(this)
     .style("stroke", "none")
     .style("opacity", 0.9)
