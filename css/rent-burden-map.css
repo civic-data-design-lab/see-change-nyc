@@ -1,26 +1,19 @@
-#nav {
-	left: -17px;
-}
 #map {
 	position: relative;
-	top: 46px;
+	top: 62px;
 	width: 100%;
-	height: calc(100vh - 46px);
-}
-.mapboxgl-popup {
-	max-width: 400px;
-	font: 1em/20px 'Graphik-Regular', sans-serif;;
+	height: calc(100vh - 62px);
 }
 #map-legend {
 	position: absolute;
-	right: 0px;
 	bottom: 0px;
-	font-family: 'Graphik-Regular', sans-serif;
-	font-size: 0.8em;
+	right: 0px;
+	font-family: 'Graphik-Semibold', sans-serif;
+	font-size: 1em;
 	text-transform: uppercase;
-	letter-spacing: 0.5px;
+	text-align: left;
 	background: #fff;
-	border: solid 3px #000;
+	border: solid 6px #000;
 	z-index: 3;
 }
 #map-legend ul {
@@ -34,14 +27,15 @@
 	list-style: none;
 	display: inline-block;
 	min-width: 32px;
-	padding: 10px 20px;
+	padding: 10px 10px;
 }
-.circle {
+#map-legend .circle {
 	position: relative;
+	float: left;
 	display: inline-block;
-	top: 0.16em;
-	width: 1em;
-	height: 1em;
+	top: 0.3em;
+	width: 1.5em;
+	height: 1.5em;
 	border-radius: 50%;
 }
 #legend-nrb {
@@ -53,11 +47,22 @@
 #legend-srb {
 	background: #3e52c2;
 }
+#map-legend ul li p {
+	position: relative;
+	float: left;
+	margin: 0px 0px 0px 10px;
+}
+.legend-rent-percent {
+	font-family: 'Graphik-Medium', sans-serif;
+	font-size: 0.7em;
+}
 .mapboxgl-popup-content {
 	text-transform: uppercase;
 	width: 230px;
 	border-radius: 10px;
+	font-family: 'Graphik-Regular', sans-serif;
 	text-align: left;
+	box-shadow: 2px 2px 6px rgba(0,0,0,.5);
 }
 .labelplace {
 	position: relative;
@@ -102,7 +107,7 @@
 	float: left;
 	width: 56%;
 	margin: 0px 0px 0px 8%;
-	font-family: 'Graphik-Semibold', sans-serif;
+	font-family: 'Graphik-Bold', sans-serif;
 	font-size: 1.1em;
 	line-height: 1.2em;
 	letter-spacing: 0.5px;
@@ -112,6 +117,14 @@
 	float: left;
 	width: 31%;
 	text-align: center;
+}
+.labelburden .circle {
+	position: relative;
+	display: inline-block;
+	top: 0.16em;
+	width: 1em;
+	height: 1em;
+	border-radius: 50%;
 }
 .labelburden .data3 {
 	font-size: 1.2em;
@@ -123,4 +136,24 @@
     margin: 0.5em 0px 0px 0px;
 	font-size: 0.8em;
 	line-height: 1.2em
+}
+/*header style*/
+@media print, screen and (min-width: 64em) {
+	#map {
+		top: 72px;
+		height: calc(100vh - 72px);
+	}
+}
+@media screen and (min-width: 767px) {
+	#map-legend {
+		width: auto;
+		height: 54px;
+	}
+}
+@media screen and (max-width: 766px) {
+	#map-legend {
+		width: 285px;
+		height: auto;
+		padding: 10px;
+	}
 }
