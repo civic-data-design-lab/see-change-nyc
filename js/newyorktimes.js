@@ -52,6 +52,7 @@ var width = function () {
     numPerRow = 15;
     height = 2300;
     return 380;
+
   }
 };
 
@@ -102,7 +103,7 @@ var scale = d3.scaleLinear()
   .range([0, circleRadius * numPerRow]);
 
 function positionX(i) {
-  return scale(spacing * (i % numPerRow)) + margin
+  return scale(spacing * (i % numPerRow)) + margin +20
 }
 
 function positionY(i) {
