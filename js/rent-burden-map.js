@@ -9,7 +9,6 @@ var map = new mapboxgl.Map({
 	zoom: 11.6 // starting zoom
 });
 
-
 // zoom nav buttons
 let navigation = new mapboxgl.NavigationControl({
 	showCompass: false
@@ -27,6 +26,12 @@ map.addControl(navigation, 'top-right');
 // 		// $("#map").append("div")
 // 	}
 // });
+
+// disable map rotation using right click + drag
+map.dragRotate.disable();
+ 
+// disable map rotation using touch rotation gesture
+map.touchZoomRotate.disableRotation();
 
 // click popup tooltip
 function showPopup(feature) {

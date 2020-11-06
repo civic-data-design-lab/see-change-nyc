@@ -1,3 +1,76 @@
+body {
+	overflow: hidden auto;
+}
+#chart-rentburden {
+	position: relative;
+	width: 100%;
+	max-height: 85vh;
+	margin-top: 60px;
+}
+.box {
+	width: 100%;
+	height: auto;
+	/*position: relative;
+	float: right;
+	width: 100%;
+	top: 90px;*/
+}
+.axis {
+	font-size: 12px;
+	font-family: 'Graphik-Regular', sans-serif;
+	color: black;
+}
+.axislabel {
+	font-size: 12px;
+	font-family: 'Graphik-Bold', sans-serif;
+	color: black;
+}
+.statstitle {
+	font-size: 1em;
+	font-family: 'Graphik-Bold', sans-serif;
+	fill: white;
+}
+.statsaccent {
+	font-size: 10px;
+	font-family: 'Graphik-Semibold', sans-serif;
+	fill: white;
+}
+.stats {
+	font-size: 11px;
+	font-family: 'Graphik-Regular', sans-serif;
+	color: white;
+	fill: white;
+	position: absolute;
+	z-index: 1;
+	line-height: 1em;
+}
+.tooltip {
+	position: absolute;
+	bottom: 3%;
+	z-index: 1;
+	visibility: hidden;
+	padding: 5px;
+	font-family: 'Graphik-Bold', sans-serif;
+	font-size: 16px;
+}
+.tooltip2 {
+	position: absolute;
+	z-index: 1;
+	visibility: hidden;
+	background: white;
+	opacity: 0.9;
+	padding: 8px;
+	font-family: 'Graphik-Regular', sans-serif;
+	font-size: 11px;
+	color: black;
+	line-height: 1.1em;
+	border-radius: 8px;
+}
+.tooltippercent {
+	font-family: 'Graphik-Bold', sans-serif;
+}
+
+/*profile borough style*/
 #high-rent .h4 {
 	margin: 20vh auto 10px auto;
 }
@@ -25,7 +98,7 @@
 	display: block;
 	font-size: 1em;
 }
-
+/*splash page text graphics*/
 @media screen and (max-width: 1446px) {
 	.avg-circle p {
 		font-size: 0.8em;
@@ -76,72 +149,77 @@
 		margin-bottom: 0px;
 	}
 }
-
-
-.box {
-	position: relative;
-	height:90%;
-	width: 100%;
-	top:1.25em;
+/* svg aspect ratio*/
+@media screen and (min-aspect-ratio: 3/2) {
+	#chart-rentburden {
+		height: 83vh;
+		width: auto;
+	}
+	.box {
+		height: 100%;
+		width: auto;
+	}
+	.tooltip {
+		bottom: 2.75%;
+	}
 }
-
-.axis {
-	font-size: 12px;
-	font-family: Graphik-Regular, sans-serif;
-	color: black;
+@media screen and (min-aspect-ratio: 1/1) and (max-aspect-ratio: 4/3) {
+	#chart-rentburden {
+		top: 10vh;
+	}
 }
-
-.axislabel {
-	font-size: 12px;
-	font-family: Graphik-Bold, sans-serif;
-	color: black;
+@media screen and (max-aspect-ratio: 1/1) {
+	#chart-rentburden {
+		top: calc(15vh + 60px);
+	}
+	.tooltip {
+		bottom: 2%;
+	}
 }
-
-.statstitle {
-	font-size: 11px;
-	font-family: Graphik-Bold, sans-serif;
-	fill: white;
+/*header style*/
+@media print, screen and (min-width: 64em) {
+	#chart-rentburden {
+		margin-top: 72px;
+	}
 }
-
-.statsaccent {
-	font-size: 10px;
-	font-family: Graphik-Semibold, sans-serif;
-	fill: white;
+@media print, screen and (max-width: 1144px) {
+	header {
+		height: 50px;
+	}
+	.h3 {
+		font-size: 24px;
+		line-height: 30px;
+		letter-spacing: -0.5px;
+	}
+	#nav ul ul {
+		top: 30px;
+	}
+	#project-description {
+		max-height: calc(100vh - 88px);
+	}
 }
-
-.stats {
-	font-size: 11px;
-	font-family: Graphik-Regular, sans-serif;
-	color: white;
-	fill: white;
-	position: absolute;
-	z-index: 1;
-	line-height: 1em;
+@media print, screen and (max-width: 939px) {
+	header {
+		min-width: 460px;
+	}
+	#project-title {
+		min-width: 460px;
+	}
+	#nav {
+		width: calc(100% - 460px);
+		min-width: 288px;
+	}
+	#nav ul ul {
+		left: calc(100vw - 1138px);
+	}
 }
-
-.tooltip {
-	position: absolute;
-	z-index: 1;
-	visibility: hidden;
-	padding: 5px;
-	font-family: Graphik-Bold, sans-serif;
-	font-size: 16px;
+@media print, screen and (max-width: 889px) {
+	#nav #city {
+		display: none;
+	}
 }
-
-.tooltip2 {
-	position: absolute;
-	z-index: 1;
-	visibility: hidden;
-	background: white;
-	opacity: 0.9;
-	padding: 8px;
-	font-family: Graphik-Regular, sans-serif;
-	font-size: 11px;
-	color: black;
-	line-height: 1.1em;
-	border-radius: 8px;
-}
-
-.tooltippercent {
-	font-family: Graphik-Bold, sans-serif;
+@media print, screen and (max-width: 789px) {
+	#nav #nav-borough {
+		display: none;
+	}
 }
