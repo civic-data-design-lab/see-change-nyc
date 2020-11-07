@@ -44,10 +44,10 @@ var width = function () {
     numPerRow = 55;
     height = 700;
     return 1100;
-  } else if (winWidth > 820) {
+  } else if (winWidth > 850) {
     numPerRow = 40;
     height = 1000;
-    return 800;
+    return 850;
   } else {
     numPerRow = 15;
     height = 2300;
