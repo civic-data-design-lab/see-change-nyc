@@ -62,13 +62,14 @@ hr {
 }
 
 .btns {
-  padding: 0.8rem 1rem;
+  padding: 0.8rem;
   font-family: 'Graphik-Semibold', sans-serif;
   background: transparent;
   color: #000;
   width: inherit;
   cursor: pointer;
   border: solid #000 2px;
+  font-size:0.9rem;
 }
 
 .active,
@@ -98,7 +99,7 @@ hr {
 }
 
 .topbar {
-  padding-top: 130px;
+  padding-top: 110px;
   margin: 0 auto;
   max-width: 1200px;
 }
