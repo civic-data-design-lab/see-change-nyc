@@ -52,7 +52,7 @@ var width = function () {
     numPerRow = 38;
     height = 1200;
     return 1024;
-  } else if (winWidth >= 768) {
+  } else if (winWidth > 768) {
     numPerRow = 27;
     height = 1700;
     return 768;
