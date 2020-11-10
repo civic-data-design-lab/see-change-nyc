@@ -42,15 +42,16 @@ text {
   /* margin-left: 50px; */
 }
 
-#hrtopic{
+#hrtopic {
   /* margin-top: 0;
   margin-bottom: 0; */
-  width: 90% ;
-  margin:8px;
-  background-color:#000;
+  width: 90%;
+  margin: 8px;
+  background-color: #000;
   border: none;
   height: 1px;
 }
+
 /* html */
 hr {
   background-color: rgb(194, 194, 194);
@@ -69,28 +70,13 @@ hr {
   width: inherit;
   cursor: pointer;
   border: solid #000 2px;
-  font-size:0.9rem;
+  font-size: 0.9rem;
 }
 
 .active,
 .btns:hover {
   background: black;
   color: white;
-}
-
-
-#project-description {
-  top: 0px;
-}
-
-
-
-#project-title {
-  min-width: 100%
-}
-
-#header {
-  min-width: 0px;
 }
 
 .buttonbox {
@@ -109,7 +95,7 @@ hr {
   display: inline-block;
   width: 70%;
   margin-bottom: 15px;
-  font-size:1.1rem;
+  font-size: 1.1rem;
   font-family: 'Graphik-Semibold', sans-serif !important;
 }
 
@@ -121,10 +107,20 @@ hr {
   .textbox {
     width: 600px;
   }
+
   #chart {
     margin-left: 40px;
   }
+
+  #project-title {
+    width: 50%;
+  }
+
+  #project-description {
+    width: 130%
+  }
 }
+
 @media only screen and (max-width: 1024px) {
   .topbar {
     max-width: 700px;
@@ -133,12 +129,14 @@ hr {
   .textbox {
     width: 380px;
   }
-    #chart {
-    margin-left: 40px;
-  }
+
   .buttonbox {
-    margin-top:20px;
-}}
+    margin-top: 20px;
+  }
+  #project-title {
+    width: 55%;
+  }
+}
 
 @media only screen and (max-width: 768px) {
   .topbar {
@@ -151,8 +149,7 @@ hr {
     margin: 0 auto;
     float: none;
     display: table;
-    padding:2px;
-
+    padding: 2px;
   }
 
   .buttonbox {
@@ -166,12 +163,38 @@ hr {
   #chart {
     margin-left: 5px;
   }
-  .yeartext {
-    font-size: 0.9rem;
-  }
-  
+
   .topictext {
     font-size: 0.82rem;
+  }
+
+  #project-title {
+    width: 100%;
+
+  }
+
+  #project-description {
+    width: 95% !important;
+  }
+
+  header {
+    min-width: 350px;
+  }
+  #project-question{
+    font-size:20px !important;
+  }
+}
+
+/*header style*/
+/* @media print, screen and (min-width: 64em) {
+	#project-title {
+		min-width: 614px;
+	}
+} */
+@media print,
+screen and (max-width: 64em) {
+  header {
+    min-width: 350px;
   }
 
 }
