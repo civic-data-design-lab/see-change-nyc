@@ -1,25 +1,27 @@
 /* d3 */
 
 text {
-  font-family: 'Graphik-Medium', sans-serif;
-  font-size: 0.5rem;
+  font-family: 'Graphik-Semibold', sans-serif;
+  font-size: 1rem;
 }
 
 
 .topic {
-  font-family: 'Graphik-Bold', sans-serif;
+  font-family: 'Graphik-Semibold', sans-serif;
+  font-size: 0.9rem;
 }
 
 .yeartext {
   fill: rgb(32, 32, 32);
   font-family: 'Graphik-Semibold', sans-serif;
-  font-size: 0.7rem;
+  font-size: 0.9rem;
 }
 
 .topictext {
   fill: rgb(32, 32, 32);
   font-family: 'Graphik-Semibold', sans-serif;
-  font-size: 0.7rem;
+  font-size: 0.95rem;
+  letter-spacing: -0.4px;
 }
 
 
@@ -28,21 +30,26 @@ text {
   text-align: center;
   padding: .6rem;
   background: #FFFFFF;
-  color: #313639;
-  border: 0.7px solid #313639;
+  color: #000000;
+  border: 1px solid #313639;
   pointer-events: none;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 }
 
 
 #chart {
   height: inherit;
-  margin-left: 50px;
+  /* margin-left: 50px; */
 }
 
-hr .topic{
-  margin-top: 0;
-  margin-bottom: 0;
+#hrtopic{
+  /* margin-top: 0;
+  margin-bottom: 0; */
+  width: 90% ;
+  margin:8px;
+  background-color:#000;
+  border: none;
+  height: 1px;
 }
 /* html */
 hr {
@@ -93,7 +100,7 @@ hr {
 .topbar {
   padding-top: 130px;
   margin: 0 auto;
-  max-width: 1000px;
+  max-width: 1200px;
 }
 
 .textbox {
@@ -101,21 +108,38 @@ hr {
   display: inline-block;
   width: 70%;
   margin-bottom: 15px;
+  font-size:1.1rem;
+  font-family: 'Graphik-Semibold', sans-serif !important;
 }
 
-
-@media only screen and (max-width: 1100px) {
+@media only screen and (max-width: 1366px) {
   .topbar {
-    max-width: 750px;
+    max-width: 1000px;
   }
 
   .textbox {
-    width: 400px;
-    margin-top: -8px;
+    width: 600px;
+  }
+  #chart {
+    margin-left: 40px;
   }
 }
+@media only screen and (max-width: 1024px) {
+  .topbar {
+    max-width: 700px;
+  }
 
-@media only screen and (max-width: 820px) {
+  .textbox {
+    width: 380px;
+  }
+    #chart {
+    margin-left: 40px;
+  }
+  .buttonbox {
+    margin-top:20px;
+}}
+
+@media only screen and (max-width: 768px) {
   .topbar {
     padding-top: 80px;
     max-width: 400px;
@@ -126,7 +150,8 @@ hr {
     margin: 0 auto;
     float: none;
     display: table;
-    
+    padding:2px;
+
   }
 
   .buttonbox {
@@ -138,6 +163,14 @@ hr {
   }
 
   #chart {
-    margin-left: 20px;
+    margin-left: 5px;
   }
+  .yeartext {
+    font-size: 0.9rem;
+  }
+  
+  .topictext {
+    font-size: 0.82rem;
+  }
+
 }

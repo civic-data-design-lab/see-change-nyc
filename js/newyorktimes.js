@@ -20,61 +20,53 @@ const dataset = d3.csv("./data/nyt_data_.csv").then(function (data) {
   createGrid(svg, data);
 });
 
-var forceXYear = d3.forceX(d => {if (winWidth > 820) {
-  return d.year == 2013 || d.year == 2017 ? width() / 5 - 50 :
-    d.year == 2014 || d.year == 2018 ? width() * 2 / 5 - 5 :
-    d.year == 2015 || d.year == 2019 ? width() * 3 / 5 + 25 :
-    width() * 4 / 5 + 60
-}else return width()/2-50}).strength(0.1)
+var forceXYear = d3.forceX(d => {
+  if (winWidth > 820) {
+    return d.year == 2013 || d.year == 2017 ? width() / 5 - 50 :
+      d.year == 2014 || d.year == 2018 ? width() * 2 / 5 - 5 :
+      d.year == 2015 || d.year == 2019 ? width() * 3 / 5 + 25 :
+      width() * 4 / 5 + 60
+  } else return width() / 2 - 50
+}).strength(0.1)
 
-var forceYYear = d3.forceY(d =>{if (winWidth > 820) {
-  return d.year == 2013 || d.year == 2014 || d.year == 2015 || d.year == 2016 ? height / 3 - 60 :
-    height * 2 / 3 - 60
-  }else return (height+80)/8*(d.year%2013)+130}).strength(0.1)
+var forceYYear = d3.forceY(d => {
+  if (winWidth > 820) {
+    return d.year == 2013 || d.year == 2014 || d.year == 2015 || d.year == 2016 ? height / 3 - 60 :
+      height * 2 / 3 - 60
+  } else return (height + 80) / 8 * (d.year % 2013) + 130
+}).strength(0.1)
 
 var forceCollide = d3.forceCollide(d => radiusScale(d.count) + 3)
-const circleRadius = 6;
+var circleRadius = 7;
 
 //adapt to the screen size 
 var winWidth = $(window).width();
 
 var height;
 var width = function () {
-  if (winWidth > 1100) {
-    numPerRow = 55;
-    height = 700;
-    return 1100;
-  } else if (winWidth > 850) {
-    numPerRow = 40;
-    height = 1000;
-    return 850;
+  if (winWidth >= 1366) {
+    numPerRow = 55
+    height = 850;
+    return 1366;
+  } else if (winWidth >= 1024) {
+    numPerRow = 38;
+    height = 1200;
+    return 1024;
+  } else if (winWidth >= 768) {
+    numPerRow = 27;
+    height = 1700;
+    return 768;
   } else {
     numPerRow = 15;
-    height = 2300;
-    return 380;
-
+    height = 2600;
+    circleRadius = 6;
+    return 400;
   }
 };
 
 $(window).resize(function () {
-  if (winWidth > 1050) {
-    numPerRow = 55;
-    height = 900;
-    width = 1100;
-  } else if (winWidth > 820) {
-    numPerRow = 40;
-    height = 1000;
-    width = 800;
-  } else {
-    numPerRow = 15;
-    height = 2300;
-    width = 380;
-  }
-  location.reload(true);
+  location.reload();
 });
-
-
-
 
 
 var svg = d3.select('#chart')
@@ -88,7 +80,7 @@ var simulation =
   .force("y", forceYYear)
   .force("collide", forceCollide)
 
-const spacing = 3;
+var spacing = 3.4;
 const margin = 5;
 var numPerRow;
 
@@ -103,7 +95,7 @@ var scale = d3.scaleLinear()
   .range([0, circleRadius * numPerRow]);
 
 function positionX(i) {
-  return scale(spacing * (i % numPerRow)) + margin +20
+  return scale(spacing * (i % numPerRow)) + margin + 20
 }
 
 function positionY(i) {
@@ -299,20 +291,20 @@ function createGrid(svg, dataset) {
         .attr('x', function (d, i) {
           if (winWidth > 820) {
             return ((width() + 140) / 5) * ((i % 4) + 1) - 70
-          } else return width() / 2-50
+          } else return width() / 2 - 50
         })
         .attr('y', function (d, i) {
-            if (winWidth > 820) {
-              return (Math.floor(i / 4) + 1) * height / 3 + 50
-          } else return (height / 8) * (i+1) -60
+          if (winWidth > 820) {
+            return (Math.floor(i / 4) + 1) * height / 3 + 50
+          } else return (height / 8) * (i + 1) - 60
         })
-    .transition().duration(800)
-      .text((d, i) => years[i])
+        .transition().duration(800)
+        .text((d, i) => years[i])
 
-      .style("opacity", 1)
-      .attr("class", "yeartext")
+        .style("opacity", 1)
+        .attr("class", "yeartext")
+    }
   }
-}
 }
 
 
@@ -345,9 +337,9 @@ function removeBlank(arr, key, value) {
 
 //Tooltip and mouse interaction
 var mouseX, mouseY;
-$(document).mousemove(function(e) {
-    mouseX = e.pageX;
-    mouseY = e.pageY;
+$(document).mousemove(function (e) {
+  mouseX = e.pageX;
+  mouseY = e.pageY;
 }).mouseover();
 
 
@@ -368,10 +360,10 @@ var mouseover = function (d) {
 var mousemove = function (d) {
   Tooltip
     .html(" <span class='topic'>" + d.currentTarget.__data__.topic +
-      "</span></b><br><hr style=margin:8px;> was covered " + d.currentTarget.__data__.count +
+      "</span></b><br><hr id='hrtopic'> was covered " + d.currentTarget.__data__.count +
       " times in " + d.currentTarget.__data__.year)
-    .style("left", mouseX-20+ "px")
-    .style("top", mouseY-200  + "px")
+    .style("left", mouseX - 20 + "px")
+    .style("top", mouseY - 250 + "px")
 }
 
 var mouseleave = function (d) {
