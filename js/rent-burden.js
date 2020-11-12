@@ -122,9 +122,10 @@ d3.csv('./data/nyc_pums_count_names.csv')
 		boroughstats[key] = stat
 	}
 
+
 	//GRAPH BACKGROUND
 	svg.append("text")
-		.html(allstats[0].not + " HOUSEHOLDS")
+		.html(allstats[0].not.toLocaleString() + " HOUSEHOLDS")
 		.attr("class", "stats")
 		.attr("text-anchor", "middle")
 		.attr("id", "notburdened")
@@ -132,13 +133,13 @@ d3.csv('./data/nyc_pums_count_names.csv')
 		.attr("y", 205);
 	svg.append("text")
 		.attr("class", "stats")
-		.html(allstats[0].burdened + " HOUSEHOLDS")
+		.html(allstats[0].burdened.toLocaleString() + " HOUSEHOLDS")
 		.attr("text-anchor", "middle")
 		.attr("id", "burdened")
 		.attr("x", (graphwidth*0.4))
 		.attr("y", 205);
 	svg.append("text")
-		.html(allstats[0].severe + " HOUSEHOLDS")
+		.html(allstats[0].severe.toLocaleString() + " HOUSEHOLDS")
 		.attr("class", "stats")
 		.attr("text-anchor", "middle")
 		.attr("id", "severelyburdened")
@@ -166,6 +167,7 @@ d3.csv('./data/nyc_pums_count_names.csv')
 			allDensity[i].density[0][1] = 0
 		}
 
+
 	//DISTRICTS
 	for (i = 0; i < n; i++) {
 		var key = categories[i]
@@ -190,10 +192,17 @@ d3.csv('./data/nyc_pums_count_names.csv')
 			districts = queensdistricts
 			densityb = queensdensity}
 		m = districts[0].length
+
 		for (j = 0; j < m; j++) {
 			keyd = districts[0][j]
 			density = kde(values[keyd])
-			densityb.push({key: keyd, density: density})
+			var freq = {}
+			var len = values[keyd].length
+			for(var k = 0; k < len; k++){
+				var num = values[keyd][k];
+				freq[num] = freq[num] ? freq[num] + 1 : 1;
+			}
+			densityb.push({key: keyd, density: density, frequency: freq})
 		}
 	  }
 
@@ -244,6 +253,29 @@ d3.csv('./data/nyc_pums_count_names.csv')
 	plotBoroguhRidgeline("statenisland");
 
 	//TOOLTIP
+
+		//TEMP TOOLTIP
+		svg.append("line")
+		  .attr("x1", 600)
+		  .attr("x2", 600)
+		  .attr("y1", 100)
+		  .attr("y2", graphheight+100)
+		  .style("stroke", "white")
+		  .style("stroke-width", "1px")
+		  .attr("id", "temptooltip")
+		  .attr("visibility", "visible")
+		svg.append("text")
+			.html("67")
+			.attr("x", 595)
+			.attr("y", graphheight+100+25)
+			.attr("id", "temptooltip")
+			.attr("font-family", "Graphik-Bold")
+			.attr("font-size", "20px")
+			.attr("fill", "#3E52C2")
+			.attr("visibility", "visible")
+
+
+
 	var boroughnumber = 0
 
 	var mouseG = svg.append("g")
@@ -255,6 +287,15 @@ d3.csv('./data/nyc_pums_count_names.csv')
 	  .style("stroke-width", "1px")
 	  .style("opacity", "0");
 
+	  mouseG.append("path")
+	  .attr("class", "mouse-line-temp")
+	  .style("stroke", "white")
+	  .style("stroke-width", "1px")
+	  .style("opacity", "0");
+
+
+
+
 	  mouseG.append('svg:rect') 
 	  .attr('width', graphwidth) 
 	  .attr('height', graphheight+100)
@@ -262,12 +303,16 @@ d3.csv('./data/nyc_pums_count_names.csv')
 	  .attr('id', 'rect1')
 	  .attr('pointer-events', 'all')
 	  .on('mouseout', function() { 
-		  d3.select(".mouse-line")
+		  d3.select(".mouse-line, .mouse-line-temp")
 		  .style("opacity", "0")
 		  .style("color", "white");
 		  tooltip.style("visibility", "hidden")
 		  tooltip2.style("visibility", "hidden")
 		  tooltip3.style("visibility", "hidden")
+		  tooltip4.style("visibility", "hidden")
+		  tooltip5.style("visibility", "hidden")
+		  tooltip6.style("visibility", "hidden")
+		  tooltip7.style("visibility", "hidden")
 		  })
 	  .on('mouseover', function() { 
 		  d3.select(".mouse-line")
@@ -276,7 +321,13 @@ d3.csv('./data/nyc_pums_count_names.csv')
 		  tooltip.style("visibility", "visible")
 		  tooltip2.style("visibility", "visible")
 		  tooltip3.style("visibility", "visible")
+		  tooltip4.style("visibility", "visible")
+		  tooltip5.style("visibility", "visible")
+		  tooltip6.style("visibility", "visible")
+		  tooltip7.style("visibility", "visible")
+		  d3.selectAll("#temptooltip").style("visibility","hidden")
 		  })
+
 	  .on('mousemove', function() { 
 		  var mouse = d3.mouse(this);
 		  d3.select(".mouse-line")
@@ -300,13 +351,58 @@ d3.csv('./data/nyc_pums_count_names.csv')
 				  + allDensity[3].frequency[y] + " households in " + allDensity[3].key + "<br>"
 				  + allDensity[4].frequency[y] + " households in " + allDensity[4].key + "</p>"
 				  )
-		 tooltip3.style("top", (d3.event.pageY-120)+"px").style("left",(d3.event.pageX+10)+"px")
+
+
+				bronxtext = []
+					for (i = 0; i < bronxdensity.length; i++){
+						  line = "<br>" +  bronxdensity[i].frequency[y] + " households in " + bronxdensity[i].key 
+						  bronxtext.push(line)}
+				queenstext = []
+					for (i = 0; i < queensdensity.length; i++){
+						line = "<br>" +  queensdensity[i].frequency[y] + " households in " + queensdensity[i].key 
+						queenstext.push(line)}
+				brooklyntext = []
+					for (i = 0; i < brooklyndensity.length; i++){
+						line = "<br>" +  brooklyndensity[i].frequency[y] + " households in " + brooklyndensity[i].key 
+						brooklyntext.push(line)}
+				statentext = []
+					for (i = 0; i < statenislanddensity.length; i++){
+						line = "<br>" +  statenislanddensity[i].frequency[y] + " households in " + statenislanddensity[i].key 
+						statentext.push(line)}
+				manhattantext = []
+					for (i = 0; i < manhattandensity.length; i++){
+						line = "<br>" +  manhattandensity[i].frequency[y] + " households in " + manhattandensity[i].key 
+						manhattantext.push(line)} 
+
+		 tooltip3.style("top", (d3.event.pageY-220)+"px").style("left",(d3.event.pageX+20)+"px")
 				  .html("<p style = 'font-family: Graphik-Bold; color:" + percentcolor + "';>" + "<span style = 'font-size: 16px;'>" + y + "%" + "</span>" + "<span>" + " OF INCOME IS SPENT ON RENT BY " + "</span></p>"
-					  + "<p>" + allDensity[boroughnumber].frequency[y] + " households in " + allDensity[boroughnumber].key + "</p>")
-		  })
-		tooltip3.style("opacity", 0)
+				 +bronxtext +"<p>" + "" + "</p>"
+				 )
+		tooltip4.style("top", (d3.event.pageY-310)+"px").style("left",(d3.event.pageX+20)+"px")
+				 .html("<p style = 'font-family: Graphik-Bold; color:" + percentcolor + "';>" + "<span style = 'font-size: 16px;'>" + y + "%" + "</span>" + "<span>" + " OF INCOME IS SPENT ON RENT BY " + "</span></p>"
+				+brooklyntext +"<p>" + "" + "</p>"
+				)
+		tooltip5.style("top", (d3.event.pageY-260)+"px").style("left",(d3.event.pageX+20)+"px")
+				.html("<p style = 'font-family: Graphik-Bold; color:" + percentcolor + "';>" + "<span style = 'font-size: 16px;'>" + y + "%" + "</span>" + "<span>" + " OF INCOME IS SPENT ON RENT BY " + "</span></p>"
+			   +queenstext +"<p>" + "" + "</p>"
+			   )
+		tooltip6.style("top", (d3.event.pageY-130)+"px").style("left",(d3.event.pageX+20)+"px")
+			   .html("<p style = 'font-family: Graphik-Bold; color:" + percentcolor + "';>" + "<span style = 'font-size: 16px;'>" + y + "%" + "</span>" + "<span>" + " OF INCOME IS SPENT ON RENT BY " + "</span></p>"
+			  +statentext +"<p>" + "" + "</p>"
+			  )
+		tooltip7.style("top", (d3.event.pageY-220)+"px").style("left",(d3.event.pageX+20)+"px")
+			  .html("<p style = 'font-family: Graphik-Bold; color:" + percentcolor + "';>" + "<span style = 'font-size: 16px;'>" + y + "%" + "</span>" + "<span>" + " OF INCOME IS SPENT ON RENT BY " + "</span></p>"
+			 +manhattantext +"<p>" + "" + "</p>"
+			 )
+			})
+
+		d3.selectAll("#bronxttp, #brooklynttp, #queensttp, #statenttp, #manhattanttp").style("opacity", 0).style("visibility", "hidden")
 
 		scrollToProfile();
+
+
+
+
 })
 
 //SVG
@@ -332,6 +428,24 @@ tooltip2 = d3.select("body")
 tooltip3 = d3.select("body")
 		.append("div")
 		.attr("class", "tooltip2")
+		.attr("id", "bronxttp")
+tooltip4 = d3.select("body")
+		.append("div")
+		.attr("class", "tooltip2")
+		.attr("id", "brooklynttp")
+tooltip5 = d3.select("body")
+		.append("div")
+		.attr("class", "tooltip2")
+		.attr("id", "queensttp")
+tooltip6 = d3.select("body")
+		.append("div")
+		.attr("class", "tooltip2")
+		.attr("id", "statenttp")
+tooltip7 = d3.select("body")
+		.append("div")
+		.attr("class", "tooltip2")
+		.attr("id", "manhattanttp")
+
 
 //DISTRICTS
 var bronx = {}
@@ -392,6 +506,15 @@ svg.append("g")
 	.call(d3.axisLeft(yName).tickSize(0))
 	.attr("transform", "translate(" + -10  + "," + "5)")
 	.select(".domain").remove()
+svg.append("g")
+	.attr("class", "label-axis")
+	.append("text")
+	.attr("text-anchor", "end")
+	.attr("class", "axislabel")
+	.attr("x", graphwidth - 915)
+	.attr("y", 145)
+	.text("NUMBER OF HOUSEHOLDS");
+
 
 //GRAPH BACKGROUND
 
@@ -520,6 +643,7 @@ function plotBoroguhRidgeline(borough) {
 			.x(function(d) { return x(d[0]); })
 			.y(function(d) { return y(d[1]); })
 		)
+
 }
 
 //BUTTONS
@@ -547,10 +671,13 @@ d3.select("#bronx").on("click", function() {
 			.select(".domain").remove()
 	boroughnumber = 0
 	tooltip2.style("opacity", 0)
-	tooltip3.style("opacity", 0.9)
-	d3.selectAll("#notburdened").html(boroughstats.Bronx.not + " HOUSEHOLDS")
-	d3.selectAll("#burdened").html(boroughstats.Bronx.burdened +  " HOUSEHOLDS")
-	d3.selectAll("#severelyburdened").html(boroughstats.Bronx.severe +  " HOUSEHOLDS")
+	d3.selectAll("#bronxttp").style("opacity", 0.9).style("visibility", "visible")
+	d3.selectAll("#brooklynttp, #queensttp, #statenttp, #manhattanttp").style("opacity", 0).style("visibility", "hidden")
+	d3.selectAll("#notburdened").html(boroughstats.Bronx.not.toLocaleString() + " HOUSEHOLDS")
+	d3.selectAll("#burdened").html(boroughstats.Bronx.burdened.toLocaleString() +  " HOUSEHOLDS")
+	d3.selectAll("#severelyburdened").html(boroughstats.Bronx.severe.toLocaleString() +  " HOUSEHOLDS")
+
+
 })
 
 d3.select("#brooklyn").on("click", function() { 
@@ -574,10 +701,12 @@ d3.select("#brooklyn").on("click", function() {
 			.select(".domain").remove()
 	boroughnumber = 2
 	tooltip2.style("opacity", 0)
-	tooltip3.style("opacity", 0.9)
-	d3.selectAll("#notburdened").html(boroughstats.Brooklyn.not + " HOUSEHOLDS")
-	d3.selectAll("#burdened").html(boroughstats.Brooklyn.burdened +  " HOUSEHOLDS")
-	d3.selectAll("#severelyburdened").html(boroughstats.Brooklyn.severe +  " HOUSEHOLDS")
+	d3.selectAll("#brooklynttp").style("opacity", 0.9).style("visibility", "visible")
+	d3.selectAll("#bronxttp, #queensttp, #statenttp, #manhattanttp").style("opacity", 0).style("visibility", "hidden")
+	d3.selectAll("#notburdened").html(boroughstats.Brooklyn.not.toLocaleString() + " HOUSEHOLDS")
+	d3.selectAll("#burdened").html(boroughstats.Brooklyn.burdened.toLocaleString() +  " HOUSEHOLDS")
+	d3.selectAll("#severelyburdened").html(boroughstats.Brooklyn.severe.toLocaleString() +  " HOUSEHOLDS")
+
 })
 
 d3.select("#queens").on("click", function() { 
@@ -601,11 +730,11 @@ d3.select("#queens").on("click", function() {
 			.select(".domain").remove()
 	boroughnumber = 1
 	tooltip2.style("opacity", 0)
-	tooltip3.style("opacity", 0.9)
-	d3.selectAll("#notburdened").html(boroughstats.Queens.not + " HOUSEHOLDS")
-	d3.selectAll("#burdened").html(boroughstats.Queens.burdened +  " HOUSEHOLDS")
-	d3.selectAll("#severelyburdened").html(boroughstats.Queens.severe +  " HOUSEHOLDS")
-	
+	d3.selectAll("#queensttp").style("opacity", 0.9).style("visibility", "visible")
+	d3.selectAll("#bronxttp, #brooklynttp, #statenttp, #manhattanttp").style("opacity", 0).style("visibility", "hidden")
+	d3.selectAll("#notburdened").html(boroughstats.Queens.not.toLocaleString() + " HOUSEHOLDS")
+	d3.selectAll("#burdened").html(boroughstats.Queens.burdened.toLocaleString() +  " HOUSEHOLDS")
+	d3.selectAll("#severelyburdened").html(boroughstats.Queens.severe.toLocaleString() +  " HOUSEHOLDS")
 })
 
 d3.select("#manhattan").on("click", function() { 
@@ -629,10 +758,11 @@ d3.select("#manhattan").on("click", function() {
 			.select(".domain").remove()
 	boroughnumber = 4
 	tooltip2.style("opacity", 0)
-	tooltip3.style("opacity", 0.9)
-	d3.selectAll("#notburdened").html(boroughstats.Manhattan.not + " HOUSEHOLDS")
-	d3.selectAll("#burdened").html(boroughstats.Manhattan.burdened +  " HOUSEHOLDS")
-	d3.selectAll("#severelyburdened").html(boroughstats.Manhattan.severe +  " HOUSEHOLDS")
+	d3.selectAll("#manhattanttp").style("opacity", 0.9).style("visibility", "visible")
+	d3.selectAll("#bronxttp, #queensttp, #statenttp, #brooklynttp").style("opacity", 0).style("visibility", "hidden")
+	d3.selectAll("#notburdened").html(boroughstats.Manhattan.not.toLocaleString() + " HOUSEHOLDS")
+	d3.selectAll("#burdened").html(boroughstats.Manhattan.burdened.toLocaleString() +  " HOUSEHOLDS")
+	d3.selectAll("#severelyburdened").html(boroughstats.Manhattan.severe.toLocaleString() +  " HOUSEHOLDS")
 })
 
 d3.select("#statenisland").on("click", function() { 
@@ -656,10 +786,11 @@ d3.select("#statenisland").on("click", function() {
 			.select(".domain").remove()
 	boroughnumber = 3
 	tooltip2.style("opacity", 0)
-	tooltip3.style("opacity", 0.9)
-	d3.selectAll("#notburdened").html(boroughstats['Staten Island'].not + " HOUSEHOLDS")
-	d3.selectAll("#burdened").html(boroughstats['Staten Island'].burdened +  " HOUSEHOLDS")
-	d3.selectAll("#severelyburdened").html(boroughstats['Staten Island'].severe +  " HOUSEHOLDS")
+	d3.selectAll("#statenttp").style("opacity", 0.9).style("visibility", "visible")
+	d3.selectAll("#bronxttp, #queensttp, #brooklynttp, #manhattanttp").style("opacity", 0).style("visibility", "hidden")
+	d3.selectAll("#notburdened").html(boroughstats['Staten Island'].not.toLocaleString() + " HOUSEHOLDS")
+	d3.selectAll("#burdened").html(boroughstats['Staten Island'].burdened.toLocaleString() +  " HOUSEHOLDS")
+	d3.selectAll("#severelyburdened").html(boroughstats['Staten Island'].severe.toLocaleString() +  " HOUSEHOLDS")
 })
 
 d3.select("#nyc").on("click", function() { 
@@ -681,11 +812,11 @@ d3.select("#nyc").on("click", function() {
 			.style("font-size", "12px")
 			.attr("transform", "translate(" + -10  + ",0)")
 			.select(".domain").remove()
-	tooltip2.style("opacity", 0.9)
-	tooltip3.style("opacity", 0)
-	d3.selectAll("#notburdened").html(allstats[0].not + " HOUSEHOLDS")
-	d3.selectAll("#burdened").html(allstats[0].burdened +  " HOUSEHOLDS")
-	d3.selectAll("#severelyburdened").html(allstats[0].severe +  " HOUSEHOLDS")	
+	tooltip2.style("opacity", 0.9).style("visibility", "visible")
+	d3.selectAll("#bronxttp, #queensttp, #statenttp, #manhattanttp, #brooklynttp").style("opacity", 0).style("visibility", "hidden")
+	d3.selectAll("#notburdened").html(allstats[0].not.toLocaleString() + " HOUSEHOLDS")
+	d3.selectAll("#burdened").html(allstats[0].burdened.toLocaleString() +  " HOUSEHOLDS")
+	d3.selectAll("#severelyburdened").html(allstats[0].severe.toLocaleString() +  " HOUSEHOLDS")	
 })
 
 // scrolltop jump to borough profile
