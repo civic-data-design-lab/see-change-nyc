@@ -1,23 +1,28 @@
-$(document).ready(function() {
-	$(window).on('scroll', function() {
+$(document).ready(function () {
+	$(window).on('scroll', function () {
 		var scrollTop = $(window).scrollTop(),
 			docHeight = $(document).height(),
 			winHeight = $(window).innerHeight()
 	})
 
 	$("#project-description").hide();
-	$("#project-title").on('mouseenter', function() {
+	$("#project-title").on('mouseenter', function () {
 		$('#project-description').show();
 	});
-	$("#project-title").on('mouseleave', function() {
+	$("#project-title").on('mouseleave', function () {
 		$('#project-description').hide();
 	})
 
 	$("#h-description").hide();
-	$("#project-title").on('mouseenter', function() {
+	$("#project-title").on('mouseenter', function () {
 		$('#h-description').show();
 	});
-	$("#project-title").on('mouseleave', function() {
+	$("#project-title").on('mouseleave', function () {
 		$('#h-description').hide();
 	})
+
+	$("#arrow-expand").click(function () {
+		$("#hidden-disc").slideToggle();
+		$("#arrow-expand").toggleClass('arrow-up');
+	});
 })

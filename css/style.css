@@ -39,11 +39,17 @@ body {
 	font-style: normal;
 	margin: 0px auto;
 }
+.b1{
+	font-family: 'Graphik-Medium', sans-serif;
+	font-size: 18px;
+	line-height: 25px;
+	letter-spacing: 0px;
+}
 .h3 {
 	font-family: 'Graphik-Bold', sans-serif;
 	/*font-size: 32px/42px;*/
-	font-size: 24px;
-	line-height: 30px;
+	font-size: 29px;
+	line-height: 38px;
 	letter-spacing: -0.5px;
 	margin: 0px;
 	padding: 10px;
@@ -52,7 +58,7 @@ body {
 	font-family: 'Graphik-Bold', sans-serif;
 	font-size: 21px;
 	line-height: 29px;
-	letter-spacing: -0.5px;
+	letter-spacing: 0px;
 }
 .m2 {
 	display: inline-block;
@@ -60,8 +66,8 @@ body {
 	width: auto;
 	font-family: 'Graphik-Bold', sans-serif;
 	font-size: 21px;
-	line-height: 29px;
-	letter-spacing: -0.5px;
+	line-height: 19px;
+	letter-spacing: 0px;
 	border-bottom: solid 4px #000;
 }
 .black {
@@ -250,15 +256,29 @@ section {
 	text-align: center;
 	overflow: hidden;
 }
-
+.arrow{
+	border: solid #000;
+	border-width: 0 1.5px 1.5px 0;
+	display: inline-block;
+	margin: -5px 0px 2px 20px ;
+	padding:2px;
+	transform: rotate(45deg);
+	width: 12px; 
+	height: 12px; 
+	cursor: pointer;
+}
+.arrow-up{
+	transform: rotate(225deg);
+	margin:  5px 0px -8px 20px ;
+}
 @media print, screen and (min-width: 64em) {
 	header {
-		height: 62px;
+		height: 58px;
 	}
 	.h3 {
-		font-size: 32px;
-		line-height: 42px;
-		letter-spacing: -1.6px;
+		font-size: 29px;
+		line-height: 38px;
+		/* letter-spacing: -1.6px; */
 	}
 	#nav ul ul {
 		top: 34px;
@@ -270,3 +290,5 @@ section {
 @media screen and (max-width: 830px) {
 
 }
+
+
