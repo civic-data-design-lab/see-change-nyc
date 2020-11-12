@@ -98,7 +98,12 @@ hr {
   font-size: 1.1rem;
   font-family: 'Graphik-Semibold', sans-serif !important;
 }
-
+#project-title{
+  width: 75% !important;
+}
+#project-description {
+  width: 65%;
+}
 @media only screen and (max-width: 1366px) {
   .topbar {
     max-width: 1000px;
@@ -111,13 +116,11 @@ hr {
   #chart {
     margin-left: 40px;
   }
-
-  #project-title {
-    width: 50%;
+  #project-title{
+    width: 88% !important;
   }
-
   #project-description {
-    width: 130%
+    width: 55%;
   }
 }
 
@@ -133,9 +136,13 @@ hr {
   .buttonbox {
     margin-top: 20px;
   }
-  #project-title {
-    width: 55%;
+  #project-title{
+    width: 100% !important;
   }
+  .h3 {
+    font-size: 24px;
+    margin-top:-2px;
+}
 }
 
 @media only screen and (max-width: 768px) {
@@ -167,34 +174,30 @@ hr {
   .topictext {
     font-size: 0.82rem;
   }
-
-  #project-title {
-    width: 100%;
-
-  }
-
-  #project-description {
-    width: 95% !important;
-  }
-
-  header {
-    min-width: 350px;
-  }
-  #project-question{
-    font-size:20px !important;
-  }
+  .h3 {
+    line-height: 20px;
+    margin-top:-2px;
 }
-
+#project-description {
+  width: 95%;
+}
+}
 /*header style*/
-/* @media print, screen and (min-width: 64em) {
-	#project-title {
-		min-width: 614px;
+@media print, screen and (max-width: 1116px) {
+	header {
+		height: 58px;
 	}
-} */
-@media print,
-screen and (max-width: 64em) {
-  header {
-    min-width: 350px;
-  }
+
+	#project-description {
+		max-height: calc(100vh - 88px);
+	}
+}
+@media print, screen /*and (min-width: 723px)*/ and (max-width: 904px) {
+	header {
+		min-width: 350px;
+	}
+	#project-title {
+		min-width: 350px;
+	}
 
 }

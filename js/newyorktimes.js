@@ -64,9 +64,7 @@ var width = function () {
   }
 };
 
-$(window).resize(function () {
-  location.reload();
-});
+window.onresize = function(){ location.reload(); }
 
 
 var svg = d3.select('#chart')
@@ -362,7 +360,7 @@ var mousemove = function (d) {
     .html(" <span class='topic'>" + d.currentTarget.__data__.topic +
       "</span></b><br><hr id='hrtopic'> was covered " + d.currentTarget.__data__.count +
       " times in " + d.currentTarget.__data__.year)
-    .style("left", mouseX - 20 + "px")
+    .style("left", mouseX +10 + "px")
     .style("top", mouseY - 250 + "px")
 }
 
