@@ -2,80 +2,103 @@
 	font-family: 'Graphik-Black';
 	src: url(./fonts/Graphik-Black.otf);
 }
+
 @font-face {
 	font-family: 'Graphik-Bold';
 	src: url(./fonts/Graphik-Bold.otf);
 }
+
 @font-face {
 	font-family: 'Graphik-Extralight';
 	src: url(./fonts/Graphik-Extralight.otf);
 }
+
 @font-face {
 	font-family: 'Graphik-Light';
 	src: url(./fonts/Graphik-Light.otf);
 }
+
 @font-face {
 	font-family: 'Graphik-Medium';
 	src: url(./fonts/Graphik-Medium.otf);
 }
+
 @font-face {
 	font-family: 'Graphik-Regular';
 	src: url(./fonts/Graphik-Regular.otf);
 }
+
 @font-face {
 	font-family: 'Graphik-Semibold';
 	src: url(./fonts/Graphik-Semibold.otf);
 }
+
 @font-face {
 	font-family: 'Graphik-Super';
 	src: url(./fonts/Graphik-Super.otf);
 }
+
 @font-face {
 	font-family: 'Graphik-Thin';
 	src: url(./fonts/Graphik-Thin.otf);
 }
+
 body {
 	font-family: 'Graphik-Regular', sans-serif;
 	font-style: normal;
 	margin: 0px auto;
 }
-.b1{
+.b1 {
 	font-family: 'Graphik-Medium', sans-serif;
 	font-size: 18px;
 	line-height: 25px;
 	letter-spacing: 0px;
 }
+.b2 {
+	display: inline-block;
+	margin: 0px;
+	width: auto;
+	font-family: 'Graphik-Medium', sans-serif;
+	font-size: 18px;
+	line-height: 25px;
+	letter-spacing: 0px;
+	border-bottom: solid 2px #000;
+	}
 .h3 {
 	font-family: 'Graphik-Bold', sans-serif;
-	/*font-size: 32px/42px;*/
-	font-size: 29px;
-	line-height: 38px;
+	font-size: 24px;
+	line-height: 40px;
 	letter-spacing: -0.5px;
 	margin: 0px;
 	padding: 10px;
 }
+
 .m1 {
 	font-family: 'Graphik-Bold', sans-serif;
 	font-size: 21px;
 	line-height: 29px;
-	letter-spacing: 0px;
+	letter-spacing: -0.5px;
 }
+
 .m2 {
 	display: inline-block;
 	margin: 0px;
 	width: auto;
 	font-family: 'Graphik-Bold', sans-serif;
 	font-size: 21px;
-	line-height: 19px;
-	letter-spacing: 0px;
+	line-height: 29px;
+	letter-spacing: -0.5px;
 	border-bottom: solid 4px #000;
 }
+
 .black {
 	color: #000;
 }
+
 .grey {
 	color: #d1d3d4;
 }
+
 header {
 	position: fixed;
 	margin: auto;
@@ -89,18 +112,23 @@ header {
 	background: #fff;
 	border: solid 6px #000;
 }
-#project-title, #nav {
+
+#project-title,
+#nav {
 	position: relative;
 	float: left;
 	width: 50%;
 	height: 100%;
 }
+
 #project-title {
 	min-width: 347px;
 }
+
 #nav {
 	min-width: 401px;
 }
+
 #project-description {
 	display: none;
 	position: relative;
@@ -109,7 +137,7 @@ header {
 	left: -6px;
 	max-height: calc(100vh - 88px);
 	padding: 10px;
-/*	-ms-word-break: break-all;
+	/*	-ms-word-break: break-all;
 	word-break: break-all;*/
 	-webkit-hyphens: auto;
 	-moz-hyphens: auto;
@@ -119,41 +147,50 @@ header {
 	border: solid 6px #000;
 	overflow: hidden auto;
 }
+
 #project-description sup {
 	line-height: 0px;
 }
+
 #project-description em {
 	text-decoration: underline;
 }
+
 #project-description a {
 	text-decoration: none;
 	color: #000;
 	border: none;
 }
+
 #project-description a:hover {
 	border-bottom: solid 4px #000;
 	color: #000;
 }
+
 #project-description hr {
 	height: 4px;
 	background: #000;
 }
+
 #project-description ol a {
 	-webkit-word-break: break-all;
 	-ms-word-break: break-all;
 	word-break: break-all;
 }
+
 .h1 {
 	font-family: 'Graphik-Black', sans-serif;
 	font-size: 3em;
 	text-transform: uppercase;
 	letter-spacing: 5px;
 }
+
 .h2 {
 	font-family: 'Graphik-Bold', sans-serif;
 	font-size: 2em;
 	color: #d1d3d4;
 }
+
 .h3-v1 {
 	font-family: 'Graphik-Bold', sans-serif;
 	font-size: 1.25em;
@@ -161,39 +198,47 @@ header {
 	letter-spacing: 1px;
 	margin: 20px 0px 0px 0px;
 }
+
 .h4 {
 	font-family: 'Graphik-Black', sans-serif;
 	font-size: 3em;
 	text-transform: uppercase;
 }
+
 .h5 {
 	font-family: 'Graphik-Medium', sans-serif;
 	font-size: 1.5em;
 }
+
 .h6 {
 	font-family: 'Graphik-Bold', sans-serif;
 	font-size: 1.25em;
 	text-transform: uppercase;
 }
+
 .data1 {
 	font-family: 'Graphik-Bold', sans-serif;
 	font-size: 3em;
 	text-transform: uppercase;
 }
+
 .data2 {
 	font-family: 'Graphik-Bold', sans-serif;
 	font-size: 1.5em;
 	text-transform: uppercase;
 }
+
 .data3 {
 	font-family: 'Graphik-Semibold', sans-serif;
 	font-size: 1.25em;
 }
+
 .span-title {
 	display: inline-block;
 	padding: 10px 20px;
 	height: 20px;
 }
+
 #nav ul {
 	position: relative;
 	margin: 0px;
@@ -202,20 +247,25 @@ header {
 	list-style: none;
 	display: inline;
 }
-#nav ul li  {
+
+#nav ul li {
 	list-style: none;
 	display: inline-block;
 	height: auto;
 }
+
 #nav ul li.h3:not(:last-child) {
 	padding-right: 40px;
 }
+
 #nav ul li:hover {
 	cursor: pointer;
 }
+
 #nav ul li:hover ul {
 	display: inline;
 }
+
 #nav ul ul {
 	position: absolute;
 	top: 30px;
@@ -226,28 +276,36 @@ header {
 	display: none;
 	background-color: #fff;
 }
+
 #nav ul ul li {
 	padding: 10px;
 }
+
 #nav .grey:hover {
 	color: #000;
 }
+
 #nav a {
 	text-decoration: none;
 	color: #000;
 }
+
 #nav a:hover {
 	color: #d1d3d4;
 }
+
 #nav a.grey {
 	color: #d1d3d4;
 }
+
 #nav a.grey:hover {
 	color: #000;
 }
+
 #currentborough {
 	text-transform: capitalize;
 }
+
 section {
 	position: relative;
 	height: 100vh;
@@ -256,39 +314,43 @@ section {
 	text-align: center;
 	overflow: hidden;
 }
-.arrow{
+
+.arrow {
 	border: solid #000;
 	border-width: 0 1.5px 1.5px 0;
 	display: inline-block;
-	margin: -5px 0px 2px 20px ;
-	padding:2px;
+	margin: -5px 0px 2px 20px;
+	padding: 2px;
 	transform: rotate(45deg);
-	width: 12px; 
-	height: 12px; 
+	width: 12px;
+	height: 12px;
 	cursor: pointer;
 }
-.arrow-up{
+
+.arrow-up {
 	transform: rotate(225deg);
-	margin:  5px 0px -8px 20px ;
+	margin: 5px 0px -8px 20px;
 }
-@media print, screen and (min-width: 64em) {
+
+@media print,
+screen and (min-width: 64em) {
 	header {
 		height: 58px;
 	}
+
 	.h3 {
-		font-size: 29px;
+		font-size: 32px;
 		line-height: 38px;
-		/* letter-spacing: -1.6px; */
+		letter-spacing: -1.6px;
 	}
+
 	#nav ul ul {
 		top: 34px;
 	}
+
 	#project-description {
 		max-height: calc(100vh - 100px);
 	}
 }
-@media screen and (max-width: 830px) {
 
-}
-
-
+@media screen and (max-width: 830px) {}
