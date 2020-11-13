@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<link rel="stylesheet" href="./css/style.css" type="text/css">
 	<link rel="stylesheet" href="./css/seats-open.css" type="text/css">
@@ -9,6 +10,7 @@
 	<script type="text/javascript" src="./js/script.js"></script>
 	<title>2021 Open Seats</title>
 </head>
+
 <body>
 	<main>
 		<header id="header">
@@ -16,16 +18,27 @@
 				<h3 id="project-question" class="h3">What seats are open for the 2021 election?</h3>
 				<div id="project-description" class="m1">
 					<h1 class="m2">2021 Open Seats</h1>
-					<p>In a 2010 referendum, the New York City voters voted to reinstate the two-term limit. However, incumbent council members who were elected to office on or before November 2, 2010 could complete their current term and go on to serve up to two additional four-year terms. Now, after a decade since the two-term limit has been reinstated, the New York City will see an unprecedented 41 seats with no incumbents running&mdash;35 City Council positions, 4 Borough Presidents, the Comptroller, and the Mayor&mdash;available for the 2021 election. This means we are set to see an unprecedented change in New York City’s leadership. Will these new leaders have the experience or vision to transform New York City’s future?</p>
-					<h4 class="m2">Data Sources</h4>
-					<ul>
-						<li>Honan, Katie,"New York City Readies for Epic Election Season in 2021”, Wall Street Journal September 8, 2019</li>
-					</ul>
-					<h4 class="m2">Credit</h4>
-					<p>Esther Kim, Heather Craig, Ashley Louie</p>
+					<p class="b1">In a 2010 referendum, New York City voted to reinstate a two-term limit for City Council
+						members. However, incumbent City Council members who were elected to office on or before November 2, 2010
+						could complete their current term and go on to serve up to two additional four-year terms. During the 2021
+						election, more than a decade since the two-term limit was reinstated, New York City will see an
+						unprecedented 35 open positions. Add to that four borough presidents, the comptroller, and the mayor, and
+						2021 will be an election year that transforms the City. Use this visualization to explore the positions open
+						for reelection.</p>
+
+					<p class="b1">Read more about data description and process<span id="arrow-expand" class="arrow"></span></p>
+
+					<div id="hidden-disc" style="display:none">
+						<h4 class="m2">Data Sources</h4>
+						<ul class="b1">
+							<li>Honan, Katie,"New York City Readies for Epic Election Season in 2021”, <i>Wall Street Journal</i>,
+								September 8, 2019</li>
+						</ul>
+						<h4 class="m2">Credit</h4>
+						<p class="b1">Ashley Louie, Esther Kim, Heather Craig, Sarah Williams</p>
+					</div>
 				</div>
-			</div>
-	</header>
+		</header>
 		<section id="seats-main">
 			<div id="sidebar-count">
 				<span id="current-seats" class="open-toggle">Current Seats</span>
@@ -40,7 +53,8 @@
 				<div id="open-seats-map"></div>
 			</div>
 			<div id="sidebar-next">
-				<h4 id="skip" class="h3-v1">Skip Animation&ensp;<img id="fastforward" src="./img/open-seats/fastforward.svg"></h4>
+				<h4 id="skip" class="h3-v1">Skip Animation&ensp;<img id="fastforward" src="./img/open-seats/fastforward.svg">
+				</h4>
 				<div id="next-shapes">
 				</div>
 			</div>
@@ -48,4 +62,5 @@
 	</main>
 	<script type="text/javascript" src="./js/seats-open.js"></script>
 </body>
+
 </html>

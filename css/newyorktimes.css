@@ -98,12 +98,16 @@ hr {
   font-size: 1.1rem;
   font-family: 'Graphik-Semibold', sans-serif !important;
 }
-#project-title{
-  width: 75% !important;
+
+#project-title {
+  width: 900px !important;
 }
+
 #project-description {
-  width: 65%;
+  width: 50vw;
+  max-height: calc(100vh - 100px);
 }
+
 @media only screen and (max-width: 1366px) {
   .topbar {
     max-width: 1000px;
@@ -115,12 +119,6 @@ hr {
 
   #chart {
     margin-left: 40px;
-  }
-  #project-title{
-    width: 88% !important;
-  }
-  #project-description {
-    width: 55%;
   }
 }
 
@@ -136,13 +134,16 @@ hr {
   .buttonbox {
     margin-top: 20px;
   }
-  #project-title{
-    width: 100% !important;
+
+  #project-title {
+    width: 700px !important;
   }
-  .h3 {
-    font-size: 24px;
-    margin-top:-2px;
-}
+
+  header {
+    height: 58px;
+    min-width: 350px;
+  }
+
 }
 
 @media only screen and (max-width: 768px) {
@@ -174,30 +175,18 @@ hr {
   .topictext {
     font-size: 0.82rem;
   }
+
   .h3 {
     line-height: 20px;
-    margin-top:-2px;
-}
-#project-description {
-  width: 95%;
-}
-}
-/*header style*/
-@media print, screen and (max-width: 1116px) {
-	header {
-		height: 58px;
-	}
+    margin-top: -2px;
+  }
 
-	#project-description {
-		max-height: calc(100vh - 88px);
-	}
-}
-@media print, screen /*and (min-width: 723px)*/ and (max-width: 904px) {
-	header {
-		min-width: 350px;
-	}
-	#project-title {
-		min-width: 350px;
-	}
+  #project-title {
+    width: 450px !important;
+  }
 
+  #project-description {
+    width: calc(100vw - 47px);
+  }
 }
+

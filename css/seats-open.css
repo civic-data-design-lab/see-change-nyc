@@ -2,6 +2,7 @@
 	height: calc(100vh - 60px);
 	top: 60px;
 }
+
 #sidebar-count {
 	position: relative;
 	float: left;
@@ -11,6 +12,7 @@
 	padding: 0px 30px;
 	text-align: left;
 }
+
 #map-cartogram {
 	position: relative;
 	float: left;
@@ -19,6 +21,7 @@
 	height: calc(100vh - 46px);
 	overflow: hidden;
 }
+
 #open-seats-map {
 	position: absolute;
 	width: 100%;
@@ -29,6 +32,7 @@
 	-ms-transform: translateY(-50%);
 	transform: translateY(-50%);
 }
+
 #seats-title {
 	position: relative;
 	display: inline-block;
@@ -37,6 +41,7 @@
 	margin: 0px;
 	padding: 2vh 20px;
 }
+
 .open-toggle {
 	position: relative;
 	display: inline-block;
@@ -51,18 +56,22 @@
 	text-align: center;
 	border: solid 4px #000;
 }
+
 .open-toggle:hover {
 	cursor: pointer;
 }
+
 #current-seats {
 	color: #fff;
 	background: #000;
 }
+
 #open-seats {
 	left: -3px;
 	color: #000;
 	background: #fff;
 }
+
 #sidebar-next {
 	position: relative;
 	float: left;
@@ -72,6 +81,7 @@
 	margin: 10px 0px 0px 30px;
 	text-align: left;
 }
+
 #next-shapes {
 	position: relative;
 	width: 100%;
@@ -83,17 +93,20 @@
 	grid-row-gap: 0px;
 	overflow: hidden auto;
 }
+
 .shape-box {
 	position: relative;
 	float: left;
 	min-width: 100px;
 	max-width: 142px;
 }
+
 .shape {
 	width: 70%;
 	height: auto;
 	margin-bottom: 10px;
 }
+
 .shape-name {
 	display: block;
 	font-family: 'Graphik-Semibold', sans-serif;
@@ -101,9 +114,11 @@
 	font-size: 0.8em;
 	min-height: 28px;
 }
+
 #compt {
 	word-break: break-all;
 }
+
 #tooltip {
 	position: absolute;
 	margin: 0;
@@ -112,8 +127,9 @@
 	border: solid 2px #000;
 	min-height: 170px;
 	width: 400px;
-	box-shadow: 2px 2px 6px rgba(0,0,0,.5);
+	box-shadow: 2px 2px 6px rgba(0, 0, 0, .5);
 }
+
 .dataphoto {
 	position: relative;
 	min-height: 150px;
@@ -122,6 +138,7 @@
 	overflow: hidden;
 	margin: 10px;
 }
+
 .dataphoto img {
 	position: absolute;
 	height: 100%;
@@ -131,43 +148,52 @@
 	-ms-transform: translateX(-50%);
 	transform: translateX(-50%);
 }
+
 .datatext {
 	position: relative;
 	display: block;
 	margin: 10px 10px 10px 130px;
 }
+
 .labeldistrict {
 	font-family: 'Graphik-Semibold', sans-serif;
 	font-size: 1em;
 }
+
 .dataparty {
 	height: 0.8em;
 	width: 0.8em;
 	margin: 0px 5px 0px 10px;
 }
+
 .Democratic {
 	font-family: 'Graphik-Medium', sans-serif;
 	font-size: 0.9em;
 	color: #1404bd;
 }
+
 .Republican {
 	font-family: 'Graphik-Medium', sans-serif;
 	font-size: 0.9em;
 	color: #de0000;
 }
+
 .labelmember {
 	font-family: 'Graphik-Bold', sans-serif;
 	font-size: 1.3em;
 	line-height: 1.5em;
 	color: #000;
 }
+
 .datatext p {
 	font-size: 0.9em;
 	color: #000;
 }
+
 .openfill {
 	fill-opacity: 0.3;
 }
+
 .labelborough text {
 	font-family: 'Graphik-Medium', sans-serif;
 	font-size: 0.15em;
@@ -175,15 +201,18 @@
 	letter-spacing: 0.25px;
 	text-anchor: middle;
 }
+
 .labelbp {
 	-webkit-transform: rotate(-90deg) translate(-244.75px, 5.5px);
 	-moz-transform: rotate(-90deg) translate(-244.75px, 5.5px);
 	-ms-transform: rotate(-90deg) translate(-244.75px, 5.5px);
 	transform: rotate(-90deg) translate(-244.75px, 5.5px);
 }
+
 .labelinvert {
 	fill: #d1d3d4;
 }
+
 #text-animation {
 	position: absolute;
 	width: 100%;
@@ -197,10 +226,12 @@
 	font-size: 1.5em;
 	z-index: 10;
 }
+
 #skip:hover {
 	cursor: pointer;
 	opacity: 0.3;
 }
+
 #fastforward {
 	height: 0.8em;
 	width: auto;
@@ -211,39 +242,46 @@
 	#map-cartogram {
 		max-width: calc(100% - 620px);
 	}
+
 	#sidebar-count {
 		min-width: 260px;
 	}
 }
+
 @media screen and (min-width: 1302px) and (min-aspect-ratio: 16/9) {
 	#map-cartogram {
 		max-width: calc(100% - 730px);
 	}
+
 	#sidebar-count {
 		min-width: 260px;
 	}
+
 	#sidebar-next {
 		min-width: 380px;
 	}
 }
+
 /*wide landscape screen ratio*/
 @media screen and (min-width: 1302px) and (min-aspect-ratio: 3/2) and (max-aspect-ratio: 16/9) {
 	#map-cartogram {
 		max-width: calc(100% - 670px);
 	}
+
 	#sidebar-count {
 		min-width: 260px;
 	}
 }
-/*typical landscape screen ratio*/
-@media screen and (min-aspect-ratio: 3/2) and (max-aspect-ratio: 16/9) {
 
-}
+/*typical landscape screen ratio*/
+@media screen and (min-aspect-ratio: 3/2) and (max-aspect-ratio: 16/9) {}
+
 /*narrower screen ratio*/
 @media screen and (min-aspect-ratio: 1/1) and (max-aspect-ratio: 3/2) {
 	#map-cartogram {
 		max-width: calc(100vw - 360px);
 	}
+
 	#sidebar-count {
 		position: absolute;
 		top: 16px;
@@ -251,6 +289,7 @@
 		width: calc(96% - 13/14.5 * (100vh - 46px));
 		min-width: 310px;
 	}
+
 	#sidebar-next {
 		position: absolute;
 		top: 250px;
@@ -262,6 +301,7 @@
 		padding: 0px 30px;
 	}
 }
+
 /*narrow or portrait screen ratio*/
 @media screen and (max-aspect-ratio: 1/1) {
 	#map-cartogram {
@@ -271,6 +311,7 @@
 		max-width: none;
 		margin: 0px auto;
 	}
+
 	#sidebar-count {
 		float: none;
 		position: absolute;
@@ -278,6 +319,7 @@
 		width: 260px;
 		margin: 20px 0px 0px calc(50% - 335px);
 	}
+
 	#sidebar-next {
 		float: none;
 		position: absolute;
@@ -288,24 +330,53 @@
 		margin: 20px 0px 0px calc(50% - 335px);
 	}
 }
+
 /*header style*/
 #nav {
 	display: none;
 }
-@media print, screen and (min-width: 64em) {
+
+@media print,
+screen and (min-width: 64em) {
 	#project-title {
 		min-width: 614px;
 	}
+
 	#seats-main {
 		height: calc(100vh - 72px);
 		top: 72px;
 	}
 }
-@media print, screen and (max-width: 64em) {
+
+@media print,
+screen and (max-width: 64em) {
 	header {
-		min-width: 494px;
+		height: 58px;
+		min-width: 350px;
 	}
+
 	#project-title {
-		min-width: 494px;
+		width: 100%;
+	}
+
+	#project-description {
+		width: 50vw;
+		max-height: calc(100vh - 100px);
+	}
+}
+
+@media print,
+screen and (max-width: 505px) {
+	#project-title {
+		min-width: 375px;
+	}
+
+	.h3 {
+		line-height: 20px;
+		margin-top: -2px;
+	}
+
+	#project-description {
+		width: calc(100vw - 32px);
 	}
 }
