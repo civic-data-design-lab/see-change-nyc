@@ -219,7 +219,7 @@ body {
 	}
 }
 @media print, screen and (max-width: 789px) {
-	#nav #nav-borough {
+	#nav #borough {
 		display: none;
 	}
 }

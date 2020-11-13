@@ -269,7 +269,7 @@ header {
 #nav ul ul {
 	position: absolute;
 	top: 30px;
-	left: calc(50vw - 664px);
+	left: 0vw;
 	width: 631px;
 	height: auto;
 	border: solid 6px #000;

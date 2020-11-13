@@ -15,32 +15,42 @@
 <body>
   <header id="header">
     <div id="project-title">
-      <h3 id="project-question" class="h3">See what issues NYC city council members are talking about </h3>
+      <h3 id="project-question" class="h3">What issues are NYC city council members talking about? </h3>
       <div id="project-description" class="m1">
         <h1 class="m2">New York City Council in the News</h1>
-        <p class="b1">Using the New York Times API, all articles which mentioned the New Your City Council were downloaded since the de Blasio Mayoral election (January 2013- Summer 2020). 2,510 articles were then run through a machine learning topics modeler to identify the topics of the articles. Using that data this visualization allows us to understand the biggest issues City Council has faced over the last seven years from the Foie Gras Ban to Education.  </p>
+        <p class="b1">Using The New York Times API, we downloaded all articles that mentioned the New York City Council
+          since the de Blasio mayoral election (Winter 2013-Summer 2020). 2,510 articles were then run through a machine
+          learning topics modeler to identify the topics of the articles. Using that data, this visualization allows us
+          to understand the issues the City Council has faced over the past seven years, from the foie gras ban to
+          education. </p>
 
-        <p class ="b1">Read more about data description and process<span id ="arrow-expand" class="arrow"></span></p>
+        <p class="b1">Read more about data description and process<span id="arrow-expand" class="arrow"></span></p>
 
-        <div id ="hidden-disc" style="display:none" > 
-        <h4 class="m2">Data Limitations</h4>
-        <p class="b1">It is possible that some articles were missed during the New York Times API search because the article might not have mentioned “city council”  but the topic was related to an issue on the City Council’s agenda. The machine learning algorithm uses all the text from all the articles to create topics, this means there is no indicator of what article directly contributed to a topic being identified. Therefore the relationship between articles and topics are relative. 
-        </p>
-
-        <h4 class="m2">Data Sources</h4>
-        <ul class="b1">
-          <li>2,510 Articles, New York Times API 
-          </li>
-        </ul>
-          <h4 class="m2">Credit</h4>
-        	<p class="b1">Adam Janicki, Ashley Louie, Eunsu Kim, Heather Craig, Sarah Williams, Yu Jing Chen
+        <div id="hidden-disc" style="display:none">
+          <h4 class="m2">Data Limitations</h4>
+          <p class="b1">It is possible that some articles were missed during <i>The New York Times</i> API search
+            because an article might have been related to an issue on the City Council’s agenda but did not mention
+            “city council”. The machine learning algorithm uses all the text from all the articles to create topics;
+            this means that there is no indicator of what article directly contributed to a topic being identified.
+            Therefore the relationship between articles and topics is relative.
           </p>
-      </div>     </div>
+
+          <h4 class="m2">Data Sources</h4>
+          <ul class="b1">
+            <li>2,510 Articles, <i>New York Times</i> API
+            </li>
+          </ul>
+          <h4 class="m2">Credit</h4>
+          <p class="b1">Adam Janicki, Ashley Louie, Eunsu Kim, Heather Craig, Sarah Williams, Yu Jing Chen
+          </p>
+        </div>
+      </div>
     </div>
   </header>
 
   <div class="topbar">
-    <div class="textbox">How has <i>The New York Times</i> reported on the City Council since the last mayoral election? Below, explore topics from banning plastic bags to closing Rikers Island. </div>
+    <div class="textbox">How has <i>The New York Times</i> reported on the City Council since the last mayoral election?
+      Below, explore topics from banning plastic bags to closing Rikers Island. </div>
     <div class="buttonbox">
       <button class="btns active" id="countAscendButton">BY TOPIC </button>
       <button class="btns" id="yearButton">TIMELINE</button>
