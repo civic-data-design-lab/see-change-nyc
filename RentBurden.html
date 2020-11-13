@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<link rel="stylesheet" href="./css/style.css" type="text/css">
 	<link rel="stylesheet" href="./css/rent-burden.css" type="text/css">
@@ -8,42 +9,85 @@
 	<script type="text/javascript" src="./js/script.js"></script>
 	<title>Rent Burden</title>
 </head>
+
 <body>
 	<main>
 		<header id="header">
 			<div id="project-title">
-				<h3 id="project-question" class="h3">"The rent is too damn high!"</h3>
+				<h3 id="project-question" class="h3">"The Rent Is Too Damn High!"</h3>
 				<div id="project-description" class="m1">
 					<h1 class="m2">Rent Burden</h1>
-					<p>Even before the Covid-19 pandemic, many New Yorkers are at risk of housing instability.<sup><a href="#ref-1">[1]</a></sup>  Affordable housing is one of the biggest issues New Yorkers face, with some estimates stating that over 1.2 million households are rent burdened.<sup><a href="#ref-2">[2]</a></sup> Rent burden means you pay more than 30% of your income on rent. XXXX pays 100% of their income on rent. These visualizations explore how different communities in New York City can afford to pay for housing. We can see every neighborhood in your City has some proportion which struggles to pay for housing, but some areas are worse than others. Where do you think New York City’s next leadership needs to focus its energy to make New York more affordable for everyone.</p>
-					<h4 class="m2">Data Description/Process</h4>
-					<p>The data for these visualizations comes from the American Community Survey. The variable we were most interested in was gross rent as a percentage of household income. For the first visualization, a map, the data was downloaded from the U.S. Census website. The data was processed on ArcMap, showing the percentage of households who are considered not rent burdened (less than 30% of gross income), rent burdened (30%&ndash;50%), or severely rent burdened (>50%). These definitions were drawn from HUD guidelines.<sup><a href="#ref-3">[3]</a></sup></p>
-					<p>The ridge line graphic was created by the American Community Survey’s Public Use Microdata (PUMs). PUMs data includes every answer to the census questions allowing anyone to cross tabulate data. This was important for the rent burden visualizations as you can not see  households who are very severely rent-burdened (paying more than 50% of their income on rent) with pre-tabulated data. ACS PUMs come from the census API & the tidycensus package in RStudio.</p>
-					<h4 class="m2">Data Limitations</h4>
-					<p>The American Community Survey is a supplemental survey to the decennial census. The survey represents 1% of the American Population. The survey data was weighted using the weights provided from the U.S. census, using the “survey” package in RStudio. PUMs data is manipulated and limited to maintain privacy. It is also limited to geographic areas of 100,000 people or more. These are called PUMA districts. PUMAs in NYC are roughly equivalent to Community Districts.<sup><a href="#ref-4">[4]</a></sup></p>
-					<p>We found that some people paid either less than 0% of their income on rent or more than 100% of their income on rent. We cannot determine if these individuals are rent-burdened, as they are likely to have outside financial support or a specific financial situation (such as a student living in an off-campus apartment).Therefore people pay 0% or 100% of their income on rent was not included.</p>
-					<p>There are standardized definitions of rent-burden, set by HUD, it is difficult to draw definitive boundaries on who is “rent burdened” the presence of children, communing costs, among other factors can add additional strain on the cost of living in New York City, which is not captured in the data. These are estimates based on the HUD numbers.</p>
-					<h4 class="m2">Data Sources</h4>
-					<ul>
-						<li>American Community Survey, New York City, 5 year estimates, 2014&ndash;2018.</li>
-						<li>American Community Survey, Public Use Microdata, New York City, 5 Year Estimates, 2014&ndash;2018.</li>
-						<li><a href="https://www1.nyc.gov/assets/planning/download/pdf/data-maps/nyc-population/census2010/puma_cd_map.pdf" target="_blank">PUMA names, New York City Department of Planning &mdash; Population Division</a></li>
-					</ul>
-					<h4 class="m2">Credit</h4>
-					<p>Esther Kim, Sarah Littlefield, Eunsu Kim, Ashley Louie, Karyn A. Nakamura</p>
-					<hr>
-					<ol>
-						<li id="ref-1"><a href="https://furmancenter.org/thestoop/entry/nyc-housing-insecurity-by-the-numbers" target="_blank">https://furmancenter.org/thestoop/entry/nyc-housing-insecurity-by-the-numbers</a></li>
-						<li id="ref-2"><a href="https://cbcny.org/research/think-your-rent-high" target="_blank">https://cbcny.org/research/think-your-rent-high</a></li>
-						<li id="ref-3"><a href="https://www.census.gov/housing/census/publications/who-can-afford.pdf" target="_blank">https://www.census.gov/housing/census/publications/who-can-afford.pdf</a></li>
-						<li id="ref-4"><a href="https://www.cccnewyork.org/wp-content/uploads/2019/08/Converting-PUMAS-to-CD-doc_FINAL_08132019.pdf" target="_blank">https://www.cccnewyork.org/wp-content/uploads/2019/08/Converting-PUMAS-to-CD-doc_FINAL_08132019.pdf</a></li>
-					</ol>
+					<p class="b1"> Affordable housing is one of the biggest issues New Yorkers face, with some estimates stating
+						that more than 1.2 million households in the city are rent burdened,<sup><a href="#ref-1">[1]</a></sup>
+						meaning that they spend 30% or more of their income on rent. These visualizations show the proportion of
+						income that households in each census block group spend on rent. The concentric circles from green to blue
+						illustrate this point with green representing not rent burdened households (less than 30%), light blue
+						representing rent burdened households (30-50%), and dark blue representing severely rent burdened households
+						(over 50%), according to definitions drawn from the US Department of Housing and Urban Development.<sup><a
+								href="#ref-2">[2]</a></sup> Most census block groups have a mix of all three, but the areas where there
+						is more blue means more rent burden. Where do New York City's next leaders need to focus their energy to
+						make sure the city is affordable for everyone? </p>
+
+
+					<p class="b1">Read more about data description and process<span id="arrow-expand" class="arrow"></span></p>
+
+					<div id="hidden-disc" style="display:none">
+						<h4 class="m2">Data Description/Process</h4>
+						<p class="b1">The map data represents block group data taken from the American Community Survey (5-Year
+							Estimates, 2014-2018). The ridge line graphic was created by the American Community Survey’s Public Use
+							Microdata (PUMs). PUMs data includes every answer to the census questions, allowing anyone to cross
+							tabulate data. This was important for the rent burden visualizations because this is the only data that
+							allows you to see households that are severely rent-burdened (paying more than 50% of their income on
+							rent) with pre-tabulated data. ACS PUMs come from the Census API and the Tidy Census package in RStudio.
+						</p>
+
+						<h4 class="m2">Data Limitations</h4>
+						<p class="b1">The American Community Survey is a supplemental survey to the decennial census. The survey
+							represents 1% of the American population. The survey data was weighted using the weights provided from the
+							US Census, using the “survey” package in RStudio. PUMs data is manipulated and limited to maintain
+							privacy. It is also limited to geographic areas of 100,000 people or more called PUMA districts. PUMAs in
+							NYC are roughly equivalent to Community Districts.<sup><a href="#ref-3">[3]</a></sup></p>
+						<p class="b1">The data shows that some households spent either less than 0% of their income on rent or more
+							than 100% of their income on rent. We cannot determine if these individuals are rent burdened, as they are
+							likely to have outside financial support or a specific financial situation (such as a student living in an
+							off-campus apartment). Therefore, households spending 0% or 100% of their income on rent were not
+							included.</p>
+						<p class="b1">While HUD has set a standardized definition of rent burden, it is difficult to draw definitive
+							boundaries on who is, in fact, rent burdened. The presence of children and commuting costs, among other
+							factors, can add additional strain to the cost of living in New York City, which is not captured in the
+							data. These are estimates based on the HUD numbers. </p>
+						<h4 class="m2">Data Sources</h4>
+						<ul class="b1">
+							<li>US Census Bureau, American Community Survey (ACS), New York City (5-Year Estimates, 2014&ndash;2018).
+							</li>
+							<li>US Census Bureau, American Community Survey (ACS), Public Use Microdata, New York City (5-Year
+								Estimates, 2014&ndash;2018).</li>
+							<li><a
+									href="https://www1.nyc.gov/assets/planning/download/pdf/data-maps/nyc-population/census2010/puma_cd_map.pdf"
+									target="_blank">New York City PUMAs and Community Districts, NYC Department of City
+									Planning&mdash;Population Division </a></li>
+						</ul>
+						<h4 class="m2">Credit</h4>
+						<p class="b1">Ashley Louie, Esther Kim, Eunsu Kim, Karyn A. Nakamura, Sarah Littlefield
+</p>
+						<hr>
+						<ol class="b1">
+							<li id="ref-1"><a href="https://cbcny.org/research/think-your-rent-high"
+									target="_blank">https://cbcny.org/research/think-your-rent-high</a></li>
+							<li id="ref-2"><a href="https://www.census.gov/housing/census/publications/who-can-afford.pdf"
+									target="_blank">https://www.census.gov/housing/census/publications/who-can-afford.pdf</a></li>
+							<li id="ref-3"><a
+									href="https://www.cccnewyork.org/wp-content/uploads/2019/08/Converting-PUMAS-to-CD-doc_FINAL_08132019.pdf"
+									target="_blank">https://www.cccnewyork.org/wp-content/uploads/2019/08/Converting-PUMAS-to-CD-doc_FINAL_08132019.pdf</a>
+							</li>
+						</ol>
+					</div>
 				</div>
 			</div>
 			<nav id="nav">
 				<ul>
-					<li id="city" class="h3"><a class="grey" href="./RentBurdenMap">City</a></li>
-					<li id="nav-borough" class="h3"><span id="borough">Borough</span><span id="currentborough">&mdash;All</span>
+					<li id="city" class="h3"><a class="grey" href="./RentBurdenMap.html">City</a></li>
+					<li id="nav-borough" class="h3"><a href="./RentBurden.html"><span id="borough">Borough</span><span id="currentborough">&mdash;All&nbsp;&nbsp;</span></a>
 						<ul>
 							<li id="nyc" class="m1">All</li>
 							<li id="bronx" class="m1">Bronx</li>
@@ -55,9 +99,9 @@
 					</li>
 				</ul>
 			</nav>
-	</header>
+		</header>
 		<section id="high-rent">
-			<h2 class="h4">"The Rent is Too Damn High!"</h2>
+			<h2 class="h4">"The Rent Is Too Damn High!"</h2>
 			<h3 class="h5">Over 45% of New Yorkers pay too much on rent</h3>
 			<div id="profile-borough">
 				<div class="avg-circle">
@@ -98,4 +142,5 @@
 	</main>
 	<script type="text/javascript" src="./js/rent-burden.js"></script>
 </body>
+
 </html>

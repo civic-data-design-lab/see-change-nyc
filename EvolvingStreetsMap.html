@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<link rel="stylesheet" href="./css/mapbox-gl.css" type="text/css">
 	<link rel="stylesheet" href="./css/style.css" type="text/css">
@@ -9,15 +10,16 @@
 	<script type="text/javascript" src="./js/script.js"></script>
 	<script type="text/javascript" src="./js/mapbox-gl.js"></script>
 
-	<!-- discourage the browser from caching the page -->    
-    <meta http-equiv='Cache-Control' content='no-cache, no-store, must-revalidate' />
-    <meta http-equiv='Pragma' content='no-cache' />
-    <meta http-equiv='Expires' content='0' />    
+	<!-- discourage the browser from caching the page -->
+	<meta http-equiv='Cache-Control' content='no-cache, no-store, must-revalidate' />
+	<meta http-equiv='Pragma' content='no-cache' />
+	<meta http-equiv='Expires' content='0' />
 
-    <!-- tells mobile devices how to scale the page -->    
-    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+	<!-- tells mobile devices how to scale the page -->
+	<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 	<title>Evolving Streets</title>
 </head>
+
 <body>
 	<main>
 		<header id="header">
@@ -25,37 +27,92 @@
 				<h3 id="project-question" class="h3">How has the pandemic shifted street activity?</h3>
 				<div id="project-description" class="m1">
 					<h1 class="m2">Evolving Streets</h1>
-					<p>New York City’s sidewalks have always been filled with pedestrians, but more recently the sharing economy has transformed the way we use the street. Pedestrians now share the streets with amazon delivery, for-hire-vehicles, scooters and bicycle stations, all of which are changing how New York City's curbs are used. At the same time Trucks and delivery sorting processes have taken up street real estate. Demand for pedestrian-friendly streets will be essential for New York City’s electoral body to consider.</p>
-					<p>The business lock-down, school closure, and social distancing policy following the Covid-19 pandemic dramatically changed how we used the streets. This visualization allows us to explore New York City’s streets pre and post Covid restrictions to see the dramatic changes to the ways New York City’s streets were used. Notice the disturbing new clusters of people near New York City hospitals and the dramatic decrease in people in Midtown Manhattan.</p>
-					<h4 class="m2">Data Description/Process</h4>
-					<p><em>Mobility LBS Data</em><br>
-					Anonymized and privacy enhanced mobility data was provided by Cuebiq. According to their website, their first-party data is collected from anonymized users who have opted-in to provide access to their location data anonymously, through a GDPR-compliant framework.</p>
-					<p>This data is derived from over 100 smartphone applications that have integrated Cuebiq's Software Development Kit, which allows users to opt-in to share their anonymized data directly with Cuebiq, through a named informed consent process. Because the data comes from applications we use on our cell phones it can skew towards population that own smartphones in general, so it should be noted that there is a potential to undercount seniors.</p>
-					<p>In addition to de-identifying the data, the data provider also applies privacy enhancements to remove sensitive locations and personal (home/work) areas from the dataset. Data was shared in June 2020 under a strict contract with Cuebiq through their Data for Good program where all researchers were contractually obligated to not share data further or to attempt to de-identify data. In total, our sample contains about 1.1 million unique users in January, and 0.5 million unique users in April. We only considered pings which happen within the five boroughs of New York City during the week of February 23th&ndash;29th and March 29th&ndash;April 4th.</p>
-					<p><em>Understand Who is Really On the Streets</em><br>
-					As we are interested in understanding where people could potentially meet each other, we extracted stays from the individual trajectories, represented by sequences of pings made when users spend some time in a place. Those sequences of pings are spatially limited to small regions, and to detect them we use the algorithm info-stop created by Ulf Aslak (2020), in which a set of consecutive pings are clustered together if their maximum distance from their centroid is not larger than 10 meters. The duration of a stay is the time between the first and last ping belonging to a cluster. Here, we only use stays for which are between 2 min and 1 day. After using this algorithm and discarding users who do not have any stays, we are left with a total of 4 million stays for two weeks in New York City.</p>
-					<p><em>Attribution of Stays to Streets</em><br>
-					To attribute a stay to a street, we assign each stay to the closest street in our dataset. To avoid attributing a stay to a distant street, we choose only the closest street within a radius of 30 meters for each stay. If a stay is further than 30 meters, we do not attribute it to any street. We further calculate the average number of stays during different time intervals for weekday and weekend separately, namely 0&ndash;5am, 6&ndash;11am, noon&ndash;5pm, 6&ndash;23pm. To only consider the pedestrian related activities, we further remove the stays that are longer than 2 hours. Lastly, given the fact that streets have different lengths, we further divide the accumulated count of stays by street length.</p>
-					<h4 class="m2">Data Limitations</h4>
-					<p>As our primary data is collected from smartphone applications (apps), we acknowledge that our sample might not represent the complete street users. Studies done by Moro (2020) using data from Cuebiq 2017 data shows that the dataset does not have significant biases in income distribution, although they acknowledged that the average income of users in the sample is slightly higher than the census data (around 8.6%).</p>
-					<h4 class="m2">Data Source</h4>
-					<ul>
-						<li>Cuebiq LBS, Data for Good, 2020</li>
-						<li>Department of Information Technology & Telecommunications (DoITT), NYC Street Centerline (CSCL), 2020</li>
-					</ul>
-					<h4 class="m2">Credit</h4>
-					<p><em>MIT</em><br>
-					Sarah Williams, Zhuangyuan Fan, Maoran Sun, Tianyu Su, Innocent Ndubuisi-Obi, Laura Kim, Adam Janicki, Eunsu Kim, Carmelo Ignaccolo, Ashley Louie</p>
-					<p><em>Cuebiq</em><br>
-					Elena Giarratano, Danilo Giuffrida, Francesco Bertoli</p>
+					<p class="b1">Restrictions following the COVID-19 pandemic significantly changed how we use the streets. This
+						visualization explores New York City’s streets pre- and post-COVID-19 restrictions, allowing us to see the
+						dramatic changes to the ways New York City’s streets were used in the early stages of the pandemic. Notice
+						the disturbing new clusters of people near New York City hospitals and the dramatic decrease in people in
+						Midtown Manhattan. </p>
+					<p class="b1">New York City’s sidewalks have always been filled with pedestrians, but more recently the
+						sharing economy has transformed the way we use our streets. Pedestrians now share the streets with delivery
+						trucks, for-hire-vehicles, scooters, and bicycle stations. Demand for pedestrian-friendly streets will be
+						essential for New York City’s electoral body to consider.</p>
+
+					<p class="b1">Read more about data description and process<span id="arrow-expand" class="arrow"></span></p>
+
+					<div id="hidden-disc" style="display:none">
+
+						<h4 class="m2">Data Description/Process</h4>
+						<p class="b1"><em>Mobility LBS Data</em><br>
+							Anonymized and privacy-enhanced mobility data was provided by Cuebiq. According to their website, their
+							first-party data is collected from anonymized users who have opted in to provide access to their location
+							data anonymously through a GDPR-compliant framework.</p>
+						<p class="b1">This data is derived from more than 100 smartphone applications that have integrated Cuebiq's
+							Software Development Kit. Because the data comes from applications we use on our cell phones, it skews
+							towards populations who own smartphones in general; it should be noted that there is a potential to
+							undercount seniors.
+						</p>
+						<p class="b1">In addition to de-identifying the data, the data provider also applies privacy enhancements to
+							remove sensitive locations and personal (home/work) areas from the dataset. Data was shared in June 2020
+							under a strict contract with Cuebiq through their Data for Good program, where all researchers are
+							contractually obligated to not share or attempt to de-identify data. In total, our sample contained about
+							1.1 million unique users in January and 0.5 million unique users in April. We only considered pings that
+							happened within the five boroughs of New York City during the weeks of February 23&ndash;29 and March
+							29&ndash;April 4.</p>
+						<p class="b1"><em>Understand Who is Really On the Streets</em><br>
+							As we were interested in understanding where people could potentially meet, we extracted stays from the
+							individual trajectories, represented by sequences of pings made when users spend some time in a place.
+							Those sequences of pings are spatially limited to small regions, and to detect them we used the algorithm
+							info-stop, created by Ulf Aslak (2020), in which a set of consecutive pings are clustered together if
+							their maximum distance from their centroid is not larger than 10 meters. The duration of a stay is the
+							time between the first and last ping belonging to a cluster. Here, we only used stays with durations
+							between 2 minutes and 1 day. After using this algorithm and discarding users who did not have any stays,
+							we were left with a total of 4 million stays over two weeks in New York City. </p>
+						<p class="b1"><em>Attribution of Stays to Streets</em><br>
+							To attribute a stay to a street, we assigned each stay to the closest street in our dataset. To avoid
+							attributing a stay to a distant street, we chose only the closest street within a radius of 30 meters for
+							each stay. If a stay was farther than 30 meters, we did not attribute it to any street. We further
+							calculated the average number of stays during different time intervals for weekdays and weekends
+							separately, namely 12:00&ndash;5:00 am, 6:00&ndash;1:00 am, 12:00&ndash;5:00 pm, and 6:00&ndash;11:00 pm.
+							To only consider the pedestrian-related activities, we remove stays that were longer than 2 hours. Lastly,
+							given the fact that streets have different lengths, we divided the accumulated count of stays by street
+							length.
+						</p>
+						<p class="b1">To calculate changes in footfall data from late February to early April, we processed both
+							absolute difference and relative change calculations. More specifically, we used percentage relative
+							changes for the street segments with footfall data values greater than 0 both in February and March. We
+							also recorded -100% relative change segments those streets with a value greater than 0 in February and 0
+							in March. Similarly, we considered as +100% relative change segments those streets with a value greater
+							than 0 in March and equal to 0 in February. In addition to relative changes, we calculated absolute change
+							values to better grasp the magnitude of the data values across time. </p>
+
+
+						<h4 class="m2">Data Limitations</h4>
+						<p class="b1">As our primary data is collected from smartphone applications (apps), we acknowledge that our
+							sample might not represent the complete street users. Studies done by Moro (2020) using data from Cuebiq
+							2017 data shows that the dataset does not have significant biases in income distribution, although they
+							acknowledged that the average income of users in the sample is slightly higher than the census data
+							(around 8.6%).</p>
+						<h4 class="m2">Data Source</h4>
+						<ul class="b1">
+							<li>Cuebiq, 2019 &amp; 2020</li>
+							<li>NYC Department of Information Technology &amp; Telecommunications (DoITT), NYC Street Centerline
+								(CSCL), 2020</li>
+						</ul>
+						<h4 class="m2">Credit</h4>
+						<p class="b1"><em>MIT</em><br>
+							Sarah Williams, Zhuangyuan Fan, Maoran Sun, Tianyu Su, Innocent Ndubuisi-Obi, Laura Kim, Adam Janicki,
+							Eunsu Kim, Carmelo Ignaccolo, Ashley Louie</p>
+						<p class="b1"><em>Cuebiq</em><br>
+							Elena Giarratano, Danilo Giuffrida, Francesco Bertoli</p>
+					</div>
 				</div>
 			</div>
-			<nav id="nav">
+			<!-- <nav id="nav">
 				<ul>
 					<li id="city" class="h3"><a href="./EvolvingStreetsMap">City</a></li>
 				</ul>
-			</nav>
-	</header>
+			</nav>  -->
+		</header>
 		<section id="mapbox">
 			<div id="map-legend">
 				<div id="legend-daytime">
@@ -88,14 +145,16 @@
 				</div>
 				<div id="legend-month">
 					<div id="month-feb" class="month-toggle">
-						<img src="./img/evolving-streets/heatmap-before-lockdown.png" alt="Street Activity Before Lockdown Heatmap Legend">
+						<img src="./img/evolving-streets/heatmap-before-lockdown.png"
+							alt="Street Activity Before Lockdown Heatmap Legend">
 						<p>Average Street Activity Before Lockdown<br>
-						<span class="lockdown-week">February 23&ndash;29, 2020</span></p>
+							<span class="lockdown-week">February 23&ndash;29, 2020</span></p>
 					</div>
 					<div id="month-mar" class="month-toggle">
-						<img src="./img/evolving-streets/heatmap-during-lockdown.png" alt="Street Activity During Lockdown Heatmap Legend">
+						<img src="./img/evolving-streets/heatmap-during-lockdown.png"
+							alt="Street Activity During Lockdown Heatmap Legend">
 						<p>Average Street Activity During Lockdown<br>
-						<span class="lockdown-week">March 29&ndash;April 4, 2020</span></p>
+							<span class="lockdown-week">March 29&ndash;April 4, 2020</span></p>
 					</div>
 					<p id="cuebiq">*&ensp;Cuebiq data represents 6% of the population</p>
 				</div>
@@ -105,4 +164,5 @@
 	</main>
 	<script type="text/javascript" src="./js/evolving-streets-map.js"></script>
 </body>
+
 </html>
