@@ -161,7 +161,7 @@
 	position: relative;
 	display: inline-block;
 	float: left;
-	height: auto;l
+	height: auto;
 	width: auto;
 	width: 290px;
 	padding: 10px;
@@ -409,8 +409,23 @@
 	#nav {
 		display: none;
 	}
+	header{
+		min-width:380px;
+	}
+	#project-title{
+		min-width:380px;
+	}
+#project-description{
+	width:calc(100vw - 32px);
 }
-@media screen and (max-aspect-ratio: 1/1) or (max-width: 708px) {
+.h3 {
+	line-height: 20px;
+	letter-spacing: -0.5px;
+	margin-top:-5px;
+	margin-bottom:-5px;
+}
+}
+@media screen and (max-aspect-ratio: 1/1), (max-width: 708px) {
 	#map {
 		height: calc(100vh - 325px)
 	}
