@@ -291,7 +291,7 @@ d3.csv('./data/nyc_pums_count_names.csv')
 
 
 
-	var boroughnumber = 0
+	//var boroughnumber = 0
 
 	var mouseG = svg.append("g")
 	  .attr("class", "mouse-over-effects");
@@ -696,7 +696,9 @@ function plotBoroguhRidgeline(borough) {
 			.attr("fill-opacity", 0.45)
 			.attr("stroke", "white")
 			.attr("stroke-width", 2)
-			.attr("id", borough + "-chart")
+			.attr("class", borough + "-chart")
+			.attr("id", function(d){return( d.key.replace(/\s+/g, '').replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"")+"-path")})
+//			.attr("id", borough + "-chart")
 			.style("visibility", "hidden")
 		.datum(function(d){return(d.density)})
 			.attr("d",  d3.line()
@@ -719,12 +721,14 @@ d3.select("#queens").on("click", clickqueens)
 d3.select("#statenisland").on("click", clickstaten)
 d3.select("#nyc").on("click", clicknyc)
 
+
+
 function clickbronx(){
-	d3.selectAll(".borough-chart, #brooklyn-chart, #queens-chart, #manhattan-chart, #statenisland-chart")
+	d3.selectAll(".borough-chart, .brooklyn-chart, .queens-chart, .manhattan-chart, .statenisland-chart")
 		.transition()
 			.duration(300)
 			.style("visibility", "hidden")
-	d3.selectAll("#bronx-chart")
+	d3.selectAll(".bronx-chart")
 		.style("opacity", 0)
 		.transition() 
 			.delay(100)
@@ -738,22 +742,24 @@ function clickbronx(){
 			.style("font-size", "10px")
 			.attr("transform", "translate(" + -10  + ", "+ 12 + ")")
 			.select(".domain").remove()
-	boroughnumber = 0
+	axisborough = "bronx"
 	tooltip2.style("opacity", 0)
 	d3.selectAll("#bronxttp").style("opacity", 0.9).style("visibility", "visible")
 	d3.selectAll("#brooklynttp, #queensttp, #statenttp, #manhattanttp").style("opacity", 0).style("visibility", "hidden")
 	d3.selectAll("#notburdened").html(boroughstats.Bronx.not.toLocaleString() + " HOUSEHOLDS")
 	d3.selectAll("#burdened").html(boroughstats.Bronx.burdened.toLocaleString() +  " HOUSEHOLDS")
 	d3.selectAll("#severelyburdened").html(boroughstats.Bronx.severe.toLocaleString() +  " HOUSEHOLDS")
+
+	axishoverborough()
 }
 
 function clickbrooklyn(){
 
-	d3.selectAll(".borough-chart, #bronx-chart, #queens-chart, #manhattan-chart, #statenisland-chart")
+	d3.selectAll(".borough-chart, .bronx-chart, .queens-chart, .manhattan-chart, .statenisland-chart")
 		.transition()
 			.duration(300)
 			.style("visibility", "hidden")
-	d3.selectAll("#brooklyn-chart")
+	d3.selectAll(".brooklyn-chart")
 		.style("opacity", 0)
 		.transition() 
 			.delay(100)
@@ -767,7 +773,7 @@ function clickbrooklyn(){
 			.style("font-size", "10px")
 			.attr("transform", "translate(" + -10  + ", "+ 20 + ")")
 			.select(".domain").remove()
-	boroughnumber = 2
+	axisborough = "brooklyn"
 	tooltip2.style("opacity", 0)
 	d3.selectAll("#brooklynttp").style("opacity", 0.9).style("visibility", "visible")
 	d3.selectAll("#bronxttp, #queensttp, #statenttp, #manhattanttp").style("opacity", 0).style("visibility", "hidden")
@@ -775,14 +781,15 @@ function clickbrooklyn(){
 	d3.selectAll("#burdened").html(boroughstats.Brooklyn.burdened.toLocaleString() +  " HOUSEHOLDS")
 	d3.selectAll("#severelyburdened").html(boroughstats.Brooklyn.severe.toLocaleString() +  " HOUSEHOLDS")
 
+	axishoverborough()
 }
 
 function clickmanhattan(){
-	d3.selectAll(".borough-chart, #bronx-chart, #brooklyn-chart, #queens-chart, #statenisland-chart")
+	d3.selectAll(".borough-chart, .bronx-chart, .brooklyn-chart, .queens-chart, .statenisland-chart")
 		.transition()
 			.duration(300)
 			.style("visibility", "hidden")
-	d3.selectAll("#manhattan-chart")
+	d3.selectAll(".manhattan-chart")
 		.style("opacity", 0)
 		.transition() 
 			.delay(100)
@@ -796,21 +803,22 @@ function clickmanhattan(){
 			.style("font-size", "10px")
 			.attr("transform", "translate(" + -10  + ", "+ 13 + ")")
 			.select(".domain").remove()
-	boroughnumber = 4
+	axisborough = "manhattan"
 	tooltip2.style("opacity", 0)
 	d3.selectAll("#manhattanttp").style("opacity", 0.9).style("visibility", "visible")
 	d3.selectAll("#bronxttp, #queensttp, #statenttp, #brooklynttp").style("opacity", 0).style("visibility", "hidden")
 	d3.selectAll("#notburdened").html(boroughstats.Manhattan.not.toLocaleString() + " HOUSEHOLDS")
 	d3.selectAll("#burdened").html(boroughstats.Manhattan.burdened.toLocaleString() +  " HOUSEHOLDS")
 	d3.selectAll("#severelyburdened").html(boroughstats.Manhattan.severe.toLocaleString() +  " HOUSEHOLDS")
+	axishoverborough()
 }
 
 function clickqueens(){
-	d3.selectAll(".borough-chart, #bronx-chart, #brooklyn-chart, #manhattan-chart, #statenisland-chart")
+	d3.selectAll(".borough-chart, .bronx-chart, .brooklyn-chart, .manhattan-chart, .statenisland-chart")
 		.transition()
 			.duration(300)
 			.style("visibility", "hidden")
-	d3.selectAll("#queens-chart")
+	d3.selectAll(".queens-chart")
 		.style("opacity", 0)
 		.transition() 
 			.delay(100)
@@ -824,21 +832,22 @@ function clickqueens(){
 			.style("font-size", "10px")
 			.attr("transform", "translate(" + -10  + ", "+ 15 + ")")
 			.select(".domain").remove()
-	boroughnumber = 1
+	axisborough = "queens"
 	tooltip2.style("opacity", 0)
 	d3.selectAll("#queensttp").style("opacity", 0.9).style("visibility", "visible")
 	d3.selectAll("#bronxttp, #brooklynttp, #statenttp, #manhattanttp").style("opacity", 0).style("visibility", "hidden")
 	d3.selectAll("#notburdened").html(boroughstats.Queens.not.toLocaleString() + " HOUSEHOLDS")
 	d3.selectAll("#burdened").html(boroughstats.Queens.burdened.toLocaleString() +  " HOUSEHOLDS")
 	d3.selectAll("#severelyburdened").html(boroughstats.Queens.severe.toLocaleString() +  " HOUSEHOLDS")
+	axishoverborough()
 }
 
 function clickstaten(){
-	d3.selectAll(".borough-chart, #bronx-chart, #brooklyn-chart, #queens-chart, #manhattan-chart")
+	d3.selectAll(".borough-chart, .bronx-chart, .brooklyn-chart, .queens-chart, .manhattan-chart")
 		.transition()
 			.duration(300)
 			.style("visibility", "hidden")
-	d3.selectAll("#statenisland-chart")
+	d3.selectAll(".statenisland-chart")
 		.style("opacity", 0)
 		.transition() 
 			.delay(100)
@@ -852,17 +861,18 @@ function clickstaten(){
 			.style("font-size", "10px")
 			.attr("transform", "translate(" + -10  + ", "+ 0 + ")")
 			.select(".domain").remove()
-	boroughnumber = 3
+	axisborough = "statenisland"
 	tooltip2.style("opacity", 0)
 	d3.selectAll("#statenttp").style("opacity", 0.9).style("visibility", "visible")
 	d3.selectAll("#bronxttp, #queensttp, #brooklynttp, #manhattanttp").style("opacity", 0).style("visibility", "hidden")
 	d3.selectAll("#notburdened").html(boroughstats['Staten Island'].not.toLocaleString() + " HOUSEHOLDS")
 	d3.selectAll("#burdened").html(boroughstats['Staten Island'].burdened.toLocaleString() +  " HOUSEHOLDS")
 	d3.selectAll("#severelyburdened").html(boroughstats['Staten Island'].severe.toLocaleString() +  " HOUSEHOLDS")
+	axishoverborough()
 }
 
 function clicknyc(){
-	d3.selectAll("#bronx-chart, #brooklyn-chart, #queens-chart, #manhattan-chart, #statenisland-chart")
+	d3.selectAll(".bronx-chart, .brooklyn-chart, .queens-chart, .manhattan-chart, .statenisland-chart")
 		.transition()
 			.duration(300)
 			.style("visibility", "hidden")
@@ -906,7 +916,7 @@ function axisall(){
 				for (k = 0; k < other.length; k++){
 					path =  "#" + other[k] + "-path" 
 					selectpath.push(path)}
-				svg.selectAll(selectpath).style("opacity", 0.4)
+				svg.selectAll(selectpath).style("opacity", 0.35)
 			}
 		}
 	})
@@ -940,7 +950,54 @@ function axisall(){
 
 }
 
+function axishoverborough(){
 
+	if (axisborough == "bronx"){districts = bronxdistricts[0]}
+	if (axisborough == "brooklyn"){districts = brooklyndistricts[0]}
+	if (axisborough == "queens"){districts = queensdistricts[0]}
+	if (axisborough == "manhattan"){districts = manhattandistricts[0]}
+	if (axisborough == "statenisland"){districts = statenislanddistricts[0]}
+	svg.selectAll("#yaxis .tick")
+	.on("mouseover", function(d) {  
+		for (i = 0; i < districts.length; i++){
+			hoverdistrict = districts[i]
+			if (d == hoverdistrict){
+				svg.selectAll("#yaxis .tick").filter(function(d){ return d==hoverdistrict;}).style("font-family", 'Graphik-bold')
+				svg.selectAll("#yaxis .tick").filter(function(d){ return d!=hoverdistrict;}).style("opacity", 0.35)
+			other = []
+			console.log(other)
+				for (j = 0; j < districts.length; j++){
+					if (districts[j]!= hoverdistrict){
+					other.push(districts[j].replace(/\s+/g, '').replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,""))}}
+			selectpath = []
+				for (k = 0; k < other.length; k++){
+					path =  "#" + other[k] + "-path." + axisborough + "-chart" 
+					selectpath.push(path)}
+					console.log(selectpath)
+			svg.selectAll(selectpath).style("opacity", 0.35)
+			}
+		}
+	})
+	.on("mouseout", function(d) { 
+		for (i = 0; i < districts.length; i++){
+			hoverdistrict = districts[i]
+			if (d == hoverdistrict){
+				svg.selectAll("#yaxis .tick").filter(function(d){ return d==hoverdistrict;}).style("font-family", 'Graphik-regular')
+				svg.selectAll("#yaxis .tick").filter(function(d){ return d!=hoverdistrict;}).style("opacity", 1)	
+			other = []
+				for (j = 0; j < districts.length; j++){
+					if (districts[j]!= hoverdistrict){
+					other.push(districts[j].replace(/\s+/g, '').replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,""))}}
+			selectpath = []
+				for (k = 0; k < other.length; k++){
+					path =  "#" + other[k] + "-path." + axisborough + "-chart" 
+					selectpath.push(path)}
+			console.log(selectpath)
+			svg.selectAll(selectpath).style("opacity", 1)
+			}
+		}
+	})
+}
 
 
 
