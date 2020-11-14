@@ -268,8 +268,8 @@ header {
 
 #nav ul ul {
 	position: absolute;
-	top: 30px;
-	left: 0vw;
+
+	left: calc(50vw - 664px);
 	width: 631px;
 	height: auto;
 	border: solid 6px #000;
@@ -345,7 +345,8 @@ screen and (min-width: 64em) {
 	}
 
 	#nav ul ul {
-		top: 34px;
+		left: calc(0vw - 120px);
+		top: 32px !important;
 	}
 
 	#project-description {

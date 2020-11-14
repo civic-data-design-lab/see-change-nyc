@@ -304,6 +304,7 @@ svg.selected>g>line {
 	#project-title {
 		min-width: 460px;
 	}
+
 	#nav {
 		width: calc(100% - 460px);
 		min-width: 288px;
@@ -320,5 +321,8 @@ svg.selected>g>line {
 @media print, screen and (max-width: 789px) {
 	#nav #nav-borough {
 		display: none;
+	}
+	#project-description{
+		width:calc(100vw - 47px);
 	}
 }

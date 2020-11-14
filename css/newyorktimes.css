@@ -120,7 +120,7 @@ hr {
   #chart {
     margin-left: 40px;
   }
-
+}
 @media only screen and (max-width: 1024px) {
   .topbar {
     max-width: 700px;
@@ -135,12 +135,15 @@ hr {
   }
 
   #project-title {
-    width: 700px !important;
+    width: 700px;
   }
 
   header {
     height: 58px;
     min-width: 350px;
+  }
+  .h3 {
+    margin-top:-2px;
   }
 }
 
@@ -175,9 +178,10 @@ hr {
   }
 
   .h3 {
-    letter-spacing:-1.5px;
     line-height: 20px;
-    margin-top:-2px;
+  }
+  #project-title{
+    width:400px !important;
   }
   #project-description {
     width: calc(100vw - 47px);
