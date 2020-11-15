@@ -476,7 +476,7 @@ var svg = d3.select("#chart-rentburden")
 		.attr("class", "box")
 		// .attr("width", width)
 		// .attr("height", height)
-		.attr("viewBox", "-250, 100, 1165, 650") ;
+		.attr("viewBox", "-350, 100, 1265, 650") ;
 
 //TOOLTIP
 tooltip = d3.select("#chart-rentburden")
@@ -647,6 +647,24 @@ svg.select(".background")
 	.attr("text-anchor", "middle")
 	.attr("x", (graphwidth*0.75))
 	.attr("y", 210)
+svg.append("g")
+	.attr("class", "label-axis")
+	.append("text")
+	.attr("text-anchor", "end")
+	.style("font-size", "10px")
+	.style("font-family", "Graphik-regular")
+	.attr("x", graphwidth - 905)
+	.attr("y", 170)
+	.html("Move cursor to see how many households are rent burdened")
+svg.append("g")
+	.attr("class", "label-axis")
+	.append("text")
+	.attr("text-anchor", "end")
+	.style("font-size", "10px")
+	.style("font-family", "Graphik-regular")
+	.attr("x", graphwidth - 905)
+	.attr("y", 185)
+	.html("Click on axis or navigation bar to view individual boroughs");
 
 //DENSITY FUNCTIONS
 function kernelDensityEstimator(kernel, X) {
@@ -697,7 +715,7 @@ function plotBoroguhRidgeline(borough) {
 			.attr("stroke", "white")
 			.attr("stroke-width", 2)
 			.attr("class", borough + "-chart")
-			.attr("id", function(d){return( d.key.replace(/\s+/g, '').replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"")+"-path")})
+			.attr("id", function(d){return( d.key.replace(/\s+/g, '').replace(/[.,\/#!$%\^&\*;:{}=\-_`~()']/g,"")+"-path")})
 //			.attr("id", borough + "-chart")
 			.style("visibility", "hidden")
 		.datum(function(d){return(d.density)})
@@ -968,7 +986,7 @@ function axishoverborough(){
 			console.log(other)
 				for (j = 0; j < districts.length; j++){
 					if (districts[j]!= hoverdistrict){
-					other.push(districts[j].replace(/\s+/g, '').replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,""))}}
+					other.push(districts[j].replace(/\s+/g, '').replace(/[.,\/#!$%\^&\*;:{}=\-_`~()']/g,""))}}
 			selectpath = []
 				for (k = 0; k < other.length; k++){
 					path =  "#" + other[k] + "-path." + axisborough + "-chart" 
@@ -987,7 +1005,7 @@ function axishoverborough(){
 			other = []
 				for (j = 0; j < districts.length; j++){
 					if (districts[j]!= hoverdistrict){
-					other.push(districts[j].replace(/\s+/g, '').replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,""))}}
+					other.push(districts[j].replace(/\s+/g, '').replace(/[.,\/#!$%\^&\*;:{}=\-_`~()']/g,""))}}
 			selectpath = []
 				for (k = 0; k < other.length; k++){
 					path =  "#" + other[k] + "-path." + axisborough + "-chart" 
