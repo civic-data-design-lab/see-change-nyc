@@ -336,6 +336,13 @@ section#mapbox {
 }
 
 /*iframe carousel*/
+.closed {
+	display: none;
+}
+.noscroll {
+    overflow: hidden;
+    max-height: 100vh;
+}
 #iframe-carousel {
 	position: fixed;
 	top: 0px;
