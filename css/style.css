@@ -390,7 +390,19 @@ section#mapbox {
 	overflow: hidden;
 	z-index: 10;
 }
-#todelete-Nav {
+@media (min-width: 768px) {
+	#carousel-inner-container {width: 690px;}
+	#carousel {width: calc(100% + 60px);}
+}
+@media (min-width: 992px) {
+	#carousel-inner-container {width: 970px;}
+	#carousel {width: calc(100% + 60%);}
+}
+@media (min-width: 1200px) {
+	#carousel-inner-container {width: 1110px;}
+	#carousel {width: calc(100% + 60px);}
+}
+/*#todelete-Nav {
     position: fixed;
     top: 90%;
     left: 50%;
@@ -414,18 +426,6 @@ section#mapbox {
 #todelete-Nav a:hover {
 	text-decoration: underline;
 }
-@media (min-width: 768px) {
-	#carousel-inner-container {width: 690px;}
-	#carousel {width: calc(100% + 60px);}
-}
-@media (min-width: 992px) {
-	#carousel-inner-container {width: 970px;}
-	#carousel {width: calc(100% + 60%);}
-}
-@media (min-width: 1200px) {
-	#carousel-inner-container {width: 1110px;}
-	#carousel {width: calc(100% + 60px);}
-}
 @media (min-width: 992px) {
     #todelete-Nav {font-size: 34px; top: 85%;}
 }
@@ -443,7 +443,7 @@ section#mapbox {
 }
 @media (max-height: 450px) and (max-width: 450px) {
     #todelete-Nav {font-size: 14px;}
-}
+}*/
 
 @media print,
 screen and (min-width: 64em) {
