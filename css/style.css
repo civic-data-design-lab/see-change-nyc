@@ -400,7 +400,7 @@ section#mapbox {
 }
 @media (min-width: 1200px) {
 	#carousel-inner-container {width: 1110px;}
-	#carousel {width: calc(100% + 60px);}
+	#carousel {width: calc(133% + 60px);}
 }
 /*#todelete-Nav {
     position: fixed;
