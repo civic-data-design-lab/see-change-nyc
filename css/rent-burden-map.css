@@ -156,4 +156,23 @@
 		height: auto;
 		padding: 10px;
 	}
+
+		
+	.h3 {
+		line-height: 20px !important;
+		margin-top: -2px;
+	}
+
+	header {
+		height: 58px;
+		min-width: 350px;
+	}
+	#project-title {
+		min-width: 360px;
+	}
+	#project-description {
+		width: calc(100vw - 32px);
+	}
+
 }
+

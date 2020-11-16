@@ -195,7 +195,7 @@ body {
 		top: 30px;
 	}
 	#project-description {
-		max-height: calc(100vh - 88px);
+		max-height: calc(100vh - 100px);
 	}
 }
 @media print, screen and (max-width: 939px) {
@@ -225,4 +225,22 @@ body {
 	#nav #nav-borough {
 		display: none;
 	}
+		
+	.h3 {
+		line-height: 20px !important;
+		margin-top: -2px;
+	}
+
+	header {
+		height: 58px;
+		min-width: 350px;
+	}
+	#project-title {
+		min-width: 360px;
+	}
+	#project-description {
+		width: calc(100vw - 32px);
+	}
+
 }
+
