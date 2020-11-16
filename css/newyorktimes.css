@@ -179,6 +179,7 @@ hr {
 
   .h3 {
     line-height: 20px;
+    font-size:20px !important;
   }
   #project-title{
     width:400px !important;

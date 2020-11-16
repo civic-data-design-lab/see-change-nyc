@@ -68,7 +68,10 @@ $(document).ready(function() {
 	});
 	$("#project-title").on('mouseleave', function() {
 		$('#project-description').hide();
-	})
+	});
+	$("#project-title").on('touchstart', function () {
+		$('#project-description').toggle();
+	});
 
 	$("#h-description").hide();
 	$("#project-title").on('mouseenter', function() {
@@ -77,11 +80,23 @@ $(document).ready(function() {
 	$("#project-title").on('mouseleave', function() {
 		$('#h-description').hide();
 	});
+	$("#project-title").on('touchstart', function () {
+		$('#h-description').toggle();
+	});
 	
 	$("#arrow-expand").click(function () {
 		$("#hidden-disc").slideToggle();
 		$("#arrow-expand").toggleClass('arrow-up');
 	});
+	// $("#project-description").hide();
+	// $("#project-title").on('touchstart', function () {
+	// 	$('#project-description').toggle();
+	// });
+	// $("#h-description").hide();
+	// $("#project-title").on('mouseenter mouseout touchstart', function () {
+	// 	$('#h-description').toggle();
+	// });
+
 })
 
 // window resize
