@@ -76,7 +76,12 @@ $(document).ready(function() {
 	});
 	$("#project-title").on('mouseleave', function() {
 		$('#h-description').hide();
-	})
+	});
+	
+	$("#arrow-expand").click(function () {
+		$("#hidden-disc").slideToggle();
+		$("#arrow-expand").toggleClass('arrow-up');
+	});
 })
 
 // window resize
