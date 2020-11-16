@@ -90,11 +90,11 @@ $(window).resize(function() {
 
 // close iframe-carousel
 window.onload = (event) => {
-    document.getElementById("iframe-carousel").classList.add("noscroll");
+    document.body.classList.add("noscroll");
 };
 
 function exitCarousel() {
     document.getElementById("iframe-carousel").classList.add("closed");
-    document.getElementById("iframe-carousel").classList.remove("noscroll");
+    document.body.classList.remove("noscroll");
     $(".closed").remove();
 }
