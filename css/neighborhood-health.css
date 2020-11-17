@@ -46,7 +46,7 @@
 
 .labelfeature {
 	font-family: 'Graphik-Regular', sans-serif;
-	font-size: 0.375em;
+	font-size: 0.5em;
 }
 
 .labelprofile, .labeltitle {
@@ -353,6 +353,7 @@ svg.selected>g>line {
 		width: 90%;
 		min-width: calc(40vh - 100px);
 		margin: 0px 5%;
+		top: -0.75em;
 	}
 	#chart-neighborhoods {
 		width: 90%;
@@ -379,6 +380,19 @@ svg.selected>g>line {
 
 	#tooltipcity div.feature {
 		height: 60px;
+	}
+}
+@media screen and (max-width: 630px) and (max-aspect-ratio: 1/1) {
+	#chart-overall,
+	#chart-profile {
+		min-width: none;
+		width: calc(100% - 60px);
+		height: auto
+	}
+	#chart-overall svg,
+	#chart-profile svg {
+		width: 80%;
+		height: auto;
 	}
 }
 
