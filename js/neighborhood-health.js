@@ -396,7 +396,8 @@ function plotAxesLabels(svg){
 				return (d == "homePedInjury" || d == "homeBodega") ? -10
 				: (d == "whoBornOutside" || d == "homeBike" || d == "homeFarmersMarket") ? -5
 				: (d == "socioecoPoverty") ? 5
-				:0;
+				: (d == "socioecoUnemployment") ? -8
+				: 0;
 			})
 			// .attr("x", (d) => featureToCoordinate(d, "label", "x"))
 			// .attr("y", (d) => featureToCoordinate(d, "label", "y"))
