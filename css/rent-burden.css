@@ -65,9 +65,53 @@ body {
 	color: black;
 	line-height: 1.1em;
 	border-radius: 8px;
+	width: 210px;
 }
 .tooltippercent {
 	font-family: 'Graphik-Bold', sans-serif;
+}
+
+.ttp {
+	font-family: 'Graphik-Bold', sans-serif;
+	padding-top: 1em;
+	float: left;
+	margin: 0px 0px 0px 2px;
+	height: 100%;
+	width: 95%;
+}
+
+.ttp .ttplabel{
+	width: 100%;
+	color: black;
+}
+
+.ttp .ttpbar{
+	padding-top: 0.2em;
+	padding-bottom: 0.3em;
+	float: left;
+	width: 100%;
+	color: white;
+	font-size: 11px;
+	text-align: right;  
+	vertical-align: middle;
+	line-height: 0.7em;
+}
+
+.ttp .barmore{
+	padding-top: 0.2em;
+	float: left;
+	background-color: red;
+	width: 50%;
+	text-align: left;  
+	vertical-align: middle;
+	line-height: 0.7em;
+}
+
+.ttp .barlabel{
+	color: black;
+	text-align: center;
+	font-size: 9px;
+	font-family: Graphik-Bold;
 }
 
 /*profile borough style*/

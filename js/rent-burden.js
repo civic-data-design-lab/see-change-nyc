@@ -280,7 +280,7 @@ d3.csv('./data/nyc_pums_count_names.csv')
 		  .attr("id", "temptooltip")
 		  .attr("visibility", "visible")
 		svg.append("text")
-			.html("67")
+			.html("67%")
 			.attr("x", 595)
 			.attr("y", graphheight+100+25)
 			.attr("id", "temptooltip")
@@ -361,30 +361,26 @@ d3.csv('./data/nyc_pums_count_names.csv')
 
 		  if (y>0){
 
-			if (typeof allDensity[3].frequency[y] === 'undefined'){
+			nyctoolstat = []
+			nycless=0
+			for (i = 0; i < weighted.length; i++) {
+				if (weighted[i].GRPIP <= y) { nycless += 1 }
+			}
+			nyclesspct = Math.round((nycless/weighted.length)*100)
+			nycmorepct = Math.round( (100-nyclesspct))
+			nyctoolstat.push({less: nyclesspct, more: nycmorepct})
 
-		  tooltip2.style("top", (d3.event.pageY-200)+"px").style("left",(d3.event.pageX+10)+"px")
-			  .html("<p style = 'font-family: Graphik-Bold; color:" + percentcolor + "';>" + "<span style = 'font-size: 16px;'>" + y + "%" + "</span>" + "<span>" + " OF INCOME IS SPENT ON RENT BY " + "</span></p>"
-				  + "<p>" + allDensity[0].frequency[y] + " households (" +  Math.round(allDensity[0].percent[y] *10)/10 + "%) in " + allDensity[0].key + "<br>"
-				  + allDensity[1].frequency[y] +  " households (" +  Math.round(allDensity[1].percent[y] *10)/10 + "%) in " + allDensity[1].key + "<br>"
-				  + allDensity[2].frequency[y] +  " households (" +  Math.round(allDensity[2].percent[y] *10)/10 + "%) in " + allDensity[2].key + "<br>"
-				  +0 +  " households (" +  Math.round(allDensity[3].percent[y] *10)/10 + "%) in " + allDensity[3].key + "<br>"
-				  + allDensity[4].frequency[y] +  " households (" +  Math.round(allDensity[4].percent[y] *10)/10 + "%) in " + allDensity[4].key + "</p>"
-				  )
-		  }
+			tooltip2.style("top", (d3.event.pageY-180)+"px").style("left",(d3.event.pageX-110)+"px")
+		//	.html("<div class='ttp'><div class = 'ttplabel'>IN NYC</div>" + 
+		//	"<div class='ttpbar'><span style = 'padding-top: 0.2em; float: right; background-color: #3E52C2; text-align: right; height: 12px; width:" + (nyctoolstat[0].more)*0.99 +"%;'>" + nyctoolstat[0].more + "%</span><span style = 'padding-top: 0.2em; height: 12px; float: left; background-color: #72DAAC; text-align: left; width:" + (nyctoolstat[0].less)*0.99 + "%'>" + nyctoolstat[0].less + "%</span></div>"
+		//	+ "<div class='barlabel'><span style = 'text-align:left; float: left;'>PAY LESS</span><span style = 'text-align: center; floath: middle'>HOUSEHOLDS</span><span style = 'text-align: right; float: right;'>PAY MORE</span></div></div>")
 
-		  else {
-			tooltip2.style("top", (d3.event.pageY-200)+"px").style("left",(d3.event.pageX+10)+"px")
-			.html("<p style = 'font-family: Graphik-Bold; color:" + percentcolor + "';>" + "<span style = 'font-size: 16px;'>" + y + "%" + "</span>" + "<span>" + " OF INCOME IS SPENT ON RENT BY " + "</span></p>"
-				+ "<p>" + allDensity[0].frequency[y] + " households (" +  Math.round(allDensity[0].percent[y] *10)/10 + "%) in " + allDensity[0].key + "<br>"
-				+ allDensity[1].frequency[y] +  " households (" +  Math.round(allDensity[1].percent[y] *10)/10 + "%) in " + allDensity[1].key + "<br>"
-				+ allDensity[2].frequency[y] +  " households (" +  Math.round(allDensity[2].percent[y] *10)/10 + "%) in " + allDensity[2].key + "<br>"
-				+ allDensity[3].frequency[y] +  " households (" +  Math.round(allDensity[3].percent[y] *10)/10 + "%) in " + allDensity[3].key + "<br>"
-				+ allDensity[4].frequency[y] +  " households (" +  Math.round(allDensity[4].percent[y] *10)/10 + "%) in " + allDensity[4].key + "</p>"
-				)
-		  }
-		}
+			.html("<div class='ttp'><div class = 'ttplabel'>IN NYC</div>" + 
+			"<div class='ttpbar'><span style = 'padding-top: 0.2em; float: right; background-color: #3E52C2; text-align: right; height: 12px; width:" + (nyctoolstat[0].more)*0.99 +"%;'>" + "</span><span style = 'padding-top: 0.2em; height: 12px; float: left; background-color: #72DAAC; text-align: left; width:" + (nyctoolstat[0].less)*0.99 + "%'>" +  "</span></div>"
+			+ "<div class='barlabel'><span style = 'text-align:left; float: left; font-size: 12px;'>" + nyctoolstat[0].less + "%</span><span style = 'text-align: center; float: middle;'>HOUSEHOLDS</span><span style = 'text-align: right; float: right; font-size: 12px'>" + nyctoolstat[0].more + "%</span></div><div class = 'barlabel'><span style = 'float: left; text-align; left;'>PAY LESS</span><span style = 'float: right; text-align: right;'>PAY MORE</span></div></div>")
+			}
 
+/*
 				bronxtext = []
 					for (i = 0; i < bronxdensity.length; i++){
 						if (typeof bronxdensity[i].frequency[y] === 'undefined'){
@@ -429,7 +425,21 @@ d3.csv('./data/nyc_pums_count_names.csv')
 						else {
 						line = "<br>" +  manhattandensity[i].frequency[y] + " households (" +  Math.round(manhattandensity[i].percent[y] *10)/10 + "%) in " + manhattandensity[i].key 
 						manhattantext.push(line)} 
-						}
+						}*/
+
+			boropct = {}
+			for (i = 0; i < n; i++) {
+				var key = categories[i]
+				boroless = 0
+				borolength = borough[key].length
+				for (j = 0; j < borolength; j++) {
+					if (weighted[i].GRPIP <= y) { boroless += 1 }
+				}
+				borolesspct =  Math.round((boroless/weighted.length)*100)
+				boromorepct = Math.round( (100-borolesspct))
+					pct = {less: borolesspct, more: boromorepct}
+							boropct[key] = pct
+					}
 
 		tooltip3.style("top", (d3.event.pageY-220)+"px").style("left",(d3.event.pageX+20)+"px")
 				  .html("<p style = 'font-family: Graphik-Bold; color:" + percentcolor + "';>" + "<span style = 'font-size: 16px;'>" + y + "%" + "</span>" + "<span>" + " OF INCOME IS SPENT ON RENT BY " + "</span></p>"
@@ -485,6 +495,7 @@ tooltip = d3.select("#chart-rentburden")
 tooltip2 = d3.select("body")
 		.append("div")
 		.attr("class", "tooltip2")
+		.attr("id", "nycttp")
 tooltip3 = d3.select("body")
 		.append("div")
 		.attr("class", "tooltip2")
