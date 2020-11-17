@@ -419,7 +419,7 @@ screen and (max-width: 1144px) {
 }
 
 @media print,
-screen and (max-width: 939px) {
+screen and (max-width: 931px) {
 	header {
 		min-width: 460px;
 	}

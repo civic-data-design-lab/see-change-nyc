@@ -237,9 +237,9 @@ function featureString(feature, location) {
 	: (feature == "homeFarmersMarket") ? "average number of <b class='feature-name'>" + featureName(feature) + "s</b> in " + theLocation
 	: (feature == "healthChildObesity") ? "public school children suffer from"
 	: (feature == "healthChildAsthma") ? "per 10,000 children in " + theLocation + " suffer from <b class='feature-name'>" + featureName(feature) + "</b>"
-	: (feature == "healthPhysicalActivity") ? "adults participate in"
+	: (feature == "healthPhysicalActivity") ? "adults engage in"
 	: (feature == "healthUninsured") ? "adults are"
-	: (feature == "healthMedCare") ? "adults have"
+	: (feature == "healthMedCare") ? "adults have <b class='feature-name'>" + featureName(feature) + "</b> needs"
 	: (feature == "healthFluVacc") ? "adults receive a"
 	: (feature == "healthAdultObesity") ? "adults suffer from"
 	: (feature == "healthInfantMortality") ? "infants per 1,000 live births in <span class='location'>" + location + "</span> suffer from <b class='feature-name'>" + featureName(feature) + "</b>"
@@ -255,10 +255,9 @@ function datapointTooltip(d) {
 		else if (d.id.startsWith(4)) {i = 1} //queens
 		else if (d.id.startsWith(5)) {i = 4}; //statenisland
 
-		console.log(boroughAverage[i][d.feature + "Value"]);
-
 		return (d.feature == "homePedInjury" || d.feature == "homeFarmersMarket" || d.feature == "healthChildAsthma" || d.feature == "healthInfantMortality" || d.feature == "healthLifeExpectancy") ? "<span class='h3-v1 black'>" + featureName(d.feature) + "</span><br><span class='data1'>" + d[d.feature + "Value"] + "</span><p>" + featureString(d.feature, d.neighborhood) + ".</p><p class='avg'>The <b>" + d.borough + "</b> average is:</p><span class='data2'>" + boroughAverage[i][d.feature + "Value"] + "</span><p class='avg'>The <b>NYC</b> average is:</p><span class='data2'>" + cityAverage[0][d.feature + "Value"] + "</span>"
 		: (d.feature == "homeBodega") ? "<span class='h3-v1 black'>" + featureName(d.feature) + "</span><br><span class='data1'>" + d[d.feature + "Value"] + ":1</span><p>" + featureString(d.feature, d.neighborhood) + ".</p><p class='avg'>The <b>" + d.borough + "</b> average is:</p><span class='data2'>" + boroughAverage[i][d.feature + "Value"] + ":1</span><p class='avg'>The <b>NYC</b> average is:</p><span class='data2'>" + cityAverage[0][d.feature + "Value"] + ":1</span>"
+		: (d.feature == "healthMedCare") ? "<span class='h3-v1 black'>" + featureName(d.feature) + "</span><br><span class='data1'>" + d[d.feature + "Value"] + "%</span><p>of <span class='location'>" + d.neighborhood + "</span> " + featureString(d.feature, d.neighborhood) + ".</p><p class='avg'>The <b>" + d.borough + "</b> average is:</p><span class='data2'>" + boroughAverage[i][d.feature + "Value"] + "%</span><p class='avg'>The <b>NYC</b> average is:</p><span class='data2'>" + cityAverage[0][d.feature + "Value"] + "%</span>"
 		: "<span class='h3-v1 black'>" + featureName(d.feature) + "</span><br><span class='data1'>" + d[d.feature + "Value"] + "%</span><p>of <span class='location'>" + d.neighborhood + "</span> " + featureString(d.feature, d.neighborhood) + " <b>" + featureName(d.feature) + "</b>.</p><p class='avg'>The <b>" + d.borough + "</b> average is:</p><span class='data2'>" + boroughAverage[i][d.feature + "Value"] + "%</span><p class='avg'>The <b>NYC</b> average is:</p><span class='data2'>" + cityAverage[0][d.feature + "Value"] + "%</span>";
 };
 
@@ -766,6 +765,8 @@ function cityTooltip(category, dataTopic) {
 			propertyString = "<div class='feature'><span class='data1'>" + dataTopic[0][properties[i] + "Value"] + "</span><p id='" + properties[i] + "'>" + featureString(properties[i], dataTopic[0].borough) + "</p></div>";
 		} else if (properties[i] == "homeBodega") {
 			propertyString = "<div class='feature'><span class='data1'>" + dataTopic[0][properties[i] + "Value"] + ":1</span><p id='" + properties[i] + "'>" + featureString(properties[i], dataTopic[0].borough) + "</p></div>";
+		} else if (properties[i] == "healthMedCare") {
+			propertyString = "<div class='feature'><span class='data1'>" + dataTopic[0][properties[i] + "Value"] + "%</span><p id='" + properties[i] + "'>of <span class='location'>" + dataTopic[0].borough + "</span> " + featureString(properties[i], dataTopic[0].borough) + "</p></div>";
 		} else {
 			propertyString = "<div class='feature'><span class='data1'>" + dataTopic[0][properties[i] + "Value"] + "%</span><p id='" + properties[i] + "'>of <span class='location'>" + dataTopic[0].borough + "</span> " + featureString(properties[i], dataTopic[0].borough) + " <b class='feature-name'>" + featureName(properties[i]) + "</b></p></div>";
 		}
