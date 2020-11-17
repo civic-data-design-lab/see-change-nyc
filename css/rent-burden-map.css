@@ -98,7 +98,7 @@
 .labelburdenpercent .data1 {
 	position: relative;
 	float: left;
-	width: 31%;
+	width: 36%;
 	padding-top: 0.3em;
 	color: #3d51c2;
 }
@@ -106,7 +106,7 @@
 	position: relative;
 	float: left;
 	width: 56%;
-	margin: 0px 0px 0px 8%;
+	margin: 0px 0px 8px 8%;
 	font-family: 'Graphik-Bold', sans-serif;
 	font-size: 1.1em;
 	line-height: 1.2em;
@@ -128,6 +128,10 @@
 }
 .labelburden .data3 {
 	font-size: 1.2em;
+}
+
+.labelburden .blockgroup {
+	color: #3d51c2;
 }
 .mapboxgl-popup-content .labelburden:not(:last-child) {
 	margin-right: 2%;
