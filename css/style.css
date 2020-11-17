@@ -363,13 +363,30 @@ section#mapbox {
 #carousel {
 	position: absolute;
 	/*width: 133%;*/
-	width: 100%;
+	width: calc(100% + 60px);
 	height: 133%;
 	top: 50%;
 	left: 50%;
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	-moz-transform: translateX(-50%) translateY(-50%);
+	-ms-transform: translateX(-50%) translateY(-50%);
 	transform: translateX(-50%) translateY(-50%);
 	z-index: 10;
 	border: none;
+}
+#close-carousel {
+	position: absolute;
+	display: block;
+	top: calc(100% - 52px);
+	width: 100%;
+	margin: auto;
+	font-family: 'Graphik-Bold', sans-serif;
+	font-size: 14px;
+	text-align: center;
+	z-index: 20;
+}
+#close-carousel:hover {
+	cursor: pointer;
 }
 #carousel-background {
 	position: fixed;
@@ -381,11 +398,14 @@ section#mapbox {
 	position: fixed;
 	top: 50%;
 	left: 50%;
+	-webkit-transform: translateX(calc(-50% + 2px)) translateY(calc(-50% + 2px));
+	-moz-transform: translateX(calc(-50% + 2px)) translateY(calc(-50% + 2px));
+	-ms-transform: translateX(calc(-50% + 2px)) translateY(calc(-50% + 2px));
 	transform: translateX(calc(-50% + 2px)) translateY(calc(-50% + 2px));
 	box-sizing: border-box;
-	height: 75vh;
+	height: calc(75vh - 2px);
 	max-height: 600px;
-	width: 100%;
+	width: calc(100% - 60px);
 	max-width: 810px;
 	/*background: #fff;*/
 	overflow: hidden;
@@ -402,6 +422,10 @@ section#mapbox {
 @media (min-width: 1200px) {
 	#carousel-inner-container {width: 1110px;}
 	#carousel {width: calc(133% + 60px);}
+}
+@media (max-width: 450px) {
+  #carousel-inner-container {height: calc(50% - 2px);}
+  #carousel {height: 200%;}
 }
 /*#todelete-Nav {
     position: fixed;
