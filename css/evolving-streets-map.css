@@ -3,7 +3,7 @@
 	top: 62px;
 	width: 100%;
 	/*height: calc(100vh - 212px);*/
-	height: calc(100vh - 62px);
+	height: calc(100vh - 60px);
 }
 #legend-arrow {
 	position: absolute;
@@ -320,7 +320,7 @@
 	#map {
 		top: 60px;
 		/*height: calc(100vh - 212px);*/
-		height: calc(100vh - 62px);
+		height: calc(100vh - 60px);
 	}
 }
 @media print, screen and (max-width: 1100px) {
@@ -418,7 +418,7 @@
 @media screen and (max-width: 939px) {
 	#map {
 		/*height: calc(100vh - 312px);*/
-		height: calc(100vh - 62px);
+		height: calc(100vh - 60px);
 	}
 	#map-legend {
 		width: calc(100% - 12px);

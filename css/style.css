@@ -47,7 +47,6 @@ body {
 	font-family: 'Graphik-Regular', sans-serif;
 	font-style: normal;
 	margin: 0px auto;
-	padding-bottom: 6px;
 }
 .b1 {
 	font-family: 'Graphik-Medium', sans-serif;
@@ -316,7 +315,7 @@ section {
 	overflow: hidden;
 }
 section#mapbox {
-	height: calc(100vh - 6px);
+	height: 100vh;
 }
 
 .arrow {
