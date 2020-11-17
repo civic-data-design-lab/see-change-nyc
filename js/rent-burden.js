@@ -380,88 +380,47 @@ d3.csv('./data/nyc_pums_count_names.csv')
 			+ "<div class='barlabel'><span style = 'text-align:left; float: left; font-size: 12px;'>" + nyctoolstat[0].less + "%</span><span style = 'text-align: center; float: middle;'>HOUSEHOLDS</span><span style = 'text-align: right; float: right; font-size: 12px'>" + nyctoolstat[0].more + "%</span></div><div class = 'barlabel'><span style = 'float: left; text-align; left;'>PAY LESS</span><span style = 'float: right; text-align: right;'>PAY MORE</span></div></div>")
 			}
 
-/*
-				bronxtext = []
-					for (i = 0; i < bronxdensity.length; i++){
-						if (typeof bronxdensity[i].frequency[y] === 'undefined'){
-						  line = "<br>" +  0 +  " households (" +  0 + "%) in " + bronxdensity[i].key 
-						  bronxtext.push(line)}
-						else {
-							line = "<br>" +  bronxdensity[i].frequency[y] +  " households (" +  Math.round(bronxdensity[i].percent[y] *10)/10 + "%) in " + bronxdensity[i].key 
-							bronxtext.push(line)}
-					}
-				queenstext = []
-					for (i = 0; i < queensdensity.length; i++){
-						if (typeof queensdensity[i].frequency[y] === 'undefined'){
-							line = "<br>" +  0 +  " households (" +  0 + "%) in " + queensdensity[i].key
-							queenstext.push(line)}
-						else {
-						line = "<br>" +  queensdensity[i].frequency[y] + " households (" +  Math.round(queensdensity[i].percent[y] *10)/10 + "%) in " + queensdensity[i].key 
-						queenstext.push(line)}
-					}
-				brooklyntext = []
-					for (i = 0; i < brooklyndensity.length; i++){
-						if (typeof brooklyndensity[i].frequency[y] === 'undefined'){
-							line = "<br>" +  0 +  " households (" +  0 + "%) in " + brooklyndensity[i].key
-							brooklyntext.push(line)}
-						else {
-						line = "<br>" +  brooklyndensity[i].frequency[y] + " households (" +  Math.round(brooklyndensity[i].percent[y] *10)/10 + "%) in " + brooklyndensity[i].key 
-						brooklyntext.push(line)}
-					}
-				statentext = []
-					for (i = 0; i < statenislanddensity.length; i++){
-						if (typeof statenislanddensity[i].frequency[y] === 'undefined'){
-							line = "<br>" +  0 +  " households (" +  0 + "%) in " + statenislanddensity[i].key
-							statentext.push(line)}
-						else {
-						line = "<br>" +  statenislanddensity[i].frequency[y] + " households (" +  Math.round(statenislanddensity[i].percent[y] *10)/10 + "%) in " + statenislanddensity[i].key 
-						statentext.push(line)}
-					}
-				manhattantext = []
-					for (i = 0; i < manhattandensity.length; i++){
-						if (typeof manhattandensity[i].frequency[y] === 'undefined'){
-							line = "<br>" +  0 +  " households (" +  0 + "%) in " + manhattandensity[i].key
-							manhattantext.push(line)}
-						else {
-						line = "<br>" +  manhattandensity[i].frequency[y] + " households (" +  Math.round(manhattandensity[i].percent[y] *10)/10 + "%) in " + manhattandensity[i].key 
-						manhattantext.push(line)} 
-						}*/
-
 			boropct = {}
 			for (i = 0; i < n; i++) {
 				var key = categories[i]
 				boroless = 0
 				borolength = borough[key].length
 				for (j = 0; j < borolength; j++) {
-					if (weighted[i].GRPIP <= y) { boroless += 1 }
+					if (borough[key][j] <= y) { boroless += 1 }
 				}
-				borolesspct =  Math.round((boroless/weighted.length)*100)
+				borolesspct =  Math.round((boroless/borolength)*100)
 				boromorepct = Math.round( (100-borolesspct))
 					pct = {less: borolesspct, more: boromorepct}
 							boropct[key] = pct
 					}
 
-		tooltip3.style("top", (d3.event.pageY-220)+"px").style("left",(d3.event.pageX+20)+"px")
-				  .html("<p style = 'font-family: Graphik-Bold; color:" + percentcolor + "';>" + "<span style = 'font-size: 16px;'>" + y + "%" + "</span>" + "<span>" + " OF INCOME IS SPENT ON RENT BY " + "</span></p>"
-				 +bronxtext +"<p>" + "" + "</p>"
-				 )
-		tooltip4.style("top", (d3.event.pageY-310)+"px").style("left",(d3.event.pageX+20)+"px")
-				 .html("<p style = 'font-family: Graphik-Bold; color:" + percentcolor + "';>" + "<span style = 'font-size: 16px;'>" + y + "%" + "</span>" + "<span>" + " OF INCOME IS SPENT ON RENT BY " + "</span></p>"
-				+brooklyntext +"<p>" + "" + "</p>"
-				)
-		tooltip5.style("top", (d3.event.pageY-260)+"px").style("left",(d3.event.pageX+20)+"px")
-				.html("<p style = 'font-family: Graphik-Bold; color:" + percentcolor + "';>" + "<span style = 'font-size: 16px;'>" + y + "%" + "</span>" + "<span>" + " OF INCOME IS SPENT ON RENT BY " + "</span></p>"
-			   +queenstext +"<p>" + "" + "</p>"
-			   )
-		tooltip6.style("top", (d3.event.pageY-130)+"px").style("left",(d3.event.pageX+20)+"px")
-			   .html("<p style = 'font-family: Graphik-Bold; color:" + percentcolor + "';>" + "<span style = 'font-size: 16px;'>" + y + "%" + "</span>" + "<span>" + " OF INCOME IS SPENT ON RENT BY " + "</span></p>"
-			  +statentext +"<p>" + "" + "</p>"
-			  )
-		tooltip7.style("top", (d3.event.pageY-220)+"px").style("left",(d3.event.pageX+20)+"px")
-			  .html("<p style = 'font-family: Graphik-Bold; color:" + percentcolor + "';>" + "<span style = 'font-size: 16px;'>" + y + "%" + "</span>" + "<span>" + " OF INCOME IS SPENT ON RENT BY " + "</span></p>"
-			 +manhattantext +"<p>" + "" + "</p>"
-			 )
+		tooltip3.style("top", (d3.event.pageY-180)+"px").style("left",(d3.event.pageX-110)+"px")
+				.html("<div class='ttp'><div class = 'ttplabel'>IN BRONX</div>" + 
+				"<div class='ttpbar'><span style = 'padding-top: 0.2em; float: right; background-color: #3E52C2; text-align: right; height: 12px; width:" + (boropct.Bronx.more)*0.99 +"%;'>" + "</span><span style = 'padding-top: 0.2em; height: 12px; float: left; background-color: #72DAAC; text-align: left; width:" + (boropct.Bronx.less)*0.99 + "%'>" +  "</span></div>"
+				+ "<div class='barlabel'><span style = 'text-align:left; float: left; font-size: 12px;'>" + boropct.Bronx.less + "%</span><span style = 'text-align: center; float: middle;'>HOUSEHOLDS</span><span style = 'text-align: right; float: right; font-size: 12px'>" + boropct.Bronx.more + "%</span></div><div class = 'barlabel'><span style = 'float: left; text-align; left;'>PAY LESS</span><span style = 'float: right; text-align: right;'>PAY MORE</span></div></div>")
+			
+		tooltip4.style("top", (d3.event.pageY-180)+"px").style("left",(d3.event.pageX-110)+"px")
+				.html("<div class='ttp'><div class = 'ttplabel'>IN BROOKLYN</div>" + 
+				"<div class='ttpbar'><span style = 'padding-top: 0.2em; float: right; background-color: #3E52C2; text-align: right; height: 12px; width:" + (boropct.Brooklyn.more)*0.99 +"%;'>" + "</span><span style = 'padding-top: 0.2em; height: 12px; float: left; background-color: #72DAAC; text-align: left; width:" + (boropct.Brooklyn.less)*0.99 + "%'>" +  "</span></div>"
+				+ "<div class='barlabel'><span style = 'text-align:left; float: left; font-size: 12px;'>" + boropct.Brooklyn.less + "%</span><span style = 'text-align: center; float: middle;'>HOUSEHOLDS</span><span style = 'text-align: right; float: right; font-size: 12px'>" + boropct.Brooklyn.more + "%</span></div><div class = 'barlabel'><span style = 'float: left; text-align; left;'>PAY LESS</span><span style = 'float: right; text-align: right;'>PAY MORE</span></div></div>")
+			
+		tooltip5.style("top", (d3.event.pageY-180)+"px").style("left",(d3.event.pageX-110)+"px")
+				.html("<div class='ttp'><div class = 'ttplabel'>IN QUEENS</div>" + 
+				"<div class='ttpbar'><span style = 'padding-top: 0.2em; float: right; background-color: #3E52C2; text-align: right; height: 12px; width:" + (boropct.Queens.more)*0.99 +"%;'>" + "</span><span style = 'padding-top: 0.2em; height: 12px; float: left; background-color: #72DAAC; text-align: left; width:" + (boropct.Queens.less)*0.99 + "%'>" +  "</span></div>"
+				+ "<div class='barlabel'><span style = 'text-align:left; float: left; font-size: 12px;'>" + boropct.Queens.less + "%</span><span style = 'text-align: center; float: middle;'>HOUSEHOLDS</span><span style = 'text-align: right; float: right; font-size: 12px'>" + boropct.Queens.more + "%</span></div><div class = 'barlabel'><span style = 'float: left; text-align; left;'>PAY LESS</span><span style = 'float: right; text-align: right;'>PAY MORE</span></div></div>")
+		
+		tooltip6.style("top", (d3.event.pageY-180)+"px").style("left",(d3.event.pageX-110)+"px")
+				.html("<div class='ttp'><div class = 'ttplabel'>IN STATEN ISLAND</div>" + 
+				"<div class='ttpbar'><span style = 'padding-top: 0.2em; float: right; background-color: #3E52C2; text-align: right; height: 12px; width:" + (boropct['Staten Island'].more)*0.99 +"%;'>" + "</span><span style = 'padding-top: 0.2em; height: 12px; float: left; background-color: #72DAAC; text-align: left; width:" + (boropct['Staten Island'].less)*0.99 + "%'>" +  "</span></div>"
+				+ "<div class='barlabel'><span style = 'text-align:left; float: left; font-size: 12px;'>" + boropct['Staten Island'].less + "%</span><span style = 'text-align: center; float: middle;'>HOUSEHOLDS</span><span style = 'text-align: right; float: right; font-size: 12px'>" + boropct['Staten Island'].more + "%</span></div><div class = 'barlabel'><span style = 'float: left; text-align; left;'>PAY LESS</span><span style = 'float: right; text-align: right;'>PAY MORE</span></div></div>")
+		
+		tooltip7.style("top", (d3.event.pageY-180)+"px").style("left",(d3.event.pageX-110)+"px")
+				.html("<div class='ttp'><div class = 'ttplabel'>IN MANHATTAN</div>" + 
+				"<div class='ttpbar'><span style = 'padding-top: 0.2em; float: right; background-color: #3E52C2; text-align: right; height: 12px; width:" + (boropct.Manhattan.more)*0.99 +"%;'>" + "</span><span style = 'padding-top: 0.2em; height: 12px; float: left; background-color: #72DAAC; text-align: left; width:" + (boropct.Manhattan.less)*0.99 + "%'>" +  "</span></div>"
+				+ "<div class='barlabel'><span style = 'text-align:left; float: left; font-size: 12px;'>" + boropct.Manhattan.less + "%</span><span style = 'text-align: center; float: middle;'>HOUSEHOLDS</span><span style = 'text-align: right; float: right; font-size: 12px'>" + boropct.Manhattan.more + "%</span></div><div class = 'barlabel'><span style = 'float: left; text-align; left;'>PAY LESS</span><span style = 'float: right; text-align: right;'>PAY MORE</span></div></div>")
+			
 			})
+	
 
 		d3.selectAll("#bronxttp, #brooklynttp, #queensttp, #statenttp, #manhattanttp").style("opacity", 0).style("visibility", "hidden")
 
@@ -662,20 +621,11 @@ svg.append("g")
 	.attr("class", "label-axis")
 	.append("text")
 	.attr("text-anchor", "end")
-	.style("font-size", "10px")
-	.style("font-family", "Graphik-regular")
+	.style("font-size", "11px")
+	.style("font-family", "Graphik-Regular")
 	.attr("x", graphwidth - 905)
 	.attr("y", 170)
-	.html("Move cursor to see how many households are rent burdened")
-svg.append("g")
-	.attr("class", "label-axis")
-	.append("text")
-	.attr("text-anchor", "end")
-	.style("font-size", "10px")
-	.style("font-family", "Graphik-regular")
-	.attr("x", graphwidth - 905)
-	.attr("y", 185)
-	.html("Click on axis or navigation bar to view individual boroughs");
+	.html("CLICK AND HOVER OVER CHART TO EXPLORE")
 
 //DENSITY FUNCTIONS
 function kernelDensityEstimator(kernel, X) {
