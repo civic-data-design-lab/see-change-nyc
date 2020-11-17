@@ -145,9 +145,9 @@ const dataset = d3.csv("./data/neighborhood-health.csv")
 		$(".chartpoint").hide();
 		$(".labelprofile").hide();
 		$(".chart900").show();
-		$(".chart100").show();
-		$(".chart101").show();
-		$("#chart101").addClass("selected");
+		$(".chart300").show();
+		$(".chart310").show();
+		$("#chart310").addClass("selected");
 
 		// city chart display NYC and Health category on load
 		cityTopic = cityAverage;
@@ -160,8 +160,8 @@ const dataset = d3.csv("./data/neighborhood-health.csv")
 });
 
 // aspect ratio
-const width = 350;
-const height = 400;
+const width = 360;
+const height = 410;
 const radius = 150;
 
 // define svg
@@ -207,7 +207,7 @@ let neighborhoodList = [];
 
 let featureName = d3.scaleOrdinal()
 	.domain(features)
-	.range(["Non-White Residents", "Residents Born Outside U.S.", "Did Not Complete High School", "Poverty", "Unemployment", "Rent Burden", "Helpful Neighbors", "Home w/o Defects", "Home w/o Roaches", "Air Pollution", "Bike Network Coverage", "Pedestrian Injury Hospitalization", "Ratio of Bodegas to Supermarkets", "Farmers Market", "Child Obesity", "Child Asthma", "Physical Activity", "Uninsured", "Unmet Medical Care", "Flu Vaccination", "Adult Obesity", "Infant Mortality", "Life Expectancy"]);
+	.range(["Non-White Residents", "Residents Born Outside U.S.", "Did Not Complete High School", "Poverty", "Unemployment", "Rent Burden", "Helpful Neighbors", "Home w/o Defects", "Home w/o Roaches", "Air Pollution", "Bike Network Coverage", "Pedestrian Injury Hospitalization", "Ratio of Bodegas to Supermarkets", "Farmers Market", "Childhood Obesity", "Childhood Asthma", "Physical Activity", "Uninsured", "Unmet Medical Care", "Flu Vaccination", "Adult Obesity", "Infant Mortality", "Life Expectancy"]);
 
 let featureCategory = d3.scaleOrdinal()
 	.domain(features)
@@ -215,6 +215,12 @@ let featureCategory = d3.scaleOrdinal()
 
 // descriptions per feature
 function featureString(feature, location) {
+	if (location == "Bronx") {
+		var theLocation = "the <span class='location'>" + location + "</span>";
+	} else {
+		var theLocation = "<span class='location'>" + location + "</span>";
+	}
+
 	return (feature == "whoRaceNonWhite") ? "residents identify as"
 	: (feature == "whoBornOutside") ? "residents are"
 	: (feature == "socioecoHighSchool") ? "adult residents"
@@ -226,28 +232,30 @@ function featureString(feature, location) {
 	: (feature == "homeRoaches") ? "residents live in a"
 	: (feature == "homeAir") ? "residents experience significant levels of"
 	: (feature == "homeBike") ? "streets have adequate"
-	: (feature == "homePedInjury") ? "<b class='feature-name'>" + featureName(feature) + "s</b> per 100,000 people in <span class='location'>" + location + "</span>"
-	: (feature == "homeBodega") ? "<b class='feature-name'>" + featureName(feature) + "</b> in <span class='location'>" + location + "</span>"
-	: (feature == "homeFarmersMarket") ? "average number of <b class='feature-name'>" + featureName(feature) + "s</b> in <span class='location'>" + location + "</span>"
+	: (feature == "homePedInjury") ? "<b class='feature-name'>" + featureName(feature) + "s</b> per 100,000 people in " + theLocation
+	: (feature == "homeBodega") ? "<b class='feature-name'>" + featureName(feature) + "</b> in " + theLocation
+	: (feature == "homeFarmersMarket") ? "average number of <b class='feature-name'>" + featureName(feature) + "s</b> in " + theLocation
 	: (feature == "healthChildObesity") ? "public school children suffer from"
-	: (feature == "healthChildAsthma") ? "per 10,000 children in <span class='location'>" + location + "</span> suffer from <b class='feature-name'>" + featureName(feature) + "</b>"
+	: (feature == "healthChildAsthma") ? "per 10,000 children in " + theLocation + " suffer from <b class='feature-name'>" + featureName(feature) + "</b>"
 	: (feature == "healthPhysicalActivity") ? "adults participate in"
 	: (feature == "healthUninsured") ? "adults are"
 	: (feature == "healthMedCare") ? "adults have"
 	: (feature == "healthFluVacc") ? "adults receive a"
 	: (feature == "healthAdultObesity") ? "adults suffer from"
 	: (feature == "healthInfantMortality") ? "infants per 1,000 live births in <span class='location'>" + location + "</span> suffer from <b class='feature-name'>" + featureName(feature) + "</b>"
-	: (feature == "healthLifeExpectancy") ? "is the <b class='feature-name'>" + featureName(feature) + "</b> at birth of residents born in <span class='location'>" + location + "</span>"
+	: (feature == "healthLifeExpectancy") ? "is the <b class='feature-name'>" + featureName(feature) + "</b> at birth of residents born in " + theLocation
 	: "";
 }
 
 // string for profile tooltip per datapoint
 function datapointTooltip(d) {
-	if (d.id.startsWith(1)) {i = 0}
-		else if (d.id.startsWith(2)) {i = 1}
-		else if (d.id.startsWith(3)) {i = 2}
-		else if (d.id.startsWith(4)) {i = 3}
-		else if (d.id.startsWith(5)) {i = 4};
+	if (d.id.startsWith(1)) {i = 3} //manhattan
+		else if (d.id.startsWith(2)) {i = 2} //bronx
+		else if (d.id.startsWith(3)) {i = 0} //brooklyn
+		else if (d.id.startsWith(4)) {i = 1} //queens
+		else if (d.id.startsWith(5)) {i = 4}; //statenisland
+
+		console.log(boroughAverage[i][d.feature + "Value"]);
 
 		return (d.feature == "homePedInjury" || d.feature == "homeFarmersMarket" || d.feature == "healthChildAsthma" || d.feature == "healthInfantMortality" || d.feature == "healthLifeExpectancy") ? "<span class='h3-v1 black'>" + featureName(d.feature) + "</span><br><span class='data1'>" + d[d.feature + "Value"] + "</span><p>" + featureString(d.feature, d.neighborhood) + ".</p><p class='avg'>The <b>" + d.borough + "</b> average is:</p><span class='data2'>" + boroughAverage[i][d.feature + "Value"] + "</span><p class='avg'>The <b>NYC</b> average is:</p><span class='data2'>" + cityAverage[0][d.feature + "Value"] + "</span>"
 		: (d.feature == "homeBodega") ? "<span class='h3-v1 black'>" + featureName(d.feature) + "</span><br><span class='data1'>" + d[d.feature + "Value"] + ":1</span><p>" + featureString(d.feature, d.neighborhood) + ".</p><p class='avg'>The <b>" + d.borough + "</b> average is:</p><span class='data2'>" + boroughAverage[i][d.feature + "Value"] + ":1</span><p class='avg'>The <b>NYC</b> average is:</p><span class='data2'>" + cityAverage[0][d.feature + "Value"] + ":1</span>"
@@ -281,43 +289,6 @@ const neighborhoodColor = d3.scaleOrdinal()
 	"#2b1e8e", "#7561a9", "#342066", "#6871af", "#436fb2", "#5a08e3", "#424d9b", "#3b185f", "#462f7e", "#21295f", "#645ea4", "#3a6fc6", "#6c90c6", "#6b37b3",
 	"#e4ba72", "#9f8c25", "#ded544"])
 	.unknown("#636b75");
-
-// wrap multi-line text spans
-function wrapText(text, width) {
-	text.each(function() {
-		var text = d3.select(this),
-			words = text.text().split(/\s+/).reverse(),
-			word,
-			line = [],
-			lineNumber = 0,
-			lineHeight = 1.4,
-			anchor = text.attr("text-anchor"),
-			x = text.attr("x"),
-			y = text.attr("y"),
-			dy = parseFloat(text.attr("dy")),
-			tspan = text.text(null)
-				.append("tspan")
-				.attr("text-anchor", anchor)
-				.attr("x", x)
-				.attr("y", y)
-				.attr("dy", dy + "em");
-		while (word = words.pop()) {
-			line.push(word);
-			tspan.text(line.join(" "));
-			if (tspan.node().getComputedTextLength() > width) {
-				line.pop();
-				tspan.text(line.join(" "));
-				line = [word];
-				tspan = text.append("tspan")
-					.attr("text-anchor", anchor)
-					.attr("x", x)
-					.attr("y", y)
-					.attr("dy", ++lineNumber * lineHeight + dy + "em")
-					.text(word);
-			}
-		}
-	})
-}
 
 // radial gridlines
 let radialScale = d3.scaleLinear()
@@ -421,7 +392,12 @@ function plotAxesLabels(svg){
 		.append("text")
 			.attr("class", "labelfeature")
 			.attr("x", 0)
-			.attr("y", 0)
+			.attr("y", (d) => {
+				return (d == "homePedInjury" || d == "homeBodega") ? -10
+				: (d == "whoBornOutside" || d == "homeBike" || d == "homeFarmersMarket") ? -5
+				: (d == "socioecoPoverty") ? 5
+				:0;
+			})
 			// .attr("x", (d) => featureToCoordinate(d, "label", "x"))
 			// .attr("y", (d) => featureToCoordinate(d, "label", "y"))
 			// .attr("transform-origin", (d) => featureToCoordinate(d, "label", "x") + " " + featureToCoordinate(d, "label", "y"))
@@ -456,10 +432,10 @@ function categoryToArc(inputCategory, output) {
 function categoryRadius(inputCategory) {
 	let i = categories.findIndex((category) => category == inputCategory);
 	if (i & 1) {
-		return radius + 15;
+		return radius + 20;
 	}
 	else {
-		return radius + 10;
+		return radius + 15;
 	}
 };
 
@@ -467,10 +443,10 @@ function arcCoordinate(inputCategory, angle, coordinate) {
 	let i = categories.findIndex((category) => category == inputCategory);
 
 	if (i & 1) {
-		value = 16.5;
+		value = 17;
 	}
 	else {
-		value = 16;
+		value = 16.5;
 	}
 
 	let x = Math.sin(angle) * radialScale(value);
@@ -689,12 +665,14 @@ $(window).resize(function() {
 	winHeight = $(window).height();
 });
 
-// function scrollToProfile() {
-// 	$("html, body").animate({scrollTop: winHeight});
-// };
+var animationDuration = 2000;
+
+function scrollToProfile() {
+	$("html, body").animate({scrollTop: winHeight}, animationDuration);
+};
 
 function scrollToTop() {
-	$("html, body").animate({scrollTop: 0});
+	$("html, body").animate({scrollTop: 0}, animationDuration);
 };
 
 // filter boroughs via nav menu and on city chart click
@@ -721,28 +699,28 @@ function filterBorough(boroughId) {
 
 		if (boroughId == "manhattan") {
 			$(".chart100").show();
-			$(".chart101").show();
-			$("#chart101").addClass("selected");
+			$(".chart110").show();
+			$("#chart110").addClass("selected");
 		}
 		else if (boroughId == "bronx") {
 			$(".chart200").show();
-			$(".chart201").show();
-			$("#chart201").addClass("selected");
+			$(".chart206").show();
+			$("#chart206").addClass("selected");
 		}
 		else if (boroughId == "brooklyn") {
 			$(".chart300").show();
-			$(".chart301").show();
-			$("#chart301").addClass("selected");
+			$(".chart310").show();
+			$("#chart310").addClass("selected");
 		}
 		else if (boroughId == "queens") {
 			$(".chart400").show();
-			$(".chart401").show();
-			$("#chart401").addClass("selected");
+			$(".chart411").show();
+			$("#chart411").addClass("selected");
 		}
 		else if (boroughId == "statenisland") {
 			$(".chart500").show();
-			$(".chart501").show();
-			$("#chart501").addClass("selected");
+			$(".chart502").show();
+			$("#chart502").addClass("selected");
 		}
 	}
 }
@@ -760,11 +738,14 @@ function filterBoroughNav(boroughId) {
 	$("#" + boroughId).removeClass("grey").css("color", "#000");
 	if (boroughId == "nyc") {
 		$("#currentborough").html("&mdash;All");
+		$("#title-neighborhoods").html("All NYC Neighborhoods");
 	} else if (boroughId == "statenisland") {
 		$("#currentborough").html("&mdash;Staten Island");
+		$("#title-neighborhoods").html("Staten Island Neighborhoods");
 	}
 	else {
-		$("#currentborough").html("&mdash;" + boroughId);
+		$("#currentborough").html("&mdash;" + titleCase(boroughId));
+		$("#title-neighborhoods").html(titleCase(boroughId) + " Neighborhoods");
 	}
 }
 
@@ -795,6 +776,15 @@ function cityTooltip(category, dataTopic) {
 
 // city chart visual style and interaction
 function cityChart(){
+	// chart title
+	svgCity.append("text")
+			.attr("class", "labeltitle")
+		.append("tspan")
+		.text("New York City Borough Community Health")
+			.attr("x", width/2)
+			.attr("y", 15)
+			.attr("text-anchor", "middle");
+
 	svgCity.selectAll(".dataplot")
 			.style("mix-blend-mode", "multiply")
 		.selectAll("path")
@@ -895,7 +885,15 @@ function boroughChart(data){
 		.append("text")
 			.attr("class", (d) => "labelprofile chart" + d.id)
 		.append("tspan")
-		.text((d) => d.neighborhood)
+		.text((d) => {
+			if (d.borough == "Manhattan") {var boroughAbbr = "MN";}
+			else if (d.borough == "Bronx") {var boroughAbbr = "BX";}
+			else if (d.borough == "Brooklyn") {var boroughAbbr = "BK";}
+			else if (d.borough == "Queens") {var boroughAbbr = "QN";}
+			else if (d.borough == "Staten Island") {var boroughAbbr = "SI";}
+
+			return d.neighborhood + ", " + boroughAbbr;
+		})
 			.attr("x", width/2)
 			.attr("y", 15)
 			.attr("text-anchor", "middle");
@@ -1098,7 +1096,7 @@ $("#borough").on("click", function() {
 	cityTopic = cityAverage;
 	divCity.html((divHtml) => cityTooltip(categoryTopic, cityTopic));
 
-	// scrollToProfile();
+	scrollToProfile();
 });
 // nav click by filtering boroughs
 $("#nav>ul>li>ul>li").on("click", function() {
@@ -1108,5 +1106,5 @@ $("#nav>ul>li>ul>li").on("click", function() {
 	let chartBoroughClass = ".chart" + $(this).attr("id");
 	$(chartBoroughClass).css("display", "block");
 
-	// scrollToProfile();
+	scrollToProfile();
 })
