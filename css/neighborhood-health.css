@@ -1,16 +1,29 @@
+#profile-city {
+	margin-top: 70px;
+}
 #chart-overall,
 #chart-profile {
 	position: relative;
 	float: left;
 	max-height: 85vh;
-	margin-top: calc(4vh + 60px);
+	/*margin-top: calc(4vh + 60px);*/
+	margin-top: 4vh;
 }
 
+#title-neighborhoods {
+	position: relative;
+	float: left;
+	margin-top: 3%;
+	margin-bottom: 0.5em;
+	font-family: 'Graphik-Semibold', sans-serif;
+	font-size: 1.2em;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;	
+}
 #chart-neighborhoods {
 	position: relative;
 	float: left;
-	margin-top: 92px;
-	height: calc(100vh - 112px);
+	height: calc(100vh - 174px);
 	overflow: hidden auto;
 }
 
@@ -36,7 +49,7 @@
 	font-size: 0.375em;
 }
 
-.labelprofile {
+.labelprofile, .labeltitle {
 	font-family: 'Graphik-Semibold', sans-serif;
 	font-size: 0.8em;
 	text-transform: uppercase;
@@ -53,7 +66,7 @@
 #tooltipcity {
 	position: relative;
 	float: left;
-	top: calc(40px + 10vh);
+	top: calc(4vh + 6px);
 	width: 385px;
 	height: 80vh;
 	padding-right: 20px;
@@ -81,8 +94,8 @@
 	position: relative;
 	display: block;
 	margin-left: 95px;
-	font-family: 'Graphik-Medium', sans-serif;
-	font-size: 1em;
+	font-family: 'Graphik-Semibold', sans-serif;
+	font-size: 1.2em;
 	text-transform: uppercase;
 	letter-spacing: 1px;
 }
@@ -165,11 +178,11 @@ svg.selected>g>line {
 
 	#chart-overall svg,
 	#chart-profile svg {
-		height: 90vh;
+		height: 85vh;
 		width: auto;
 	}
 
-	#chart-neighborhoods {
+	#chart-neighborhoods, #title-neighborhoods {
 		width: 600px;
 	}
 
@@ -208,11 +221,11 @@ svg.selected>g>line {
 
 	#chart-overall svg,
 	#chart-profile svg {
-		height: 90vh;
+		height: 85vh;
 		width: auto;
 	}
 
-	#chart-neighborhoods {
+	#chart-neighborhoods, #title-neighborhoods {
 		width: 525px;
 	}
 
@@ -253,11 +266,11 @@ svg.selected>g>line {
 
 	#chart-overall svg,
 	#chart-profile svg {
-		height: 90vh;
+		height: 85vh;
 		width: auto;
 	}
 
-	#chart-neighborhoods {
+	#chart-neighborhoods, #title-neighborhoods {
 		width: calc(100vw - 682px);
 	}
 
@@ -287,11 +300,11 @@ svg.selected>g>line {
 
 	#chart-overall svg,
 	#chart-profile svg {
-		height: 90vh;
+		height: 85vh;
 		width: auto;
 	}
 
-	#chart-neighborhoods {
+	#chart-neighborhoods, #title-neighborhoods {
 		width: 280px;
 	}
 
@@ -327,7 +340,7 @@ svg.selected>g>line {
 		float: none;
 		width: 100%;
 		min-width: 625px;
-		margin: 70px auto 0px auto;
+		margin: 10px auto 0px auto;
 	}
 
 	#chart-overall svg,
@@ -336,6 +349,11 @@ svg.selected>g>line {
 		width: auto;
 	}
 
+	#title-neighborhoods {
+		width: 90%;
+		min-width: calc(40vh - 100px);
+		margin: 0px 5%;
+	}
 	#chart-neighborhoods {
 		width: 90%;
 		min-width: 563px;
@@ -350,7 +368,7 @@ svg.selected>g>line {
 	#tooltipcity {
 		float: none;
 		min-width: 458px;
-		height: calc(40vh - 100px);
+		height: calc(40vh - 112px);
 		top: 0px;
 		margin: 0px auto;
 	}
@@ -431,5 +449,8 @@ screen and (max-width: 789px) {
 	header {
 		height: 58px;
 		min-width: 350px;
+	}
+	#profile-city {
+		margin-top: 78px;
 	}
 }
