@@ -377,8 +377,13 @@ section#mapbox {
 #close-carousel {
 	position: absolute;
 	display: block;
-	top: calc(100% - 52px);
-	width: 100%;
+	top: calc(100% - 60px);
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	-moz-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	transform: translateX(-50%);
+	width: auto;
 	margin: auto;
 	font-family: 'Graphik-Bold', sans-serif;
 	font-size: 14px;
