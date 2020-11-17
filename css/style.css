@@ -316,7 +316,7 @@ section {
 	overflow: hidden;
 }
 section#mapbox {
-	height: 100vh;
+	height: calc(100vh - 6px);
 }
 
 .arrow {

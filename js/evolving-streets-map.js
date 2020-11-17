@@ -170,11 +170,56 @@ function showCurrentLayers(e, clickedLayers) {
 	}
 };
 
-// visibility on document load 
 $(document).ready(function() {
+	// vsibility on document load 
 	$("#day-wd").addClass("selectedday");
 	$("#time-0611").addClass("selectedtime");
 	$("#month-feb, #month-mar").addClass("selectedmonth");
+
+	// show & hide map legend
+	var winWidth = $(window).width();
+	var winHeight = $(window).height();
+	var legendHeight = $("#map-legend").outerHeight();
+	var legendTop = $("#map-legend").css("top");
+
+	var animationDuration = 500;
+	$(window).resize(function() {
+		winWidth = $(window).width();
+		winHeight = $(window).height();
+
+		if (winWidth < 940) {
+			legendHeight = 252;
+		} else {
+			legendHeight = 152;
+		}
+		legendTop = winHeight - legendHeight;
+
+		$("#map-legend").css("height", legendHeight);
+
+		if($("#legend-arrow").hasClass("open")) {
+			$("#map-legend").css("top", legendTop);
+		};
+	});
+
+	$("#legend-arrow").on("mouseover", function() {
+		$(this).css("border-bottom-color", "#8c8c8c");
+	});
+	$("#legend-arrow").on("mouseleave", function() {
+		$(this).css("border-bottom-color", "#000");
+	})
+	$("#legend-arrow").on("click", function() {
+		if ($(this).hasClass("open")) {
+			$(this).removeClass("open");
+			$("#map-legend").animate({
+				top: "100%"
+			}, animationDuration);
+		} else {
+			$(this).addClass("open");
+			$("#map-legend").animate({
+				top: legendTop
+			}, animationDuration);
+		}
+	})
 });
 
 // toggle by weekday or weekend
@@ -254,21 +299,26 @@ $(".time-toggle").on("mouseleave", function() {
 
 // toggle by before lockdown or during lockdown
 $(".month-toggle").on("click", function(e) {
-	if ($("#month-feb").hasClass("selectedmonth") && $("#month-mar").hasClass("selectedmonth")) {
+	if ($(this).hasClass("selectedmonth")) {
 		$(this).removeClass("selectedmonth").css("background", "#8c8c8c").css("border-color", "8c8c8c").css("color", "#333");
 	}
 	else if (!$(this).hasClass("selectedmonth")) {
 		$(this).addClass("selectedmonth").css("background", "#fff").css("border-color", "#000").css("color", "#000");
 	}
+
 	var thisMonth = $(this).attr("id").substring(6,7);
 	if (currentMonths.length == 2) {
 		var clickedMonths = currentMonths.filter(item => item != thisMonth);
 	}
-	else if (!currentMonths.includes(thisMonth)) {
+	else if (!currentMonths.length) {
+		var clickedMonths = [thisMonth];
+	}
+	else if (currentMonths.length == 1 && !currentMonths.includes(thisMonth)) {
 		var clickedMonths = ["f", "m"];
 	}
 	else {
-		var clickedMonths = currentMonths;
+		// var clickedMonths = currentMonths;
+		var clickedMonths = [];
 	}
 
 	var clickedLayers = clickedMonths.map(value => value + currentDay + currentTime);
