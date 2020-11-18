@@ -1,11 +1,14 @@
 body {
 	overflow: hidden auto;
 }
+#high-rent {
+	margin-top: 70px;
+}
 #chart-rentburden {
 	position: relative;
 	width: 100%;
+	top: 0px;
 	max-height: 85vh;
-	margin-top: 60px;
 }
 .box {
 	width: 100%;
@@ -116,7 +119,10 @@ body {
 
 /*profile borough style*/
 #high-rent .h4 {
-	margin: 20vh auto 10px auto;
+	margin: 6vh auto 10px auto;
+}
+#high-rent .h5 {
+	margin: 2vh auto 6vh;
 }
 #profile-borough {
 	position: relative;
@@ -134,6 +140,7 @@ body {
 .avg-circle .h6 {
 	position: relative;
 	top: 0px;
+	margin-top: 5%;
 }
 .avg-circle img {
 	top: 30px;
@@ -193,6 +200,23 @@ body {
 		margin-bottom: 0px;
 	}
 }
+@media screen and (min-aspect-ratio: 16/9) {
+	#high-rent .h5 {
+		margin: 1% auto;
+	}
+	.avg-circle .h6 {
+		margin: 5% auto;
+	}
+	.avg-circle img {
+		height: 20vh;
+		width: auto;
+	}
+	.avg-circle .data3 {
+		display: inline-block;
+		width: 100%;
+	}
+}
+
 /* svg aspect ratio*/
 @media screen and (min-aspect-ratio: 3/2) {
 	#chart-rentburden {
@@ -205,6 +229,19 @@ body {
 	}
 	.tooltip {
 		bottom: 2.75%;
+	}
+}
+@media screen and (min-aspect-ratio: 3/2) and (max-width: 856px) {
+	#chart-rentburden {
+		width: 160vh;
+		height: auto;
+	}
+	.box {
+		width: 100%;
+		height: auto;
+	}
+	.tooltip {
+		bottom: 1.75%;
 	}
 }
 @media screen and (min-aspect-ratio: 1/1) and (max-aspect-ratio: 4/3) {
@@ -221,27 +258,6 @@ body {
 	}
 }
 /*header style*/
-@media print, screen and (min-width: 64em) {
-	#chart-rentburden {
-		margin-top: 72px;
-	}
-}
-@media print, screen and (max-width: 1144px) {
-	header {
-		height: 50px;
-	}
-	.h3 {
-		font-size: 24px;
-		line-height: 30px;
-		letter-spacing: -0.5px;
-	}
-	#nav ul ul {
-		top: 30px;
-	}
-	#project-description {
-		max-height: calc(100vh - 100px);
-	}
-}
 @media print, screen and (max-width: 939px) {
 	header {
 		min-width: 460px;

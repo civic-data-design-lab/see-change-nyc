@@ -1,12 +1,12 @@
 #map {
 	position: relative;
-	top: 62px;
+	top: 60px;
 	width: 100%;
-	height: calc(100vh - 62px);
+	height: calc(100vh - 60px);
 }
 #map-legend {
 	position: absolute;
-	bottom: 0px;
+	bottom: -6px;
 	right: 0px;
 	font-family: 'Graphik-Semibold', sans-serif;
 	font-size: 1em;
@@ -142,10 +142,10 @@
 	line-height: 1.2em
 }
 /*header style*/
-@media print, screen and (min-width: 64em) {
+@media print, screen and (min-width: 1145px) /*(min-width: 64em)*/ {
 	#map {
-		top: 72px;
-		height: calc(100vh - 72px);
+		top: 70px;
+		height: calc(100vh - 70px);
 	}
 }
 @media screen and (min-width: 767px) {
@@ -161,7 +161,6 @@
 		padding: 10px;
 	}
 
-		
 	.h3 {
 		line-height: 20px !important;
 		margin-top: -2px;
