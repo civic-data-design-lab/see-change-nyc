@@ -98,13 +98,16 @@
 .labelburdenpercent .data1 {
 	position: relative;
 	float: left;
+	text-align: right;
 	width: 36%;
+	line-height: 1.4em;
 	padding-top: 0.3em;
 	color: #3d51c2;
 }
 .labelburdenpercent p {
 	position: relative;
 	float: left;
+	text-align: left;
 	width: 56%;
 	margin: 0px 0px 8px 8%;
 	font-family: 'Graphik-Bold', sans-serif;

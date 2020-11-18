@@ -40,7 +40,7 @@ function showPopup(feature) {
 		closeButton: false
 	})
 		.setLngLat(feature.geometry.coordinates)
-		.setHTML("<div class='labelburdenpercent'><span class='data1'>" + Math.round(feature.properties.RB_perc + feature.properties.vRB_perc) + "%</span><p>of households in <span style= 'color:#3d51c2' >" + feature.properties.PUMAname +  "</span> are considered rent burdened</p></div><div class='labelburden'><div id='legend-nrb' class='circle'></div>&ensp;<span class='data3'>" + Math.round(feature.properties.nRB_perc) + "%</span><p>Not Rent Burdened</p></div><div class='labelburden'><div id='legend-rb' class='circle'></div>&ensp;<span class='data3'>" + Math.round(feature.properties.RB_perc) + "%</span><p>Rent Burdened</p></div><div class='labelburden'><div id='legend-srb' class='circle'></div>&ensp;<span class='data3'>" + Math.round(feature.properties.vRB_perc) + "%</span><p>Severely Rent Burdened</p></div>")
+		.setHTML("<div class='labelburdenpercent'><span class='data1'>" + Math.round(feature.properties.RB_perc + feature.properties.vRB_perc) + "%</span><p>of households in <span style= 'color:#3d51c2' >THIS BLOCK GROUP</span> are considered rent burdened</p></div><div class='labelburden'><div id='legend-nrb' class='circle'></div>&ensp;<span class='data3'>" + Math.round(feature.properties.nRB_perc) + "%</span><p>Not Rent Burdened</p></div><div class='labelburden'><div id='legend-rb' class='circle'></div>&ensp;<span class='data3'>" + Math.round(feature.properties.RB_perc) + "%</span><p>Rent Burdened</p></div><div class='labelburden'><div id='legend-srb' class='circle'></div>&ensp;<span class='data3'>" + Math.round(feature.properties.vRB_perc) + "%</span><p>Severely Rent Burdened</p></div>")
 	
 		.addTo(map);
 }
