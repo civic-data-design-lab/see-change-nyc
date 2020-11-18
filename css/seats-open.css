@@ -15,7 +15,7 @@
 	position: relative;
 	float: left;
 	width: calc(13/14.5 * (100vh - 60px));
-	max-width: calc(100% - 570px);
+	max-width: calc(100% - 600px);
 	height: calc(100vh - 60px);
 	overflow: hidden;
 }
@@ -213,6 +213,14 @@
 }
 
 /*wide screen ratio*/
+@media screen and (min-aspect-ratio: 2/1) {
+	#sidebar-count {
+		width: 260px;
+	}
+	#sidebar-next {
+		width: calc(100vw - 380px - 13/14.5 * (100vh - 60px));
+	}
+}
 @media screen and (min-width: 1229px) and (min-aspect-ratio: 16/9) {
 	#map-cartogram {
 		max-width: calc(100% - 620px);
@@ -297,11 +305,27 @@
 @media screen and (max-aspect-ratio: 1/1) and (max-width: 659px) {
 	#sidebar-count {
 		width: 175px;
-		margin-left: calc(50% - 295px);
+		margin-left: calc(50% - 290px);
 	}
 	#sidebar-next {
 		left: 225px;
-		margin-left: calc(50% - 295px);
+		margin-left: calc(50% - 290px);
+	}
+}
+@media screen and (max-aspect-ratio: 1/1) and (max-width: 579px) {
+	#sidebar-count {
+		width: 175px;
+		margin-left: 0px;
+	}
+	#sidebar-next {
+		width: calc(100% - 275px);
+		min-width: 220px;
+		margin-left: 0px;
+		left: 230px;
+	}
+	#next-shapes {
+		grid-template-columns: 50% 50%;
+		grid-column-gap: 5%;
 	}
 }
 
