@@ -2,37 +2,33 @@
 	height: calc(100vh - 60px);
 	top: 60px;
 }
-
 #sidebar-count {
 	position: relative;
 	float: left;
 	top: calc(100vh - 310px);
-	width: 170px;
-	min-width: 170px;
+	width: 175px;
+	min-width: 175px;
 	padding: 0px 30px;
 	text-align: left;
 }
-
 #map-cartogram {
 	position: relative;
 	float: left;
-	width: calc(13/14.5 * (100vh - 46px));
+	width: calc(13/14.5 * (100vh - 60px));
 	max-width: calc(100% - 570px);
-	height: calc(100vh - 46px);
+	height: calc(100vh - 60px);
 	overflow: hidden;
 }
-
 #open-seats-map {
 	position: absolute;
 	width: 100%;
 	height: auto;
-	top: 50%;
+	top: calc(50% + 3px);
 	-webkit-transform: translateY(-50%);
 	-moz-transform: translateY(-50%);
 	-ms-transform: translateY(-50%);
 	transform: translateY(-50%);
 }
-
 #seats-title {
 	position: relative;
 	display: inline-block;
@@ -41,7 +37,6 @@
 	margin: 0px;
 	padding: 2vh 20px;
 }
-
 .open-toggle {
 	position: relative;
 	display: inline-block;
@@ -54,24 +49,20 @@
 	text-transform: uppercase;
 	font-size: 0.8em;
 	text-align: center;
-	border: solid 4px #000;
+	color: #333;
+	background: #d1d3d4;
+	border: solid 4px #d1d3d4;
 }
-
 .open-toggle:hover {
 	cursor: pointer;
 }
-
-#current-seats {
-	color: #fff;
-	background: #000;
-}
-
-#open-seats {
-	left: -3px;
+.selectedseats {
 	color: #000;
 	background: #fff;
+	border-color: #000;
+	box-shadow: 2px 2px 6px rgba(0,0,0,.5);
+	z-index: 3;
 }
-
 #sidebar-next {
 	position: relative;
 	float: left;
@@ -81,7 +72,6 @@
 	margin: 10px 0px 0px 30px;
 	text-align: left;
 }
-
 #next-shapes {
 	position: relative;
 	width: 100%;
@@ -93,20 +83,17 @@
 	grid-row-gap: 0px;
 	overflow: hidden auto;
 }
-
 .shape-box {
 	position: relative;
 	float: left;
 	min-width: 100px;
 	max-width: 142px;
 }
-
 .shape {
 	width: 70%;
 	height: auto;
 	margin-bottom: 10px;
 }
-
 .shape-name {
 	display: block;
 	font-family: 'Graphik-Semibold', sans-serif;
@@ -114,11 +101,9 @@
 	font-size: 0.8em;
 	min-height: 28px;
 }
-
 #compt {
 	word-break: break-all;
 }
-
 #tooltip {
 	position: absolute;
 	margin: 0;
@@ -127,9 +112,8 @@
 	border: solid 2px #000;
 	min-height: 170px;
 	width: 400px;
-	box-shadow: 2px 2px 6px rgba(0, 0, 0, .5);
+	box-shadow: 2px 2px 6px rgba(0,0,0,.5);
 }
-
 .dataphoto {
 	position: relative;
 	min-height: 150px;
@@ -138,7 +122,6 @@
 	overflow: hidden;
 	margin: 10px;
 }
-
 .dataphoto img {
 	position: absolute;
 	height: 100%;
@@ -148,90 +131,82 @@
 	-ms-transform: translateX(-50%);
 	transform: translateX(-50%);
 }
-
 .datatext {
 	position: relative;
 	display: block;
 	margin: 10px 10px 10px 130px;
 }
-
 .labeldistrict {
 	font-family: 'Graphik-Semibold', sans-serif;
 	font-size: 1em;
 }
-
 .dataparty {
 	height: 0.8em;
 	width: 0.8em;
 	margin: 0px 5px 0px 10px;
 }
-
 .Democratic {
 	font-family: 'Graphik-Medium', sans-serif;
 	font-size: 0.9em;
 	color: #1404bd;
 }
-
 .Republican {
 	font-family: 'Graphik-Medium', sans-serif;
 	font-size: 0.9em;
 	color: #de0000;
 }
-
 .labelmember {
+	display: block;
+	margin-top: 0.5em;
 	font-family: 'Graphik-Bold', sans-serif;
 	font-size: 1.3em;
-	line-height: 1.5em;
+	/*line-height: 1em;*/
 	color: #000;
 }
-
 .datatext p {
 	font-size: 0.9em;
 	color: #000;
 }
-
 .openfill {
 	fill-opacity: 0.3;
 }
-
 .labelborough text {
 	font-family: 'Graphik-Medium', sans-serif;
-	font-size: 0.15em;
+	font-size: 0.13em;
 	text-transform: uppercase;
 	letter-spacing: 0.25px;
 	text-anchor: middle;
 }
-
 .labelbp {
 	-webkit-transform: rotate(-90deg) translate(-244.75px, 5.5px);
 	-moz-transform: rotate(-90deg) translate(-244.75px, 5.5px);
 	-ms-transform: rotate(-90deg) translate(-244.75px, 5.5px);
 	transform: rotate(-90deg) translate(-244.75px, 5.5px);
 }
-
 .labelinvert {
 	fill: #d1d3d4;
 }
-
 #text-animation {
 	position: absolute;
-	width: 100%;
+	width: auto;
 	height: auto;
 	top: 41%;
-	-webkit-transform: translateY(-50%);
-	-moz-transform: translateY(-50%);
-	-ms-transform: translateY(-50%);
-	transform: translateY(-50%);
+	left: 50%;
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	-moz-transform: translateX(-50%) translateY(-50%);
+	-ms-transform: translateX(-50%) translateY(-50%);
+	transform: translateX(-50%) translateY(-50%);
 	font-family: 'Graphik-Semibold', sans-serif;
 	font-size: 1.5em;
+	padding: 10px;
+	color: #fff;
+	background: #000;
 	z-index: 10;
 }
-
 #skip:hover {
 	cursor: pointer;
 	opacity: 0.3;
 }
-
 #fastforward {
 	height: 0.8em;
 	width: auto;
@@ -242,46 +217,39 @@
 	#map-cartogram {
 		max-width: calc(100% - 620px);
 	}
-
 	#sidebar-count {
 		min-width: 260px;
 	}
 }
-
 @media screen and (min-width: 1302px) and (min-aspect-ratio: 16/9) {
 	#map-cartogram {
 		max-width: calc(100% - 730px);
 	}
-
 	#sidebar-count {
 		min-width: 260px;
 	}
-
 	#sidebar-next {
 		min-width: 380px;
 	}
 }
-
 /*wide landscape screen ratio*/
 @media screen and (min-width: 1302px) and (min-aspect-ratio: 3/2) and (max-aspect-ratio: 16/9) {
 	#map-cartogram {
 		max-width: calc(100% - 670px);
 	}
-
 	#sidebar-count {
 		min-width: 260px;
 	}
 }
-
 /*typical landscape screen ratio*/
-@media screen and (min-aspect-ratio: 3/2) and (max-aspect-ratio: 16/9) {}
+@media screen and (min-aspect-ratio: 3/2) and (max-aspect-ratio: 16/9) {
 
+}
 /*narrower screen ratio*/
 @media screen and (min-aspect-ratio: 1/1) and (max-aspect-ratio: 3/2) {
 	#map-cartogram {
 		max-width: calc(100vw - 360px);
 	}
-
 	#sidebar-count {
 		position: absolute;
 		top: 16px;
@@ -289,7 +257,6 @@
 		width: calc(96% - 13/14.5 * (100vh - 46px));
 		min-width: 310px;
 	}
-
 	#sidebar-next {
 		position: absolute;
 		top: 250px;
@@ -301,17 +268,15 @@
 		padding: 0px 30px;
 	}
 }
-
 /*narrow or portrait screen ratio*/
 @media screen and (max-aspect-ratio: 1/1) {
 	#map-cartogram {
 		float: none;
-		width: calc(13/14.5 * (60vh - 46px));
-		height: calc(60vh - 46px);
+		width: calc(13/14.5 * (60vh - 60px));
+		height: calc(60vh - 60px);
 		max-width: none;
 		margin: 0px auto;
 	}
-
 	#sidebar-count {
 		float: none;
 		position: absolute;
@@ -319,7 +284,6 @@
 		width: 260px;
 		margin: 20px 0px 0px calc(50% - 335px);
 	}
-
 	#sidebar-next {
 		float: none;
 		position: absolute;
@@ -328,6 +292,16 @@
 		width: 310px;
 		height: 39vh;
 		margin: 20px 0px 0px calc(50% - 335px);
+	}
+}
+@media screen and (max-aspect-ratio: 1/1) and (max-width: 659px) {
+	#sidebar-count {
+		width: 175px;
+		margin-left: calc(50% - 295px);
+	}
+	#sidebar-next {
+		left: 225px;
+		margin-left: calc(50% - 295px);
 	}
 }
 
@@ -345,6 +319,11 @@ screen and (min-width: 64em) {
 	#seats-main {
 		height: calc(100vh - 72px);
 		top: 72px;
+	}
+
+	#map-cartogram {
+		width: calc(13/14.5 * (100vh - 72px));
+		height: calc(100vh - 72px);
 	}
 }
 

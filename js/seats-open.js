@@ -175,7 +175,11 @@ function seatMap(svg, dataset) {
 				.attr("stroke", "#000")
 				.attr("stroke-width", 0.6)
 				.attr("z-index", "2");
-			div.html((divHtml) => "<div class='dataphoto'><img src='./img/open-seats/" + d.photo + "'></div><div class='datatext'><span class='labeldistrict'>" + d.district + "</span><img class='dataparty' src='./img/open-seats/" + d.party + ".svg'><span class='" + d.party + "'>" + d.party + "</span><br><span class='labelmember'>" + d.member + "</span><br><p>" + d.neighborhoods + "</p><p>" + d.term + "</p></div>")
+			div.html((divHtml) => {
+				return ($(this).hasClass("openfill")) ? "<div class='dataphoto'><img src='./img/open-seats/seat-open.svg'></div><div class='datatext'><span class='labeldistrict'>" + d.district + "</span><br><span class='labelmember'>NO INCUMBENT</span><p>" + d.neighborhoods + "</p></div>"
+				: ($("#open-seats").hasClass("selectedseats") && !$(this).hasClass("openfill")) ? "<div class='dataphoto'><img src='./img/open-seats/" + d.photo + "'></div><div class='datatext'><span class='labeldistrict'>" + d.district + "</span><img class='dataparty' src='./img/open-seats/" + d.party + ".svg'><span class='" + d.party + "'>" + d.party + "</span><br><span class='labelmember'>" + d.member + "<br>(eligible incumbent)</span><p>" + d.neighborhoods + "</p><p>" + d.term + "</p></div>"
+				: "<div class='dataphoto'><img src='./img/open-seats/" + d.photo + "'></div><div class='datatext'><span class='labeldistrict'>" + d.district + "</span><img class='dataparty' src='./img/open-seats/" + d.party + ".svg'><span class='" + d.party + "'>" + d.party + "</span><br><span class='labelmember'>" + d.member + "</span><p>" + d.neighborhoods + "</p><p>" + d.term + "</p></div>";
+			})
 				.style("color", (divHtml) => color(d.borough))
 				.style("display", "block");
 		})
@@ -246,7 +250,11 @@ function seatMap(svg, dataset) {
 				.attr("stroke", "#000")
 				.attr("stroke-width", 0.5)
 				.attr("z-index", "2");
-			div.html((divHtml) => "<div class='dataphoto'><img src='./img/open-seats/" + d.photo + "'></div><div class='datatext'><span class='labeldistrict'>" + d.district + "</span><img class='dataparty' src='./img/open-seats/" + d.party + ".svg'><span class='" + d.party + "'>" + d.party + "</span><br><span class='labelmember'>" + d.member + "</span><br><p>" + d.neighborhoods + "</p><p>" + d.term + "</p></div>")
+			div.html((divHtml) => {
+				return ($(this).hasClass("openfill")) ? "<div class='dataphoto'><img src='./img/open-seats/seat-open.svg'></div><div class='datatext'><span class='labeldistrict'>" + d.district + "</span><br><span class='labelmember'>NO INCUMBENT</span><p>" + d.neighborhoods + "</p></div>"
+				: ($("#open-seats").hasClass("selectedseats") && !$(this).hasClass("openfill")) ? "<div class='dataphoto'><img src='./img/open-seats/" + d.photo + "'></div><div class='datatext'><span class='labeldistrict'>" + d.district + "</span><img class='dataparty' src='./img/open-seats/" + d.party + ".svg'><span class='" + d.party + "'>" + d.party + "</span><br><span class='labelmember'>" + d.member + "<br>(eligible incumbent)</span><p>" + d.neighborhoods + "</p><p>" + d.term + "</p></div>"
+				: "<div class='dataphoto'><img src='./img/open-seats/" + d.photo + "'></div><div class='datatext'><span class='labeldistrict'>" + d.district + "</span><img class='dataparty' src='./img/open-seats/" + d.party + ".svg'><span class='" + d.party + "'>" + d.party + "</span><br><span class='labelmember'>" + d.member + "</span><p>" + d.neighborhoods + "</p><p>" + d.term + "</p></div>";
+			})
 				.style("display", "block");
 		})
 		.on("mousemove", function (event) {
@@ -289,7 +297,7 @@ function shapesFalling(shapeList, currentShape, nextShape) {
 	d3.selectAll("." + currentShape)
 		.transition()
 		.delay((d) => {
-			return (d.shape == "si-1") ? delay(1) : 0;})
+			return (d.shape == "si-1") ? delay(2) : 0;})
 		.duration(animationDuration)
 		.attr("y", (d) => {
 			return height - (size * +d.row);
@@ -311,7 +319,7 @@ function shapesFalling(shapeList, currentShape, nextShape) {
 
 // triangles falling animation
 var triangleList = [
-	{class: "tribk-2", delay: 3}, 
+	{class: "tribk-2", delay: 4}, 
 	{class: "trimn-3", delay: 2}, 
 	{class: "triqn-2", delay: 1}, 
 	{class: "tribx-1", delay: 1}
@@ -346,7 +354,7 @@ function trianglesFalling(triangleList, currentTriangle, nextTriangle) {
 
 // borough labels
 const labelposition = [
-	{label: "Staten Island", x: 2, y: 2, class: "labelsi", delay: 2},
+	{label: "Staten Island", x: 2, y: 2, class: "labelsi", delay: 3},
 	{label: "Brooklyn", x: 6.5, y: 4, class: "labelbk", delay: 1.5},
 	{label: "Manhattan", x: 6, y: 8, class: "labelmn", delay: 2.5},
 	{label: "Queens", x: 10, y: 7, class: "labelqn", delay: 2.5},
@@ -375,46 +383,10 @@ const boroughLabels = svg.append("g")
 		})
 		.attr("opacity", 0);
 
-// text wrap
-function wrapText(text, width) {
-	text.each(function() {
-		var text = d3.select(this),
-			words = text.text().split(/\s+/).reverse(),
-			word,
-			line = [],
-			lineNumber = 0,
-			lineHeight = 1.4,
-			anchor = text.attr("text-anchor"),
-			x = text.attr("x"),
-			y = text.attr("y"),
-			dy = parseFloat(text.attr("dy")),
-			tspan = text.text(null)
-				.append("tspan")
-				.attr("text-anchor", anchor)
-				.attr("x", x)
-				.attr("y", y)
-				.attr("dy", dy + "em");
-		while (word = words.pop()) {
-			line.push(word);
-			tspan.text(line.join(" "));
-			if (tspan.node().getComputedTextLength() > width) {
-				line.pop();
-				tspan.text(line.join(" "));
-				line = [word];
-				tspan = text.append("tspan")
-					.attr("text-anchor", anchor)
-					.attr("x", x)
-					.attr("y", y)
-					.attr("dy", ++lineNumber * lineHeight + dy + "em")
-					.text(word);
-			}
-		}
-	})
-}
 svg.select(".labelborough")
 	.select(".labelpubad")
 	.attr("dy", 0)
-	.call(wrapText, 20)
+	.call(wrapText, 15)
 
 // labels appearing animation
 var labelList = ["labelsi", "labelbk", "labelmn", "labelqn", "labelbx", "labelbp", "labelcompt", "labelpubad", "labelmayor"];
@@ -438,12 +410,12 @@ function labelsAppearing(labelList, currentLabel, nextLabel) {
 
 // text animation
 var textList = [
-		{text: "New York City Government has 59 seats", delay: 0},
-		{text: "Staten Island City Council has 3 seats", delay: 1.5},
-		{text: "Brooklyn City Council has 16 seats", delay: 1.5}, 
-		{text: "Manhattan City Council has 10 seats", delay: 2.5}, 
-		{text: "Queens City Council has 15 seats", delay: 2.5}, 
-		{text: "Bronx City Council has 9 seats", delay: 1.5},
+		{text: "New York City Government has 59 seats", delay: 1},
+		{text: "Staten Island<br>City Council<br>has 3 seats", delay: 1},
+		{text: "BrooklynCity Council<br>has 16 seats", delay: 1.5}, 
+		{text: "Manhattan City Council<br>has 10 seats", delay: 2.5}, 
+		{text: "Queens City Council<br>has 15 seats", delay: 2.5}, 
+		{text: "Bronx City Council<br>has 9 seats", delay: 1.5},
 		{text: "There are 5 Borough President positions", delay: 0.5},
 		{text: "1 Comptroller", delay: 0.5}, 
 		{text: "1 Public Advocate", delay: 0.5}, 
@@ -469,9 +441,7 @@ function textAppearing(textList, currentText, nextText) {
 				textAppearing(textList, textList[0], textList[1]);
 			}
 			else {
-				d3.select("#text-animation")
-					.style("height", 0)
-					.style("padding", 0)
+				d3.select("#text-animation").remove();
 			}
 		})
 };
@@ -487,7 +457,11 @@ function totalSeatsAppearing(seatList, currentSeat, nextSeat) {
 	d3.select("#seats-total")
 		.html(currentSeat)
 		.transition()
-			.delay(delay(1) - 30)
+			.delay((d) => {
+				return (currentSeat == 0) ? delay(2.5) + 20
+				: (currentSeat > 51) ? delay(0.5)
+				: delay(1);
+			})
 		.end()
 		.then(function() {
 			if (nextSeat) {
@@ -500,7 +474,10 @@ function councilSeatsAppearing(seatList, currentSeat, nextSeat) {
 	d3.select("#seats-city-council")
 		.html(currentSeat)
 		.transition()
-			.delay(animationDuration - 30)
+			.delay((d) => {
+				return (currentSeat == 0) ? delay(2.5) + 20
+				: delay(1);
+			})
 		.end()
 		.then(function() {
 			if (nextSeat) {
@@ -512,7 +489,7 @@ function councilSeatsAppearing(seatList, currentSeat, nextSeat) {
 
 $("#skip").on("click", function() {
 	animationDuration = 5;
-	$("#text-animation").hide();
+	$("#text-animation").remove();
 });
 
 $(document).ready(function(){
@@ -544,56 +521,36 @@ $(document).ready(function(){
 	}
 
 	// open seats toggle
-	$("#current-seats").addClass("selectedseats");
+	$("#current-seats").addClass("selectedseats").css("background", "#fff").css("border-color", "#000").css("color", "#000");
 
-	$("#current-seats").on("click", function() {
-		if ($(".open").hasClass("openfill")) {
+	$(".open-toggle").on("click", function() {
+		if (!$(this).hasClass("selectedseats") && $(this).attr("id") == "current-seats") {
 			$(".open").removeClass("openfill");
-			$(this).addClass("selectedseats");
-			$("#open-seats").removeClass("selectedseats").css("background", "#fff").css("color", "#000");
+			$("#open-seats").removeClass("selectedseats").css("background", "#d1d3d4").css("border-color", "#d1d3d4").css("color", "#333");
+
+			$(this).addClass("selectedseats").css("background", "#fff").css("border-color", "#000").css("color", "#000");
 			$("#seats-city-council").html("51");
 			$("#seats-total").html("59");
 			$(".labelinvert").css("fill", "#d1d3d4");
 		}
-	});
-	$("#open-seats").on("click", function() {
+		else if (!$(this).hasClass("selectedseats") && $(this).attr("id") == "open-seats") {
 			$(".open").addClass("openfill");
-			$(this).addClass("selectedseats");
-			$("#current-seats").removeClass("selectedseats").css("background", "#fff").css("color", "#000");
+			$(this).addClass("selectedseats").css("background", "#fff").css("border-color", "#000").css("color", "#000");
+
+			$("#current-seats").removeClass("selectedseats").css("background", "#d1d3d4").css("border-color", "#d1d3d4").css("color", "#333");
 			$("#seats-city-council").html("<span class='grey'>35/</span>51");
 			$("#seats-total").html("<span class='grey'>41/</span>59");
 			$(".labelinvert").css("fill", "#000");
+		}
 	});
 	$(".open-toggle").on("mouseover", function() {
-		if ($(this).hasClass("selectedseats")) {
-			$(this).css("background", "#fff").css("color", "#000");
-		}
-		else {
-			$(this).css("background", "#000").css("color", "#fff");
+		if (!$(this).hasClass("selectedseats")) {
+			$(this).css("background", "#8c8c8c").css("border-color", "#8c8c8c").css("color", "#000");
 		}
 	});
 	$(".open-toggle").on("mouseleave", function() {
-		if ($(this).hasClass("selectedseats")) {
-			$(this).css("background", "#000").css("color", "#fff");
-		}
-		else {
-			$(this).css("background", "#fff").css("color", "#000");
+		if (!$(this).hasClass("selectedseats")) {
+			$(this).css("background", "#d1d3d4").css("border-color", "#d1d3d4").css("color", "#333");
 		}
 	});
-	// $("#open-seats").on("mouseover", function() {
-	// 	if ($(".open").hasClass("openfill")) {
-	// 		$(this).css("background", "#fff").css("color", "#000");
-	// 	}
-	// 	else {
-	// 		$(this).css("background", "#000").css("color", "#fff");
-	// 	}
-	// });
-	// $("#open-seats").on("mouseleave", function() {
-	// 	if ($(".open").hasClass("openfill")) {
-	// 		$(this).css("background", "#000").css("color", "#fff");
-	// 	}
-	// 	else {
-	// 		$(this).css("background", "#fff").css("color", "#000");
-	// 	}
-	// });
 })
