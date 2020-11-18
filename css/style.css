@@ -308,7 +308,7 @@ header {
 
 section {
 	position: relative;
-	height: calc(100vh - 76px);
+	height: calc(100vh - 62px);
 	max-width: 100%;
 	margin: auto;
 	text-align: center;
@@ -496,7 +496,7 @@ screen and (min-width: 64em) {
 	}
 
 	section {
-		height: calc(100vh - 86px);
+		height: calc(100vh - 70px);
 	}
 }
 
