@@ -213,11 +213,13 @@ $(document).ready(function() {
 			$("#map-legend").animate({
 				top: "100%"
 			}, animationDuration);
+			$("#show-hide").text("Click to show legend");
 		} else {
 			$(this).addClass("open");
 			$("#map-legend").animate({
 				top: legendTop
 			}, animationDuration);
+			$("#show-hide").text("Click to hide legend");
 		}
 	})
 });

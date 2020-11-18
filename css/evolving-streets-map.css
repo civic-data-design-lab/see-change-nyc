@@ -19,6 +19,16 @@
 #legend-arrow:hover {
 	cursor: pointer;
 }
+.interact {
+	font-family: 'Graphik-Semibold', sans-serif;
+	text-transform: uppercase;
+	text-shadow: 2px 2px 4px #fff;
+}
+#show-hide {
+	position: absolute;
+	top: -30px;
+	left: calc(50% + 35px);
+}
 .open {
 	-webkit-transform: rotate(180deg);
 	-moz-transform: rotate(180deg);
