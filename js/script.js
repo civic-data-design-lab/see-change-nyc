@@ -13,6 +13,11 @@ function roundAccurately(number, decimalPlaces) {
 	return Number(Math.round(number + "e" + decimalPlaces) + "e-" + decimalPlaces);	
 };
 
+// convert number to string with commas
+function numberWithCommas(number) {
+	return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+};
+
 // wrap multi-line text spans
 function wrapText(text, width) {
 	text.each(function() {
