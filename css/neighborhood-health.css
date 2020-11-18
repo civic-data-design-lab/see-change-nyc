@@ -67,7 +67,7 @@
 	position: relative;
 	float: left;
 	top: calc(4vh + 6px);
-	width: 385px;
+	width: 450px;
 	height: 80vh;
 	padding-right: 20px;
 	text-align: left;
@@ -102,7 +102,7 @@
 
 #tooltipcity .data1 {
 	float: left;
-	width: 85px;
+	width: 115px;
 	margin-right: 10px;
 	font-size: 2.5em;
 	text-align: right;
@@ -115,6 +115,24 @@
 #tooltipcity .feature-name {
 	font-family: 'Graphik-Semibold', sans-serif;
 	text-transform: uppercase;
+}
+
+#scroll-arrow {
+	position: absolute;
+	display: block;
+	top: calc(90% - 24px);
+	left: calc(10% - 12px);
+	width: 18px;
+	height: 18px;
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+	border: solid #000;
+	border-width: 0px 6px 6px 0px;
+}
+#scroll-arrow:hover {
+	cursor: pointer;
 }
 
 #tooltipborough {
@@ -173,7 +191,7 @@ svg.selected>g>line {
 
 	#chart-overall,
 	#chart-profile {
-		width: calc(100vw - 645px);
+		width: calc(100vw - 675px);
 	}
 
 	#chart-overall svg,
@@ -192,7 +210,7 @@ svg.selected>g>line {
 
 	#tooltipcity {
 		margin-left: 75px;
-		width: 405px;
+		width: 435px;
 	}
 
 	#tooltipcity p {
@@ -216,7 +234,7 @@ svg.selected>g>line {
 
 	#chart-overall,
 	#chart-profile {
-		width: calc(100vw - 570px);
+		width: calc(100vw - 600px);
 	}
 
 	#chart-overall svg,
@@ -235,7 +253,7 @@ svg.selected>g>line {
 
 	#tooltipcity {
 		margin-left: 75px;
-		width: 405px;
+		width: 435px;
 	}
 
 	#tooltipcity p {
@@ -284,7 +302,7 @@ svg.selected>g>line {
 	}
 
 	#tooltipcity p {
-		width: calc(100vw - 840px);
+		width: calc(100vw - 870px);
 		max-width: 290px;
 	}
 }
@@ -293,7 +311,7 @@ svg.selected>g>line {
 
 	#chart-overall,
 	#chart-profile {
-		width: calc(100vw - 360px);
+		width: calc(100vw - 390px);
 		margin-right: 20px;
 		margin-left: 20px;
 	}
@@ -314,7 +332,7 @@ svg.selected>g>line {
 
 	#tooltipcity {
 		margin-left: 20px;
-		width: 250px;
+		width: 280px;
 	}
 
 	#tooltipcity p {
@@ -339,7 +357,7 @@ svg.selected>g>line {
 	#chart-profile {
 		float: none;
 		width: 100%;
-		min-width: 625px;
+		/*min-width: 625px;*/
 		margin: 10px auto 0px auto;
 	}
 
@@ -357,8 +375,8 @@ svg.selected>g>line {
 	}
 	#chart-neighborhoods {
 		width: 90%;
-		min-width: 563px;
-		height: calc(40vh - 100px);
+		/*min-width: 563px;*/
+		height: calc(40vh - 115px);
 		margin: 0px 5% 0px 5%;
 	}
 
@@ -368,18 +386,24 @@ svg.selected>g>line {
 
 	#tooltipcity {
 		float: none;
-		min-width: 458px;
+		width: 80%;
+		max-width: 450px;
+		/*min-width: 488px;*/
 		height: calc(40vh - 112px);
 		top: 0px;
 		margin: 0px auto;
 	}
 
 	#tooltipcity p {
-		width: calc(100% - 100px);
+		width: calc(100% - 135px);
 	}
 
 	#tooltipcity div.feature {
 		height: 60px;
+	}
+
+	#scroll-arrow {
+		display: none;
 	}
 }
 @media screen and (max-width: 630px) and (max-aspect-ratio: 1/1) {
