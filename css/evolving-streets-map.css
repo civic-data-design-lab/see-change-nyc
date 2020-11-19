@@ -327,7 +327,7 @@
 		top: 30px;
 	}
 	#project-description {
-		max-height: calc(100vh - 88px);
+		max-height: calc(100vh - 82px);
 	}
 	#map {
 		top: 60px;
