@@ -105,7 +105,7 @@ hr {
 
 #project-description {
   width: 50vw;
-  max-height: calc(100vh - 100px);
+  max-height: calc(100vh - 90px);
 }
 
 @media only screen and (max-width: 1366px) {
