@@ -135,7 +135,7 @@ header {
 	width: calc(100% - 26px);
 	top: 0px;
 	left: -6px;
-	max-height: calc(100vh - 88px);
+	max-height: calc(100vh - 82px);
 	padding: 10px;
 	/*	-ms-word-break: break-all;
 	word-break: break-all;*/
@@ -492,7 +492,7 @@ screen and (min-width: 64em) {
 	}
 
 	#project-description {
-		max-height: calc(100vh - 100px);
+		max-height: calc(100vh - 90px);
 	}
 
 	section {
