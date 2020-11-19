@@ -37,9 +37,9 @@
 }
 #map-legend {
 	position: absolute;
-	right: 0px;
+	right: -6px;
 	bottom: -6px;
-	width: calc(100% - 12px);
+	width: calc(100% - 6px);
 	font-family: 'Graphik-Regular', sans-serif;
 	font-size: 0.8em;
 	text-align: left;
