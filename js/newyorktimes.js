@@ -11,7 +11,9 @@ const dataset = d3.csv("./data/nyt_data_.csv").then(function (data) {
     d.radius = +d.radius;
     d.countall = +d.countall;
   });
-nytData = data;
+  if (!nytData.length) {
+    nytData = data;
+  }
   for (var i = 0; i < years.length; i++) {
     let year = years[i];
     positionCount = data.filter(d => d.year < year).length;
@@ -20,7 +22,7 @@ nytData = data;
   createGrid(svg, data);
 });
 
-
+var nytData = [];
 
 
 var forceXYear = d3.forceX(d => {
@@ -112,6 +114,9 @@ function createGrid(svg, dataset) {
   const oldDataset = _.cloneDeep(dataset);
   Object.freeze(oldDataset);
   countAscend();
+
+  d3.select('#svg')
+    .attr('width', width);
 
   function circle() {
     // debugger;
@@ -323,14 +328,19 @@ function createGrid(svg, dataset) {
 }
 
 
-// window.onresize = function(){ 
-//   location.reload();
-//   $("#iframe-carousel").addClass('closed');
-//   document.body.classList.remove("noscroll");
-//   $(".closed").remove();
+window.onresize = function(){ 
+  $("#svg").remove();
 
-//   // circle();
-// }
+  winWidth = $(window).width();
+  
+  var svg = d3.select('#chart')
+    .append('svg')
+    .attr("id","svg")
+    .attr('width', width)
+    .attr('height', height)
+
+  createGrid(svg, nytData);
+}
 
 
 //disable buttons during forcesimulation
