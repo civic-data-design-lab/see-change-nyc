@@ -52,6 +52,7 @@
 	color: #333;
 	background: #d1d3d4;
 	border: solid 4px #d1d3d4;
+	z-index: 2;
 }
 .open-toggle:hover {
 	cursor: pointer;
