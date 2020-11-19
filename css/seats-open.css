@@ -7,7 +7,7 @@
 	float: left;
 	top: calc(100vh - 310px);
 	width: 175px;
-	min-width: 175px;
+	/*min-width: 175px;*/
 	padding: 0px 30px;
 	text-align: left;
 }
@@ -15,7 +15,7 @@
 	position: relative;
 	float: left;
 	width: calc(13/14.5 * (100vh - 60px));
-	max-width: calc(100% - 600px);
+	/*max-width: calc(100% - 600px);*/
 	height: calc(100vh - 60px);
 	overflow: hidden;
 }
@@ -67,10 +67,14 @@
 	position: relative;
 	float: left;
 	width: 310px;
-	min-width: 310px;
+	min-width: 215px;
 	height: calc(100% - 10px);
 	margin: 10px 0px 0px 30px;
 	text-align: left;
+}
+.seats-count-box {
+	position: relative;
+	width: 100%;
 }
 #next-shapes {
 	position: relative;
@@ -86,7 +90,7 @@
 .shape-box {
 	position: relative;
 	float: left;
-	min-width: 100px;
+	/*min-width: 100px;*/
 	max-width: 142px;
 }
 .shape {
@@ -212,51 +216,108 @@
 	width: auto;
 }
 
-/*wide screen ratio*/
+/*very wide screen ratio*/
 @media screen and (min-aspect-ratio: 2/1) {
 	#sidebar-count {
 		width: 260px;
 	}
 	#sidebar-next {
 		width: calc(100vw - 380px - 13/14.5 * (100vh - 60px));
+		max-width: 450px;
 	}
 }
-@media screen and (min-width: 1229px) and (min-aspect-ratio: 16/9) {
-	#map-cartogram {
-		max-width: calc(100% - 620px);
-	}
+@media screen and (min-aspect-ratio: 2/1) and (min-width: 1300px) {
 	#sidebar-count {
-		min-width: 260px;
-	}
-}
-@media screen and (min-width: 1302px) and (min-aspect-ratio: 16/9) {
-	#map-cartogram {
-		max-width: calc(100% - 730px);
-	}
-	#sidebar-count {
-		min-width: 260px;
+		padding: 0px calc(25vw - 170px - 13/14.5 * (25vh - 15px));
 	}
 	#sidebar-next {
-		min-width: 380px;
+		margin-left: calc(25vw - 170px - 13/14.5 * (25vh - 15px));
 	}
 }
-/*wide landscape screen ratio*/
-@media screen and (min-width: 1302px) and (min-aspect-ratio: 3/2) and (max-aspect-ratio: 16/9) {
-	#map-cartogram {
-		max-width: calc(100% - 670px);
-	}
+@media screen and (min-aspect-ratio: 2/1) and (max-width: 1080px) {
 	#sidebar-count {
-		min-width: 260px;
+		width: 175px;
+		top: calc(100vh - 320px);
+	}
+	#sidebar-next {
+		width: calc(100vw - 305px - 13/14.5 * (100vh - 60px));
 	}
 }
+
+/*wide screen ratio*/
+@media screen and (min-aspect-ratio: 16/9) and (max-aspect-ratio: 2/1) {
+	#sidebar-count {
+		width: 175px;
+		top: calc(100vh - 320px);
+	}
+	#sidebar-next {
+		width: calc(100vw - 295px - 13/14.5 * (100vh - 60px));
+	}
+	#shape-box {
+		min-width: 100px;
+	}
+}
+@media screen and (min-aspect-ratio: 16/9) and (max-aspect-ratio: 2/1) and (min-width: 1270px) {
+	#sidebar-count {
+		width: 260px;
+	}
+	#sidebar-next {
+		width: calc(100vw - 380px - 13/14.5 * (100vh - 60px));
+		max-width: 450px;
+		min-width: 310px;
+	}
+}
+
 /*typical landscape screen ratio*/
 @media screen and (min-aspect-ratio: 3/2) and (max-aspect-ratio: 16/9) {
-
+	#sidebar-count {
+		width: 175px;
+		top: calc(100vh - 320px);
+	}
+	#sidebar-next {
+		width: calc(100vw - 295px - 13/14.5 * (100vh - 60px));
+	}
+	#shape-box {
+		min-width: 100px;
+	}
 }
-/*narrower screen ratio*/
+@media screen and (min-aspect-ratio: 3/2) and (max-aspect-ratio: 16/9) and (min-width: 1450px) {
+	#sidebar-count {
+		width: 260px;
+	}
+	#sidebar-next {
+		width: calc(100vw - 380px - 13/14.5 * (100vh - 60px));
+		max-width: 450px;
+		min-width: 310px;
+	}
+}
+@media screen and (max-width: 1060px) and (min-aspect-ratio: 3/2) and (max-aspect-ratio: 16/9) {
+	#sidebar-count {
+		position: absolute;
+		top: 16px;
+		right: 0px;
+		width: calc(96% - 13/14.5 * (100vh - 46px));
+		min-width: 310px;
+	}
+	#sidebar-next {
+		position: absolute;
+		top: 180px;
+		right: 0px;
+		margin: 0px;
+		width: calc(96% - 13/14.5 * (100vh - 46px));
+		min-width: 310px;
+		height: calc(100vh - 235px);
+		padding: 0px 30px;
+	}
+	.seats-count-box {
+		float: left;
+		width: 50%;
+	}
+}
+/*narrow landscape screen ratio*/
 @media screen and (min-aspect-ratio: 1/1) and (max-aspect-ratio: 3/2) {
 	#map-cartogram {
-		max-width: calc(100vw - 360px);
+		max-width: calc(100% - 360px)
 	}
 	#sidebar-count {
 		position: absolute;
@@ -267,16 +328,37 @@
 	}
 	#sidebar-next {
 		position: absolute;
-		top: 250px;
+		top: 180px;
 		right: 0px;
 		margin: 0px;
 		width: calc(96% - 13/14.5 * (100vh - 46px));
 		min-width: 310px;
-		height: calc(100vh - 320px);
+		height: calc(100vh - 235px);
 		padding: 0px 30px;
 	}
+	.seats-count-box {
+		float: left;
+		width: 50%;
+	}
 }
-/*narrow or portrait screen ratio*/
+@media screen and (min-aspect-ratio: 5/4) and (max-aspect-ratio: 3/2) and (max-width: 1200px) {
+	.seats-count-box {
+		font-size: 0.8em;
+	}
+	#skip {
+		font-size: 1em;
+	}
+}
+@media screen and (min-aspect-ratio: 1/1) and (max-aspect-ratio: 5/4) {
+	.seats-count-box {
+		font-size: 0.8em;
+	}
+	#skip {
+		font-size: 1em;
+	}
+}
+
+/*portrait screen ratio*/
 @media screen and (max-aspect-ratio: 1/1) {
 	#map-cartogram {
 		float: none;
