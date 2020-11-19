@@ -47,7 +47,7 @@ var toggleableLayerIds = ['fwd0005', 'fwd0611', 'fwd1217', 'fwd1823', 'fwe0005',
 
 var currentDay = "wd";
 var currentTime = "0611";
-var currentMonths = ["f", "m"];
+var currentMonths = ["m"];
 var currentLayer = currentDay + currentTime;
 var currentLayers = currentMonths.map(value => value + currentDay + currentTime);
 
@@ -129,7 +129,7 @@ function showPopup(e, feature, currentLayer) {
 // show popup on click
 map.on('click', function(e) {
 	var features = map.queryRenderedFeatures(e.point, {
-		layers: ['streets-buffer']
+		layers: ['streets-line']
 	});
 
 	if (!features.length) {
@@ -174,7 +174,7 @@ $(document).ready(function() {
 	// vsibility on document load 
 	$("#day-wd").addClass("selectedday");
 	$("#time-0611").addClass("selectedtime");
-	$("#month-feb, #month-mar").addClass("selectedmonth");
+	$("#month-mar").addClass("selectedmonth");
 
 	// show & hide map legend
 	var winWidth = $(window).width();

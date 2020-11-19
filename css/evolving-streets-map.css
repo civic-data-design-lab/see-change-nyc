@@ -199,16 +199,18 @@
 	font-family: 'Graphik-Semibold', sans-serif;
 	text-transform: uppercase;
 	font-size: 1em;
-	border: solid 4px #000;
+	border: solid 4px;
 }
 #month-mar {
 	left: -6px;
 	color: #000;
+	border-color: #000;
 	background: #fff;
 }
 #month-feb {
-	color: #000;
-	background: #fff;
+	color: #333;
+	border-color: #d1d3d4;
+	background: #d1d3d4;
 }
 .month-toggle img {
 	position: relative;
