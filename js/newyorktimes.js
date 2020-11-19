@@ -11,7 +11,7 @@ const dataset = d3.csv("./data/nyt_data_.csv").then(function (data) {
     d.radius = +d.radius;
     d.countall = +d.countall;
   });
-
+nytData = data;
   for (var i = 0; i < years.length; i++) {
     let year = years[i];
     positionCount = data.filter(d => d.year < year).length;
@@ -20,6 +20,9 @@ const dataset = d3.csv("./data/nyt_data_.csv").then(function (data) {
   createGrid(svg, data);
 });
 
+
+
+
 var forceXYear = d3.forceX(d => {
   if (winWidth > 820) {
     return d.year == 2013 || d.year == 2017 ? width() / 5 - 50 :
@@ -27,14 +30,17 @@ var forceXYear = d3.forceX(d => {
       d.year == 2015 || d.year == 2019 ? width() * 3 / 5 + 25 :
       width() * 4 / 5 + 60
   } else return width() / 2 - 50
-}).strength(0.1)
+}).strength(0.12)
 
 var forceYYear = d3.forceY(d => {
   if (winWidth > 820) {
-    return d.year == 2013 || d.year == 2014 || d.year == 2015 || d.year == 2016 ? height / 3 - 60 :
-      height * 2 / 3 - 60
-  } else return (height + 80) / 8 * (d.year % 2013) + 130
-}).strength(0.1)
+    return d.year == 2013 || d.year == 2014 || d.year == 2015 || d.year == 2016 ? 200:
+      500
+  } else if(winWidth>768){
+    return d.year == 2013 || d.year == 2014 || d.year == 2015 || d.year == 2016 ? height / 3 - 160 :
+    height  - 500
+  } else return (height + 80) / 10 * (d.year % 2013) +120
+}).strength(0.12)
 
 var forceCollide = d3.forceCollide(d => radiusScale(d.count) + 3)
 var circleRadius = 7;
@@ -64,11 +70,11 @@ var width = function () {
   }
 };
 
-window.onresize = function(){ location.reload(); }
 
 
 var svg = d3.select('#chart')
   .append('svg')
+  .attr("id","svg")
   .attr('width', width)
   .attr('height', height)
 
@@ -128,7 +134,7 @@ function createGrid(svg, dataset) {
 
     circles.attr('fill', d => d.color)
 
-      .style("opacity", 0.9)
+      .style("opacity", 1)
       .style("stroke", "none")
 
       .on("mouseover", mouseover)
@@ -292,9 +298,20 @@ function createGrid(svg, dataset) {
           } else return width() / 2 - 50
         })
         .attr('y', function (d, i) {
-          if (winWidth > 820) {
-            return (Math.floor(i / 4) + 1) * height / 3 + 50
-          } else return (height / 8) * (i + 1) - 60
+          if (winWidth > 1366) {
+            return (Math.floor(i / 4) + 1) * height / 3 + 20
+          } else if(winWidth > 1024) {
+            return (Math.floor(i / 4) + 1) * (height-300) / 3 
+           } else if (winWidth >820){
+             return (Math.floor(i / 4) + 1) * (height-800) / 3 
+           }else return (height / 10) * (i + 1) - 20
+
+          //   return d.year == 2013 || d.year == 2014 || d.year == 2015 || d.year == 2016 ? 100:
+          //     500
+          // } else if(winWidth>768){
+          //   return d.year == 2013 || d.year == 2014 || d.year == 2015 || d.year == 2016 ? height / 3 - 160 :
+          //   height  - 500
+          // } else return (height / 8) * (i + 1) - 260
         })
         .transition().duration(800)
         .text((d, i) => years[i])
@@ -304,6 +321,16 @@ function createGrid(svg, dataset) {
     }
   }
 }
+
+
+// window.onresize = function(){ 
+//   location.reload();
+//   $("#iframe-carousel").addClass('closed');
+//   document.body.classList.remove("noscroll");
+//   $(".closed").remove();
+
+//   // circle();
+// }
 
 
 //disable buttons during forcesimulation
@@ -352,7 +379,7 @@ var mouseover = function (d) {
     .style("visibility", "visible")
   d3.select(this)
     .style("stroke", "grey")
-    .style("opacity", 0.7)
+    .style("opacity", 0.8)
 }
 
 var mousemove = function (d) {
@@ -369,5 +396,6 @@ var mouseleave = function (d) {
     .style("visibility", "hidden")
   d3.select(this)
     .style("stroke", "none")
-    .style("opacity", 0.9)
+    .style("opacity", 1)
 }
+
